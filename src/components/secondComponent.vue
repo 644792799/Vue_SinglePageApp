@@ -1,8 +1,6 @@
 <template>
 	<div>
-		<h1>
-			我是另外一页
-		</h1>
+		<h1>组件二</h1>
 		<a href="#">written by {{author}}</a>
 	</div>
 </template>
@@ -11,7 +9,7 @@
 	export default{
 		data(){
 			return{
-				author: "zpf"
+				author: "cjay"
 			}
 		}
 	}
