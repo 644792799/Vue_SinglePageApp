@@ -9,13 +9,16 @@
 			  <div class="panel-footer text-right">作者:{{author}}</div>
 			</div>
 		</div>
-		<div class="col-md-4"></div>
+		<div class="col-md-12">
+			<articleList :articlesdata="articlesdata"></articleList>
+		</div>
 		<div class="col-md-4"></div>
 	</div>
 </template>
 
 <script type="text/javascript">
 	import BusinessCard from './BusinessCard.vue'
+	import ArticleList from './ArticleList.vue'
 	export default{
 		data(){
 			return {
@@ -37,11 +40,24 @@
 						imgurl: '/static/img/google.png',
 						name: 'google'
 					}]
-				}
+				},
+				articlesdata: [
+					{
+						avator: '/static/img/头像示例2.jpg',
+						title: 'test1',
+						category: ['类别1','类别2']
+					},
+					{
+						avator: 'https://www.gravatar.com/avatar/644792799?d=http://tva4.sinaimg.cn/crop.0.0.599.599.50/62e42164gw1ev348sehr3j20go0go3zm.jpg',
+						title: 'test2',
+						category: ['类别3','类别4','类别5','类别6']
+					}
+				]
 			}
 		},
 		components: {
-			"businessCard": BusinessCard
+			"businessCard": BusinessCard,
+			"articleList": ArticleList
 		}
 	}
 </script>
