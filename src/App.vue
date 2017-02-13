@@ -1,16 +1,16 @@
 
 <template>
-  <div id="leftMenu" class="row">
-  	<div class="col-md-3">
+  <div id="" class="">
+  	<div class="col-md-3 leftmenu">
     	<ul class="nav nav-pills nav-stacked" role="tablist" >
 		  <li role="presentation"  v-for="menu in menus" :class="menu.clas" @click="toggleClas(menu)">
 		  	<router-link :to="menu.to">{{menu.name}}</router-link>
 		  </li>
 		</ul>
-		<hr class="fix-ver">
+		
   	</div>
   	
-  	<div class="col-md-9">
+  	<div class="col-md-9 content">
   		<router-view></router-view>
   	</div>
   </div>
@@ -27,7 +27,7 @@ const menu = [{
 	clas: ''
 },{
 	name: '组件四',
-	to: '/',
+	to: '/commonstyle',
 	clas: ''
 },{
 	name: '组件五',
@@ -54,6 +54,18 @@ export default{
 }
 </script>
 <style type="text/css">
+	html, body{
+		height: 100%;
+	}
+	.leftmenu{
+		border-right:1px solid #eee;
+		*height:5000px;
+		overflow-y:auto;
+	}
+	.content{
+		overflow-y: scroll;
+		height: 100%
+	}
 	.nav-pills > li > a {
     	border-radius: 0px!important;
 	}

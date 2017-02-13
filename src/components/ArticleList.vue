@@ -22,7 +22,7 @@
 <style type="text/css">
 	.articles-list{
 		background: #fff;
-	    border: 1px solid #EFEAE8;
+	    *border: 1px solid #EFEAE8;
 	    margin: 10px 5px;
 	}
 </style>

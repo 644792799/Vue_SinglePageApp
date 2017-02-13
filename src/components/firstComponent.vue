@@ -9,7 +9,7 @@
 			  <div class="panel-footer text-right">作者:{{author}}</div>
 			</div>
 		</div>
-		<div class="col-md-12">
+		<div class="col-md-8">
 			<articleList :articlesdata="articlesdata"></articleList>
 		</div>
 		<div class="col-md-4"></div>
@@ -44,7 +44,7 @@
 				articlesdata: [
 					{
 						avator: '/static/img/头像示例2.jpg',
-						title: 'test1',
+						title: '基础知识汇总',
 						category: ['类别1','类别2']
 					},
 					{

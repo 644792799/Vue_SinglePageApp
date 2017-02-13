@@ -7,7 +7,7 @@
 		</a>
 		<div class="articles-item-header">
 			<div class="articles-item-title">
-				<h4>{{art.title}}</h4>
+				<a href="#">{{art.title}}</a>
 			</div>
 			<div class="articles-item-categories">
 				<a href="" class="articles-item-category" v-for="cat in art.category">{{cat}}</a>
@@ -34,14 +34,20 @@
 	.articles-item{
 		display: flex;
 	    align-items: center;
-	    padding: 15px 10px;
+	    padding: 10px 10px;
+	    *margin-bottom: 5px;
 	    border: none;
 	    background: none;
 	    border-bottom: 1px solid #EFEAE8;
 	}
 
+	.articles-item:hover{
+		background-color: #f5f6f8;
+	}
+
 	.articles-item:last-child{
 		border-bottom: none;
+		margin-bottom: 0;
 	}
 
 	.articles-item-header{
@@ -64,11 +70,33 @@
 	.articles-thumbnail img{
 		width: 55px;
 		display: block;
+	    border-radius: 55px;	
 	}
 
 	.articles-item-title{
 		flex-grow: 1;
 		margin-bottom: 5px;
+	}
+
+	.articles-item-title a{
+		font-size: 18px;
+		color: #33363f;
+	}
+
+	.articles-item-title a:link{
+		color: #33363f;
+	}
+
+	.articles-item-title a:visited{
+		color: #999;
+	}
+
+	a:link, a:hover, a:active, a:visited {
+    	text-decoration: none!important;
+	}
+
+	.articles-item-title a:hover{
+		color: #2a7cb8!important;
 	}
 
 	.articles-item-categories{

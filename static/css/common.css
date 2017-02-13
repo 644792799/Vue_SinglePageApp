@@ -1,0 +1,38 @@
+body {
+    font: 14px/1.5 'microsoft yahei', arial;
+    *background-image: url(http://zhongguose.com/img/texture.png);
+    background-color: #fff;
+}
+
+.bs-c1{
+	background-color: #F9FAFB;
+}
+
+.bs-c2{
+	background-color: #CED0D2;
+}
+
+.bs-c3{
+	background-color: #5D5794;
+}
+
+.bs-c4{
+	background-color: #D4ECDC;
+}
+
+.bs-c5{
+	background-color: #7DD196;
+}
+
+.bs-c6{
+	background-color: #4E5359;
+}
+
+.bs-c7{
+	background-color: #A5A7A8;
+}
+
+.btn-normal{
+	border-radius: 17px;
+	background-color: #7DD196;
+}
