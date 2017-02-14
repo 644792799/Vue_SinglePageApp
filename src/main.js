@@ -9,9 +9,11 @@ import VueResource from 'vue-resource'
   import FirstComponent from './components/firstComponent.vue'
   import SecondComponent from './components/secondComponent.vue'
   import CommonStyle from './components/CommonStyle.vue'
+  import Article from './components/ArticleDetail.vue'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import '../static/css/common.css'
+import '../static/plugins/highlight/styles/github-gist.css'
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
@@ -28,6 +30,10 @@ const routes = [
 	{
 		path: '/commonstyle',
 		component: CommonStyle
+	},
+	{
+		path: '/article',
+		component: Article
 	}
 ];
 const router = new VueRouter({routes});

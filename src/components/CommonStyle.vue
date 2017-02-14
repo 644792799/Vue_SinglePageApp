@@ -3,6 +3,9 @@
 		<div class="col-md-12 h20"></div>
 		<div class="col-md-1"></div>
 		<div class="col-md-1 p0">
+			<div class="bs-c0 w20">bs-c0</div>
+		</div>
+		<div class="col-md-1 p0">
 			<div class="bs-c1 w20">bs-c1</div>
 		</div>
 		<div class="col-md-1 p0">
@@ -23,10 +26,11 @@
 		<div class="col-md-1 p0">
 			<div class="bs-c7 w20">bs-c7</div>
 		</div>
-		<div class="col-md-4"></div>
+		<div class="col-md-12 h20"></div>
 
-		<div class="col-md-1">
-			<button class="btn-normal btn">登陆</button>
+		<div class="col-md-12">
+			<button class="btn-1 btn">注册</button>
+			<button class="btn-2 btn">登陆</button>
 		</div>
 		<div class="col-md-12 h20"></div>
 	</div>
@@ -53,7 +57,7 @@
 		z-index: 9999;
 	}
 	.h20{
-		height: 20px;
+		*height: 20px;
 		margin: 5px 0;
 		border-bottom: 1px solid #eee;
 	}

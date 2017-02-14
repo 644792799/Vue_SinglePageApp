@@ -21,7 +21,7 @@
 
 <style type="text/css">
 	.articles-list{
-		background: #fff;
+		background: #F9FAFB;
 	    *border: 1px solid #EFEAE8;
 	    margin: 10px 5px;
 	}

@@ -1,37 +1,42 @@
 
 <template>
-  <div id="" class="">
-  	<div class="col-md-3 leftmenu">
-    	<ul class="nav nav-pills nav-stacked" role="tablist" >
-		  <li role="presentation"  v-for="menu in menus" :class="menu.clas" @click="toggleClas(menu)">
-		  	<router-link :to="menu.to">{{menu.name}}</router-link>
-		  </li>
-		</ul>
-		
-  	</div>
-  	
-  	<div class="col-md-9 content">
-  		<router-view></router-view>
+  <div id="" class="main bs-c1">
+  	<navbar :menus="menus"></navbar>
+  	<div class="container">
+  		<!-- <div class="col-md-3 leftmenu">
+	    	<ul class="nav nav-pills nav-stacked" role="tablist" >
+			  <li role="presentation"  v-for="menu in menus" :class="menu.clas" @click="toggleClas(menu)">
+			  	<router-link :to="menu.to">{{menu.name}}</router-link>
+			  </li>
+			</ul>
+			
+	  	</div> -->
+	  	
+	  	<div class="col-md-12 content">
+	  		<router-view></router-view>
+	  	</div>
   	</div>
   </div>
 </template>
 
 <script>
+import Header from './components/Header.vue'
+
 const menu = [{
-	name: '组件一',
+	name: 'DEMO页',
 	to: '/first',
 	clas: 'active'
 },{
-	name: '组件二',
+	name: '发现',
 	to: '/second',
 	clas: ''
 },{
-	name: '组件四',
+	name: '关于',
 	to: '/commonstyle',
 	clas: ''
 },{
 	name: '组件五',
-	to: '/',
+	to: '/article',
 	clas: ''
 }];
 export default{
@@ -50,20 +55,26 @@ export default{
 				}
 			}
 		}
+	}, 
+	components: {
+		"navbar": Header
 	}
 }
 </script>
 <style type="text/css">
-	html, body{
+	html, body, .main{
 		height: 100%;
+	}
+	.container{
+		padding-top: 50px;
 	}
 	.leftmenu{
 		border-right:1px solid #eee;
-		*height:5000px;
+		height:100%;
 		overflow-y:auto;
 	}
 	.content{
-		overflow-y: scroll;
+		overflow-y: auto;
 		height: 100%
 	}
 	.nav-pills > li > a {

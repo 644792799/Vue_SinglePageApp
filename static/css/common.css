@@ -1,7 +1,16 @@
-body {
-    font: 14px/1.5 'microsoft yahei', arial;
+body, html {
+    *font: 14px/1.5 'microsoft yahei', arial;
     *background-image: url(http://zhongguose.com/img/texture.png);
     background-color: #fff;
+}
+
+body, button, input, select, textarea {
+    *font: 14px/1.5 "微软雅黑",Helvetica,Arial,sans-serif;
+    font: 12px/1.3 'Arial','Microsoft YaHei';
+}
+
+.bs-c0{
+	background-color: #fff;
 }
 
 .bs-c1{
@@ -32,7 +41,25 @@ body {
 	background-color: #A5A7A8;
 }
 
-.btn-normal{
+.btn-1{
 	border-radius: 17px;
-	background-color: #7DD196;
+	background: #7DD196 url(../img/button-glass.png) repeat-x 0 0;
+	color: #fff!important;
+	display: inline-block;
+	font-weight: 500;
+	box-shadow: -1px 2px 5px #D4ECDC;
+}
+
+.btn-1:hover, .btn-2:hover{
+	opacity: 0.8;
+	color: #fff;
+}
+
+.btn-2{
+	border-radius: 17px;
+	background: #5D5794 url(../img/button-glass.png) repeat-x 0 0;
+	color: #fff!important;
+	display: inline-block;
+	font-weight: 500;
+	box-shadow: -1px 2px 5px #d4c7ea;
 }
