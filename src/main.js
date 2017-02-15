@@ -6,10 +6,11 @@ import App from './App'
 import VueRouter from "vue-router"
 import VueResource from 'vue-resource'
 
-  import FirstComponent from './components/pages/demo/firstComponent.vue'
-  import SecondComponent from './components/pages/demo/secondComponent.vue'
-  import CommonStyle from './components/pages/demo/CommonStyle.vue'
-  import Article from './components/pages/article/ArticleDetail.vue'
+import FirstComponent from './components/pages/demo/firstComponent.vue'
+import SecondComponent from './components/pages/demo/secondComponent.vue'
+import CommonStyle from './components/pages/demo/CommonStyle.vue'
+import Article from './components/pages/article/ArticleDetail.vue'
+import Main from './components/pages/main/Index.vue'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import '../static/css/common.css'
@@ -34,6 +35,10 @@ const routes = [
 	{
 		path: '/article',
 		component: Article
+	},
+	{
+		path: '/index',
+		component: Main
 	}
 ];
 const router = new VueRouter({routes});

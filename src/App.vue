@@ -3,15 +3,6 @@
   <div id="" class="main bs-c1">
   	<navbar :menus="menus"></navbar>
   	<div class="container">
-  		<!-- <div class="col-md-3 leftmenu">
-	    	<ul class="nav nav-pills nav-stacked" role="tablist" >
-			  <li role="presentation"  v-for="menu in menus" :class="menu.clas" @click="toggleClas(menu)">
-			  	<router-link :to="menu.to">{{menu.name}}</router-link>
-			  </li>
-			</ul>
-			
-	  	</div> -->
-	  	
 	  	<div class="col-md-12 content">
 	  		<router-view></router-view>
 	  	</div>
@@ -28,7 +19,7 @@ const menu = [{
 	clas: 'active'
 },{
 	name: '发现',
-	to: '/second',
+	to: '/index',
 	clas: ''
 },{
 	name: '关于',
