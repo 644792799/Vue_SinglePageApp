@@ -3,34 +3,41 @@
 		<div class="col-md-12 h20"></div>
 		<div class="col-md-1"></div>
 		<div class="col-md-1 p0">
-			<div class="bs-c0 w20">bs-c0</div>
+			<div class="bs-c0 w20">
+				<P>bs-c0</P>
+				<P>#FFF</P>
+			</div>
 		</div>
 		<div class="col-md-1 p0">
-			<div class="bs-c1 w20">bs-c1</div>
+			<div class="bs-c1 w20">
+				<P>bs-c1</P>
+				<P>#F9FAFB</P>
+			</div>
 		</div>
 		<div class="col-md-1 p0">
-			<div class="bs-c2 w20">bs-c2</div>
+			<div class="bs-c2 w20"><P>bs-c2</P><P>#CED0D2</P></div>
 		</div>
 		<div class="col-md-1 p0">
-			<div class="bs-c3 w20">bs-c3</div>
+			<div class="bs-c3 w20"><P>bs-c3</P><P>#5D5794</P></div>
 		</div>
 		<div class="col-md-1 p0">
-			<div class="bs-c4 w20">bs-c4</div>
+			<div class="bs-c4 w20"><P>bs-c4</P> <P>#D4ECDC</P></div>
 		</div>
 		<div class="col-md-1 p0">
-			<div class="bs-c5 w20">bs-c5</div>
+			<div class="bs-c5 w20"><P>bs-c5</P> <P>#7DD196</P></div>
 		</div>
 		<div class="col-md-1 p0">
-			<div class="bs-c6 w20">bs-c6</div>
+			<div class="bs-c6 w20"><P>bs-c6</P> <P>#4E5359</P></div>
 		</div>
 		<div class="col-md-1 p0">
-			<div class="bs-c7 w20">bs-c7</div>
+			<div class="bs-c7 w20"><P>bs-c7</P> <P>#A5A7A8</P></div>
 		</div>
 		<div class="col-md-12 h20"></div>
 
 		<div class="col-md-12">
 			<button class="btn-1 btn">注册</button>
 			<button class="btn-2 btn">登陆</button>
+			<button class="btn-3 btn">登陆</button>
 		</div>
 		<div class="col-md-12 h20"></div>
 
@@ -53,8 +60,8 @@
 </template>
 
 <script type="text/javascript">
-	import BusinessCard from './BusinessCard.vue'
-	import ArticleList from './ArticleList.vue'
+	import BusinessCard from 'components/comps/common/BusinessCard.vue'
+	import ArticleList from 'components/comps/article/ArticleList.vue'
 	export default{
 		data(){
 			return {
@@ -81,17 +88,20 @@
 					{
 						avator: '/static/img/头像示例2.jpg',
 						title: '基础知识汇总',
-						category: ['类别1','类别2']
+						category: ['类别1','类别2'],
+						url: '/#/article'
 					},
 					{
 						avator: 'https://www.gravatar.com/avatar/644792799?d=http://tva4.sinaimg.cn/crop.0.0.599.599.50/62e42164gw1ev348sehr3j20go0go3zm.jpg',
 						title: 'test2',
-						category: ['类别3','类别4','类别5','类别6']
+						category: ['类别3','类别4','类别5','类别6'],
+						url: '/#/article'
 					},
 					{
 						avator: '/static/img/头像示例.jpg',
 						title: '基础知识汇总2',
-						category: ['类别1','类别2']
+						category: ['类别1','类别2'],
+						url: '/#/article'
 					}
 				]
 			}
@@ -105,8 +115,7 @@
 
 <style type="text/css">
 	.w20{
-		height: 20px;
-		*width: 50px;
+		height: 40px;
 		text-align: center;
 	}
 	.p0{

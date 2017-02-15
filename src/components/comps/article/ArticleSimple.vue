@@ -1,3 +1,4 @@
+<!--  -->
 <template>
 	<div class="articles-item">
 		<a href="" class="articles-thumbnail">
@@ -7,7 +8,7 @@
 		</a>
 		<div class="articles-item-header">
 			<div class="articles-item-title">
-				<a href="#">{{art.title}}</a>
+				<a :href="art.url">{{art.title}}</a>
 			</div>
 			<div class="articles-item-categories">
 				<a href="" class="articles-item-category" v-for="cat in art.category">{{cat}}</a>
@@ -45,6 +46,7 @@
 	.articles-item:hover{
 		*background-color: #f5f6f8;
 		opacity: 0.85;
+		border-left: 2px solid #5D5794;
 	}
 
 	.articles-item:last-child{

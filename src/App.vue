@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Header from './components/Header.vue'
+import Header from './components/comps/common/Header.vue'
 
 const menu = [{
 	name: 'DEMO页',
