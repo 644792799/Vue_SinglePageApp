@@ -20,7 +20,7 @@ $(document).ready(function() {
 			</div>
 		</div>
 		<div class="col-md-3 article-stats">
-			<div class=""><span class="tag">作者</span>:张三 + 小头像 </div>
+			<div class=""><span class="tag">代码片作者</span>:张三 + 小头像 </div>
 			<div class="">文章发布时间+阅读量</div>
 			<div class="">语言分类:java</div>
 			<div class="">分享</div>

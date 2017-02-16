@@ -1,5 +1,5 @@
 <template>
-	<div class="row">
+	<!-- <div class="row">
 		<div class="col-md-12 h20"></div>
 		<div class="col-md-1"></div>
 		<div class="col-md-1 p0">
@@ -38,6 +38,7 @@
 			<button class="btn-1 btn">注册</button>
 			<button class="btn-2 btn">登陆</button>
 			<button class="btn-3 btn">登陆</button>
+			<el-checkbox v-model="checked" checked>备选项</el-checkbox>
 		</div>
 		<div class="col-md-12 h20"></div>
 
@@ -56,7 +57,60 @@
 		</div>
 		
 		
-	</div>
+	</div> -->
+
+	<el-row>
+	  <el-col :span="24">
+		  <div class="grid-content">
+		  	<el-button>默认按钮</el-button>
+			<el-checkbox v-model="checked" checked>备选项</el-checkbox>
+		  </div>
+	  </el-col>
+	  <el-col :span="3">
+	  	<div class="grid-content">
+	  		&nbsp;
+	  	</div>
+	  </el-col>
+	  <el-col :span="3">
+	  	<div class="grid-content">
+	  		<div class="bs-c0 w20">
+				<P>bs-c0</P>
+				<P>#FFF</P>
+			</div>
+	  	</div>
+	  </el-col>
+	  <el-col :span="3">
+	  	<div class="grid-content">
+	  		
+	  	</div>
+	  </el-col>
+	  
+	  <el-col :span="3">
+	  	<div class="grid-content">
+	  		
+	  	</div>
+	  </el-col>
+	  <el-col :span="3">
+	  	<div class="grid-content">
+	  		
+	  	</div>
+	  </el-col>
+	  <el-col :span="3">
+	  	<div class="grid-content">
+	  		
+	  	</div>
+	  </el-col>
+	  <el-col :span="3">
+	  	<div class="grid-content">
+	  		
+	  	</div>
+	  </el-col>
+	  <el-col :span="3">
+	  	<div class="grid-content">
+	  		
+	  	</div>
+	  </el-col>
+	</el-row>
 </template>
 
 <script type="text/javascript">
