@@ -2,11 +2,7 @@
 <template>
   <div id="" class="main bs-c1">
   	<navbar :menus="menus"></navbar>
-  	<div class="container">
-	  	<div class="col-md-12 content">
-	  		<router-view></router-view>
-	  	</div>
-  	</div>
+  	<router-view style="padding-top:50px;"></router-view>
   </div>
 </template>
 
@@ -54,15 +50,7 @@ export default{
 </script>
 <style type="text/css">
 	html, body, .main{
-		height: 100%;
-	}
-	.container{
-		padding-top: 50px;
-	}
-	.leftmenu{
-		border-right:1px solid #eee;
-		height:100%;
-		overflow-y:auto;
+		*height: 100%;
 	}
 	.content{
 		overflow-y: auto;

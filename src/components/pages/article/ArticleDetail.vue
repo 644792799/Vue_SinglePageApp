@@ -1,31 +1,37 @@
 <template>
 	<div class="article-detail">
-		<div class="col-md-9">
-			<div class="article-title"><h4>这是标题</h4></div>
-			<div class="article-content">
-				<div class="article-cat">JAVA</div>
-				<pre><code class="javascript">
-$(document).ready(function() {
-	$('pre code').each(function(i, block) {
-		hljs.highlightBlock(block);
+		<el-row>
+		  <el-col :span="16" :offset="1">
+		  	<div class="grid-content">
+		  		<div class="article-title"><h2>这是标题</h2></div>
+				<div class="article-content">
+					<div class="article-cat">JAVA</div>
+					<pre><code class="javascript">
+	$(document).ready(function() {
+		$('pre code').each(function(i, block) {
+			hljs.highlightBlock(block);
+		});
 	});
-});
-				</code></pre>
-			</div>
-			<div class="article-desc">
-				<div class="text-center">
-					<h4 class="article-desc-title">代码片描述</h4>
+					</code></pre>
 				</div>
-				我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲读完师范和她两个妹妹长大。
-			</div>
-		</div>
-		<div class="col-md-3 article-stats">
-			<div class=""><span class="tag">代码片作者</span>:张三 + 小头像 </div>
-			<div class="">文章发布时间+阅读量</div>
-			<div class="">语言分类:java</div>
-			<div class="">分享</div>
-			<div class="">赞</div>
-		</div>
+				<div class="article-desc">
+					<div class="text-center">
+						<h4 class="article-desc-title">代码片描述</h4>
+					</div>
+					我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲读完师范和她两个妹妹长大。
+				</div>
+		  	</div>
+		  </el-col>
+		   <el-col :span="6" :offset="1">
+		   		<div class="grid-content article-stats">
+		   			<div class=""><span class="tag">代码片作者</span>:张三 + 小头像 </div>
+					<div class="">文章发布时间+阅读量</div>
+					<div class="">语言分类:java</div>
+					<div class="">分享</div>
+					<div class="">赞</div>
+		   		</div>
+		   </el-col>
+		</el-row>
 	</div>
 </template>
 

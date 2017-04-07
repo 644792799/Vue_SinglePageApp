@@ -39,7 +39,7 @@
 	    margin-bottom: 15px;
 	    border: none;
 	    background-color: #fff;
-	    border-left: 2px solid #4CAF50;
+	    border-left: 2px solid #20a0ff;
 	    box-shadow: 0px 1px 15px #e6e7e8;
 	}
 

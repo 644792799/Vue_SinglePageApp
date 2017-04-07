@@ -1,17 +1,38 @@
 <template>
-	<div class="row index">
-		<div class="col-md-10">
-			<div class="input-group">
-			  <input type="text" class="form-control" placeholder="查找代码片" aria-describedby="basic-addon2">
-			  <span class="input-group-addon" id="basic-addon2"><i class="glyphicon glyphicon-search"></i></span>
-			</div>
-			<hr>
-			<articleList :articlesdata="articlesdata"></articleList>
-		</div>
-		<div class="col-md-3">
-			
-		</div>
+	<div>
+		<el-row>
+			<el-col :span="16" :offset="1">
+			  	<div style="margin-top: 15px;" class="grid-content">
+				  <el-input placeholder="查找代码片" v-model="input5" size="large">
+				    <el-select v-model="select" slot="prepend" placeholder="请选择">
+				      <el-option label="标题" value="1"></el-option>
+				      <el-option label="內容" value="2"></el-option>
+				      <el-option label="综合" value="3"></el-option>
+				    </el-select>
+				    <el-button slot="append" icon="search"></el-button>
+				  </el-input>
+				</div>
+				<hr class="hr-hor">
+				<div class="grid-content">
+			  		<articleList :articlesdata="articlesdata"></articleList>
+			  	</div>
+			</el-col>
+			<el-col :span="6" :offset="1">
+				<div style="margin-top: 15px;" class="grid-content">
+					<el-card class="box-card">
+					  <div slot="header" class="clearfix">
+					    <span style="line-height: 36px;">卡片名称</span>
+					    <el-button style="float: right;" type="primary">操作按钮</el-button>
+					  </div>
+					  <div v-for="o in 4" class="text item">
+					    {{'列表内容 ' + o }}
+					  </div>
+					</el-card>
+					</div>
+			</el-col>
+		</el-row>
 	</div>
+
 </template>
 
 <script type="text/javascript">
@@ -38,7 +59,9 @@
 						category: ['类别1','类别2'],
 						url: '/#/article'
 					}
-				]
+				],
+				input5: '',
+      			select: ''
 			}
 		},
 		components: {
@@ -48,10 +71,7 @@
 </script>
 
 <style type="text/css">
-	.index hr{
-		margin: 15px auto!important;
-	}
-	.index .form-control{
-		height: 45px;
-	}
+	.el-select .el-input {
+    	width: 110px;
+  	}
 </style>

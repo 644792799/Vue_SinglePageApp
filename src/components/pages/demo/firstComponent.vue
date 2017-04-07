@@ -1,82 +1,26 @@
 <template>
-	<!-- <div class="row">
-		<div class="col-md-12 h20"></div>
-		<div class="col-md-1"></div>
-		<div class="col-md-1 p0">
-			<div class="bs-c0 w20">
-				<P>bs-c0</P>
-				<P>#FFF</P>
-			</div>
-		</div>
-		<div class="col-md-1 p0">
-			<div class="bs-c1 w20">
-				<P>bs-c1</P>
-				<P>#F9FAFB</P>
-			</div>
-		</div>
-		<div class="col-md-1 p0">
-			<div class="bs-c2 w20"><P>bs-c2</P><P>#CED0D2</P></div>
-		</div>
-		<div class="col-md-1 p0">
-			<div class="bs-c3 w20"><P>bs-c3</P><P>#5D5794</P></div>
-		</div>
-		<div class="col-md-1 p0">
-			<div class="bs-c4 w20"><P>bs-c4</P> <P>#D4ECDC</P></div>
-		</div>
-		<div class="col-md-1 p0">
-			<div class="bs-c5 w20"><P>bs-c5</P> <P>#7DD196</P></div>
-		</div>
-		<div class="col-md-1 p0">
-			<div class="bs-c6 w20"><P>bs-c6</P> <P>#4E5359</P></div>
-		</div>
-		<div class="col-md-1 p0">
-			<div class="bs-c7 w20"><P>bs-c7</P> <P>#A5A7A8</P></div>
-		</div>
-		<div class="col-md-12 h20"></div>
-
-		<div class="col-md-12">
-			<button class="btn-1 btn">注册</button>
-			<button class="btn-2 btn">登陆</button>
-			<button class="btn-3 btn">登陆</button>
-			<el-checkbox v-model="checked" checked>备选项</el-checkbox>
-		</div>
-		<div class="col-md-12 h20"></div>
-
-
-		<div class="col-md-12">
-			<articleList :articlesdata="articlesdata"></articleList>
-		</div>
-		<div class="col-md-4">
-			<div class="panel panel-default">
-			  <div class="panel-heading">用户卡片</div>
-			  <div class="panel-body">
-			    <businessCard :userInfo="userInfo"></businessCard>
-			  </div>
-			  <div class="panel-footer text-right">作者:{{author}}</div>
-			</div>
-		</div>
-		
-		
-	</div> -->
-
 	<el-row>
 	  <el-col :span="24">
-		  <div class="grid-content">
-		  	<el-button>默认按钮</el-button>
-			<el-checkbox v-model="checked" checked>备选项</el-checkbox>
-		  </div>
-	  </el-col>
-	  <el-col :span="3">
 	  	<div class="grid-content">
 	  		&nbsp;
 	  	</div>
 	  </el-col>
-	  <el-col :span="3">
+	  <el-col :span="4">
+		  <div class="grid-content">
+		  	<el-button>默认按钮</el-button>
+		  </div>
+	  </el-col>
+	  <el-col :span="4">
 	  	<div class="grid-content">
-	  		<div class="bs-c0 w20">
+	  		<el-checkbox v-model="checked" checked>备选项</el-checkbox>
+	  	</div>
+	  </el-col>
+	  <el-col :span="4">
+	  	<div class="grid-content">
+	  		<!-- <div class="bs-c0 w20">
 				<P>bs-c0</P>
 				<P>#FFF</P>
-			</div>
+			</div> -->
 	  	</div>
 	  </el-col>
 	  <el-col :span="3">
@@ -119,6 +63,7 @@
 	export default{
 		data(){
 			return {
+				checked: true,
 				author: "cjay",
 				userInfo: {
 					username: '644792799',

@@ -5,9 +5,13 @@
 			<a v-for="menu in menus" :class="menu.clas" @click="toggleClas(menu)">
 		  		<router-link :to="menu.to">{{menu.name}}</router-link>
 		  	</a>
-			<a class="btn-2 btn pull-right">登陆/注册</a>
+			<a>
+				<router-link to="/signIn">登录</router-link>
+				<router-link to="#">.</router-link>
+				<router-link to="/signUp">注册</router-link>
+			</a>
 
-			<el-dropdown>
+			<el-dropdown class="pull-right">
 			  <span class="el-dropdown-link">
 			    下拉菜单<i class="el-icon-caret-bottom el-icon--right"></i>
 			  </span>
@@ -44,6 +48,9 @@
 </script>
 
 <style type="text/css">
+	.el-dropdown{
+		*line-height: 50px;
+	}
 	.header{
 		display: flex;
 		flex-direction: row;
@@ -58,12 +65,14 @@
 	.header .nav{
 		padding: 5px 30px;
 		width: 100%;
+		line-height: 50px;
 	}
 
 	.header .nav a{
 		margin-right: 15px;
 		color: #A5A7A8;
 		font-size: 14px;
+		float: left;
 	}
 
 	.header .nav .active a{
@@ -76,7 +85,7 @@
 	}
 
 	.logo img{
-		height: 30px;
-		width: 30px;
+		height: 25px;
+		width: 25px;
 	}
 </style>

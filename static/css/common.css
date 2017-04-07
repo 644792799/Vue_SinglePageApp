@@ -1,13 +1,11 @@
 body, html {
-    *font: 14px/1.5 'microsoft yahei', arial;
-    *background-image: url(http://zhongguose.com/img/texture.png);
     background-color: #fff;
-    *font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
 }
 
 body, button, input, select, textarea {
-    *font: 14px/1.5 "微软雅黑",Helvetica,Arial,sans-serif;
-    font: 12px/1.3 "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    *font: 12px/1.3 "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
 }
 
 .bs-c0{
@@ -42,13 +40,13 @@ body, button, input, select, textarea {
 	background-color: #A5A7A8;
 }
 
-.el-button {
+/*.el-button {
 	border-radius: 17px;
 	background: #fff url(../img/button-glass.png) repeat-x 0 0;
-	color: #fff!important;
+	color: #000000;
 	display: inline-block;
 	font-weight: 500;
-}
+}*/
 
 .btn-1{
 	border-radius: 17px;
@@ -89,4 +87,30 @@ body, button, input, select, textarea {
 	color: #5D5794;
 	padding: 1px 2px;
 	border-radius: 3px;
+}
+
+.pull-right{
+	float: right;
+}
+
+.pull-left{
+	float: left;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.hr-hor{
+	background: #eee;
+    height: 1px;
+    width: 100%;
+    border: 0;
+}
+
+.hr-ver{
+	background: #eee;
+    height: 100%;
+    width: 1px;
+    border: 0;
 }
