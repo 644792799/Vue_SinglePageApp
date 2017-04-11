@@ -1,6 +1,6 @@
 <!-- 登陆 -->
 <template>
-	<el-row>
+	<el-row class="signin">
 	  <el-col :span="10" :offset="7">
 	  	<el-card class="box-card" style="margin-top:30px;">
 	  		<div slot="header" class="clearfix text-center">
@@ -102,3 +102,9 @@
     }
   }
 </script>
+
+<style type="text/css">
+  .signin .el-card__header{
+    background: #20A0FF;
+  }
+</style>

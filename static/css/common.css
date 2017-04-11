@@ -1,6 +1,12 @@
 body, html {
-    background-color: #fff;
+    *background-color: #d4d9df;
+    background-color: #fbfcfc;
+    *background:linear-gradient(to left,#7f9ba2,#d4d9df);
     font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+}
+
+body{
+	margin: 0;
 }
 
 body, button, input, select, textarea {
@@ -114,3 +120,28 @@ body, button, input, select, textarea {
     width: 1px;
     border: 0;
 }
+
+h3{
+	font-weight: 400;
+    font-size: 22px;
+    color: #1f2f3d;
+    margin: 10px auto;
+}
+
+.gradient-line{
+	width: 100%;
+	height:1px;
+	background:linear-gradient(to left,white,#d4d9df,white);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.right-container{
+  		position:fixed;
+  		right:0;
+  		z-index:999;
+  		height:100%;
+  		background:#fff;
+  		box-shadow:#d5d9de -1px 2px 7px 0px;
+  	}

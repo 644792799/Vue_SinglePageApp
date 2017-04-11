@@ -1,6 +1,6 @@
 
 <template>
-  <div id="" class="main bs-c1">
+  <div id="" class="main">
   	<navbar :menus="menus"></navbar>
   	<router-view style="padding-top:50px;"></router-view>
   </div>

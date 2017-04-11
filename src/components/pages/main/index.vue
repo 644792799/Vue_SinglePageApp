@@ -2,7 +2,7 @@
 	<div>
 		<el-row>
 			<el-col :span="16" :offset="1">
-			  	<div style="margin-top: 15px;" class="grid-content">
+			  	<div style="margin-top: 15px;margin-bottom:15px;" class="grid-content">
 				  <el-input placeholder="查找代码片" v-model="input5" size="large">
 				    <el-select v-model="select" slot="prepend" placeholder="请选择">
 				      <el-option label="标题" value="1"></el-option>
@@ -12,13 +12,13 @@
 				    <el-button slot="append" icon="search"></el-button>
 				  </el-input>
 				</div>
-				<hr class="hr-hor">
+				<!-- <hr class="hr-hor"> -->
 				<div class="grid-content">
 			  		<articleList :articlesdata="articlesdata"></articleList>
 			  	</div>
 			</el-col>
-			<el-col :span="6" :offset="1">
-				<div style="margin-top: 15px;" class="grid-content">
+			<el-col :span="6" class="right-container">
+				<!-- <div style="margin-top: 15px;" class="grid-content">
 					<el-card class="box-card">
 					  <div slot="header" class="clearfix">
 					    <span style="line-height: 36px;">卡片名称</span>
@@ -28,7 +28,7 @@
 					    {{'列表内容 ' + o }}
 					  </div>
 					</el-card>
-					</div>
+					</div> -->
 			</el-col>
 		</el-row>
 	</div>

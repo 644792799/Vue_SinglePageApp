@@ -7,14 +7,15 @@
 		  	</a>
 			<a>
 				<router-link to="/signIn">登录</router-link>
-				<router-link to="#">.</router-link>
+				<router-link to="#"><b>.</b></router-link>
 				<router-link to="/signUp">注册</router-link>
 			</a>
 
 			<el-dropdown class="pull-right">
-			  <span class="el-dropdown-link">
-			    下拉菜单<i class="el-icon-caret-bottom el-icon--right"></i>
-			  </span>
+			  	<span class="el-dropdown-link">
+			    	<img src="/static/img/头像示例2.jpg" class="el-dropdown-img">
+			    	用户名<i class="el-icon-caret-bottom el-icon--right"></i>
+			  	</span>
 			  <el-dropdown-menu slot="dropdown">
 			    <el-dropdown-item>黄金糕</el-dropdown-item>
 			    <el-dropdown-item>狮子头</el-dropdown-item>
@@ -51,6 +52,12 @@
 	.el-dropdown{
 		*line-height: 50px;
 	}
+	.el-dropdown-img{
+		width: 25px;
+		height: 25px;
+		vertical-align: middle;
+		border-radius: 12.5px;
+	}
 	.header{
 		display: flex;
 		flex-direction: row;
@@ -59,24 +66,25 @@
 		width: 100%;
 		z-index: 100;
 		position: fixed;
-		background-color: #F9FAFB;
+		background-color: #41484d;
+		border-bottom: 1px solid #eaeefb;
 	}
 
 	.header .nav{
 		padding: 5px 30px;
 		width: 100%;
-		line-height: 50px;
+		line-height: 40px;
 	}
 
 	.header .nav a{
 		margin-right: 15px;
-		color: #A5A7A8;
+		color: #fff;
 		font-size: 14px;
 		float: left;
 	}
 
 	.header .nav .active a{
-		color: #4E5359;
+		color: #fbfcfc;
 		font-weight: bold;
 	}
 

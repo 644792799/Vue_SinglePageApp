@@ -1,6 +1,7 @@
 <!--  -->
 <template>
 	<div class="articles-item">
+		<div class="gradient-line"></div>
 		<a href="" class="articles-thumbnail">
 			<span>
 				<img :src="art.avator"/>
@@ -36,17 +37,18 @@
 		display: flex;
 	    align-items: center;
 	    padding: 10px 10px;
-	    margin-bottom: 15px;
+	    *margin-bottom: 15px;
 	    border: none;
 	    background-color: #fff;
-	    border-left: 2px solid #20a0ff;
-	    box-shadow: 0px 1px 15px #e6e7e8;
+	    *border-left: 2px solid #20a0ff;
+	    *box-shadow: 0px 1px 15px #e6e7e8;
+	    position: relative;
 	}
 
 	.articles-item:hover{
 		*background-color: #f5f6f8;
 		opacity: 0.85;
-		border-left: 2px solid #5D5794;
+		*border-left: 2px solid #5D5794;
 	}
 
 	.articles-item:last-child{
@@ -100,7 +102,7 @@
 	}
 
 	.articles-item-title a:hover{
-		color: #5D5794!important;
+		*color: #5D5794!important;
 	}
 
 	.articles-item-categories{
