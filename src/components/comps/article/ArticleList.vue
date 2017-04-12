@@ -32,6 +32,7 @@
 	    *border-radius: 4px;
 	    transition: .2s;
 	    background: #fff;
-	    box-shadow: 0 0 1px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
+	    *box-shadow: 0 0 1px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
+	    min-height: 400px;
 	}
 </style>

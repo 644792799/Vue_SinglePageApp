@@ -2,6 +2,12 @@
 	<div class="article-detail">
 		<el-row>
 		  <el-col :span="16" :offset="1">
+		  	<div class="breadcrumb-container">
+		  		<el-breadcrumb separator="/">
+				  <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+				  <el-breadcrumb-item>代码片详细</el-breadcrumb-item>
+				</el-breadcrumb>
+		  	</div>
 		  	<div class="grid-content">
 		  		<div class="article-title"><h3>这是标题</h3></div>
 				<div class="article-content">
@@ -61,6 +67,10 @@
 </script>
 
 <style type="text/css">
+	.breadcrumb-container{
+		margin: 15px 0;
+		position: relative;
+	}
 	.article-desc-title{
 		font-size: 18px;
 		color: #A5A7A8;

@@ -12,23 +12,59 @@
 				    <el-button slot="append" icon="search"></el-button>
 				  </el-input>
 				</div>
+				<el-tabs v-model="activeName" @tab-click="handleClick">
+				    <el-tab-pane label="评分最高" name="first">
+				    	<div class="grid-content">
+					  		<articleList :articlesdata="articlesdata"></articleList>
+					  	</div>
+				    </el-tab-pane>
+				    <el-tab-pane label="最新发布" name="second">
+				    	<articleList :articlesdata="articlesdata"></articleList>
+				    </el-tab-pane>
+				    <el-tab-pane label="收藏最多" name="third">
+				    	<articleList :articlesdata="articlesdata"></articleList>
+				    </el-tab-pane>
+				    <el-tab-pane label="FORK最多" name="fourth">
+				    	<articleList :articlesdata="articlesdata"></articleList>
+				    </el-tab-pane>
+			    </el-tabs>
+			    <div style="text-align:center;margin-top:20px;">
+			    	<div class="block">
+					    <el-pagination
+					      @size-change="handleSizeChange"
+					      @current-change="handleCurrentChange"
+					      :current-page="currentPage3"
+					      :page-size="100"
+					      layout="prev, pager, next, jumper"
+					      :total="1000">
+					    </el-pagination>
+					</div>
+			    </div>
 				<!-- <hr class="hr-hor"> -->
-				<div class="grid-content">
-			  		<articleList :articlesdata="articlesdata"></articleList>
-			  	</div>
 			</el-col>
 			<el-col :span="6" class="right-container">
+				<div style="text-align:right;position:relative;">
+					<el-button style="margin: 10px 5px">添加代码片<i class="el-icon-plus el-icon--right"></i></el-button>
+					<div class="gradient-line"></div>
+				</div>
+				<div style="position:relative;">
+					<div class="gradient-line"></div>
+					<categoryCard :categoriesdata="categories"></categoryCard>
+				</div>
+				<div style="position:relative;">
+					<div class="gradient-line"></div>
+					<div class="subtitle">热搜词</div>
+				</div>
 				<!-- <div style="margin-top: 15px;" class="grid-content">
-					<el-card class="box-card">
+					<el-card class="">
 					  <div slot="header" class="clearfix">
 					    <span style="line-height: 36px;">卡片名称</span>
-					    <el-button style="float: right;" type="primary">操作按钮</el-button>
 					  </div>
 					  <div v-for="o in 4" class="text item">
 					    {{'列表内容 ' + o }}
 					  </div>
 					</el-card>
-					</div> -->
+				</div> -->
 			</el-col>
 		</el-row>
 	</div>
@@ -37,6 +73,7 @@
 
 <script type="text/javascript">
 	import ArticleList from 'components/comps/article/ArticleList.vue'
+	import CategoryCard from 'components/comps/common/CategoryCard.vue'
 	export default{
 		data(){
 			return {
@@ -60,13 +97,50 @@
 						url: '/#/article'
 					}
 				],
+				categories: [
+					{
+						name: 'JAVA',
+						count: 155
+					},
+					{
+						name: 'C#',
+						count: 2546
+					},
+					{
+						name: 'C++',
+						count: 2546
+					},
+					{
+						name: 'C',
+						count: 2546
+					},
+					{
+						name: 'PYTHON',
+						count: 2546
+					}
+				],
 				input5: '',
-      			select: ''
+      			select: '',
+      			activeName: 'second',
+      			currentPage3: 5
 			}
 		},
 		components: {
-			"articleList": ArticleList
-		}
+			"articleList": ArticleList,
+			"categoryCard": CategoryCard
+		},
+		methods: {
+	      handleClick(tab, event) {
+	        console.log(tab, event);
+	      },
+	      handleSizeChange(val) {
+	        console.log(`每页 ${val} 条`);
+	      },
+	      handleCurrentChange(val) {
+	        this.currentPage = val;
+	        console.log(`当前页: ${val}`);
+	      }
+	    }
 	}
 </script>
 
@@ -74,4 +148,19 @@
 	.el-select .el-input {
     	width: 110px;
   	}
+  	.el-tabs__header{
+  		margin: 0 0 0!important;
+  		border-bottom: 1px solid #d4d9df!important;
+  	}
+  	.el-tabs__content{
+		box-shadow: #d5d9de -1px 1px 2px 0px;
+	}
+	.subtitle{
+		font-size: 14px;
+    	font-weight: 600;
+    	display: inline-block !important;
+    	padding-top: 15px;
+		padding-left: 15px;
+    	line-height: 1.5;
+	}
 </style>
