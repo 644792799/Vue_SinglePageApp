@@ -44,7 +44,9 @@
 			</el-col>
 			<el-col :span="6" class="right-container">
 				<div style="text-align:right;position:relative;">
-					<el-button style="margin: 10px 5px">添加代码片<i class="el-icon-plus el-icon--right"></i></el-button>
+					<router-link to="/editor">
+						<el-button style="margin: 10px 5px">添加代码片<i class="el-icon-plus el-icon--right"></i></el-button>
+						</router-link>
 					<div class="gradient-line"></div>
 				</div>
 				<div style="position:relative;">

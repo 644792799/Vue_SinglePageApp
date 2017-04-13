@@ -14,6 +14,7 @@ import Article from './components/pages/article/ArticleDetail.vue'
 import Main from './components/pages/main/Index.vue'
 import SignIn from './components/pages/Sign/SignIn.vue'
 import SignUp from './components/pages/Sign/SignUp.vue'
+import Editor from './components/pages/personal/Editor.vue'
 
 //import 'bootstrap/dist/css/bootstrap.css'
 import 'element-ui/lib/theme-default/index.css'
@@ -52,6 +53,10 @@ const routes = [
 	{
 		path: '/signUp',
 		component: SignUp
+	},
+	{
+		path: '/editor',
+		component: Editor
 	}
 ];
 const router = new VueRouter({routes});

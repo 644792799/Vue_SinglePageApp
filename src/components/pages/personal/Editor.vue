@@ -1,0 +1,84 @@
+<template>
+	<div class="editor">
+		<el-row>
+			<el-col :span="16" :offset="1">
+				<div class="form-container">
+					<el-form ref="form" :model="form" label-width="80px">
+						<el-form-item label="标题">
+							<el-col :span="11">
+								<el-input v-model="form.name"></el-input>
+							</el-col>
+					    </el-form-item>
+					    <el-form-item label="语言">
+							<el-select v-model="value8" filterable placeholder="请选择">
+							    <el-option
+							      v-for="item in options"
+							      :label="item.label"
+							      :value="item.value">
+							    </el-option>
+						  	</el-select>
+					    </el-form-item>
+					    <el-form-item label="代码">
+					    	<editor v-model="content" @init="editorInit();" lang="javascript" theme="GitHub" width="100%" height="300"></editor>
+					    </el-form-item>
+					</el-form>
+				</div>
+			</el-col>
+			<el-col :span="6" class="right-container">
+
+			</el-col>
+		</el-row>
+	</div>
+</template>
+<script type="text/javascript">
+	export default {
+	    data () {
+	      return {
+	      	content: 'function test(){}',
+	      	form: {
+	          name: '',
+	          region: '',
+	          date1: '',
+	          date2: '',
+	          delivery: false,
+	          type: [],
+	          resource: '',
+	          desc: ''
+	        },
+	        options: [{
+		          value: '选项1',
+		          label: 'JAVA'
+		        }, {
+		          value: '选项2',
+		          label: 'JAVASCRIPT'
+		        }, {
+		          value: '选项3',
+		          label: 'C#'
+		        }, {
+		          value: '选项4',
+		          label: 'HTML'
+		        }, {
+		          value: '选项5',
+		          label: 'CSS'
+		        }],
+	        value8: ''
+	      }
+	    },
+	    components: {
+	      editor:require('vue2-ace-editor'),
+	    },
+	    methods:{
+	        editorInit:function () {
+	            require('vue-ace-editor/node_modules/brace/mode/html');
+	            require('vue-ace-editor/node_modules/brace/mode/javascript');
+	            require('vue-ace-editor/node_modules/brace/mode/less');
+	            require('vue-ace-editor/node_modules/brace/theme/chrome');
+	        }
+	    }
+	  }
+</script>
+<style type="text/css">
+	.form-container{
+		margin-top: 50px;
+	}
+</style>

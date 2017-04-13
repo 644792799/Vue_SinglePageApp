@@ -52,6 +52,9 @@ export default{
 	html, body, .main{
 		*height: 100%;
 	}
+	.main {
+		*max-width: 1140px;
+	}
 	.content{
 		overflow-y: auto;
 		height: 100%
