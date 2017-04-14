@@ -12,7 +12,16 @@
 				<a :href="art.url">{{art.title}}</a>
 			</div>
 			<div class="articles-item-categories">
-				<a href="" class="articles-item-category" v-for="cat in art.category">{{cat}}</a>
+				<span>
+					<a href="">cjay</a>&nbsp;
+				</span>
+				<span>在&nbsp;2015.02.03&nbsp;</span>
+				<span>
+					发布于
+					<a href="">java</a>
+					分类下
+				</span>
+				<!-- <a href="" class="articles-item-category" v-for="cat in art.category">{{cat}}</a> -->
 			</div>
 		</div>
 		<div class="articles-item-footer">
@@ -107,6 +116,13 @@
 
 	.articles-item-categories{
 		display: flex;
+		font-size: 12px;
+		opacity: 0.5;
+	}
+
+	.articles-item-categories a{
+		color: #66b5cb;
+		opacity: 1;
 	}
 
 	.articles-item-meta{

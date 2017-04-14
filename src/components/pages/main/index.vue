@@ -76,6 +76,7 @@
 <script type="text/javascript">
 	import ArticleList from 'components/comps/article/ArticleList.vue'
 	import CategoryCard from 'components/comps/common/CategoryCard.vue'
+	
 	export default{
 		data(){
 			return {

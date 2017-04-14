@@ -1,6 +1,7 @@
 
 <template>
   <div id="" class="main">
+  	<scrolltotop></scrolltotop>
   	<navbar :menus="menus"></navbar>
   	<router-view style="padding-top:50px;"></router-view>
   </div>
@@ -8,6 +9,7 @@
 
 <script>
 import Header from './components/comps/common/Header.vue'
+import ScrollToTop from 'components/comps/common/BackToTop.vue'
 
 const menu = [{
 	name: 'DEMO页',
@@ -44,7 +46,8 @@ export default{
 		}
 	}, 
 	components: {
-		"navbar": Header
+		"navbar": Header,
+		'scrolltotop': ScrollToTop
 	}
 }
 </script>

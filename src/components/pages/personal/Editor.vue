@@ -4,12 +4,12 @@
 			<el-col :span="16" :offset="1">
 				<div class="form-container">
 					<el-form ref="form" :model="form" label-width="80px">
-						<el-form-item label="标题">
+						<el-form-item label="标题" required>
 							<el-col :span="11">
 								<el-input v-model="form.name"></el-input>
 							</el-col>
 					    </el-form-item>
-					    <el-form-item label="语言">
+					    <el-form-item label="语言" required>
 							<el-select v-model="value8" filterable placeholder="请选择">
 							    <el-option
 							      v-for="item in options"
@@ -18,9 +18,16 @@
 							    </el-option>
 						  	</el-select>
 					    </el-form-item>
-					    <el-form-item label="代码">
-					    	<editor v-model="content" @init="editorInit();" lang="javascript" theme="GitHub" width="100%" height="300"></editor>
+					    <el-form-item label="代码" required>
+					    	<editor v-model="content" @init="editorInit();" lang="javascript" theme="github" width="100%" height="300"></editor>
 					    </el-form-item>
+					    <el-form-item label="代码描述">
+					    	<el-input type="textarea" v-model="form.desc"></el-input>
+					  	</el-form-item>
+					  	<el-form-item>
+						    <el-button type="primary">添加</el-button>
+						    <el-button>重置</el-button>
+					  	</el-form-item>
 					</el-form>
 				</div>
 			</el-col>
@@ -72,7 +79,7 @@
 	            require('vue-ace-editor/node_modules/brace/mode/html');
 	            require('vue-ace-editor/node_modules/brace/mode/javascript');
 	            require('vue-ace-editor/node_modules/brace/mode/less');
-	            require('vue-ace-editor/node_modules/brace/theme/chrome');
+	            require('vue-ace-editor/node_modules/brace/theme/github');
 	        }
 	    }
 	  }

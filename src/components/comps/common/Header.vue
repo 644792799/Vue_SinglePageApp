@@ -14,10 +14,12 @@
 			<el-dropdown class="pull-right">
 			  	<span class="el-dropdown-link">
 			    	<img src="/static/img/头像示例2.jpg" class="el-dropdown-img">
-			    	用户名<i class="el-icon-caret-bottom el-icon--right"></i>
+			    	<el-badge is-dot class="item">&nbsp;用户名</el-badge><i class="el-icon-arrow-down el-icon--right"></i>
 			  	</span>
 			  <el-dropdown-menu slot="dropdown">
-			    <el-dropdown-item>黄金糕</el-dropdown-item>
+			    <el-dropdown-item>
+			    	<router-link to="/myarticle">我的空间</router-link>
+			    </el-dropdown-item>
 			    <el-dropdown-item>狮子头</el-dropdown-item>
 			    <el-dropdown-item>螺蛳粉</el-dropdown-item>
 			    <el-dropdown-item disabled>双皮奶</el-dropdown-item>
@@ -81,6 +83,10 @@
 		color: #fff;
 		font-size: 14px;
 		float: left;
+	}
+
+	.header .el-dropdown{
+		color: #FBFCFC!important;
 	}
 
 	.header .nav .active a{
