@@ -4,13 +4,13 @@
 			<el-col :span="16" :offset="1">
 				<div style="display: flex;flex-direction: row;border-bottom:1px solid #d4d9df;">
 					<div class="userimg-container">
-						<img src="/static/img/头像示例2.jpg" style="height:120px;width:120px;">
+						<img src="/static/img/头像示例2.jpg" style="height:150px;width:150px;">
 					</div>
 					<div class="info"  >
 						<div class="top" style="display: flex;flex-direction: row;border-bottom:1px solid #d4d9df;">
 							<div class="left">
 								<h3>CJAY</h3>
-								1212
+								2017年4月17日加入
 							</div>
 							<div class="right">
 								<h3>WORK</h3>
@@ -19,24 +19,31 @@
 						<div class="bottom" style="display: flex;flex-direction: row;">
 							<div class="left">
 								<div>
-									<i class="el-icon-message"></i>644792799@qq.com
+									<i class="icon-envelop">&nbsp;</i>644792799@qq.com
 								</div>
 								<div>
-									<i class="el-icon-star-off"> </i>
+									<i class="icon-location">&nbsp;</i>四川.成都
+								</div>
+								<div>
+									<i class="icon-link">&nbsp;</i>wwww.snipt.cn
 								</div>
 							</div>
 							<div class="right">
-								<el-button type="warning" size="small" :plain="true">添加关注</el-button>
+								<el-button-group>
+									<el-button type="warning" size="small">添加关注</el-button>
+									<el-button type="warning" class="icon-plus" size="small"></el-button>
+								</el-button-group>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div style="margin-top:10px;">
 					<el-tabs >
-					  <el-tab-pane label="用户管理">用户管理</el-tab-pane>
-					  <el-tab-pane label="配置管理">配置管理</el-tab-pane>
-					  <el-tab-pane label="角色管理">角色管理</el-tab-pane>
-					  <el-tab-pane label="定时任务补偿">定时任务补偿</el-tab-pane>
+					  <el-tab-pane label="代码片" style="min-height:300px;"></el-tab-pane>
+					  <el-tab-pane label="收藏" style="min-height:300px;"></el-tab-pane>
+					  <el-tab-pane label="Fock" style="min-height:300px;"></el-tab-pane>
+					  <el-tab-pane label="关注" style="min-height:300px;"></el-tab-pane>
+					  <el-tab-pane label="粉丝" style="min-height:300px;"></el-tab-pane>
 					</el-tabs>
 				</div>
 			</el-col>
@@ -57,8 +64,8 @@
 </script>
 <style type="text/css">
 	.myarticle .userimg-container{
-		height: 120px;
-		width: 120px;
+		height: 150px;
+		width: 150px;
 		padding: 20px 20px 15px 0;
 	}
 	.myarticle .userimg-container img{
@@ -83,11 +90,12 @@
 		padding-bottom: 10px;
 	}
 	.myarticle .info .bottom .left{
-		width: 150px;
+		width: 200px;
 		font-size: 12px;
+		color: #b6b1aa;
 	}
 	.myarticle .info .bottom .left div{
-		line-height: 20px;
+		line-height: 25px;
 		font-weight: 600;
 	}
 	.myarticle .info .bottom .left h3{
@@ -95,5 +103,8 @@
 	}
 	.myarticle .info .top .right{
 		width: 150px;
+	}
+	.myarticle .el-tabs__content{
+		background: #fff;
 	}
 </style>

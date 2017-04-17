@@ -12,21 +12,25 @@ import Header from './components/comps/common/Header.vue'
 import ScrollToTop from 'components/comps/common/BackToTop.vue'
 
 const menu = [{
-	name: 'DEMO页',
+	name: '主页',
 	to: '/first',
-	clas: 'active'
+	clas: 'active',
+	ico: 'icon-home'
 },{
 	name: '发现',
 	to: '/index',
-	clas: ''
+	clas: '',
+	ico: 'icon-search'
 },{
 	name: '关于',
 	to: '/commonstyle',
-	clas: ''
+	clas: '',
+	ico: ''
 },{
 	name: '组件五',
 	to: '/article',
-	clas: ''
+	clas: '',
+	ico: ''
 }];
 export default{
 	data(){

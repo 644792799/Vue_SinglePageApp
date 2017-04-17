@@ -3,7 +3,7 @@
 		<div class="nav">
 			<a href="#" class="logo"><img src="/static/img/github.png"></a>
 			<a v-for="menu in menus" :class="menu.clas" @click="toggleClas(menu)">
-		  		<router-link :to="menu.to">{{menu.name}}</router-link>
+		  		<router-link :to="menu.to"><i :class="menu.ico">&nbsp;</i>{{menu.name}}</router-link>
 		  	</a>
 			<a>
 				<router-link to="/signIn">登录</router-link>
@@ -18,12 +18,9 @@
 			  	</span>
 			  <el-dropdown-menu slot="dropdown">
 			    <el-dropdown-item>
-			    	<router-link to="/myarticle">我的空间</router-link>
+			    	<router-link to="/myarticle"><i class="icon-profile">&nbsp;</i>我的空间</router-link>
 			    </el-dropdown-item>
-			    <el-dropdown-item>狮子头</el-dropdown-item>
-			    <el-dropdown-item>螺蛳粉</el-dropdown-item>
-			    <el-dropdown-item disabled>双皮奶</el-dropdown-item>
-			    <el-dropdown-item divided>蚵仔煎</el-dropdown-item>
+			    <el-dropdown-item><i class="icon-exit">&nbsp;</i>退出</el-dropdown-item>
 			  </el-dropdown-menu>
 			</el-dropdown>
 		</div>
@@ -51,6 +48,10 @@
 </script>
 
 <style type="text/css">
+	.header .icon-home{
+		*line-height: inherit;
+		*font-size: 20px!important;
+	}
 	.el-dropdown{
 		*line-height: 50px;
 	}
@@ -76,6 +77,7 @@
 		padding: 5px 30px;
 		width: 100%;
 		line-height: 40px;
+		text-align: center;
 	}
 
 	.header .nav a{
@@ -91,7 +93,7 @@
 
 	.header .nav .active a{
 		color: #fbfcfc;
-		font-weight: bold;
+		*font-weight: bold;
 	}
 
 	.logo{

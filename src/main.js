@@ -21,6 +21,7 @@ import MyArticle from './components/pages/personal/MyArticleList.vue'
 import 'element-ui/lib/theme-default/index.css'
 import '../static/css/common.css'
 import '../static/plugins/highlight/styles/github-gist.css'
+import '../static/css/font/style.css'
 
 Vue.use(VueRouter);
 Vue.use(VueResource);

@@ -1,7 +1,7 @@
 <template>
 	<div class="articles-list">
 		<div style="position:relative;padding:10px;">
-			<b>xxxxx</b>
+			<i class="icon-terminal"></i>
 			<div class="gradient-line"></div>
 		</div>
 		<articleSimple v-for="art in articlesdata" :art="art"></articleSimple>
