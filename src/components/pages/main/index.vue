@@ -54,7 +54,8 @@
 					<categoryCard :categoriesdata="categories"></categoryCard>
 				</div>
 				<div style="position:relative;">
-					<div class="gradient-line"></div>
+					<!-- <div class="gradient-line"></div> -->
+					<SmsLine gradfrom="left"></SmsLine>
 					<div class="subtitle">热搜词</div>
 				</div>
 				<!-- <div style="margin-top: 15px;" class="grid-content">

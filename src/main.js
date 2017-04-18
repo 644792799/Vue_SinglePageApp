@@ -16,6 +16,7 @@ import SignIn from './components/pages/Sign/SignIn.vue'
 import SignUp from './components/pages/Sign/SignUp.vue'
 import Editor from './components/pages/personal/Editor.vue'
 import MyArticle from './components/pages/personal/MyArticleList.vue'
+import Line from './components/sms/line'
 
 //import 'bootstrap/dist/css/bootstrap.css'
 import 'element-ui/lib/theme-default/index.css'
@@ -26,6 +27,7 @@ import '../static/css/font/style.css'
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(ElementUI);
+Vue.use(Line);
 
 const routes = [
 	{
