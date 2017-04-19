@@ -28,22 +28,9 @@
 				    	<articleList :articlesdata="articlesdata"></articleList>
 				    </el-tab-pane>
 			    </el-tabs>
-			    <div style="text-align:center;margin-top:20px;">
-			    	<div class="block">
-					    <el-pagination
-					      @size-change="handleSizeChange"
-					      @current-change="handleCurrentChange"
-					      :current-page="currentPage3"
-					      :page-size="100"
-					      layout="prev, pager, next, jumper"
-					      :total="1000">
-					    </el-pagination>
-					</div>
-			    </div>
-				<!-- <hr class="hr-hor"> -->
 			</el-col>
 			<el-col :span="6" class="right-container">
-				<div style="text-align:right;position:relative;">
+				<div style="text-align:right;position:relative;border-bottom:1px solid #d4d9df;">
 					<router-link to="/editor">
 						<el-button style="margin: 10px 5px">添加代码片<i class="el-icon-plus el-icon--right"></i></el-button>
 						</router-link>
@@ -53,7 +40,7 @@
 					<div class="gradient-line"></div>
 					<categoryCard :categoriesdata="categories"></categoryCard>
 				</div>
-				<div style="position:relative;">
+				<div style="position:relative;background: #fbfcfc;">
 					<!-- <div class="gradient-line"></div> -->
 					<SmsLine gradfrom="left"></SmsLine>
 					<div class="subtitle">热搜词</div>
@@ -125,8 +112,7 @@
 				],
 				input5: '',
       			select: '',
-      			activeName: 'second',
-      			currentPage3: 5
+      			activeName: 'second'
 			}
 		},
 		components: {
@@ -136,13 +122,6 @@
 		methods: {
 	      handleClick(tab, event) {
 	        console.log(tab, event);
-	      },
-	      handleSizeChange(val) {
-	        console.log(`每页 ${val} 条`);
-	      },
-	      handleCurrentChange(val) {
-	        this.currentPage = val;
-	        console.log(`当前页: ${val}`);
 	      }
 	    }
 	}

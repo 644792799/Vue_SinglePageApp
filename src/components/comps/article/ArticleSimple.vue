@@ -1,7 +1,7 @@
 <!--  -->
 <template>
-	<div class="articles-item">
-		<div class="gradient-line"></div>
+	<SmsCard class="articles-item" bodyStyle="display:flex;">
+		<SmsLine gradfrom="center"></SmsLine>
 		<a href="" class="articles-thumbnail">
 			<span>
 				<img :src="art.avator"/>
@@ -29,7 +29,7 @@
 				
 			</div>
 		</div>
-	</div>
+	</SmsCard>
 </template>
 
 <script type="text/javascript">

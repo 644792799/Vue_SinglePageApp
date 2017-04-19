@@ -2,9 +2,21 @@
 	<div class="articles-list">
 		<div style="position:relative;padding:10px;">
 			<i class="icon-terminal"></i>
-			<div class="gradient-line"></div>
+			<SmsLine gradfrom="center"></SmsLine>
 		</div>
 		<articleSimple v-for="art in articlesdata" :art="art"></articleSimple>
+		<div style="text-align:center;margin-top:20px;">
+	    	<div class="block">
+			    <el-pagination
+			      @size-change="handleSizeChange"
+			      @current-change="handleCurrentChange"
+			      :current-page="currentPage3"
+			      :page-size="100"
+			      layout="prev, pager, next, jumper"
+			      :total="1000">
+			    </el-pagination>
+			</div>
+	    </div>
 	</div>
 </template>
 
@@ -13,13 +25,23 @@
 	export default{
 		data(){
 			return{
-				author: "cjay"
+				author: "cjay",
+				currentPage3: 5
 			}
 		}, 
 		components: {
 			"articleSimple": ArticleSimple
 		},
-		props: ['articlesdata']
+		props: ['articlesdata'],
+		methods: {
+	      handleSizeChange(val) {
+	        console.log(`每页 ${val} 条`);
+	      },
+	      handleCurrentChange(val) {
+	        this.currentPage = val;
+	        console.log(`当前页: ${val}`);
+	      }
+	    }
 	}
 </script>
 

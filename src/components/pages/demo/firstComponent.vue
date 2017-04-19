@@ -1,5 +1,5 @@
 <template>
-	<el-row>
+	<el-row class="text-center">
 	  <el-col :span="24">
 	  	<div class="grid-content">
 	  		&nbsp;
@@ -7,7 +7,15 @@
 	  </el-col>
 	  <el-col :span="4">
 		  <div class="grid-content">
-		  	<el-button>默认按钮</el-button>
+		  	<SmsCard >
+				<div slot="header" class="clearfix">
+    				<span style="line-height: 36px;">卡片名称</span>
+    				<el-button style="float: right;" type="primary">操作按钮</el-button>
+  				</div>
+  				<div v-for="o in 4" class="text item">
+	    				{{'列表内容 ' + o }}
+	  			</div>
+		  	</SmsCard>
 		  </div>
 	  </el-col>
 	  <el-col :span="4">

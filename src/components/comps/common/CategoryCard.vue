@@ -1,6 +1,6 @@
 <template>
 	<div class="cat-card">
-		<div class="cat-title">语言</div>
+		<div class="cat-title">语言<SmsLine gradfrom="left"></SmsLine></div>
 		<div>
 			<ul class="cat-list">
 				<li v-for="cat in categoriesdata">
@@ -26,11 +26,17 @@
 		font-size: 14px;
     	font-weight: 600;
     	display: inline-block !important;
+    	position: relative;
+    	width: 100%;
+    	padding-left: 15px;
+    	padding-top: 15px;
+    	background: #fbfcfc;
 	}
 	.cat-card{
-		padding-top: 15px;
-		padding-left: 15px;
+		*padding-top: 15px;
+		*padding-left: 15px;
     	line-height: 1.5;
+    	border-bottom: 1px solid #d4d9df;
 	}
 	.cat-list{
 		list-style-type: none;
@@ -40,7 +46,7 @@
 	    font-size: 14px;
 	}
 	.cat-list li{
-		*padding-left: 15px;
+		padding-left: 15px;
 		border-radius: 3px;
 	}
 	.cat-list li:hover{

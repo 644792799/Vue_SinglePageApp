@@ -21,4 +21,7 @@
     background: #fff;
     position: relative;
   }
+  .sms-card__body{
+    
+  }
 </style>
