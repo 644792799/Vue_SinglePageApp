@@ -23,6 +23,9 @@
 			    <el-dropdown-item><i class="icon-exit">&nbsp;</i>退出</el-dropdown-item>
 			  </el-dropdown-menu>
 			</el-dropdown>
+			<router-link to="/editor" class="pull-right">
+				<button class="pull-right plus">+</button>
+			</router-link>
 		</div>
 	</div>
 </template>
@@ -48,6 +51,22 @@
 </script>
 
 <style type="text/css">
+	.header .plus{
+		font-size: 35px;
+	    background: none;
+	    border: 0;
+	    color: #fff;
+	    font-weight: normal;
+	    line-height: 40px;
+	    *margin-right: 10px;
+	    cursor: pointer;
+	}
+	.header .plus:focus{
+		outline: none;
+	}
+	.header .plus:hover{
+		color: #d4d9df;
+	}
 	.header .icon-home{
 		*line-height: inherit;
 		*font-size: 20px!important;
@@ -92,7 +111,7 @@
 	}
 
 	.header .nav .active a{
-		color: #fbfcfc;
+		color: #d4d9df;
 		*font-weight: bold;
 	}
 

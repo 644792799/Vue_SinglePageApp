@@ -96,7 +96,7 @@ body, button, input, select, textarea {
 }
 
 .pull-right{
-	float: right;
+	float: right!important;
 }
 
 .pull-left{

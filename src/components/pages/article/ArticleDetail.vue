@@ -10,7 +10,7 @@
 				</el-breadcrumb>
 		  	</div>
 		  	<div class="grid-content">
-		  		<div class="article-title"><h3>这是标题</h3></div>
+		  		<div class="article-title"><h3><i class="icon-pin">&nbsp;</i>这是标题</h3></div>
 				<div class="article-content">
 					<div class="tools">
 						<articletools></articletools>
@@ -25,7 +25,7 @@
 					</div>
 					<div class="description">
 						<div class="text-center article-desc-container">
-							<h4 class="article-desc-title">代码片描述</h4>
+							<h4 class="article-desc-title">代码片描述<SmsLine gradfrom="center"></SmsLine></h4>
 							<div class="gradient-line"></div>
 						</div>
 						我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲读完师范和她两个妹妹长大。
@@ -84,6 +84,7 @@
 		margin: 10px auto;
 		padding: 2px 0;
 		font-weight: 400;
+		position: relative;
 	}
 	.article-desc-container{
 		position: relative;

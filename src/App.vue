@@ -14,7 +14,7 @@ const menu = [{
 	name: '主页',
 	to: '/first',
 	clas: 'active',
-	ico: 'icon-home'
+	ico: 'icon-home2'
 },{
 	name: '发现',
 	to: '/index',
@@ -24,7 +24,7 @@ const menu = [{
 	name: '关于',
 	to: '/commonstyle',
 	clas: '',
-	ico: ''
+	ico: 'icon-info'
 },{
 	name: '组件五',
 	to: '/article',

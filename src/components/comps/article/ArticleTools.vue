@@ -1,8 +1,11 @@
 <template>
 	<div class="article-tools">
+		<button class="question"><i class="icon-question"></i></button>
 		<button class="enlarge" @click="toggleFullScreen" @keyup.esc="pressEsc"><i :class="fullScreenIco"></i></button>
 		<button class="printer"><i class="icon-printer"></i></button>
 		<button class="link"><i class="icon-link"></i></button>
+		<button class="star"><i class="icon-star"></i></button>
+		<button class="branch"><i class="icon-git-branch"></i></button>
 	</div>
 </template>
 <script type="text/javascript">

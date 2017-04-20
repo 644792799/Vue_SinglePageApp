@@ -13,7 +13,7 @@
 								2017年4月17日加入
 							</div>
 							<div class="right">
-								<h3>WORK</h3>
+								<span><i class="icon-organization"></i>&nbsp;尚未加入任何公司/组织</span>
 							</div>
 						</div>
 						<div class="bottom" style="display: flex;flex-direction: row;">
@@ -30,8 +30,8 @@
 							</div>
 							<div class="right">
 								<el-button-group>
-									<el-button type="warning" size="small">添加关注</el-button>
-									<el-button type="warning" class="icon-plus" size="small"></el-button>
+									<el-button class="button-follow" size="small">添加关注</el-button>
+									<el-button class="button-follow-count" size="small">12</el-button>
 								</el-button-group>
 							</div>
 						</div>
@@ -76,7 +76,7 @@
 		padding: 20px 0 15px 0;
 	}
 	.myarticle .info .top{
-		padding-bottom: 10px;
+		*padding-bottom: 10px;
 	}
 	.myarticle .info .top .left{
 		width: 150px;
@@ -101,10 +101,45 @@
 	.myarticle .info .bottom .left h3{
 		margin-bottom: 3px!important;
 	}
+	.myarticle .info .bottom .right .el-button-group{
+		box-shadow: #d5d9de 3px 0px 7px 0px;
+	}
 	.myarticle .info .top .right{
-		width: 150px;
+		width: 200px;
+		*font-size: 30px;
+    	line-height: 66px;
+	}
+	.myarticle .info .top .right span{
+		font-size: 15px;
+		margin-left: 10px; 
+	}
+	.myarticle .info .top .right i{
+		font-size: 20px;
 	}
 	.myarticle .el-tabs__content{
 		background: #fff;
+	}
+	.button-follow, .button-follow-count{
+		border: 0!important;
+	}
+	.button-follow{
+		background-color: #ea7069!important;
+		color: #fbfcfc!important;
+	}
+	.button-follow:hover{
+		z-index: 0!important;
+	}
+	.button-follow-count{
+		font-weight: 600;
+	}
+	.button-follow-count:hover{
+		color: #1f2d3d!important;
+		border-color: #f7ba2a!important;
+	}
+	 .el-tabs__item.is-active{
+		color: #1f2d3d!important;
+	}
+	 .el-tabs__active-bar{
+		background-color: #ea7069!important;
 	}
 </style>
