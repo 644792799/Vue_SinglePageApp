@@ -39,9 +39,22 @@
 				</div>
 				<div style="margin-top:10px;">
 					<el-tabs >
-					  <el-tab-pane label="代码片" style="min-height:300px;"></el-tab-pane>
-					  <el-tab-pane label="收藏" style="min-height:300px;"></el-tab-pane>
-					  <el-tab-pane label="Fock" style="min-height:300px;"></el-tab-pane>
+					  <el-tab-pane label="代码片" style="min-height:300px;">
+					  	<div class="filtercontainer">
+					  		<el-button-group class="filter">
+							  <el-button :disabled="true">全部</el-button>
+							  <el-button>公有</el-button>
+							  <el-button>私有</el-button>
+							  <el-button>收藏</el-button>
+							  <el-button>FORK</el-button>
+							</el-button-group>
+							<div class="order">
+								<el-button type="text">发布时间</el-button>
+								<el-button type="text" :disabled="true">更新时间</el-button>
+							</div>
+							<SmsLine gradfrom="center"></SmsLine>
+					  	</div>
+					  </el-tab-pane>
 					  <el-tab-pane label="关注" style="min-height:300px;"></el-tab-pane>
 					  <el-tab-pane label="粉丝" style="min-height:300px;"></el-tab-pane>
 					</el-tabs>
@@ -63,6 +76,18 @@
 	}
 </script>
 <style type="text/css">
+	.myarticle .order{
+		position: relative;
+		float: right;
+    	line-height: 56px;
+    	margin-right: 10px;
+	}
+	.myarticle .filtercontainer{
+		position: relative;
+	}
+	.myarticle .filter{
+		margin: 10px 10px;
+	}
 	.myarticle .userimg-container{
 		height: 150px;
 		width: 150px;

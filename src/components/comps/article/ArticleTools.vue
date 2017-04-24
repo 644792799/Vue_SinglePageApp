@@ -6,6 +6,9 @@
 		<button class="link"><i class="icon-link"></i></button>
 		<button class="star"><i class="icon-star"></i></button>
 		<button class="branch"><i class="icon-git-branch"></i></button>
+		<button class="copy"><i class="icon-clippy"></i></button>
+		<button class="edit clearfix"><i class="icon-pencil2"></i></button>
+		<button class="delete clearfix"><i class="icon-trashcan"></i></button>
 	</div>
 </template>
 <script type="text/javascript">
@@ -91,5 +94,15 @@
 	}
 	.article-tools button:focus{
 		outline: none;
+	}
+	/*.article-tools .edit, .article-tools .delete{
+		float: none;
+	    border-left: 0;
+	    border-right: 1px solid #d4d9df;
+	}*/
+	.article-tools .clearfix{
+		float: left;
+	    border-left: 0;
+	    border-right: 1px solid #d4d9df;
 	}
 </style>
