@@ -140,7 +140,7 @@ h3{
 .right-container{
 	position:fixed;
 	right:0;
-	z-index:999;
+	*z-index:999;
 	height:100%;
 	background:#fff;
 	box-shadow:#d5d9de -1px 2px 7px 0px;

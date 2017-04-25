@@ -10,7 +10,8 @@
 						<div class="top" style="display: flex;flex-direction: row;border-bottom:1px solid #d4d9df;">
 							<div class="left">
 								<h3>CJAY</h3>
-								2017年4月17日加入
+								<i class="icon-calendar">&nbsp;</i>
+								<span>2017年4月17日加入</span>
 							</div>
 							<div class="right">
 								<span><i class="icon-organization"></i>&nbsp;尚未加入任何公司/组织</span>
@@ -61,7 +62,18 @@
 				</div>
 			</el-col>
 			<el-col :span="6" class="right-container">
-				
+				<div class="visit-container">
+					<el-row>
+						<el-col :span="12">
+							<div>粉丝</div>
+							<div>查看</div>
+						</el-col>
+						<el-col :span="12">
+							<div>关注</div>
+							<div>本月查看</div>
+						</el-col>
+					</el-row>
+				</div>
 			</el-col>
 		</el-row>
 	</div>
@@ -76,6 +88,22 @@
 	}
 </script>
 <style type="text/css">
+	.myarticle .visit-container{
+		height: 100px;
+		color: #b6b1aa;
+	}
+	.myarticle .visit-container .el-row{
+		height: 100%;
+	}
+	.myarticle .visit-container .el-row .el-col div{
+		line-height: 50px;
+	}
+	.myarticle .right-container .el-col{
+		text-align: center;
+	}
+	.myarticle .right-container .el-col:first-child{
+		border-right: 1px solid rgb(212, 217, 223);
+	}
 	.myarticle .order{
 		position: relative;
 		float: right;
@@ -110,6 +138,10 @@
 	.myarticle .info .top .left h3{
 		margin-bottom: 3px!important;
 	}
+	.myarticle .info .top .left span{
+		color: #b6b1aa;
+		font-weight: 600;
+	}
 	.myarticle .info .bottom{
 		padding-top: 10px;
 		padding-bottom: 10px;
@@ -118,6 +150,9 @@
 		width: 200px;
 		font-size: 12px;
 		color: #b6b1aa;
+	}
+	.myarticle .info .bottom .left i{
+		color: #433326;
 	}
 	.myarticle .info .bottom .left div{
 		line-height: 25px;

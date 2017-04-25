@@ -5,10 +5,12 @@
 			<a v-for="menu in menus" :class="menu.clas" @click="toggleClas(menu)">
 		  		<router-link :to="menu.to"><i :class="menu.ico">&nbsp;</i>{{menu.name}}</router-link>
 		  	</a>
-			<a>
-				<router-link to="/signIn">登录</router-link>
-				<router-link to="#"><b>.</b></router-link>
-				<router-link to="/signUp">注册</router-link>
+			<a class="nav-login">
+				<!-- <router-link to="/signIn" @click="dialogVisible = true">登录</router-link> -->
+				<el-button type="text" @click="signIn">登录</el-button>
+				<b>.</b>
+				<!-- <router-link to="/signUp">注册</router-link> -->
+				<el-button type="text" @click="signUp">注册</el-button>
 			</a>
 
 			<el-dropdown class="pull-right">
@@ -27,13 +29,27 @@
 				<button class="pull-right plus">+</button>
 			</router-link>
 		</div>
+		<el-dialog :title="issignin?'登录':'注册'" v-model="dialogVisible" size="tiny">
+		  <!-- <span>这是一段信息</span>
+		  <span slot="footer" class="dialog-footer">
+		    <el-button @click="dialogVisible = false">取 消</el-button>
+		    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+		  </span> -->
+		  <signin v-if="issignin"></signin>
+		  <signup v-else-if="!issignin"></signup>
+		</el-dialog>
 	</div>
 </template>
 
 <script type="text/javascript">
+	import SignIn from '../../pages/Sign/SignIn.vue'
+	import SignUp from '../../pages/Sign/SignUp.vue'
 	export default{
 	data(){
-		return {}
+		return {
+			dialogVisible: false,
+			issignin: false
+		}
 	},
 	props: ['menus'],
 	methods: {
@@ -45,12 +61,33 @@
 					this.menus[i].clas = "";
 				}
 			}
+		},
+		signIn: function(){
+			this.dialogVisible = true;
+			this.issignin = true;
+		},
+		signUp: function(){
+			this.dialogVisible = true;
+			this.issignin = false;
 		}
+	},
+	components: {
+		"signin": SignIn,
+		"signup": SignUp
 	}
 }
 </script>
 
 <style type="text/css">
+	.header .el-dialog--tiny {
+    	width: 300px;
+	}
+	.header .nav-login{
+
+	}
+	.header .nav-login button.el-button.el-button--text {
+    	color: #fff!important;
+	}
 	.header .plus{
 		font-size: 35px;
 	    background: none;
