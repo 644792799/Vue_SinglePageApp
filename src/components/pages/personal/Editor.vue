@@ -76,10 +76,10 @@
 	    },
 	    methods:{
 	        editorInit:function () {
-	            require('vue-ace-editor/node_modules/brace/mode/html');
-	            require('vue-ace-editor/node_modules/brace/mode/javascript');
-	            require('vue-ace-editor/node_modules/brace/mode/less');
-	            require('vue-ace-editor/node_modules/brace/theme/github');
+	            require('vue2-ace-editor/node_modules/brace/mode/html');
+	            require('vue2-ace-editor/node_modules/brace/mode/javascript');
+	            require('vue2-ace-editor/node_modules/brace/mode/less');
+	            require('vue2-ace-editor/node_modules/brace/theme/github');
 	        }
 	    }
 	  }
