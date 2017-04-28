@@ -42,7 +42,7 @@
 					<el-tabs >
 					  <el-tab-pane label="代码片" style="min-height:300px;">
 					  	<div class="filtercontainer">
-					  		<el-button-group class="filter">
+					  		<!-- <el-button-group class="filter">
 							  <el-button :disabled="true">全部</el-button>
 							  <el-button>公有</el-button>
 							  <el-button>私有</el-button>
@@ -52,7 +52,58 @@
 							<div class="order">
 								<el-button type="text">发布时间</el-button>
 								<el-button type="text" :disabled="true">更新时间</el-button>
-							</div>
+							</div> -->
+							<el-form :inline="true" :model="formInline" class="demo-form-inline">
+							  <el-form-item label="类型">
+							    <el-select v-model="formInline.type" placeholder="类型选择">
+							      <el-option label="全部" value="All"></el-option>
+							      <el-option label="公有" value="public"></el-option>
+							      <el-option label="私有" value="private"></el-option>
+							      <el-option label="FORK" value="fork"></el-option>
+							    </el-select>
+							  </el-form-item>
+							  <el-form-item label="语言">
+							    <el-select v-model="formInline.language" placeholder="语言选择">
+							      <el-option label="全部" value="All"></el-option>
+							      <el-option label="JAVA" value="JAVA"></el-option>
+							      <el-option label="JAVASCRIPT" value="JAVASCRIPT"></el-option>
+							      <el-option label="C#" value="C#"></el-option>
+							    </el-select>
+							  </el-form-item>
+							</el-form>
+							<SmsLine gradfrom="center"></SmsLine>
+					  	</div>
+					  </el-tab-pane>
+					  <el-tab-pane label="收藏" style="min-height:300px;">
+					  	<div class="filtercontainer">
+					  		<!-- <el-button-group class="filter">
+							  <el-button :disabled="true">全部</el-button>
+							  <el-button>公有</el-button>
+							  <el-button>私有</el-button>
+							  <el-button>收藏</el-button>
+							  <el-button>FORK</el-button>
+							</el-button-group>
+							<div class="order">
+								<el-button type="text">发布时间</el-button>
+								<el-button type="text" :disabled="true">更新时间</el-button>
+							</div> -->
+							<el-form :inline="true" :model="formInline" class="demo-form-inline">
+							  <el-form-item label="语言">
+							    <el-select v-model="formInline.language2" placeholder="语言选择">
+							      <el-option label="全部" value="All"></el-option>
+							      <el-option label="JAVA" value="JAVA"></el-option>
+							      <el-option label="JAVASCRIPT" value="JAVASCRIPT"></el-option>
+							      <el-option label="C#" value="C#"></el-option>
+							    </el-select>
+							  </el-form-item>
+							  <el-form-item label="排序">
+							    <el-select v-model="formInline.star" placeholder="排序选择">
+							      <el-option label="最近收藏" value="recent"></el-option>
+							      <el-option label="最近更新" value="active"></el-option>
+							      <el-option label="收藏最多" value="most"></el-option>
+							    </el-select>
+							  </el-form-item>
+							</el-form>
 							<SmsLine gradfrom="center"></SmsLine>
 					  	</div>
 					  </el-tab-pane>
@@ -82,7 +133,13 @@
 	export default{
 		data(){
 			return{
-				author: "cjay"
+				author: "cjay",
+				formInline: {
+		          type: 'All',
+		          language: 'All',
+		          language2: 'All',
+		          star: 'recent'
+		        }
 			}
 		}
 	}
@@ -112,6 +169,12 @@
 	}
 	.myarticle .filtercontainer{
 		position: relative;
+		text-align: right;
+	}
+	.myarticle .el-form-item{
+		width: 150px;
+		vertical-align: middle;
+		margin: 10px 5px;
 	}
 	.myarticle .filter{
 		margin: 10px 10px;

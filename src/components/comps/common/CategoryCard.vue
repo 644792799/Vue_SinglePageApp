@@ -6,6 +6,7 @@
 				<li v-for="cat in categoriesdata">
 					<a href="">
 						<span>{{cat.name}}</span>
+						<!-- <SmsPoint :label="cat.name"></SmsPoint> -->
 						<span class="count">{{cat.count}}</span>
 					</a>
 				</li>

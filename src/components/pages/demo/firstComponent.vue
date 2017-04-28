@@ -29,6 +29,11 @@
 				<P>bs-c0</P>
 				<P>#FFF</P>
 			</div> -->
+			<!-- <span class="default-language-color">
+				<span class=""></span>
+			</span> -->
+			<SmsPoint language="java" label="Java" style="color:red;"></SmsPoint>
+			<SmsPoint label="Default"></SmsPoint>
 	  	</div>
 	  </el-col>
 	  <el-col :span="3">
@@ -121,6 +126,24 @@
 </script>
 
 <style type="text/css">
+	.default-language-color{
+		position: relative;
+	    top: 1px;
+	    display: inline-block;
+	    width: 12px;
+	    height: 12px;
+	    border-radius: 50%;
+	    background: #e4e4e4;
+	    line-height: 12px;
+	}
+	.default-language-color span{
+		background: #ccc;
+		border-radius: 50%;
+		width: 6px;
+	    height: 6px;
+	    margin: 3px;
+	    display: inline-block;
+	}
 	.w20{
 		height: 40px;
 		text-align: center;
