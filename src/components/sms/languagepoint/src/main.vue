@@ -46,4 +46,22 @@
   .sms-point .java span{
     background: #f46b36;
   }
+  .sms-point .php{
+    background: rgba(29, 144, 230, 0.32);
+  }
+  .sms-point .php span{
+    background: #1d90e6;
+  }
+  .sms-point .javascript{
+    background: rgba(239, 28, 222, 0.32);
+  }
+  .sms-point .javascript span{
+    background: #ef1cde;
+  }
+  .sms-point .css{
+    background: rgba(247, 186, 42, 0.32);
+  }
+  .sms-point .css span{
+    background: rgb(247, 186, 42);
+  }
 </style>

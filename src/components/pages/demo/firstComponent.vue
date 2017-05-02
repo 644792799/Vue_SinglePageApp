@@ -32,7 +32,10 @@
 			<!-- <span class="default-language-color">
 				<span class=""></span>
 			</span> -->
-			<SmsPoint language="java" label="Java" style="color:red;"></SmsPoint>
+			<SmsPoint language="java" label="Java"></SmsPoint>
+			<SmsPoint language="php" label="Php"></SmsPoint>
+			<SmsPoint language="javascript" label="Javascript"></SmsPoint>
+			<SmsPoint language="css" label="Css"></SmsPoint>
 			<SmsPoint label="Default"></SmsPoint>
 	  	</div>
 	  </el-col>
