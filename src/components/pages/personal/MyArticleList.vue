@@ -40,7 +40,8 @@
 				</div>
 				<div style="margin-top:10px;">
 					<el-tabs >
-					  <el-tab-pane label="代码片" style="min-height:300px;">
+					  <el-tab-pane style="min-height:300px;">
+					  	<span slot="label"><i class="icon-embed2"></i> 代码片</span>
 					  	<div class="filtercontainer">
 					  		<!-- <el-button-group class="filter">
 							  <el-button :disabled="true">全部</el-button>
@@ -74,7 +75,8 @@
 							<SmsLine gradfrom="center"></SmsLine>
 					  	</div>
 					  </el-tab-pane>
-					  <el-tab-pane label="收藏" style="min-height:300px;">
+					  <el-tab-pane style="min-height:300px;">
+					  	<span slot="label"><i class="icon-star"></i> 收藏</span>
 					  	<div class="filtercontainer">
 					  		<!-- <el-button-group class="filter">
 							  <el-button :disabled="true">全部</el-button>
@@ -107,8 +109,12 @@
 							<SmsLine gradfrom="center"></SmsLine>
 					  	</div>
 					  </el-tab-pane>
-					  <el-tab-pane label="关注" style="min-height:300px;"></el-tab-pane>
-					  <el-tab-pane label="粉丝" style="min-height:300px;"></el-tab-pane>
+					  <el-tab-pane style="min-height:300px;">
+					  	<span slot="label"><i class="icon-user-check"></i> 关注</span>
+					  </el-tab-pane>
+					  <el-tab-pane style="min-height:300px;">
+					  	<span slot="label"><i class="icon-users"></i> 粉丝</span>
+					  </el-tab-pane>
 					</el-tabs>
 				</div>
 			</el-col>

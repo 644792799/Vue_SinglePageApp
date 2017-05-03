@@ -1,7 +1,17 @@
 <template>
 	<div class="header">
 		<div class="nav">
-			<a href="#" class="logo"><img src="/static/img/github.png"></a>
+			
+			<router-link to="/index" class="icon-steps"></router-link>
+			<el-input placeholder="查找代码片" v-model="input5" style="width:300px;float:left;margin: 7px 15px 7px 0;">
+				<el-select v-model="select" slot="prepend" placeholder="请选择">
+			      <el-option label="标题" value="1"></el-option>
+			      <el-option label="內容" value="2"></el-option>
+			      <el-option label="综合" value="3"></el-option>
+			    </el-select>
+			    <!-- <el-button slot="append" icon="search"></el-button> -->
+			  </el-input>
+			<!-- <a href="#" class="icon-steps"></a> -->
 			<a v-for="menu in menus" :class="menu.clas" @click="toggleClas(menu)">
 		  		<router-link :to="menu.to"><i :class="menu.ico">&nbsp;</i>{{menu.name}}</router-link>
 		  	</a>
@@ -13,10 +23,16 @@
 				<el-button type="text" @click="signUp">注册</el-button>
 			</a>
 
+			<div class="pull-right plus-container">
+				<router-link to="/editor">
+					<i class="icon-plus"></i>
+				</router-link>
+			</div>
+
 			<el-dropdown class="pull-right">
 			  	<span class="el-dropdown-link">
 			    	<img src="/static/img/头像示例2.jpg" class="el-dropdown-img">
-			    	<el-badge is-dot class="item">&nbsp;用户名</el-badge><i class="el-icon-arrow-down el-icon--right"></i>
+			    	&nbsp;用户名<i class="el-icon-arrow-down el-icon--right"></i>
 			  	</span>
 			  <el-dropdown-menu slot="dropdown">
 			    <el-dropdown-item>
@@ -25,9 +41,10 @@
 			    <el-dropdown-item><i class="icon-exit">&nbsp;</i>退出</el-dropdown-item>
 			  </el-dropdown-menu>
 			</el-dropdown>
-			<router-link to="/editor" class="pull-right">
-				<button class="pull-right plus">+</button>
-			</router-link>
+			
+			<div class="pull-right notice-container">
+				<button class="notice icon-bell"></button>
+			</div>
 		</div>
 		<el-dialog :title="issignin?'登录':'注册'" v-model="dialogVisible" size="tiny">
 		  <!-- <span>这是一段信息</span>
@@ -48,7 +65,9 @@
 	data(){
 		return {
 			dialogVisible: false,
-			issignin: false
+			issignin: false,
+			select: "3",
+			input5: ""
 		}
 	},
 	props: ['menus'],
@@ -88,7 +107,17 @@
 	.header .nav-login button.el-button.el-button--text {
     	color: #fff!important;
 	}
-	.header .plus{
+	.header .notice{
+		background: none;
+	    border: 0;
+	    color: #fff;
+	    font-weight: normal;
+	    line-height: 50px;
+	    *margin-right: 10px;
+	    cursor: pointer;
+	    font-size: 15px;
+	}
+	/*.header .plus{
 		font-size: 35px;
 	    background: none;
 	    border: 0;
@@ -97,13 +126,22 @@
 	    line-height: 40px;
 	    *margin-right: 10px;
 	    cursor: pointer;
+	}*/
+	.header .plus-container a{
+		margin-right: 0!important;
+		width: 50px;
+		background: #fff;
+		color: #ea7069!important;
 	}
-	.header .plus:focus{
+	.header .plus-container i{
+		font-size: medium;
+	}
+	.header .notice:focus{
 		outline: none;
 	}
-	.header .plus:hover{
+	/*.header .plus:hover{
 		color: #d4d9df;
-	}
+	}*/
 	.header .icon-home{
 		*line-height: inherit;
 		*font-size: 20px!important;
@@ -130,9 +168,9 @@
 	}
 
 	.header .nav{
-		padding: 5px 30px;
+		*padding: 5px 30px;
 		width: 100%;
-		line-height: 40px;
+		line-height: 50px;
 		text-align: center;
 	}
 
@@ -145,11 +183,24 @@
 
 	.header .el-dropdown{
 		color: #FBFCFC!important;
+		font-size: 10px;
+	    font-weight: 600;
+	    padding-right: 10px;
 	}
 
 	.header .nav .active a{
 		color: #d4d9df;
 		*font-weight: bold;
+	}
+
+	.header .notice-container{
+		padding-right: 10px;
+	}
+	.header .icon-steps{
+		font-size: 30px!important;
+	    line-height: 50px;
+	    width: 50px;
+	    background: #ea7069;
 	}
 
 	.logo{

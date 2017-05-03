@@ -10,12 +10,14 @@
 <script>
 import Header from './components/comps/common/Header.vue'
 
+// {
+// 	name: '主页',
+// 	to: '/first',
+// 	clas: 'active',
+// 	ico: 'icon-home2'
+// },
+
 const menu = [{
-	name: '主页',
-	to: '/first',
-	clas: 'active',
-	ico: 'icon-home2'
-},{
 	name: '发现',
 	to: '/index',
 	clas: '',
@@ -25,11 +27,6 @@ const menu = [{
 	to: '/commonstyle',
 	clas: '',
 	ico: 'icon-info'
-},{
-	name: '组件五',
-	to: '/article',
-	clas: '',
-	ico: ''
 }];
 export default{
 	data(){

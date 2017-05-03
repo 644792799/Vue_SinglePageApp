@@ -1,8 +1,8 @@
 <template>
-	<div>
+	<div class="index">
 		<el-row>
 			<el-col :span="16" :offset="1">
-			  	<div style="margin-top: 15px;margin-bottom:15px;" class="grid-content">
+			  	<!-- <div style="margin-top: 15px;margin-bottom:15px;" class="grid-content">
 				  <el-input placeholder="查找代码片" v-model="input5" size="large">
 				    <el-select v-model="select" slot="prepend" placeholder="请选择">
 				      <el-option label="标题" value="1"></el-option>
@@ -11,8 +11,8 @@
 				    </el-select>
 				    <el-button slot="append" icon="search"></el-button>
 				  </el-input>
-				</div>
-				<el-tabs v-model="activeName" @tab-click="handleClick">
+				</div> -->
+				<!-- <el-tabs v-model="activeName" @tab-click="handleClick">
 				    <el-tab-pane label="评分最高" name="first">
 				    	<div class="grid-content">
 					  		<articleList :articlesdata="articlesdata"></articleList>
@@ -27,7 +27,35 @@
 				    <el-tab-pane label="FORK最多" name="fourth">
 				    	<articleList :articlesdata="articlesdata"></articleList>
 				    </el-tab-pane>
-			    </el-tabs>
+			    </el-tabs> -->
+			    <div style="margin-top: 15px;margin-bottom:15px;">
+			    	<div class="filtercontainer">
+			    		<el-form :inline="true" :model="formInline" class="demo-form-inline">
+						  <el-form-item label="排序">
+						    <el-select v-model="formInline.order" placeholder="类型选择">
+						      <el-option label="最新发布" value="new"></el-option>
+						      <el-option label="收藏最多" value="star"></el-option>
+						      <el-option label="FORK最多" value="fork"></el-option>
+						      <el-option label="评分最高" value="vote"></el-option>
+						    </el-select>
+						  </el-form-item>
+						  <!-- <el-form-item label="语言">
+						    <el-select v-model="formInline.language" placeholder="语言选择">
+						      <el-option label="全部" value="All"></el-option>
+						      <el-option label="JAVA" value="JAVA"></el-option>
+						      <el-option label="JAVASCRIPT" value="JAVASCRIPT"></el-option>
+						      <el-option label="C#" value="C#"></el-option>
+						    </el-select>
+						  </el-form-item> -->
+						</el-form>
+						<SmsLine gradfrom="center"></SmsLine>
+			    	</div>
+			    	<div>
+			    		<div class="grid-content">
+					  		<articleList :articlesdata="articlesdata"></articleList>
+					  	</div>
+			    	</div>
+			    </div>
 			</el-col>
 			<el-col :span="6" class="right-container">
 				<div style="text-align:right;position:relative;border-bottom:1px solid #d4d9df;">
@@ -112,7 +140,13 @@
 				],
 				input5: '',
       			select: '',
-      			activeName: 'second'
+      			activeName: 'second',
+      			formInline: {
+		          type: 'All',
+		          language: 'All',
+		          language2: 'All',
+		          order: 'new'
+		        }
 			}
 		},
 		components: {
@@ -128,8 +162,17 @@
 </script>
 
 <style type="text/css">
+	.index .filtercontainer{
+		position: relative;
+		text-align: right;
+	}
+	.index .el-form-item{
+		width: 150px;
+		vertical-align: middle;
+		margin: 10px 5px;
+	}
 	.el-select .el-input {
-    	width: 110px;
+    	width: 75px;
   	}
   	.el-tabs__header{
   		margin: 0 0 0!important;
