@@ -31,6 +31,10 @@ Vue.use(SmsUI);
 
 const routes = [
 	{
+		path: '/',
+		component: Main
+	},
+	{
 		path: '/first',
 		component: FirstComponent
 	},
