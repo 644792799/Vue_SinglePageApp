@@ -1,7 +1,7 @@
 <template>
 	<div class="myarticle">
 		<el-row>
-			<el-col :span="16" :offset="1">
+			<el-col :span="15" :offset="1">
 				<div style="display: flex;flex-direction: row;border-bottom:1px solid #d4d9df;">
 					<div class="userimg-container">
 						<img src="/static/img/头像示例2.jpg" style="height:150px;width:150px;">
@@ -118,7 +118,7 @@
 					</el-tabs>
 				</div>
 			</el-col>
-			<el-col :span="6" class="right-container">
+			<el-col :span="6" :offset="1" class="right-container">
 				<div class="visit-container">
 					<el-row>
 						<el-col :span="12">

@@ -115,7 +115,7 @@
 	    line-height: 50px;
 	    *margin-right: 10px;
 	    cursor: pointer;
-	    font-size: 15px;
+	    font-size: 14px;
 	}
 	/*.header .plus{
 		font-size: 35px;
@@ -130,8 +130,8 @@
 	.header .plus-container a{
 		margin-right: 0!important;
 		width: 50px;
-		background: #fff;
-		color: #ea7069!important;
+		background: #ea7069;
+    	color: #fff!important;
 	}
 	.header .plus-container i{
 		font-size: medium;
@@ -200,7 +200,8 @@
 		font-size: 30px!important;
 	    line-height: 50px;
 	    width: 50px;
-	    background: #ea7069;
+	    *background: #ea7069;
+	    color: #ea7069!important;
 	}
 
 	.logo{

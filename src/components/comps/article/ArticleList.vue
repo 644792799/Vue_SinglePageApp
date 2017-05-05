@@ -1,9 +1,9 @@
 <template>
 	<div class="articles-list">
-		<div style="position:relative;padding:10px;">
+		<!-- <div style="position:relative;padding:10px;">
 			<i class="icon-terminal"></i>
 			<SmsLine gradfrom="center"></SmsLine>
-		</div>
+		</div> -->
 		<articleSimple v-for="art in articlesdata" :art="art"></articleSimple>
 		<div style="text-align:center;margin-top:20px;">
 	    	<div class="block">
@@ -53,9 +53,9 @@
 	    *border: 1px solid #eaeefb;
 	    *border-radius: 4px;
 	    transition: .2s;
-	    background: #fff;
+	    *background: #fff;
 	    *box-shadow: 0 0 1px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
 	    min-height: 400px;
-	    box-shadow: #d5d9de 0px 0px 2px 0px;
+	    *box-shadow: #d5d9de 0px 0px 2px 0px;
 	}
 </style>

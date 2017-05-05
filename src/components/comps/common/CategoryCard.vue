@@ -53,6 +53,7 @@
 	.cat-list li:hover{
 		text-decoration: none;
     	background-color: #eaecef;
+    	border-radius: 0px;
 	}
 	.cat-list a{
 		padding: 4px 10px;

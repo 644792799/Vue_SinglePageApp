@@ -1,7 +1,7 @@
 <template>
 	<div class="index">
 		<el-row>
-			<el-col :span="16" :offset="1">
+			<el-col :span="15" :offset="1">
 			  	<!-- <div style="margin-top: 15px;margin-bottom:15px;" class="grid-content">
 				  <el-input placeholder="查找代码片" v-model="input5" size="large">
 				    <el-select v-model="select" slot="prepend" placeholder="请选择">
@@ -48,7 +48,7 @@
 						    </el-select>
 						  </el-form-item> -->
 						</el-form>
-						<SmsLine gradfrom="center"></SmsLine>
+						<SmsLine gradfrom="left"></SmsLine>
 			    	</div>
 			    	<div>
 			    		<div class="grid-content">
@@ -57,15 +57,13 @@
 			    	</div>
 			    </div>
 			</el-col>
-			<el-col :span="6" class="right-container">
+			<el-col :span="6" :offset="1" class="right-container">
 				<div style="text-align:right;position:relative;border-bottom:1px solid #d4d9df;">
 					<router-link to="/editor">
 						<el-button style="margin: 10px 5px">添加代码片<i class="el-icon-plus el-icon--right"></i></el-button>
-						</router-link>
-					<div class="gradient-line"></div>
+					</router-link>
 				</div>
 				<div style="position:relative;">
-					<div class="gradient-line"></div>
 					<categoryCard :categoriesdata="categories"></categoryCard>
 				</div>
 				<div style="position:relative;background: #fbfcfc;">
@@ -101,19 +99,34 @@
 						avator: '/static/img/头像示例2.jpg',
 						title: '基础知识汇总',
 						category: ['类别1','类别2'],
-						url: '/#/article'
+						url: '/#/article',
+						cat: 'java',
+						view: 56,
+						star: 24,
+						fork: 71,
+						date: '2017-05-05 10:05'
 					},
 					{
 						avator: 'https://www.gravatar.com/avatar/644792799?d=http://tva4.sinaimg.cn/crop.0.0.599.599.50/62e42164gw1ev348sehr3j20go0go3zm.jpg',
 						title: 'test2',
 						category: ['类别3','类别4','类别5','类别6'],
-						url: '/#/article'
+						url: '/#/article',
+						cat: 'css',
+						view: 72,
+						star: 30,
+						fork: 66,
+						date: '2017-04-05 12:05'
 					},
 					{
 						avator: '/static/img/头像示例.jpg',
 						title: '基础知识汇总2',
 						category: ['类别1','类别2'],
-						url: '/#/article'
+						url: '/#/article',
+						cat: 'javascript',
+						view: 100,
+						star: 80,
+						fork: 98,
+						date: '2017-04-03 09:05'
 					}
 				],
 				categories: [
@@ -164,7 +177,7 @@
 <style type="text/css">
 	.index .filtercontainer{
 		position: relative;
-		text-align: right;
+		*text-align: right;
 	}
 	.index .el-form-item{
 		width: 150px;

@@ -21,7 +21,7 @@ const menu = [{
 	name: '发现',
 	to: '/index',
 	clas: '',
-	ico: 'icon-search'
+	ico: 'icon-globe'
 },{
 	name: '关于',
 	to: '/commonstyle',

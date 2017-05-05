@@ -1,7 +1,7 @@
 <!--  -->
 <template>
-	<SmsCard class="articles-item" bodyStyle="display:flex;">
-		<SmsLine gradfrom="center"></SmsLine>
+	<SmsCard class="articles-item" bodyStyle="display:flex;width:100%;">
+		<!-- <SmsLine gradfrom="center"></SmsLine> -->
 		<a href="" class="articles-thumbnail">
 			<span>
 				<img :src="art.avator"/>
@@ -13,13 +13,22 @@
 			</div>
 			<div class="articles-item-categories">
 				<span>
-					<a href="">cjay</a>&nbsp;
+					<i class="icon-user-check">&nbsp;</i><a href="">Admin</a>
 				</span>
-				<span>在&nbsp;2015.02.03&nbsp;</span>
 				<span>
-					发布于
-					<a href="">java</a>
-					分类下
+					<i class="icon-calendar">&nbsp;</i> {{art.date}}
+				</span>
+				<span>
+					<SmsPoint :language="art.cat" :label="art.cat" style="color:#939c99!important;"></SmsPoint>
+				</span>
+				<span>
+					<i class="icon-eye">&nbsp;</i>{{art.view}}
+				</span>
+				<span>
+					<i class="icon-star">&nbsp;</i>{{art.star}}
+				</span>
+				<span>
+					<i class="icon-git-branch">&nbsp;</i>{{art.fork}}
 				</span>
 				<!-- <a href="" class="articles-item-category" v-for="cat in art.category">{{cat}}</a> -->
 			</div>
@@ -45,13 +54,15 @@
 	.articles-item{
 		display: flex;
 	    align-items: center;
-	    padding: 10px 10px;
+	    *padding: 10px 10px;
 	    *margin-bottom: 15px;
 	    border: none;
 	    background-color: #fff;
 	    *border-left: 2px solid #20a0ff;
 	    *box-shadow: 0px 1px 15px #e6e7e8;
 	    position: relative;
+	    margin-bottom: 10px;
+	    border-radius: 2px;
 	}
 
 	.articles-item:hover{
@@ -67,6 +78,8 @@
 
 	.articles-item-header{
 		flex-grow: 1;
+		*padding: 10px 10px;
+		padding-left: 10px;
 	}
 
 	.articles-thumbnail{
@@ -83,14 +96,15 @@
 	}
 
 	.articles-thumbnail img{
-		width: 55px;
+		width: 65px;
 		display: block;
-	    border-radius: 55px;	
+	    *border-radius: 55px;	
 	}
 
 	.articles-item-title{
 		flex-grow: 1;
 		margin-bottom: 5px;
+		padding-top: 10px;
 	}
 
 	.articles-item-title a{
@@ -117,12 +131,28 @@
 	.articles-item-categories{
 		display: flex;
 		font-size: 12px;
-		opacity: 0.5;
+		*opacity: 0.5;
+		height: 26px;
+	    line-height: 26px;
+	    text-align: center;
+	    color: #939c99;
 	}
 
 	.articles-item-categories a{
-		color: #66b5cb;
+		color: #20a0ff;
 		opacity: 1;
+	}
+
+	.articles-item-categories>span{
+		border-right: 1px solid #fbfcfc;
+		padding-right: 10px;
+		padding-left: 10px;
+		overflow: hidden;
+	}
+
+	.articles-item-categories>span:first-child{
+		*border-left: 1px solid #fbfcfc;
+		padding-left: 0px;
 	}
 
 	.articles-item-meta{

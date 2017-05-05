@@ -1,7 +1,7 @@
 <template>
 	<div class="article-detail">
 		<el-row>
-		  <el-col :span="16" :offset="1">
+		  <el-col :span="15" :offset="1">
 		  	<div class="breadcrumb-container">
 		  		<el-breadcrumb separator="/">
 				  <el-breadcrumb-item :to="{ path: '/index' }">首页</el-breadcrumb-item>
@@ -35,9 +35,10 @@
 				</div>
 		  	</div>
 		  </el-col>
-		   <el-col :span="6" class="right-container">
+		   <el-col :span="6" :offset="1" class="right-container">
 		   		<div class="grid-content article-stats">
-		   			<div class=""><span class="tag">代码片作者</span>:张三 + 小头像 </div>
+		   			<img src="/static/img/头像示例2.jpg" class="userimg">
+		   			<div class=""><span class="tag">代码片作者</span>:张三</div>
 					<div class="">文章发布时间+阅读量</div>
 					<div class="">语言分类:java</div>
 					<div class="">分享</div>
@@ -149,6 +150,17 @@
 		display: flex;
 		flex-direction: column;
 		margin-top: 12px;
+		position: relative;
+	}
+
+	.article-stats .userimg{
+		width: 56px;
+	    height: 56px;
+	    position: absolute;
+	    top: -28px;
+	    left: -28px;
+	    border-radius: 28px;
+	    box-shadow: 1px 2px 4px 0px #d4d9df;
 	}
 
 	.article-stats div{
@@ -160,6 +172,10 @@
     	font-size: 12px;
     	font-weight: 400;
     	padding: 0 0 0 10px;
+	}
+
+	.article-stats div .tag{
+		margin-left: 28px;
 	}
 
 	.article-stats div i{

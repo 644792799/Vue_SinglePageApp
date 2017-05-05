@@ -16,7 +16,7 @@
 <style type="text/css">
   .sms-point{
     color: rgba(65, 72, 77, 0.72);
-    text-align: left;
+    *text-align: left;
   }
   .sms-point .languagelabel{
     font-weight: 600;

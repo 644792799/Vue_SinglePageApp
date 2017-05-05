@@ -20,6 +20,7 @@
   .sms-card{
     background: #fff;
     position: relative;
+    box-shadow: #d5d9de -0.5px 0.5px 2px 0px;
   }
   .sms-card__body{
     
