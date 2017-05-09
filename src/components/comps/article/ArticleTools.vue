@@ -77,17 +77,17 @@
 <style type="text/css">
 	.article-tools{
 		width: 100%;
-		height: 50px;
+		height: 100%;
 		background: #fff;
 	}
 	.article-tools button{
 		float: right;
-		width: 50px;
+		width: 30px;
 		height: 100%;
 		border: 0;
 		border-left: 1px solid #d4d9df;
 		background: #fff;
-		font-size: 25px;
+		font-size: 15px;
 	}
 	.article-tools button:hover{
 		background: #F9FAFB;
@@ -104,5 +104,12 @@
 		float: left;
 	    border-left: 0;
 	    border-right: 1px solid #d4d9df;
+	}
+	.article-tools .delete{
+		color: #ea7069;
+	}
+	.article-tools .delete:hover{
+		background-color: #ea7069;
+		color:#fff;
 	}
 </style>

@@ -3,13 +3,14 @@
   <div id="" class="main">
   	<SmsBackToTop></SmsBackToTop>
   	<navbar :menus="menus"></navbar>
-  	<router-view style="padding-top:50px;"></router-view>
+  	<router-view class="content"></router-view>
+  	<footerbar></footerbar>
   </div>
 </template>
 
 <script>
 import Header from './components/comps/common/Header.vue'
-
+import Footer from './components/comps/common/Footer.vue'
 // {
 // 	name: '主页',
 // 	to: '/first',
@@ -46,7 +47,8 @@ export default{
 		}
 	}, 
 	components: {
-		"navbar": Header
+		"navbar": Header,
+		"footerbar": Footer
 	}
 }
 </script>
@@ -58,8 +60,12 @@ export default{
 		*max-width: 1140px;
 	}
 	.content{
-		overflow-y: auto;
-		height: 100%
+		*overflow-y: auto;
+		*height: 100%;
+		padding-top:50px;
+		margin: 0 auto;
+		max-width: 1140px;
+		min-width: 900px;
 	}
 	.nav-pills > li > a {
     	border-radius: 0px!important;

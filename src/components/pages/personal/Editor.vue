@@ -25,6 +25,9 @@
 					    	<el-input type="textarea" v-model="form.desc"></el-input>
 					  	</el-form-item>
 					  	<el-form-item>
+					  		<el-checkbox v-model="isprivate">私有</el-checkbox>
+					  	</el-form-item>
+					  	<el-form-item>
 						    <el-button type="primary">添加</el-button>
 						    <el-button>重置</el-button>
 					  	</el-form-item>
@@ -68,7 +71,8 @@
 		          value: '选项5',
 		          label: 'CSS'
 		        }],
-	        value8: ''
+	        value8: '',
+	        isprivate: false
 	      }
 	    },
 	    components: {

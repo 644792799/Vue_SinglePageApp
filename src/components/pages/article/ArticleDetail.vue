@@ -111,7 +111,7 @@
 	}
 	.article-content .tools{
 		background: #fff;
-		height: 50px;
+		height: 30px;
 		border-bottom: 1px solid #eaeefb;
 	}
 	.article-content .source{
