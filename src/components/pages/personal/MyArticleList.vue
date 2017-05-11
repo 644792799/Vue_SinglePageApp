@@ -2,7 +2,7 @@
 	<div class="myarticle">
 		<el-row>
 			<el-col :span="15" :offset="1">
-				<div style="display: flex;flex-direction: row;border-bottom:1px solid #d4d9df;">
+				<div style="display: flex;flex-direction: row;">
 					<div class="userimg-container">
 						<img src="/static/img/头像示例2.jpg" style="height:150px;width:150px;">
 					</div>
@@ -37,6 +37,9 @@
 							</div>
 						</div>
 					</div>
+				</div>
+				<div class="contribution-container">
+					<contribution></contribution>
 				</div>
 				<div style="margin-top:10px;">
 					<el-tabs >
@@ -136,6 +139,7 @@
 	</div>
 </template>
 <script type="text/javascript">
+	import Contribution from 'components/comps/common/Contribution.vue'
 	export default{
 		data(){
 			return{
@@ -147,10 +151,20 @@
 		          star: 'recent'
 		        }
 			}
-		}
+		},
+	    components: {
+	      "contribution": Contribution
+	    }
 	}
 </script>
 <style type="text/css">
+	.myarticle .contribution-container{
+		overflow: auto;
+    	margin-top: 10px;
+		border: 1px solid rgb(212, 217, 223);
+	    padding: 10px 5px;
+	    border-radius: 2px;
+	}
 	.myarticle .visit-container{
 		height: 100px;
 		color: #b6b1aa;

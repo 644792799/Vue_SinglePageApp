@@ -41,6 +41,7 @@
 	</div>
 </template>
 <script type="text/javascript">
+	import Editor from 'vue2-ace-editor'
 	export default {
 	    data () {
 	      return {
@@ -76,7 +77,7 @@
 	      }
 	    },
 	    components: {
-	      editor:require('vue2-ace-editor'),
+	      editor:Editor,//require('vue2-ace-editor'),
 	    },
 	    methods:{
 	        editorInit:function () {
@@ -84,6 +85,8 @@
 	            require('vue2-ace-editor/node_modules/brace/mode/javascript');
 	            require('vue2-ace-editor/node_modules/brace/mode/less');
 	            require('vue2-ace-editor/node_modules/brace/theme/github');
+
+	            //Editor.setTheme("ace/theme/twilight");
 	        }
 	    }
 	  }

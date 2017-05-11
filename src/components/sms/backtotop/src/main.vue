@@ -26,5 +26,9 @@
 		text-align: center;
     	line-height: 50px;
     	background: #d4d9df;
+    	opacity: 0.5;
+	}
+	.sms-backtotop:hover{
+		opacity: 1;
 	}
 </style>
