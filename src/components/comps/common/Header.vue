@@ -17,13 +17,11 @@
 		  		<router-link :to="menu.to"><i :class="menu.ico">&nbsp;</i>{{menu.name}}</router-link>
 		  	</span>
 		  	<!-- </a> -->
-			<a class="nav-login">
-				<!-- <router-link to="/signIn" @click="dialogVisible = true">登录</router-link> -->
+			<!-- <a class="nav-login">
 				<el-button type="text" @click="signIn">登录</el-button>
 				<b>.</b>
-				<!-- <router-link to="/signUp">注册</router-link> -->
 				<el-button type="text" @click="signUp">注册</el-button>
-			</a>
+			</a> -->
 
 			<div class="pull-right plus-container">
 				<router-link to="/editor">
@@ -176,18 +174,26 @@
 		text-align: center;
 	}
 
-	.header .nav>span:hover{
-		color: #ea7069;
-		border-bottom: 5px solid #ea7069;
-		height: 45px;
-    	transition: all .15s ease-in-out;
+	.header .nav>span{
+		overflow: hidden;
+		height: 50px;
+		transition: all .15s ease-in-out;
 	}
-	.header .nav>span:hover>a{
+
+	.header .nav>span>a{
+		border-bottom: 5px solid #ea7069;
+		padding: 0 10px;
+		transition: all .15s ease-in-out;
+		height: 50px;
+	}
+
+	.header .nav>span>a:hover{
 		color: #ea7069;
+		height: 45px;
 	}
 
 	.header .nav a, .header .nav span{
-		margin-right: 15px;
+		*margin-right: 15px;
 		color: #fff;
 		font-size: 14px;
 		float: left;
@@ -214,6 +220,7 @@
 	    width: 50px;
 	    *background: #ea7069;
 	    color: #ea7069!important;
+	    margin-right: 15px;
 	}
 
 	.logo{
