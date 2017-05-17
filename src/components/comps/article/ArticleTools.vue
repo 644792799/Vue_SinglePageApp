@@ -1,6 +1,6 @@
 <template>
 	<div class="article-tools">
-		<button class="question"><i class="icon-question"></i></button>
+		<button class="question" :plain="true" @click="open"><i class="icon-question"></i></button>
 		<button class="enlarge" @click="toggleFullScreen" @keyup.esc="pressEsc"><i :class="fullScreenIco"></i></button>
 		<button class="printer"><i class="icon-printer"></i></button>
 		<button class="link"><i class="icon-link"></i></button>
@@ -35,7 +35,10 @@
 			pressEsc: function(){
 				this.isFullScreen = false;
 				this.fullScreenIco = "icon-enlarge";
-			}
+			},
+			open() {
+		        this.$message('这是一条消息提示');
+		    }
 		}
 	}
 
@@ -88,6 +91,7 @@
 		border-left: 1px solid #d4d9df;
 		background: #fff;
 		font-size: 15px;
+		color: #586069;
 	}
 	.article-tools button:hover{
 		background: #F9FAFB;

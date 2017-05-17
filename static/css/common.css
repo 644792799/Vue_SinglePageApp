@@ -146,3 +146,7 @@ h3{
 	background:#fff;
 	box-shadow:#d5d9de 1px 1px 4px 0px;
 }
+
+.hide{
+	display: none;
+}

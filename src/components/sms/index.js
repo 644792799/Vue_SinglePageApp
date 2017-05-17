@@ -3,14 +3,16 @@
 import Line from './line';
 import Card from './card';
 import BackToTop from './backtotop';
-import Point from './languagepoint'
+import Point from './languagepoint';
+import Markdown from './markdown';
 
 
 const components = [
   Line,
   Card,
   BackToTop,
-  Point
+  Point,
+  Markdown
 ];
 
 const install = function(Vue, opts = {}) {
@@ -33,5 +35,6 @@ module.exports = {
   Line,
   Card,
   BackToTop,
-  Point
+  Point,
+  Markdown
 };

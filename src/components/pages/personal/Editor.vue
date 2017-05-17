@@ -22,10 +22,12 @@
 					    	<editor v-model="content" @init="editorInit();" lang="javascript" theme="github" width="100%" height="300"></editor>
 					    </el-form-item>
 					    <el-form-item label="代码描述">
-					    	<el-input type="textarea" v-model="form.desc"></el-input>
+					    	<!-- <el-input type="textarea" v-model="form.desc"></el-input> -->
+					    	<SmsMarkdown></SmsMarkdown>
 					  	</el-form-item>
 					  	<el-form-item>
-					  		<el-checkbox v-model="isprivate">私有</el-checkbox>
+					  		<el-checkbox v-model="isprivate">是否私有</el-checkbox>
+					  		<el-checkbox v-model="allowcomment">允许评论</el-checkbox>
 					  	</el-form-item>
 					  	<el-form-item>
 						    <el-button type="primary">添加</el-button>
@@ -73,7 +75,8 @@
 		          label: 'CSS'
 		        }],
 	        value8: '',
-	        isprivate: false
+	        isprivate: false,
+	        allowcomment: true
 	      }
 	    },
 	    components: {

@@ -9,19 +9,10 @@
 			      <el-option label="內容" value="2"></el-option>
 			      <el-option label="综合" value="3"></el-option>
 			    </el-select>
-			    <!-- <el-button slot="append" icon="search"></el-button> -->
 			  </el-input>
-			<!-- <a href="#" class="icon-steps"></a> -->
-			<!-- <a v-for="menu in menus" :class="menu.clas" @click="toggleClas(menu)"> -->
 			<span v-for="menu in menus" :class="menu.clas" @click="toggleClas(menu)">
 		  		<router-link :to="menu.to"><i :class="menu.ico">&nbsp;</i>{{menu.name}}</router-link>
 		  	</span>
-		  	<!-- </a> -->
-			<!-- <a class="nav-login">
-				<el-button type="text" @click="signIn">登录</el-button>
-				<b>.</b>
-				<el-button type="text" @click="signUp">注册</el-button>
-			</a> -->
 
 			<div class="pull-right plus-container">
 				<router-link to="/editor">
@@ -47,11 +38,6 @@
 			</div>
 		</div>
 		<el-dialog :title="issignin?'登录':'注册'" v-model="dialogVisible" size="tiny">
-		  <!-- <span>这是一段信息</span>
-		  <span slot="footer" class="dialog-footer">
-		    <el-button @click="dialogVisible = false">取 消</el-button>
-		    <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-		  </span> -->
 		  <signin v-if="issignin"></signin>
 		  <signup v-else-if="!issignin"></signup>
 		</el-dialog>
