@@ -98,4 +98,13 @@
 	.form-container{
 		margin-top: 50px;
 	}
+
+	.editor .ace-github .ace_gutter {
+	    background: #fbfcfc;
+	    color: #AAA;
+	}
+	.editor .ace-github{
+		border: 1px solid #d4d9df;
+		border-radius: 4px;
+	}
 </style>
