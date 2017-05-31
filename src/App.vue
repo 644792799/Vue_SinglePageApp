@@ -65,7 +65,7 @@ export default{
 		padding-top:50px;
 		margin: 0 auto;
 		max-width: 1140px;
-		min-width: 900px;
+		min-width: 1140px;
 	}
 	.nav-pills > li > a {
     	border-radius: 0px!important;

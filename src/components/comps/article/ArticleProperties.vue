@@ -6,7 +6,7 @@
 					v-model="kval"
 					filterable  
 					allow-create 
-					placeholder="y" 
+					placeholder="" 
 					@change="propertyChange">
 					<el-option 
 						v-for="prop in propDatas" 
@@ -20,7 +20,7 @@
 					v-model="vval"  
 					filterable  
 					allow-create 
-					placeholder="y">
+					placeholder="">
 					<el-option 
 						v-for="val in currentValue" 
 						:value="val" 
@@ -28,7 +28,7 @@
 				</el-select>
 			</span>
 			<span>
-				<el-button class="button-new-tag" size="small" @click="">+</el-button>
+				<el-button class="button-new-tag" size="small" @click="addProp">+</el-button>
 			</span>
 		</div>
 		<div class="prop-show">
@@ -39,8 +39,8 @@
 				<span class="ps-val">
 					{{data.value}}
 				</span>
-				<span>
-					<el-button class="button-new-tag" size="small" @click="">-</el-button>
+				<span class="ps-del">
+					<el-button class="button-new-tag" size="small" @click="deleteProp(data.key, data.value)">-</el-button>
 				</span>
 			</div>
 			
@@ -95,11 +95,35 @@
 	  			//this.vval = [];
 	  		},
 	  		addProp: function(){
-
+	  			if(!this.isNullOrUndefined(this.vval) && !this.isNullOrUndefined(this.kval) ){
+	  				var newprop = {
+	  					key: this.kval,
+	  					value: this.vval
+	  				};
+	  				console.log(newprop);
+	  				this.showDatas.push(newprop);
+	  			}
 	  		},
-	  		deleteProp: function(){
-	  			
-	  		}
+	  		deleteProp: function(key, val){
+	  			console.log(key  + ":" + val);
+	  			var index = -999;
+	  			for (var i = 0; i < this.showDatas.length; i++) {
+	  				if(this.showDatas[i].key == key && this.showDatas[i].value == val){
+	  					index = i;
+	  					break;
+	  				}
+	  			}
+	  			if(index != -999){
+	  				this.showDatas.splice(index, 1);
+	  			}
+	  		},
+	  		isNullOrUndefined: function(val){
+	  			return val == undefined || val == null || val.length == 0 || this.trim(val) == "";
+	  		},
+	  		trim: function(str){ 
+	  				console.log(str);
+		　　     return str.replace(/(^\s*)|(\s*$)/g, "");
+		　　 }
 	  	}
 	}
 </script>
@@ -108,29 +132,49 @@
     	width: 100%;
 	}
 	.article-properties .el-select {
-    	width: 80px;
+    	width: 100px;
     	margin-bottom: 10px;
 	}
 	.article-properties .prop-add button{
 		*width: 25px;
 	}
+	.article-properties .prop-show .prop-show-ele:hover .ps-key{
+		border-color: #ea7069;
+		border-left: 5px solid #ea7069;
+		width: 93px;
+	}
+	.article-properties .prop-show .prop-show-ele:hover .ps-val{
+		border-color: #ea7069;
+	}
 	.article-properties .prop-show .ps-key{
-		width: 80px;
+		width: 96px;
 		text-align: right;
 		display:-moz-inline-box;
 		display:inline-block;
 		position: relative;
-		background: #20a0ff;
+		background: #fff;
 		padding-right: 2px;
+		border: 1px solid #d4d9df;
+		*border-radius: 4px;
+		transition: all .15s ease-in-out;
 	}
 	.article-properties .prop-show .ps-val{
-		width: 80px;
+		width: 96px;
 		text-align: left;
 		display:-moz-inline-box;
 		display:inline-block;
 		position: relative;
-		background: #20a0ff;
+		background: #fff;
 		padding-left: 2px;
+		border: 1px solid #d4d9df;
+		*border-radius: 4px;
+		transition: all .15s ease-in-out;
+	}
+
+	.article-properties .prop-show .ps-del{
+		/*overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;*/
 	}
 
 	.article-properties .prop-show .prop-show-ele{
