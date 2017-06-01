@@ -1,11 +1,13 @@
 <template>
-	<div class="notfond">
-	  <div class="browser-bar">
-	    <span class="close button"></span>
-	    <span class="min button"></span>
-	    <span class="max button"></span>
-	  </div>
-	  <div class="text"></div>
+	<div>
+		<div class="notfond">
+		  <div class="browser-bar">
+		    <span class="close button"></span>
+		    <span class="min button"></span>
+		    <span class="max button"></span>
+		  </div>
+		  <div class="text"></div>
+		</div>
 	</div>
 </template>
 <script type="text/javascript">
@@ -32,12 +34,17 @@
 			//   });
 			// });
 			document.addEventListener("DOMContentLoaded", function(){
-				Typed.new(".element", {
-					strings: ["您所访问的页面不存在.", 
-					"我们对此表示非常的抱歉.",
-					"请尝试以下操作",
-					"Go back <a href='/'>home</a> and start over."],
-					typeSpeed: 0
+				window.Typed.new(".text", {
+					strings: [
+						"您所访问的页面不存在.", 
+						"我们对此表示非常的抱歉.",
+						"请尝试以下操作",
+						"返回 <a href='/'>主页</a> 或者返回 <a href='/'>上一页</a>."
+					],
+					typeSpeed: 50,
+					loopCount: 3,
+					loop: true,
+					showCursor: false
 				});
 			});
 	    }
@@ -57,7 +64,7 @@
 	  border-bottom: solid 2px;
 	}
 
-/*	@media (min-width: 640px) {*/
+	/*@media (min-width: 640px) {*/
 	  /*body {
 	    background-image: url(https://images.unsplash.com/photo-1432821596592-e2c18b78144f?dpr=2&fit=crop&fm=jpg&h=960&ixlib=rb-0.3.5&q=50&w=1440);
 	    background-size: cover;
@@ -75,11 +82,12 @@
 	    transform: translate(-50%, -50%);
 	    -webkit-transform: translate(-50%, -50%);
 	    -ms-transform: translate(-50%, -50%);
-	    background-color: #333;
+	    background-color: #41484d;
 	    padding: 45px 20px 20px;
 	    box-sizing: border-box;
 	    box-shadow: 0 0 25px rgba(0, 0, 0, .5);
 	    border-radius: 5px 5px 0 0;
+	    color: #fff;
 	  }
 
 	  .notfond .browser-bar {
@@ -113,5 +121,5 @@
 	  .notfond .max {
 	    background: #34c84a;
 	  }
-	/*}*/
+/*	}*/
 </style>
