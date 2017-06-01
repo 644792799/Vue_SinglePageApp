@@ -184,6 +184,10 @@
 		vertical-align: middle;
 		margin: 10px 5px;
 	}
+	.index .right-container{
+		background: #fff;
+    	box-shadow: #d5d9de 1px 1px 4px 0px;
+	}
 	.el-select .el-input {
     	width: 75px;
   	}

@@ -16,6 +16,7 @@ import SignIn from './components/pages/Sign/SignIn.vue'
 import SignUp from './components/pages/Sign/SignUp.vue'
 import Editor from './components/pages/personal/Editor.vue'
 import MyArticle from './components/pages/personal/MyArticleList.vue'
+import PageNotFound from './components/pages/404/404.vue'
 import SmsUI from './components/sms'
 
 //import 'bootstrap/dist/css/bootstrap.css'
@@ -69,6 +70,10 @@ const routes = [
 	{
 		path: '/myarticle',
 		component: MyArticle
+	},
+	{
+		path: '/404',
+		component: PageNotFound
 	}
 ];
 const router = new VueRouter({routes});

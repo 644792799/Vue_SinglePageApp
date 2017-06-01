@@ -1,12 +1,12 @@
 <template>
 	<div class="article-properties">
-		<div class="prop-add">
+		<div class="prop-add" v-if="foredit != undefined">
 			<span>
 				<el-select 
 					v-model="kval"
 					filterable  
 					allow-create 
-					placeholder="" 
+					placeholder="请选择" 
 					@change="propertyChange">
 					<el-option 
 						v-for="prop in propDatas" 
@@ -20,7 +20,7 @@
 					v-model="vval"  
 					filterable  
 					allow-create 
-					placeholder="">
+					placeholder="请选择">
 					<el-option 
 						v-for="val in currentValue" 
 						:value="val" 
@@ -39,11 +39,13 @@
 				<span class="ps-val">
 					{{data.value}}
 				</span>
-				<span class="ps-del">
+				<span class="ps-del" v-if="foredit != undefined">
 					<el-button class="button-new-tag" size="small" @click="deleteProp(data.key, data.value)">-</el-button>
 				</span>
 			</div>
-			
+			<div v-if="showDatas.length == 0" class="">
+				<b>该代码片还未添加任何属性</b>
+			</div>
 		</div>
 	</div>
 </template>
@@ -80,7 +82,7 @@
 	      	]
 	      }
 	  	},
-	  	props: [],
+	  	props: ["foredit"],
 	  	methods:{
 	  		propertyChange: function(e){
 	  			this.currentValue = [];
@@ -141,13 +143,13 @@
 	.article-properties .prop-show .prop-show-ele:hover .ps-key{
 		border-color: #ea7069;
 		border-left: 5px solid #ea7069;
-		width: 93px;
+		width: 92px;
 	}
 	.article-properties .prop-show .prop-show-ele:hover .ps-val{
 		border-color: #ea7069;
 	}
 	.article-properties .prop-show .ps-key{
-		width: 96px;
+		width: 92px;
 		text-align: right;
 		display:-moz-inline-box;
 		display:inline-block;
@@ -156,7 +158,8 @@
 		padding-right: 2px;
 		border: 1px solid #d4d9df;
 		*border-radius: 4px;
-		transition: all .15s ease-in-out;
+		transition: all .25s ease-in-out;
+		border-left: 5px solid #d4d9df;
 	}
 	.article-properties .prop-show .ps-val{
 		width: 96px;
@@ -168,7 +171,7 @@
 		padding-left: 2px;
 		border: 1px solid #d4d9df;
 		*border-radius: 4px;
-		transition: all .15s ease-in-out;
+		transition: all .25s ease-in-out;
 	}
 
 	.article-properties .prop-show .ps-del{

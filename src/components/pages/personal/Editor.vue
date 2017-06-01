@@ -6,11 +6,11 @@
 					<el-form ref="form" :model="form" label-width="80px">
 						<el-form-item label="标题" required>
 							<el-col :span="11">
-								<el-input v-model="form.name"></el-input>
+								<el-input v-model="form.name" placeholder="请用一句简短的话描述您即将添加的代码片"></el-input>
 							</el-col>
 					    </el-form-item>
 					    <el-form-item label="语言" required>
-							<el-select v-model="value8" filterable placeholder="请选择">
+							<el-select class="select-language" v-model="value8" filterable placeholder="请选择">
 							    <el-option
 							      v-for="item in options"
 							      :label="item.label"
@@ -62,7 +62,7 @@
 							<el-button v-else class="button-new-tag" size="small" @click="showInput">+</el-button>
 						</el-form-item>
 						<el-form-item label="属性">
-							<articleProp></articleProp>
+							<articleProp foredit></articleProp>
 						</el-form-item>
 					</el-form>
 				</div>
@@ -165,5 +165,11 @@
 	}
 	.editor .tag-container .el-tag+.el-tag {
     	margin-left: 10px;
+	}
+	.editor .select-language{
+		width: 150px;
+	}
+	.editor .select-language .el-input{
+		width: 100%;
 	}
 </style>

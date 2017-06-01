@@ -164,10 +164,14 @@
 		border: 1px solid rgb(212, 217, 223);
 	    padding: 10px 5px;
 	    border-radius: 2px;
+	    background: #fff;
 	}
 	.myarticle .visit-container{
 		height: 100px;
 		color: #b6b1aa;
+
+		background: #fff;
+    	box-shadow: #d5d9de 1px 1px 4px 0px;
 	}
 	.myarticle .visit-container .el-row{
 		height: 100%;

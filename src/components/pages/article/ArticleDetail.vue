@@ -38,11 +38,45 @@
 		   <el-col :span="6" :offset="1" class="right-container">
 		   		<div class="grid-content article-stats">
 		   			<img src="/static/img/头像示例2.jpg" class="userimg">
-		   			<div class=""><span class="tag">代码片作者</span>:张三</div>
-					<div class="">文章发布时间+阅读量</div>
-					<div class="">语言分类:java</div>
-					<div class="">分享</div>
-					<div class="">赞</div>
+		   			<div class="username stats-item">
+		   				<span class="tag">代码片作者</span>
+		   				张三
+		   			</div>
+					<div class="ctime stats-item">
+						<div class="pull-left stats-item-name">
+							<i class="icon-calendar"></i>创建时间:
+						</div>
+						<span>2017.6.1</span>
+					</div>
+					<div class="mtime  stats-item">
+						<div class="pull-left stats-item-name">
+							<i class="icon-calendar"></i>修改时间:
+						</div>
+						<span>2017.6.1</span>
+					</div>
+					<div class="viewcount  stats-item">
+						<div class="pull-left stats-item-name">
+							<i class="icon-eye"></i>阅读量:
+						</div>
+						<span>1254</span>
+					</div>
+					<div class="share stats-item">
+						<div class="pull-left stats-item-name">
+							<i class="icon-share2"></i>分享
+						</div>
+						<span></span>
+					</div>
+					<div class="vote stats-item">
+						<div class="pull-left stats-item-name">赞</div>
+						<span></span>
+					</div>
+		   		</div>
+		   		<div class="article-prop">
+			   		<el-form>
+			   			<el-form-item>
+			   				<articleProp></articleProp>
+			   			</el-form-item>
+			   		</el-form>
 		   		</div>
 		   </el-col>
 		</el-row>
@@ -53,13 +87,15 @@
 	import $ from 'jquery'
     import hljs from 'pluginspath/highlight/highlight.pack.js'
     import Tools from 'components/comps/article/ArticleTools.vue'
+    import ArticleProperties from 'components/comps/article/ArticleProperties.vue'
 
     export default {
 	    data () {
 	      return {}
 	    },
 	    components: {
-	      "articletools": Tools
+	      "articletools": Tools,
+	      articleProp: ArticleProperties
 	    },
 	    mounted () {
 	      hljs.initHighlightingOnLoad();
@@ -151,6 +187,18 @@
 		flex-direction: column;
 		margin-top: 12px;
 		position: relative;
+
+		background: #fff;
+    	box-shadow: #d5d9de 1px 1px 4px 0px;
+	}
+
+	.article-stats .viewcount span{
+		box-shadow: #d5d9de 3px 0px 7px 0px;
+		background-color: #ea7069!important;
+    	color: #fbfcfc!important;
+    	padding: 3px 5px;
+    	font-size: 12px;
+    	border-radius: 4px;
 	}
 
 	.article-stats .userimg{
@@ -163,15 +211,28 @@
 	    box-shadow: 1px 2px 4px 0px #d4d9df;
 	}
 
-	.article-stats div{
+	.article-stats .stats-item{
 		height: 40px;
 		border-bottom: 1px solid #eaeefb;
-		width: 100%;
+		*width: 100%;
 		align-items: center;
 		line-height: 40px;
     	font-size: 12px;
     	font-weight: 400;
     	padding: 0 0 0 10px;
+	}
+
+	.article-stats .stats-item span{
+		margin-left: 3px;
+	}
+
+	.article-stats .stats-item .stats-item-name{
+		width: 70px;
+	}
+
+	.article-stats .stats-item .stats-item-name i{
+		font-size: 12px;
+		margin-right: 2px;
 	}
 
 	.article-stats div .tag{
@@ -180,6 +241,11 @@
 
 	.article-stats div i{
 		font-size: 20px;
+	}
+
+	.article-prop{
+		text-align: center;
+    	margin-top: 20px;
 	}
 
 	.article-detail .article-title{
