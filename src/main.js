@@ -72,7 +72,7 @@ const routes = [
 		component: MyArticle
 	},
 	{
-		path: '/404',
+		path: '*',
 		component: PageNotFound
 	}
 ];

@@ -30,7 +30,6 @@
 				<span>
 					<i class="icon-git-branch">&nbsp;</i>{{art.fork}}
 				</span>
-				<!-- <a href="" class="articles-item-category" v-for="cat in art.category">{{cat}}</a> -->
 			</div>
 		</div>
 		<div class="articles-item-footer">

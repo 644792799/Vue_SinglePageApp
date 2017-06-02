@@ -21,32 +21,21 @@
 	      
 	    },
 	    mounted () {
-	  //     $(function(){
-			//   $('.text').typed({
-			//     strings: [
-			//       "您所访问的页面不存在. <br /> ^1000" + 
-			//       "我们对此表示非常的抱歉. <br /> ^1000" +
-			//       "请尝试以下操作. <br /> ^1000" +
-			//       "Go back <a href='/'>home</a> and start over."
-			//     ],
-			//     typeSpeed: 0,
-			//     showCursor: false
-			//   });
-			// });
-			document.addEventListener("DOMContentLoaded", function(){
-				window.Typed.new(".text", {
+	    	
+	    	$(function(){
+	    		window.Typed.new(".text", {
 					strings: [
 						"您所访问的页面不存在.", 
 						"我们对此表示非常的抱歉.",
 						"请尝试以下操作",
-						"返回 <a href='/'>主页</a> 或者返回 <a href='/'>上一页</a>."
+						"返回 <a href='/'>主页</a> 或者返回 <a onclick='history.back(-1)'>上一页</a>."
 					],
 					typeSpeed: 50,
 					loopCount: 3,
 					loop: true,
 					showCursor: false
 				});
-			});
+	    	});
 	    }
 	  }
 </script>
@@ -62,6 +51,7 @@
 	  color: #fff;
 	  text-decoration: none;
 	  border-bottom: solid 2px;
+	  cursor: pointer;
 	}
 
 	/*@media (min-width: 640px) {*/

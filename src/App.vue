@@ -18,7 +18,14 @@ import Footer from './components/comps/common/Footer.vue'
 // 	ico: 'icon-home2'
 // },
 
-const menu = [{
+const menu = [
+{
+	name: '主页',
+	to: '/index',
+	clas: '',
+	ico: 'icon-home2'
+},
+{
 	name: '发现',
 	to: '/index',
 	clas: '',

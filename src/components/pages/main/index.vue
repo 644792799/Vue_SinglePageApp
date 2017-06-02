@@ -2,32 +2,6 @@
 	<div class="index">
 		<el-row>
 			<el-col :span="15" :offset="1">
-			  	<!-- <div style="margin-top: 15px;margin-bottom:15px;" class="grid-content">
-				  <el-input placeholder="查找代码片" v-model="input5" size="large">
-				    <el-select v-model="select" slot="prepend" placeholder="请选择">
-				      <el-option label="标题" value="1"></el-option>
-				      <el-option label="內容" value="2"></el-option>
-				      <el-option label="综合" value="3"></el-option>
-				    </el-select>
-				    <el-button slot="append" icon="search"></el-button>
-				  </el-input>
-				</div> -->
-				<!-- <el-tabs v-model="activeName" @tab-click="handleClick">
-				    <el-tab-pane label="评分最高" name="first">
-				    	<div class="grid-content">
-					  		<articleList :articlesdata="articlesdata"></articleList>
-					  	</div>
-				    </el-tab-pane>
-				    <el-tab-pane label="最新发布" name="second">
-				    	<articleList :articlesdata="articlesdata"></articleList>
-				    </el-tab-pane>
-				    <el-tab-pane label="收藏最多" name="third">
-				    	<articleList :articlesdata="articlesdata"></articleList>
-				    </el-tab-pane>
-				    <el-tab-pane label="FORK最多" name="fourth">
-				    	<articleList :articlesdata="articlesdata"></articleList>
-				    </el-tab-pane>
-			    </el-tabs> -->
 			    <div style="margin-top: 15px;margin-bottom:15px;">
 			    	<div class="filtercontainer">
 			    		<el-form :inline="true" :model="formInline" class="demo-form-inline">
