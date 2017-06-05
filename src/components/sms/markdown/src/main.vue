@@ -9,7 +9,7 @@
       </el-tab-pane>
     </el-tabs>
     <div class="sms-markdown-tools" id="sms-markdown-tools">
-      <span class="icon-link2"></span>
+      <span class="icon-link2" @click="test"></span>
       <span class="icon-mention"></span>
       <span class="icon-quote"></span>
       <span class="icon-embed2"></span>
@@ -19,6 +19,7 @@
 </template>
 
 <script>
+  import deal from '../deal.js'
   var marked = require('marked');
   marked.setOptions({
     renderer: new marked.Renderer(),
@@ -76,12 +77,16 @@
           }
           elem.className = newClass.replace(/^\s+|\s+$/g, '');
         }
+      },
+      test(e){
+        e.preventDefault();
+        console.log(deal.getSelectText());
       }
     }
   };
 
   import Vue from 'vue'
-  var exText = "Heading\n=======\n\nSub-heading\n-----------\n \n### Another deeper heading\n \nParagraphs are separated\nby a blank line.\n\nLeave 2 spaces at the end of a line to do a  \nline break\n\nText attributes *italic*, **bold**, \n`monospace`, ~~strikethrough~~ .\n\nShopping list:\n\n  * apples\n  * oranges\n  * pears\n\nNumbered list:\n\n  1. apples\n  2. oranges\n  3. pears\n\nThe rain---not the reign---in\nSpain.\n\n *[Herman Fassett](https://freecodecamp.com/hermanfassett)*"
+  var exText = "CodeMirror Heading\n=======\n\nSub-heading\n-----------\n \n### Another deeper heading\n \nParagraphs are separated\nby a blank line.\n\nLeave 2 spaces at the end of a line to do a  \nline break\n\nText attributes *italic*, **bold**, \n`monospace`, ~~strikethrough~~ .\n\nShopping list:\n\n  * apples\n  * oranges\n  * pears\n\nNumbered list:\n\n  1. apples\n  2. oranges\n  3. pears\n\nThe rain---not the reign---in\nSpain.\n\n *[Herman Fassett](https://freecodecamp.com/hermanfassett)*"
 
 </script>
 <style type="text/css">
