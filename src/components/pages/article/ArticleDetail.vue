@@ -126,7 +126,7 @@
 	.article-desc-container{
 		position: relative;
 	}
-	pre{
+	.article-detail pre{
 		background-color: #F9FAFB!important;
 		border: 1px solid #CED0D2!important;
 	}
