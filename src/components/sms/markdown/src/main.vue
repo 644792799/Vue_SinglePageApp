@@ -19,20 +19,14 @@
 </template>
 
 <script>
-  import deal from '../deal.js'
+  //import deal from '../deal.js'
   import CodeMirror from 'codemirror'
   import SimpleScrollbars from 'codemirror/addon/scroll/simplescrollbars.js'
-  import 'codemirror/addon/mode/overlay.js'
-  import 'codemirror/mode/xml/xml.js'
-  import 'codemirror/mode/markdown/markdown.js'
+  //import 'codemirror/mode/markdown/markdown.js'
   import 'codemirror/mode/gfm/gfm.js'
-  import 'codemirror/mode/javascript/javascript.js'
-  import 'codemirror/mode/css/css.js'
-  import 'codemirror/mode/htmlmixed/htmlmixed.js'
-  import 'codemirror/mode/clike/clike.js'
-  import 'codemirror/lib/codemirror.css'
+  //import 'codemirror/lib/codemirror.css'
   import 'codemirror/addon/scroll/simplescrollbars.css'
-  import '../smsmarkdown.min.css'
+  import './css/smsmarkdown.min.css'
   var marked = require('marked');
   marked.setOptions({
     renderer: new marked.Renderer(),
@@ -58,9 +52,9 @@
         var self = this;
         var myTextarea = document.getElementById("txtarea");
          this.editor = CodeMirror.fromTextArea(myTextarea, {
-            mode: 'text/x-markdown',
+            mode: 'gfm',
             lineNumbers: false,
-            theme: "default",
+            theme: "paper",
             lineWrapping: true,
             scrollbarStyle: "simple"
           });
@@ -127,7 +121,10 @@
     border-radius: 4px;
   }
   .sms-markdown .CodeMirror{
-    font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    *font: 16px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    *font-size: 16px;
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif, 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    border: 0;
   }
   .sms-markdown .sms-markdown-tools{
     position: absolute;
@@ -145,7 +142,7 @@
   .sms-markdown .edit{
     *padding: 8px;
     *padding-right: 24px;
-    background: #fff;
+    *background: #fff;
     
   }
   .sms-markdown .review{
@@ -156,6 +153,9 @@
   .sms-markdown .edit, .sms-markdown .review{
     display: block;
     position: relative;
+    background: #fff;
+    font-size: 16px;
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif, 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
   }
   .sms-markdown .edit textarea{
     display: block;
@@ -177,6 +177,6 @@
     box-shadow: none!important;
   }
   .sms-markdown .el-tab-pane{
-    line-height: 1!important;
+   /* line-height: 1.7;*/
   }
 </style>

@@ -71,7 +71,7 @@ export default{
 		*height: 100%;
 		padding-top:50px;
 		margin: 0 auto;
-		max-width: 1140px;
+		max-width: 1500px;
 		min-width: 1140px;
 	}
 	.nav-pills > li > a {
