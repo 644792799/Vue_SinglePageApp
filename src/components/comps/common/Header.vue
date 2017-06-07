@@ -16,7 +16,7 @@
 
 			<div class="pull-right plus-container">
 				<router-link to="/editor">
-					<i class="icon-plus"></i>
+					<i class="icon-plus2"></i>
 				</router-link>
 			</div>
 
@@ -34,7 +34,7 @@
 			</el-dropdown>
 			
 			<div class="pull-right notice-container">
-				<button class="notice icon-bell"></button>
+				<button class="notice icon-bell3"></button>
 			</div>
 		</div>
 		<el-dialog :title="issignin?'登录':'注册'" v-model="dialogVisible" size="tiny">
@@ -96,12 +96,12 @@
 	.header .notice{
 		background: none;
 	    border: 0;
-	    color: #fff;
+	    *color: #fff;
 	    font-weight: normal;
 	    line-height: 50px;
 	    *margin-right: 10px;
 	    cursor: pointer;
-	    font-size: 14px;
+	    *font-size: 15px;
 	}
 	/*.header .plus{
 		font-size: 35px;
@@ -178,22 +178,22 @@
 		height: 45px;
 	}
 
-	.header .nav a, .header .nav span{
+	.header .nav a, .header .nav span, .header .notice{
 		*margin-right: 15px;
 		color: #fff;
-		font-size: 14px;
+		font-size: 15px;
 		float: left;
 	}
 
 	.header .el-dropdown{
 		color: #FBFCFC!important;
 		font-size: 10px;
-	    font-weight: 600;
+	    *font-weight: 600;
 	    padding-right: 10px;
 	}
 
 	.header .nav .active a{
-		color: #d4d9df;
+		color: #ea7069;
 		*font-weight: bold;
 	}
 

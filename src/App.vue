@@ -23,18 +23,18 @@ const menu = [
 	name: '主页',
 	to: '/index',
 	clas: '',
-	ico: 'icon-home2'
+	ico: 'icon-home4'
 },
 {
 	name: '发现',
 	to: '/index',
 	clas: '',
-	ico: 'icon-globe'
+	ico: 'icon-globe3'
 },{
 	name: '关于',
 	to: '/commonstyle',
 	clas: '',
-	ico: 'icon-info'
+	ico: 'icon-info2'
 }];
 export default{
 	data(){

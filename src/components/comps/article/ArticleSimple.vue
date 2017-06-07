@@ -13,7 +13,7 @@
 			</div>
 			<div class="articles-item-categories">
 				<span>
-					<i class="icon-user-check">&nbsp;</i><a href="">Admin</a>
+					<i class="icon-user">&nbsp;</i><a href="">Admin</a>
 				</span>
 				<span>
 					<i class="icon-calendar">&nbsp;</i> {{art.date}}
@@ -22,7 +22,7 @@
 					<SmsPoint :language="art.cat" :label="art.cat" style="color:#939c99!important;"></SmsPoint>
 				</span>
 				<span>
-					<i class="icon-eye">&nbsp;</i>{{art.view}}
+					<i class="icon-eye3">&nbsp;</i>{{art.view}}
 				</span>
 				<span>
 					<i class="icon-star">&nbsp;</i>{{art.star}}
