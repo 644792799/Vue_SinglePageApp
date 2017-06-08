@@ -9,10 +9,20 @@
 		</a>
 		<div class="articles-item-header">
 			<div class="articles-item-title">
+				<a href="">Admin</a> <b style="color:#939c99;">/</b> 
 				<a :href="art.url">{{art.title}}</a>
+
+				<a href="" class="icon-comment-circle pull-right"> 0 </a>
+				<a href="" class="icon-star pull-right"> {{art.star}} </a>
+				<a href="" class="icon-eye3 pull-right"> {{art.view}} </a>
+				<a href="" class="icon-git-branch pull-right"> {{art.fork}} </a>
 			</div>
 			<div class="articles-item-categories">
 				<span>
+					<a href="">今天 21:50</a> 发布于 
+					<a href="">{{art.cat}}</a> 分类下
+				</span>
+				<!-- <span>
 					<i class="icon-user">&nbsp;</i><a href="">Admin</a>
 				</span>
 				<span>
@@ -20,7 +30,7 @@
 				</span>
 				<span>
 					<SmsPoint :language="art.cat" :label="art.cat" style="color:#939c99!important;"></SmsPoint>
-				</span>
+				</span> 
 				<span>
 					<i class="icon-eye3">&nbsp;</i>{{art.view}}
 				</span>
@@ -29,7 +39,7 @@
 				</span>
 				<span>
 					<i class="icon-git-branch">&nbsp;</i>{{art.fork}}
-				</span>
+				</span>-->
 			</div>
 		</div>
 		<div class="articles-item-footer">
@@ -106,6 +116,12 @@
 		padding-top: 10px;
 	}
 
+	.articles-item-title .pull-right{
+		font-size: 12px;
+	    line-height: 24px;
+	    margin-left: 15px;
+	}
+
 	.articles-item-title a{
 		font-size: 18px;
 		color: #4E5359;
@@ -124,7 +140,7 @@
 	}
 
 	.articles-item-title a:hover{
-		*color: #5D5794!important;
+		color: #ea7069!important;
 	}
 
 	.articles-item-categories{
@@ -138,8 +154,13 @@
 	}
 
 	.articles-item-categories a{
-		color: #20a0ff;
+		color: #939c99;
 		opacity: 1;
+		text-transform: uppercase;
+	}
+
+	.articles-item-categories a:hover{
+		color: #ea7069;
 	}
 
 	.articles-item-categories>span{

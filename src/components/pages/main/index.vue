@@ -4,7 +4,8 @@
 			<el-col :span="15" :offset="1">
 			    <div style="margin-top: 15px;margin-bottom:15px;">
 			    	<div class="filtercontainer">
-			    		<el-form :inline="true" :model="formInline" class="demo-form-inline">
+			    		<span style="line-height:56px;font-size:18px;color:#586069;"><i class="icon-terminal" style="font-weight:600;"></i>&nbsp;发现代码</span>
+			    		<el-form :inline="true" :model="formInline" class="demo-form-inline pull-right">
 						  <el-form-item label="排序">
 						    <el-select v-model="formInline.order" placeholder="类型选择">
 						      <el-option label="最新发布" value="new"></el-option>
