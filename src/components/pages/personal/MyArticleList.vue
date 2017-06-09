@@ -32,7 +32,7 @@
 							<div class="right">
 								<el-button-group>
 									<el-button class="button-follow" size="small">添加关注</el-button>
-									<el-button class="button-follow-count" size="small">12</el-button>
+									<el-button class="button-follow-count icon-user-plus3" size="small"></el-button>
 								</el-button-group>
 							</div>
 						</div>

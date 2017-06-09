@@ -4,7 +4,7 @@
 			<i class="icon-terminal"></i>
 			<SmsLine gradfrom="center"></SmsLine>
 		</div> -->
-		<articleSimple v-for="art in articlesdata" :art="art"></articleSimple>
+		<articleSimple v-for="art in articlesdata" :art="art" fullmode></articleSimple>
 		<div style="text-align:center;margin-top:20px;">
 	    	<div class="block">
 			    <el-pagination

@@ -1,65 +1,109 @@
 <!--  -->
 <template>
-	<SmsCard class="articles-item" bodyStyle="display:flex;width:100%;">
-		<!-- <SmsLine gradfrom="center"></SmsLine> -->
-		<a href="" class="articles-thumbnail">
-			<span>
-				<img :src="art.avator"/>
-			</span>
-		</a>
-		<div class="articles-item-header">
-			<div class="articles-item-title">
-				<a href="">Admin</a> <b style="color:#939c99;">/</b> 
-				<a :href="art.url">{{art.title}}</a>
+	<div class="article-item-container">
+		<SmsCard class="articles-item" bodyStyle="display:flex;width:100%;">
+			<!-- <SmsLine gradfrom="center"></SmsLine> -->
+			<a href="" class="articles-thumbnail">
+				<span>
+					<img :src="art.avator"/>
+				</span>
+			</a>
+			<div class="articles-item-header">
+				<div class="articles-item-title">
+					<a href="">Admin</a> <b style="color:#939c99;">/</b> 
+					<a :href="art.url">{{art.title}}</a>
 
-				<a href="" class="icon-comment-circle pull-right"> 0 </a>
-				<a href="" class="icon-star pull-right"> {{art.star}} </a>
-				<a href="" class="icon-eye3 pull-right"> {{art.view}} </a>
-				<a href="" class="icon-git-branch pull-right"> {{art.fork}} </a>
+					<a href="" class="icon-comment-circle pull-right"> 0 </a>
+					<a href="" class="icon-star pull-right"> {{art.star}} </a>
+					<a href="" class="icon-eye3 pull-right"> {{art.view}} </a>
+					<a href="" class="icon-git-branch pull-right"> {{art.fork}} </a>
+				</div>
+				<div class="articles-item-categories">
+					<span>
+						<a href="">今天 21:50</a> 发布于 
+						<a href="">{{art.cat}}</a> 分类下
+					</span>
+					<!-- <span>
+						<i class="icon-user">&nbsp;</i><a href="">Admin</a>
+					</span>
+					<span>
+						<i class="icon-calendar">&nbsp;</i> {{art.date}}
+					</span>
+					<span>
+						<SmsPoint :language="art.cat" :label="art.cat" style="color:#939c99!important;"></SmsPoint>
+					</span> 
+					<span>
+						<i class="icon-eye3">&nbsp;</i>{{art.view}}
+					</span>
+					<span>
+						<i class="icon-star">&nbsp;</i>{{art.star}}
+					</span>
+					<span>
+						<i class="icon-git-branch">&nbsp;</i>{{art.fork}}
+					</span>-->
+				</div>
 			</div>
-			<div class="articles-item-categories">
-				<span>
-					<a href="">今天 21:50</a> 发布于 
-					<a href="">{{art.cat}}</a> 分类下
-				</span>
-				<!-- <span>
-					<i class="icon-user">&nbsp;</i><a href="">Admin</a>
-				</span>
-				<span>
-					<i class="icon-calendar">&nbsp;</i> {{art.date}}
-				</span>
-				<span>
-					<SmsPoint :language="art.cat" :label="art.cat" style="color:#939c99!important;"></SmsPoint>
-				</span> 
-				<span>
-					<i class="icon-eye3">&nbsp;</i>{{art.view}}
-				</span>
-				<span>
-					<i class="icon-star">&nbsp;</i>{{art.star}}
-				</span>
-				<span>
-					<i class="icon-git-branch">&nbsp;</i>{{art.fork}}
-				</span>-->
+			<div class="articles-item-footer">
+				<div class="articles-item-meta">
+					
+				</div>
 			</div>
+		</SmsCard>
+		<div v-if="fullmode != undefined" class="articles-item-detail">
+			<SmsLine gradfrom="all" style="top:0"></SmsLine>
+			<pre><code class="javascript">$(document).ready(function() {
+	$('pre code').each(function(i, block) {
+		hljs.highlightBlock(block);
+	});
+});</code></pre>
 		</div>
-		<div class="articles-item-footer">
-			<div class="articles-item-meta">
-				
-			</div>
-		</div>
-	</SmsCard>
+	</div>
 </template>
 
 <script type="text/javascript">
+	import $ from 'jquery'
+    import hljs from 'pluginspath/highlight/highlight.pack.js'
 	export default{
 		data(){
-			return {}
+			return {
+				
+			}
 		},
-		props: ['art']
+		props: ['art', 'fullmode'],
+	    mounted () {
+	      if(this.fullmode == undefined)return;
+	      hljs.initHighlightingOnLoad();
+	      $(function () {
+	        $('pre code').each(function (i, block) {
+	          hljs.highlightBlock(block)
+	        })
+	      })
+	    }
 	}
 </script>
 
 <style type="text/css">
+	.article-item-container{
+		margin-bottom: 10px;
+		box-shadow: #d5d9de -0.5px 0.5px 2px 0px;
+		background: #fff;
+	}
+	.article-item-container .hljs{
+		background: #fbfcfc;
+	}
+	.article-item-container .sms-card{
+		box-shadow: none;
+	}
+	.article-item-container .articles-item-detail{
+		margin-top: 2px;
+		position: relative;
+	}
+	.article-item-container .articles-item-detail pre{
+		margin: 0;
+	}
+	.article-item-container .articles-item-detail code{
+		font-family: Menlo,Monaco,Consolas,Courier,monospace;
+	}
 	.articles-item{
 		display: flex;
 	    align-items: center;
@@ -70,7 +114,7 @@
 	    *border-left: 2px solid #20a0ff;
 	    *box-shadow: 0px 1px 15px #e6e7e8;
 	    position: relative;
-	    margin-bottom: 10px;
+	    *margin-bottom: 10px;
 	    border-radius: 2px;
 	}
 
@@ -80,7 +124,7 @@
 		*border-left: 2px solid #5D5794;
 	}
 
-	.articles-item:last-child{
+	.article-item-container:last-child{
 		border-bottom: none;
 		margin-bottom: 0;
 	}
@@ -140,7 +184,7 @@
 	}
 
 	.articles-item-title a:hover{
-		color: #ea7069!important;
+		color: #20a0ff!important;
 	}
 
 	.articles-item-categories{
@@ -160,7 +204,7 @@
 	}
 
 	.articles-item-categories a:hover{
-		color: #ea7069;
+		color: #20a0ff;
 	}
 
 	.articles-item-categories>span{

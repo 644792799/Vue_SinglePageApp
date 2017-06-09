@@ -5,6 +5,8 @@
   </div>
   <div class="sms-line sms-line-from-center" v-else-if="gradfrom=='center'">
   </div>
+  <div class="sms-line sms-line-from-all" v-else-if="gradfrom=='all'">
+  </div>
 </template>
 
 <script>
@@ -35,5 +37,9 @@
 
   .sms-line-from-right{
   	background: linear-gradient(to right,white,#d4d9df);
+  }
+
+  .sms-line-from-all{
+    background: #d4d9df;
   }
 </style>
