@@ -1,6 +1,64 @@
 <template>
 	<div class="article-tools">
-		<button class="question" :plain="true" @click="open"><i class="icon-question"></i></button>
+		<el-popover
+		  ref="questionpopover"
+		  placement="right"
+		  width="140"
+		  v-model="questionpropvisible">
+		  
+		  <div style="margin: 0;font-size:15px;color:#586069;padding: 0 5px;line-height:1;">
+		  	<div style="display:flex;flex-direction:row;padding:5px 0;position:relative;">
+		    	<div style="width:15px;"><i class="icon-pencil2"></i></div>
+		    	<div style="margin-left:10px;"><b>:</b> 编辑</div>
+		    	<SmsLine gradfrom="left"></SmsLine>
+		    </div>
+		    <div style="display:flex;flex-direction:row;padding:5px 0;position:relative;">
+		    	<div style="width:15px;"><i class="icon-trashcan"></i></div>
+		    	<div style="margin-left:10px;"><b>:</b> 删除</div>
+		    	<SmsLine gradfrom="left"></SmsLine>
+		    </div>
+		    <div style="display:flex;flex-direction:row;padding:5px 0;position:relative;">
+		    	<div style="width:15px;"><i class="icon-clippy"></i></div>
+		    	<div style="margin-left:10px;"><b>:</b> 复制</div>
+		    	<SmsLine gradfrom="left"></SmsLine>
+		    </div>
+		    <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
+		    	<div style="width:15px;"><i class="icon-git-branch"></i></div>
+		    	<div style="margin-left:10px;"><b>:</b> 派生</div>
+		    	<SmsLine gradfrom="left"></SmsLine>
+		    </div>
+		    <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
+		    	<div style="width:15px;"><i class="icon-star"></i></div>
+		    	<div style="margin-left:10px;"><b>:</b> 收藏</div>
+		    	<SmsLine gradfrom="left"></SmsLine>
+		    </div>
+		    <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
+		    	<div style="width:15px;"><i class="icon-star-o"></i></div>
+		    	<div style="margin-left:10px;"><b>:</b> 未收藏</div>
+		    	<SmsLine gradfrom="left"></SmsLine>
+		    </div>
+		    <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
+		    	<div style="width:15px;"><i class="icon-link"></i></div>
+		    	<div style="margin-left:10px;"><b>:</b> EMBED</div>
+		    	<SmsLine gradfrom="left"></SmsLine>
+		    </div>
+		    <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
+		    	<div style="width:15px;"><i class="icon-printer"></i></div>
+		    	<div style="margin-left:10px;"><b>:</b> 打印</div>
+		    	<SmsLine gradfrom="left"></SmsLine>
+		    </div>
+		    <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
+		    	<div style="width:15px;"><i class="icon-enlarge"></i></div>
+		    	<div style="margin-left:10px;"><b>:</b> 全屏</div>
+		    	<SmsLine gradfrom="left"></SmsLine>
+		    </div>
+		    <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
+		    	<div style="width:15px;"><i class="icon-shrink"></i></div>
+		    	<div style="margin-left:10px;"><b>:</b> 退出全屏</div>
+		    </div>
+		  </div>
+		</el-popover>
+		<button class="question" :plain="true" @click="help" v-popover:questionpopover><i class="icon-question"></i></button>
 		<button class="enlarge" @click="toggleFullScreen" @keyup.esc="pressEsc"><i :class="fullScreenIco"></i></button>
 		<button class="printer" @click="print"><i class="icon-printer"></i></button>
 		<button class="link"><i class="icon-link"></i></button>
@@ -8,7 +66,19 @@
 		<button class="branch"><i class="icon-git-branch"></i></button>
 		<button class="copy" @click="copy"><i class="icon-clippy"></i></button>
 		<button class="edit clearfix"><i class="icon-pencil2"></i></button>
-		<button class="delete clearfix"><i class="icon-trashcan"></i></button>
+		
+		<el-popover
+		  ref="delpopover"
+		  placement="bottom"
+		  width="140"
+		  v-model="delpropvisible">
+		  <p>确定删除该代码片吗？</p>
+		  <div style="text-align: right; margin: 0">
+		    <el-button size="mini" type="text" @click="delpropvisible = false">取消</el-button>
+		    <el-button type="primary" size="mini" @click="delpropvisible = false">确定</el-button>
+		  </div>
+		</el-popover>
+		<button class="delete clearfix" v-popover:delpopover><i class="icon-trashcan"></i></button>
 	</div>
 </template>
 <script type="text/javascript">
@@ -20,7 +90,9 @@
 			return {
 				isFullScreen: false,
 				fullScreenIco: "icon-enlarge",
-				starIco: "icon-star"
+				starIco: "icon-star",
+				delpropvisible: false,
+				questionpropvisible: false
 			}
 		},
 		props: ['code'],
@@ -47,6 +119,9 @@
 			pressEsc: function(){
 				this.isFullScreen = false;
 				this.fullScreenIco = "icon-enlarge";
+			},
+			help(){
+				
 			},
 			open() {
 		        this.$message('这是一条消息提示');
