@@ -11,19 +11,18 @@
 		  	</div>
 		  	<div class="grid-content">
 		  		<div class="article-title"><h3><i class="icon-pin">&nbsp;</i>这是标题</h3></div>
-				<div class="article-content">
+				<div class="article-content" id="article-content">
 					<div class="tools">
-						<articletools></articletools>
+						<articletools :code="function(){}"></articletools>
 					</div>
 					<div class="source">
 						<pre><code class="javascript">$(document).ready(function() {
 		$('pre code').each(function(i, block) {
 			hljs.highlightBlock(block);
 		});
-	});
-						</code></pre>
+	});</code></pre>
 					</div>
-					<div class="description">
+					<div class="description" id="description">
 						<div class="text-center article-desc-container">
 							<h4 class="article-desc-title">代码片描述<SmsLine gradfrom="center"></SmsLine></h4>
 							<div class="gradient-line"></div>
@@ -132,7 +131,7 @@
 	}
 	.article-content{
 		position: relative;
-		max-height: 700px;
+		*max-height: 700px;
 		border: 1px solid #eaeefb;
 	    border-radius: 4px;
 	    transition: .2s;
@@ -141,6 +140,8 @@
 	}
 	.article-content pre{
 		border: 0!important;
+		margin: 0;
+		padding: 1em 24px;
 	}
 	.article-content .hljs{
 		background-color: #F9FAFB!important;
@@ -151,7 +152,7 @@
 		border-bottom: 1px solid #eaeefb;
 	}
 	.article-content .source{
-		padding: 18px 24px;
+		*padding: 18px 24px;
 		background-color: #F9FAFB!important;
 	}
 	.article-content code {

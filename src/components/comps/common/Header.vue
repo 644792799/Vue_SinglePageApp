@@ -3,17 +3,9 @@
 		<div class="nav">
 			
 			<router-link to="/index" class="icon-steps"></router-link>
-			<el-input placeholder="查找代码片" v-model="input5" style="width:300px;float:left;margin: 7px 15px 7px 0;">
-				<el-select v-model="select" slot="prepend" placeholder="请选择">
-			      <el-option label="标题" value="1"></el-option>
-			      <el-option label="內容" value="2"></el-option>
-			      <el-option label="综合" value="3"></el-option>
-			    </el-select>
-			  </el-input>
 			<span v-for="menu in menus" :class="menu.clas" @click="toggleClas(menu)">
 		  		<router-link :to="menu.to"><i :class="menu.ico">&nbsp;</i>{{menu.name}}</router-link>
 		  	</span>
-
 			<div class="pull-right plus-container">
 				<router-link to="/editor">
 					<i class="icon-plus2"></i>
@@ -36,6 +28,9 @@
 			<div class="pull-right notice-container">
 				<button class="notice icon-bell3"></button>
 			</div>
+
+			<el-input placeholder="查找代码片" v-model="input5" style="width:400px;float:right;margin: 7px 15px 7px 0;" icon="search">
+			</el-input>
 		</div>
 		<el-dialog :title="issignin?'登录':'注册'" v-model="dialogVisible" size="tiny">
 		  <signin v-if="issignin"></signin>
@@ -84,6 +79,9 @@
 </script>
 
 <style type="text/css">
+	.header {
+		min-width: 920px;
+	}
 	.header .el-dialog--tiny {
     	width: 300px;
 	}

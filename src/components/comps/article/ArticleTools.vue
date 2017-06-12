@@ -2,24 +2,28 @@
 	<div class="article-tools">
 		<button class="question" :plain="true" @click="open"><i class="icon-question"></i></button>
 		<button class="enlarge" @click="toggleFullScreen" @keyup.esc="pressEsc"><i :class="fullScreenIco"></i></button>
-		<button class="printer"><i class="icon-printer"></i></button>
+		<button class="printer" @click="print"><i class="icon-printer"></i></button>
 		<button class="link"><i class="icon-link"></i></button>
-		<button class="star"><i class="icon-star"></i></button>
+		<button class="star" @click="toggleStar"><i :class="starIco"></i></button>
 		<button class="branch"><i class="icon-git-branch"></i></button>
-		<button class="copy"><i class="icon-clippy"></i></button>
+		<button class="copy" @click="copy"><i class="icon-clippy"></i></button>
 		<button class="edit clearfix"><i class="icon-pencil2"></i></button>
 		<button class="delete clearfix"><i class="icon-trashcan"></i></button>
 	</div>
 </template>
 <script type="text/javascript">
+	import clipboard from 'pluginspath/articletools/clipboard.js'
+	import print from 'pluginspath/articletools/print.min.js'
+	import 'pluginspath/articletools/print.min.css'
 	export default{
 		data(){
 			return {
 				isFullScreen: false,
-				fullScreenIco: "icon-enlarge"
+				fullScreenIco: "icon-enlarge",
+				starIco: "icon-star"
 			}
 		},
-		props: [],
+		props: ['code'],
 		methods: {
 			toggleFullScreen: function(){
 				if(this.isFullScreen){
@@ -32,12 +36,31 @@
 					this.fullScreenIco = "icon-shrink";
 				}
 			},
+			toggleStar: function(){
+				//icon-star-o
+				if(this.starIco == "icon-star"){
+					this.starIco = "icon-star-o";
+				}else{
+					this.starIco = "icon-star";
+				}
+			},
 			pressEsc: function(){
 				this.isFullScreen = false;
 				this.fullScreenIco = "icon-enlarge";
 			},
 			open() {
 		        this.$message('这是一条消息提示');
+		    },
+		    copy: function(){
+		    	var self = this;
+		    	var codestr = this.code + "";
+		    	clipboard.copy(codestr).then(
+				  function(){self.$message('复制成功');},
+				  function(err){console.log("failure", err);}
+				);
+		    },
+		    print: function(){
+		    	printJS('article-content', 'html');
 		    }
 		}
 	}

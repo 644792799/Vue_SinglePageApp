@@ -89,7 +89,7 @@
 		background: #fff;
 	}
 	.article-item-container .hljs{
-		background: #fbfcfc;
+		background: #F9FAFB;
 	}
 	.article-item-container .sms-card{
 		box-shadow: none;
