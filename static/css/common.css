@@ -1,4 +1,5 @@
 body, html {
+	height: 100%;
     *background-color: #d4d9df;
     background-color: #fbfcfc;
     *background:linear-gradient(to left,#7f9ba2,#d4d9df);

@@ -1,16 +1,17 @@
 <!-- 登陆 -->
 <template>
-	<div>
-    <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-width="75px" class="demo-ruleForm">
-      <el-form-item label="密码" prop="pass">
+	<div class="signin">
+    <div class="favico"><i class="icon-steps"></i></div>
+    <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-width="40px" class="demo-ruleForm">
+      <el-form-item label="用户" prop="pass">
         <el-input type="password" v-model="ruleForm2.pass" auto-complete="off"></el-input>
       </el-form-item>
-      <el-form-item label="确认密码" prop="checkPass">
+      <el-form-item label="密码" prop="checkPass">
         <el-input type="password" v-model="ruleForm2.checkPass" auto-complete="off"></el-input>
       </el-form-item>
-      <el-form-item label="年龄" prop="age">
+      <!-- <el-form-item label="年龄" prop="age">
         <el-input v-model.number="ruleForm2.age"></el-input>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item>
         <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
         <el-button @click="resetForm('ruleForm2')">重置</el-button>
@@ -76,8 +77,10 @@
         }
       };
     },
+    //props:['vistor'],
     methods: {
       submitForm(formName) {
+        //console.log(this.vistor)
         this.$refs[formName].validate((valid) => {
           if (valid) {
             alert('submit!');
@@ -97,5 +100,31 @@
 <style type="text/css">
   .signin .el-card__header{
     background: #20A0FF;
+  }
+  .signin .el-form-item:last-child .el-form-item__content{
+    margin-left: auto!important;
+    text-align: center;
+  }
+  .signin{
+    width: 300px;
+    margin: 0 auto;
+    padding: 22px 10px 0 10px;
+    border-radius: 5px;
+    background: #F9FAFB;
+    position: relative;
+    border: 1px solid #d4d9df;
+  }
+  .signin .favico{
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background: #ea7069;
+    color: #fff;
+    margin: -50px auto 10px auto;
+    font-size: 40px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
   }
 </style>

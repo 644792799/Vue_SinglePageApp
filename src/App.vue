@@ -1,16 +1,22 @@
 
 <template>
-  <div id="" class="main">
+  <div class="main vistor" v-if="login == false && vistor == false">
+  	<signin :vistor="vistor"></signin>
+  	<button @click="toexplore()">ddd</button>
+  </div>
+  <div id="" class="main" v-else>
   	<SmsBackToTop></SmsBackToTop>
   	<navbar :menus="menus"></navbar>
   	<router-view class="content"></router-view>
   	<footerbar></footerbar>
   </div>
+  
 </template>
 
 <script>
 import Header from './components/comps/common/Header.vue'
 import Footer from './components/comps/common/Footer.vue'
+import SignIn from './components/pages/Sign/SignIn.vue'
 // {
 // 	name: '主页',
 // 	to: '/first',
@@ -39,7 +45,9 @@ const menu = [
 export default{
 	data(){
 		return {
-			menus: menu
+			menus: menu,
+			login: false,
+			vistor: false
 		}
 	},
 	methods: {
@@ -51,17 +59,29 @@ export default{
 					this.menus[i].clas = "";
 				}
 			}
+		},
+		toexplore: function(){
+			this.vistor = true;
 		}
 	}, 
 	components: {
 		"navbar": Header,
-		"footerbar": Footer
+		"footerbar": Footer,
+		"signin": SignIn
 	}
 }
 </script>
 <style type="text/css">
 	html, body, .main{
 		*height: 100%;
+	}
+	.vistor{
+		height: 100%;
+		background: #fbfcfc;
+		color: #fff;
+		display:flex;
+        justify-content:center;
+        align-items:center;
 	}
 	.main {
 		*max-width: 1140px;

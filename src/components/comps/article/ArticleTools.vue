@@ -2,7 +2,7 @@
 	<div class="article-tools">
 		<el-popover
 		  ref="questionpopover"
-		  placement="right"
+		  placement="bottom"
 		  width="140"
 		  v-model="questionpropvisible">
 		  
