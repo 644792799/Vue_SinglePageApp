@@ -23,24 +23,6 @@
 						<a href="">今天 21:50</a> 发布于 
 						<a href="">{{art.cat}}</a> 分类下
 					</span>
-					<!-- <span>
-						<i class="icon-user">&nbsp;</i><a href="">Admin</a>
-					</span>
-					<span>
-						<i class="icon-calendar">&nbsp;</i> {{art.date}}
-					</span>
-					<span>
-						<SmsPoint :language="art.cat" :label="art.cat" style="color:#939c99!important;"></SmsPoint>
-					</span> 
-					<span>
-						<i class="icon-eye3">&nbsp;</i>{{art.view}}
-					</span>
-					<span>
-						<i class="icon-star">&nbsp;</i>{{art.star}}
-					</span>
-					<span>
-						<i class="icon-git-branch">&nbsp;</i>{{art.fork}}
-					</span>-->
 				</div>
 			</div>
 			<div class="articles-item-footer">
@@ -85,11 +67,11 @@
 <style type="text/css">
 	.article-item-container{
 		margin-bottom: 10px;
-		box-shadow: #d5d9de -0.5px 0.5px 2px 0px;
+		box-shadow: var(--left-box-shadow, #d5d9de -0.5px 0.5px 4px 0px);
 		background: #fff;
 	}
 	.article-item-container .hljs{
-		background: #F9FAFB;
+		background: var(--code-bg-color, #F9FAFB);
 	}
 	.article-item-container .sms-card{
 		box-shadow: none;
@@ -102,26 +84,19 @@
 		margin: 0;
 	}
 	.article-item-container .articles-item-detail code{
-		font-family: Menlo,Monaco,Consolas,Courier,monospace;
+		font-family: var(--code-font-family, Menlo,Monaco,Consolas,Courier,monospace);
 	}
 	.articles-item{
 		display: flex;
 	    align-items: center;
-	    *padding: 10px 10px;
-	    *margin-bottom: 15px;
 	    border: none;
 	    background-color: #fff;
-	    *border-left: 2px solid #20a0ff;
-	    *box-shadow: 0px 1px 15px #e6e7e8;
 	    position: relative;
-	    *margin-bottom: 10px;
 	    border-radius: 2px;
 	}
 
 	.articles-item:hover{
-		*background-color: #f5f6f8;
 		opacity: 0.85;
-		*border-left: 2px solid #5D5794;
 	}
 
 	.article-item-container:last-child{
@@ -131,7 +106,6 @@
 
 	.articles-item-header{
 		flex-grow: 1;
-		*padding: 10px 10px;
 		padding-left: 10px;
 	}
 
@@ -168,23 +142,23 @@
 
 	.articles-item-title a{
 		font-size: 18px;
-		color: #4E5359;
+		color: var(--title-color, #4E5359);
 	}
 
 	.articles-item-title a:link{
-		color: #4E5359;
+		color: var(--title-color, #4E5359);
 	}
 
 	.articles-item-title a:visited{
 		*color: #A5A7A8;
 	}
 
-	a:link, a:hover, a:active, a:visited {
+/*	a:link, a:hover, a:active, a:visited {
     	text-decoration: none!important;
-	}
+	}*/
 
 	.articles-item-title a:hover{
-		color: #20a0ff!important;
+		color: var(--link-hover-color, #20a0ff)!important;
 	}
 
 	.articles-item-categories{
@@ -194,21 +168,21 @@
 		height: 26px;
 	    line-height: 26px;
 	    text-align: center;
-	    color: #939c99;
+	    color: var(--sub-title-color, #939c99);
 	}
 
 	.articles-item-categories a{
-		color: #939c99;
+		color: var(--sub-title-color, #939c99);
 		opacity: 1;
 		text-transform: uppercase;
 	}
 
 	.articles-item-categories a:hover{
-		color: #20a0ff;
+		color: var(--link-hover-color, #20a0ff);
 	}
 
 	.articles-item-categories>span{
-		border-right: 1px solid #fbfcfc;
+		*border-right: 1px solid #fbfcfc;
 		padding-right: 10px;
 		padding-left: 10px;
 		overflow: hidden;
@@ -223,7 +197,7 @@
 		display: flex;
 	}
 
-	.articles-item-category{
+	/*.articles-item-category{
 		background: #F6F2EF;
 	    color: #AF9D95;
 	    border: none;
@@ -240,5 +214,5 @@
 	    color: #fff;
 	    border-color: #5D5794;
 	    text-decoration: none;
-	}
+	}*/
 </style>

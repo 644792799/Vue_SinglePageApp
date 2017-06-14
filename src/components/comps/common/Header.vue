@@ -81,6 +81,15 @@
 <style type="text/css">
 	.header {
 		min-width: 920px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		height: 50px;
+		width: 100%;
+		z-index: 100;
+		position: fixed;
+		background-color: var(--nav-bg-color, #41484d);
+		border-bottom: 1px solid #eaeefb;
 	}
 	.header .el-dialog--tiny {
     	width: 300px;
@@ -89,33 +98,20 @@
 
 	}
 	.header .nav-login button.el-button.el-button--text {
-    	color: #fff!important;
+    	color: var(--color-white, #fff)!important;
 	}
 	.header .notice{
 		background: none;
 	    border: 0;
-	    *color: #fff;
 	    font-weight: normal;
 	    line-height: 50px;
-	    *margin-right: 10px;
 	    cursor: pointer;
-	    *font-size: 15px;
 	}
-	/*.header .plus{
-		font-size: 35px;
-	    background: none;
-	    border: 0;
-	    color: #fff;
-	    font-weight: normal;
-	    line-height: 40px;
-	    *margin-right: 10px;
-	    cursor: pointer;
-	}*/
 	.header .plus-container a{
 		margin-right: 0!important;
 		width: 50px;
-		background: #ea7069;
-    	color: #fff!important;
+		background: var(--btn-bg-color-primary, #ea7069);
+    	color: var(--font-color-primary, #fff)!important;
 	}
 	.header .plus-container i{
 		font-size: medium;
@@ -123,15 +119,11 @@
 	.header .notice:focus{
 		outline: none;
 	}
-	/*.header .plus:hover{
-		color: #d4d9df;
-	}*/
 	.header .icon-home{
-		*line-height: inherit;
-		*font-size: 20px!important;
+		
 	}
 	.el-dropdown{
-		*line-height: 50px;
+		
 	}
 	.el-dropdown-img{
 		width: 25px;
@@ -139,62 +131,39 @@
 		vertical-align: middle;
 		border-radius: 12.5px;
 	}
-	.header{
-		display: flex;
-		flex-direction: row;
-		flex-wrap: nowrap;
-		height: 50px;
-		width: 100%;
-		z-index: 100;
-		position: fixed;
-		background-color: #41484d;
-		border-bottom: 1px solid #eaeefb;
-	}
-
 	.header .nav{
-		*padding: 5px 30px;
 		width: 100%;
 		line-height: 50px;
 		text-align: center;
 	}
-
 	.header .nav>span{
 		overflow: hidden;
 		height: 50px;
 		transition: all .15s ease-in-out;
 	}
-
 	.header .nav>span>a{
-		border-bottom: 5px solid #ea7069;
+		border-bottom: 5px solid var(--nav-hover-border-color, #ea7069);
 		padding: 0 10px;
 		transition: all .15s ease-in-out;
 		height: 50px;
 	}
-
 	.header .nav>span>a:hover{
-		color: #ea7069;
+		color: var(--nav-hover-color, #ea7069);
 		height: 45px;
 	}
-
 	.header .nav a, .header .nav span, .header .notice{
-		*margin-right: 15px;
-		color: #fff;
+		color: var(--nav-color, #fff);
 		font-size: 15px;
 		float: left;
 	}
-
 	.header .el-dropdown{
-		color: #FBFCFC!important;
+		color: var(--bg-color, #FBFCFC)!important;
 		font-size: 10px;
-	    *font-weight: 600;
 	    padding-right: 10px;
 	}
-
 	.header .nav .active a{
-		color: #ea7069;
-		*font-weight: bold;
+		color: var(--nav-hover-color, #ea7069);
 	}
-
 	.header .notice-container{
 		padding-right: 10px;
 	}
@@ -202,11 +171,9 @@
 		font-size: 30px!important;
 	    line-height: 50px;
 	    width: 50px;
-	    *background: #ea7069;
-	    color: #ea7069!important;
+	    color: var(--nav-logo-color, #ea7069)!important;
 	    margin-right: 15px;
 	}
-
 	.logo{
 		margin: 5px;
 	}

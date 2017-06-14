@@ -28,18 +28,18 @@
   }
 
   .sms-line-from-left{
-  	background: linear-gradient(to left,white,#d4d9df);
+  	background: linear-gradient(to left,white,var(--border-color,#d4d9df));
   }
 
   .sms-line-from-center{
-  	background: linear-gradient(to left,white,#d4d9df,white);
+  	background: linear-gradient(to left,white,var(--border-color,#d4d9df),white);
   }
 
   .sms-line-from-right{
-  	background: linear-gradient(to right,white,#d4d9df);
+  	background: linear-gradient(to right,white,var(--border-color,#d4d9df));
   }
 
   .sms-line-from-all{
-    background: #d4d9df;
+    background: var(--border-color,#d4d9df);
   }
 </style>
