@@ -3,7 +3,12 @@
 	--bg-color-white: #fff;
 	
 	--btn-bg-color-primary: #ea7069;
+	--btn-hover-bg-color-primary: rgba(234, 112, 105, 0.9);
+	--btn-hover-border-color-primary: rgba(234, 112, 105, 0.9);
 	--btn-font-color-primary: #fff;
+	--btn-border-color-primary: #ea7069;
+	--btn-hover-color-default: #ea7069;
+
 
 	--border-color: #d4d9df;
 
@@ -13,10 +18,14 @@
 
 	--link-hover-color: #20a0ff;
 	--title-color: #4E5359;
+	--content-color: #4E5359;
 	--sub-title-color: #939c99;
+	--default-color: #4E5359;
 
 	--left-box-shadow: #d5d9de 0.5px 0.5px 4px 0px;
 	--right-box-shadow: #d5d9de -0.5px 0.5px 4px 0px;
+	--btn-box-shadow: #d5d9de 3px 0px 7px 0px;
+	--img-box-shadow: 1px 2px 4px 0px #d4d9df;
 
 	--font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
 }
@@ -27,6 +36,24 @@
 	--nav-hover-color: #ea7069;
 	--nav-logo-color: #ea7069;
 	--nav-hover-border-color: #ea7069;
+}
+
+.article-detail{
+	--border-color: #d4d9df;
+}
+
+.article-properties{
+	--hover-border-color: #ea7069;
+	--border-color: #d4d9df;
+}
+
+.editor{
+	--chk-checked-bg-color: #ea7069;
+	--chk-hover-checked-bg-color: #ea7069;
+	--chk-hover-border-color: #ea7069;
+	--acegutter-bg-color: #fbfcfc;
+	--acegutter-color: #AAA;
+	--ace-theme-github-border-color: #d4d9df;
 }
 
 code{

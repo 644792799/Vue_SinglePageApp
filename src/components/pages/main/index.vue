@@ -154,6 +154,10 @@
 		position: relative;
 		*text-align: right;
 	}
+	.index .el-button--default:hover{
+		border-color: var(--btn-border-color-primary, #20a0ff);
+		color: var(--btn-hover-color-default, #ea7069);
+	}
 	.index .el-form-item{
 		width: 150px;
 		vertical-align: middle;
@@ -161,7 +165,7 @@
 	}
 	.index .right-container{
 		background: #fff;
-    	box-shadow: #d5d9de 1px 1px 4px 0px;
+    	box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
 	}
 	.el-select .el-input {
     	width: 75px;

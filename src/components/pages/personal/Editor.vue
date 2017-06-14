@@ -148,16 +148,35 @@
 	  }
 </script>
 <style type="text/css">
-	.form-container{
+	.editor .form-container{
 		margin-top: 50px;
 	}
-
+	.editor .el-button--primary{
+		background: var(--btn-bg-color-primary, #20a0ff);
+    	border-color: var(--btn-border-color-primary, #20a0ff);
+    	color: var(--btn-font-color-primary, #fff);
+	}
+	.editor .el-button--primary:hover{
+		background: var(--btn-hover-bg-color-primary, #4db3ff);
+		border-color: var(--btn-hover-border-color-primary, #4db3ff);
+	}
+	.editor .form-container .el-button--default:hover{
+		border-color: var(--btn-border-color-primary, #20a0ff);
+		color: var(--btn-hover-color-default, #ea7069);
+	}
+	.editor .is-checked .el-checkbox__inner{
+		background-color: var(--chk-checked-bg-color, #20a0ff)!important;
+    	border-color: var(--chk-hover-checked-bg-color, #ea7069)!important;
+	}
+	.editor .el-checkbox__inner:hover{
+		border-color: var(--chk-hover-border-color, #ea7069)!important;
+	}
 	.editor .ace-github .ace_gutter {
-	    background: #fbfcfc;
-	    color: #AAA;
+	    background: var(--acegutter-bg-color, #fbfcfc);
+	    color: var(--acegutter-color, #AAA);
 	}
 	.editor .ace-github{
-		border: 1px solid #d4d9df;
+		border: 1px solid var(--ace-theme-github-border-color, #d4d9df);
 		border-radius: 4px;
 	}
 	.editor .tag-container{

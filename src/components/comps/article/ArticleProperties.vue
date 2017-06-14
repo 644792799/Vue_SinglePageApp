@@ -138,15 +138,18 @@
     	margin-bottom: 10px;
 	}
 	.article-properties .prop-add button{
-		*width: 25px;
+		
+	}
+	.article-properties .prop-show{
+		color: var(--default-color, #4E5359);
 	}
 	.article-properties .prop-show .prop-show-ele:hover .ps-key{
-		border-color: #ea7069;
-		border-left: 5px solid #ea7069;
+		border-color: var(--hover-border-color, #ea7069);
+		border-left: 5px solid var(--hover-border-color, #ea7069);
 		width: 92px;
 	}
 	.article-properties .prop-show .prop-show-ele:hover .ps-val{
-		border-color: #ea7069;
+		border-color: var(--hover-border-color, #ea7069);
 	}
 	.article-properties .prop-show .ps-key{
 		width: 92px;
@@ -156,10 +159,9 @@
 		position: relative;
 		background: #fff;
 		padding-right: 2px;
-		border: 1px solid #d4d9df;
-		*border-radius: 4px;
+		border: 1px solid var(--border-color, #d4d9df);
 		transition: all .25s ease-in-out;
-		border-left: 5px solid #d4d9df;
+		border-left: 5px solid var(--border-color, #d4d9df);
 	}
 	.article-properties .prop-show .ps-val{
 		width: 96px;
@@ -169,17 +171,13 @@
 		position: relative;
 		background: #fff;
 		padding-left: 2px;
-		border: 1px solid #d4d9df;
-		*border-radius: 4px;
+		border: 1px solid var(--border-color, #d4d9df);
 		transition: all .25s ease-in-out;
 	}
-
-	.article-properties .prop-show .ps-del{
-		/*overflow: hidden;
-		white-space: nowrap;
-		text-overflow: ellipsis;*/
+	.article-properties .prop-show .ps-del button:hover{
+		border: 1px solid var(--hover-border-color, #d4d9df);
+		color: var(--hover-border-color, #d4d9df);
 	}
-
 	.article-properties .prop-show .prop-show-ele{
 		margin-bottom: 3px;
 	}
