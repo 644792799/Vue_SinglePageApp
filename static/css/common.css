@@ -5,7 +5,7 @@
 	--btn-bg-color-primary: #ea7069;
 	--btn-hover-bg-color-primary: rgba(234, 112, 105, 0.9);
 	--btn-hover-border-color-primary: rgba(234, 112, 105, 0.9);
-	--btn-font-color-primary: #fff;
+	--btn-font-color-primary: #fbfcfc;/*#fff;*/
 	--btn-border-color-primary: #ea7069;
 	--btn-hover-color-default: #ea7069;
 
@@ -56,6 +56,10 @@
 	--ace-theme-github-border-color: #d4d9df;
 }
 
+.myarticle{
+
+}
+
 code{
 	--code-bg-color: #F9FAFB;
 	--code-font-family: Menlo,Monaco,Consolas,Courier,monospace;;
@@ -97,6 +101,10 @@ a:link, a:hover, a:active, a:visited {
 
 .text-center{
 	text-align: center!important;
+}
+
+.text-right{
+	text-align: right!important;
 }
 
 .hide{

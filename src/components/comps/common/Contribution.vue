@@ -1,5 +1,12 @@
 <template>
-	<div class="my-contribution" id="my-contribution"></div>
+	<div class="contribution">
+		<div class="contribution-tool">
+			<i class="icon-braille">&nbsp;</i>
+			<button id="pre-selector"><i class="icon-angle-left"></i></button>
+			<button id="next-selector"><i class="icon-angle-right"></i></button>
+		</div>
+		<div id="contribution"></div>
+	</div>
 </template>
 <script type="text/javascript">
 	import 'pluginspath/cal-heatmap/cal-heatmap.css';
@@ -14,14 +21,14 @@
 	    },
 	    mounted () {
 	      var nowdate = new Date();
-	      var startdate = nowdate.addMonths(-7);
+	      var startdate = nowdate.addMonths(-9);
 	      //hljs.initHighlightingOnLoad();
 	      var cal = new CalHeatMap();
 			cal.init({
-				itemSelector: "#my-contribution",
+				itemSelector: "#contribution",
 				domain: "month",
 				subDomain: "day",
-				range: 8,
+				range: 12,
 				start: startdate,
 				legendTitleFormat: {
 					lower: "小于 {min} 片",
@@ -38,7 +45,9 @@
 					return format(date); 
 				},
 				considerMissingDataAsZero: false,
-				tooltip: false
+				tooltip: false,
+				previousSelector: "#pre-selector",
+				nextSelector: "#next-selector"
 			});
 	    }
 	  }
@@ -53,7 +62,30 @@
 		}
 </script>
 <style type="text/css">
-	.my-contribution svg{
+	.contribution{
+		overflow: hidden;
+	}
+	.contribution svg{
 		margin: 0 auto;
+	}
+	.contribution-tool{
+		display: flex;
+		align-items:center;
+		padding: 5px;
+		margin-bottom: 5px;
+		background: var(--bg-color, #fbfcfc);
+		border-bottom: 1px solid var(--border-color, #d4d9df);
+	}
+	.contribution-tool>i{
+		color: #669d45;
+	}
+	.contribution-tool button{
+		margin-right: 2px;
+		border: 1px solid #bfcbd9;
+		background: #fff;
+		white-space: nowrap;
+    	cursor: pointer;
+    	border-radius: 4px;
+    	font-size: 20px;
 	}
 </style>

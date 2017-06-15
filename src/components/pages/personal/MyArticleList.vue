@@ -20,13 +20,13 @@
 						<div class="bottom" style="display: flex;flex-direction: row;">
 							<div class="left">
 								<div>
-									<i class="icon-envelop">&nbsp;</i>644792799@qq.com
+									<i class="icon-envelop">&nbsp;</i><span>644792799@qq.com</span>
 								</div>
 								<div>
-									<i class="icon-location">&nbsp;</i>四川.成都
+									<i class="icon-location">&nbsp;</i><span>四川.成都</span>
 								</div>
 								<div>
-									<i class="icon-link">&nbsp;</i>wwww.snipt.cn
+									<i class="icon-link">&nbsp;</i><span>wwww.snipt.cn</span>
 								</div>
 							</div>
 							<div class="right">
@@ -46,19 +46,9 @@
 					  <el-tab-pane style="min-height:300px;">
 					  	<span slot="label"><i class="icon-embed2"></i> 代码片</span>
 					  	<div class="filtercontainer">
-					  		<!-- <el-button-group class="filter">
-							  <el-button :disabled="true">全部</el-button>
-							  <el-button>公有</el-button>
-							  <el-button>私有</el-button>
-							  <el-button>收藏</el-button>
-							  <el-button>FORK</el-button>
-							</el-button-group>
-							<div class="order">
-								<el-button type="text">发布时间</el-button>
-								<el-button type="text" :disabled="true">更新时间</el-button>
-							</div> -->
 							<el-form :inline="true" :model="formInline" class="demo-form-inline">
-							  <el-form-item label="类型">
+							  <el-form-item>&nbsp;</el-form-item>
+							  <el-form-item label="类型" class="pull-right">
 							    <el-select v-model="formInline.type" placeholder="类型选择">
 							      <el-option label="全部" value="All"></el-option>
 							      <el-option label="公有" value="public"></el-option>
@@ -66,7 +56,7 @@
 							      <el-option label="FORK" value="fork"></el-option>
 							    </el-select>
 							  </el-form-item>
-							  <el-form-item label="语言">
+							  <el-form-item label="语言" class="pull-right">
 							    <el-select v-model="formInline.language" placeholder="语言选择">
 							      <el-option label="全部" value="All"></el-option>
 							      <el-option label="JAVA" value="JAVA"></el-option>
@@ -81,17 +71,6 @@
 					  <el-tab-pane style="min-height:300px;">
 					  	<span slot="label"><i class="icon-star"></i> 收藏</span>
 					  	<div class="filtercontainer">
-					  		<!-- <el-button-group class="filter">
-							  <el-button :disabled="true">全部</el-button>
-							  <el-button>公有</el-button>
-							  <el-button>私有</el-button>
-							  <el-button>收藏</el-button>
-							  <el-button>FORK</el-button>
-							</el-button-group>
-							<div class="order">
-								<el-button type="text">发布时间</el-button>
-								<el-button type="text" :disabled="true">更新时间</el-button>
-							</div> -->
 							<el-form :inline="true" :model="formInline" class="demo-form-inline">
 							  <el-form-item label="语言">
 							    <el-select v-model="formInline.language2" placeholder="语言选择">
@@ -162,16 +141,16 @@
 		overflow: auto;
     	margin-top: 10px;
 		border: 1px solid rgb(212, 217, 223);
-	    padding: 10px 5px;
+	    padding: 0px 0px 10px 0;
 	    border-radius: 2px;
 	    background: #fff;
 	}
 	.myarticle .visit-container{
 		height: 100px;
-		color: #b6b1aa;
+		color: var(--sub-title-color, #b6b1aa);
 
 		background: #fff;
-    	box-shadow: #d5d9de 1px 1px 4px 0px;
+    	box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
 	}
 	.myarticle .visit-container .el-row{
 		height: 100%;
@@ -183,7 +162,7 @@
 		text-align: center;
 	}
 	.myarticle .right-container .el-col:first-child{
-		border-right: 1px solid rgb(212, 217, 223);
+		border-right: 1px solid var(--border-color, rgb(212, 217, 223));
 	}
 	.myarticle .order{
 		position: relative;
@@ -193,7 +172,6 @@
 	}
 	.myarticle .filtercontainer{
 		position: relative;
-		text-align: right;
 	}
 	.myarticle .el-form-item{
 		width: 150px;
@@ -216,7 +194,7 @@
 		padding: 20px 0 15px 0;
 	}
 	.myarticle .info .top{
-		*padding-bottom: 10px;
+
 	}
 	.myarticle .info .top .left{
 		width: 150px;
@@ -226,7 +204,7 @@
 		margin-bottom: 3px!important;
 	}
 	.myarticle .info .top .left span{
-		color: #b6b1aa;
+		color: var(--sub-title-color, #b6b1aa);
 		font-weight: 600;
 	}
 	.myarticle .info .bottom{
@@ -236,10 +214,9 @@
 	.myarticle .info .bottom .left{
 		width: 200px;
 		font-size: 12px;
-		color: #b6b1aa;
 	}
-	.myarticle .info .bottom .left i{
-		color: #433326;
+	.myarticle .info .bottom .left span{
+		color: var(--sub-title-color, #433326);
 	}
 	.myarticle .info .bottom .left div{
 		line-height: 25px;
@@ -249,11 +226,10 @@
 		margin-bottom: 3px!important;
 	}
 	.myarticle .info .bottom .right .el-button-group{
-		box-shadow: #d5d9de 3px 0px 7px 0px;
+		box-shadow: var(--btn-box-shadow, #d5d9de 3px 0px 7px 0px);
 	}
 	.myarticle .info .top .right{
 		width: 200px;
-		*font-size: 30px;
     	line-height: 66px;
 	}
 	.myarticle .info .top .right span{
@@ -265,13 +241,14 @@
 	}
 	.myarticle .el-tabs__content{
 		background: #fff;
+		box-shadow: var(--left-box-shadow, #d5d9de -1px 1px 2px 0px);
 	}
 	.button-follow, .button-follow-count{
 		border: 0!important;
 	}
 	.button-follow{
-		background-color: #ea7069!important;
-		color: #fbfcfc!important;
+		background-color: var(--btn-bg-color-primary, #ea7069)!important;
+		color: var(--btn-font-color-primary, #fbfcfc)!important;
 	}
 	.button-follow:hover{
 		z-index: 0!important;
@@ -280,13 +257,15 @@
 		font-weight: 600;
 	}
 	.button-follow-count:hover{
-		color: #1f2d3d!important;
-		border-color: #f7ba2a!important;
+		color: var(--default-color, #1f2d3d)!important;
 	}
 	 .el-tabs__item.is-active{
-		color: #1f2d3d!important;
+		color: var(--default-color, #1f2d3d)!important;
+	}
+	.el-tabs__item:hover {
+	    color: var(--default-color, #1f2d3d)!important;
 	}
 	 .el-tabs__active-bar{
-		background-color: #ea7069!important;
+		background-color: var(--btn-bg-color-primary, #ea7069)!important;
 	}
 </style>
