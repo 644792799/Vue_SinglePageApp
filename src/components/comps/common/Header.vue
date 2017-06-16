@@ -29,7 +29,7 @@
 				<button class="notice icon-bell3"></button>
 			</div>
 
-			<el-input placeholder="查找代码片" v-model="input5" style="width:400px;float:right;margin: 7px 15px 7px 0;" icon="search">
+			<el-input placeholder="查找代码片" v-model="input5" style="width:400px;float:right;margin: 7px 15px 7px 0;" icon="search" @click="search()">
 			</el-input>
 		</div>
 		<el-dialog :title="issignin?'登录':'注册'" v-model="dialogVisible" size="tiny">
@@ -69,6 +69,10 @@
 		signUp: function(){
 			this.dialogVisible = true;
 			this.issignin = false;
+		},
+		search: function(){
+			this.$router.push({path:'/search'});
+			//this.$router.go('/search');
 		}
 	},
 	components: {

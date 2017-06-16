@@ -56,6 +56,14 @@
 	--ace-theme-github-border-color: #d4d9df;
 }
 
+.el-button{
+	transition: .1s ease-in-out;
+    -webkit-transition: .1s ease-in-out;
+    -moz-transition: .1s ease-in-out;
+    -o-transition: .1s ease-in-out;
+    -ms-transition: .1s ease-in-out;
+}
+
 .myarticle{
 
 }

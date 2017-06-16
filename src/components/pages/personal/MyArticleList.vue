@@ -2,12 +2,12 @@
 	<div class="myarticle">
 		<el-row>
 			<el-col :span="15" :offset="1">
-				<div style="display: flex;flex-direction: row;">
+				<div class="userinfo-container">
 					<div class="userimg-container">
 						<img src="/static/img/头像示例2.jpg" style="height:150px;width:150px;">
 					</div>
 					<div class="info"  >
-						<div class="top" style="display: flex;flex-direction: row;border-bottom:1px solid #d4d9df;">
+						<div class="top">
 							<div class="left">
 								<h3>CJAY</h3>
 								<i class="icon-calendar">&nbsp;</i>
@@ -17,7 +17,7 @@
 								<span><i class="icon-organization"></i>&nbsp;尚未加入任何公司/组织</span>
 							</div>
 						</div>
-						<div class="bottom" style="display: flex;flex-direction: row;">
+						<div class="bottom">
 							<div class="left">
 								<div>
 									<i class="icon-envelop">&nbsp;</i><span>644792799@qq.com</span>
@@ -31,8 +31,8 @@
 							</div>
 							<div class="right">
 								<el-button-group>
-									<el-button class="button-follow" size="small">添加关注</el-button>
-									<el-button class="button-follow-count icon-user-plus3" size="small"></el-button>
+									<el-button class="button-follow" size="">添加关注</el-button>
+									<el-button class="button-follow-count icon-user-plus3" size=""></el-button>
 								</el-button-group>
 							</div>
 						</div>
@@ -104,12 +104,24 @@
 				<div class="visit-container">
 					<el-row>
 						<el-col :span="12">
-							<div>粉丝</div>
-							<div>查看</div>
+							<div>
+								<p>2540</p>
+								<p>粉丝</p>
+							</div>
+							<div>
+								<p>1850</p>
+								<p>查看</p>
+							</div>
 						</el-col>
 						<el-col :span="12">
-							<div>关注</div>
-							<div>本月查看</div>
+							<div>
+								<p>2</p>
+								<p>关注</p>
+							</div>
+							<div>
+								<p>325</p>
+								<p>本月查看</p>
+							</div>
 						</el-col>
 					</el-row>
 				</div>
@@ -137,6 +149,10 @@
 	}
 </script>
 <style type="text/css">
+	.myarticle .userinfo-container{
+		display: flex;
+		flex-direction: row;
+	}
 	.myarticle .contribution-container{
 		overflow: auto;
     	margin-top: 10px;
@@ -146,7 +162,7 @@
 	    background: #fff;
 	}
 	.myarticle .visit-container{
-		height: 100px;
+		height: 140px;
 		color: var(--sub-title-color, #b6b1aa);
 
 		background: #fff;
@@ -156,7 +172,22 @@
 		height: 100%;
 	}
 	.myarticle .visit-container .el-row .el-col div{
-		line-height: 50px;
+		height: 70px;
+		display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	}
+	.myarticle .visit-container .el-row .el-col div p{
+		margin: 0;
+	}
+	.myarticle .visit-container .el-row .el-col div p:first-child {
+	    font-size: 20px;
+	    font-weight: normal;
+	    color: var(--title-color, #1f2f3d);
+	}
+	.myarticle .visit-container .el-row .el-col div p:last-child {
+	    font-size: 12px;
+	    font-weight: 400;
 	}
 	.myarticle .right-container .el-col{
 		text-align: center;
@@ -194,7 +225,10 @@
 		padding: 20px 0 15px 0;
 	}
 	.myarticle .info .top{
-
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		border-bottom:1px solid #d4d9df;
 	}
 	.myarticle .info .top .left{
 		width: 150px;
@@ -202,6 +236,7 @@
 	}
 	.myarticle .info .top .left h3{
 		margin-bottom: 3px!important;
+		color: var(--title-color, #1f2f3d)!important;
 	}
 	.myarticle .info .top .left span{
 		color: var(--sub-title-color, #b6b1aa);
@@ -210,6 +245,9 @@
 	.myarticle .info .bottom{
 		padding-top: 10px;
 		padding-bottom: 10px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 	}
 	.myarticle .info .bottom .left{
 		width: 200px;
@@ -224,6 +262,12 @@
 	}
 	.myarticle .info .bottom .left h3{
 		margin-bottom: 3px!important;
+	}
+	.myarticle .info .bottom .right{
+		display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    margin-right: 15px;
 	}
 	.myarticle .info .bottom .right .el-button-group{
 		box-shadow: var(--btn-box-shadow, #d5d9de 3px 0px 7px 0px);

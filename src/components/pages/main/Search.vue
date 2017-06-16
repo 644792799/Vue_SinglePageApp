@@ -3,8 +3,11 @@
 		<el-row>
 			<el-col :span="15" :offset="1">
 			    <div style="margin-top: 15px;margin-bottom:15px;">
+			    	<div class="search-container">
+			    		<el-input v-model="searchinput" size="large" placeholder="请输入查询内容"></el-input>
+			    	</div>
 			    	<div class="filtercontainer">
-			    		<span style="line-height:56px;font-size:18px;color:#586069;"><i class="icon-terminal" style="font-weight:600;"></i>&nbsp;发现代码</span>
+			    		<span style="line-height:56px;font-size:18px;color:#586069;"><i class="icon-terminal" style="font-weight:600;"></i>&nbsp;查找代码</span>
 			    		<el-form :inline="true" :model="formInline" class="demo-form-inline pull-right">
 						  <el-form-item label="排序">
 						    <el-select v-model="formInline.order" placeholder="类型选择">
@@ -30,9 +33,9 @@
 						<el-button style="margin: 10px 5px">添加代码片<i class="el-icon-plus el-icon--right"></i></el-button>
 					</router-link>
 				</div>
-				<div style="position:relative;">
+				<!-- <div style="position:relative;">
 					<categoryCard :categoriesdata="categories"></categoryCard>
-				</div>
+				</div> -->
 				<div style="position:relative;">
 					<codefilter></codefilter>
 				</div>
@@ -132,6 +135,7 @@
 					}
 				],
 				input5: '',
+				searchinput: '',
       			select: '',
       			activeName: 'second',
       			formInline: {
@@ -173,17 +177,17 @@
 		background: #fff;
     	box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
 	}
-	.el-select .el-input {
+	.index .el-select .el-input {
     	width: 75px;
   	}
-  	.el-tabs__header{
+  	.index .el-tabs__header{
   		margin: 0 0 0!important;
   		border-bottom: 1px solid #d4d9df!important;
   	}
-  	.el-tabs__content{
+  	.index.el-tabs__content{
 		box-shadow: #d5d9de -1px 1px 2px 0px;
 	}
-	.subtitle{
+	.index .subtitle{
 		font-size: 14px;
     	font-weight: 600;
     	display: inline-block !important;
