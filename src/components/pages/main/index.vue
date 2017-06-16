@@ -33,9 +33,9 @@
 				<div style="position:relative;">
 					<categoryCard :categoriesdata="categories"></categoryCard>
 				</div>
-				<div style="position:relative;">
+				<!-- <div style="position:relative;">
 					<codefilter></codefilter>
-				</div>
+				</div> -->
 				<!-- <div style="position:relative;background: #fbfcfc;">
 					<SmsLine gradfrom="left"></SmsLine>
 					<div class="subtitle">热搜词</div>

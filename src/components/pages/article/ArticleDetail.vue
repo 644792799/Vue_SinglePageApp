@@ -69,6 +69,10 @@
 						<div class="pull-left stats-item-name">赞</div>
 						<span></span>
 					</div>
+					<div class="puborpri stats-item">
+						<div class="pull-left stats-item-name">公开 / 私有</div>
+						<span></span>
+					</div>
 		   		</div>
 		   		<div class="article-prop">
 			   		<el-form>
@@ -108,6 +112,20 @@
 </script>
 
 <style type="text/css">
+/*	.article-detail .labelspan{
+		margin-top: -1px;
+	    margin-bottom: -1px;
+	    font-weight: normal;
+	    color: #586069;
+	    background-color: transparent;
+	    border: 1px solid rgba(27,31,35,0.15);
+	    box-shadow: none;
+	    display: inline-block;
+	    padding: 3px 4px;
+	    font-size: 12px;
+	    line-height: 1;
+	    border-radius: 2px;
+	}*/
 	.article-detail h3{
 		color: var(--title-color, #4E5359);
 	}
