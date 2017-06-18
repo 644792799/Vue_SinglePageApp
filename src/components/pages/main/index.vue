@@ -5,7 +5,8 @@
 			    <div style="margin-top: 15px;margin-bottom:15px;">
 			    	<div class="filtercontainer">
 			    		<span style="line-height:56px;font-size:18px;color:#586069;"><i class="icon-terminal" style="font-weight:600;"></i>&nbsp;发现代码</span>
-			    		<el-form :inline="true" :model="formInline" class="demo-form-inline pull-right">
+			    		<el-button :class="icoclass" @click="toggleIcoClass()"></el-button>
+			    		<el-form :inline="true" :model="formInline" class="demo-form-inline">
 						  <el-form-item label="排序">
 						    <el-select v-model="formInline.order" placeholder="类型选择">
 						      <el-option label="最新发布" value="new"></el-option>
@@ -19,7 +20,7 @@
 			    	</div>
 			    	<div>
 			    		<div class="grid-content">
-					  		<articleList :articlesdata="articlesdata"></articleList>
+					  		<articleList :articlesdata="articlesdata" :isfullmode="isfullmode"></articleList>
 					  	</div>
 			    	</div>
 			    </div>
@@ -139,7 +140,9 @@
 		          language: 'All',
 		          language2: 'All',
 		          order: 'new'
-		        }
+		        },
+		        icoclass: "icon-list",
+		        isfullmode: true
 			}
 		},
 		components: {
@@ -150,6 +153,15 @@
 		methods: {
 	      handleClick(tab, event) {
 	        console.log(tab, event);
+	      },
+	      toggleIcoClass: function(){
+	      	if(this.icoclass == "icon-list"){
+	      		this.icoclass = "icon-th-large";
+	      		this.isfullmode = false;
+	      	}else{
+	      		this.icoclass = "icon-list";
+	      		this.isfullmode = true;
+	      	}
 	      }
 	    }
 	}
@@ -159,10 +171,18 @@
 	.index .filtercontainer{
 		position: relative;
 		*text-align: right;
+		display: flex;
+    	justify-content: space-between;
+    	flex-direction: row;
+    	align-items: center;
 	}
 	.index .el-button--default:hover{
 		border-color: var(--btn-border-color-primary, #20a0ff);
 		color: var(--btn-hover-color-default, #ea7069);
+	}
+	.index .el-button--default:focus{
+		color: var(--default-color, #1f2d3d);
+	    border: 1px solid var(--border-color, #bfcbd9);
 	}
 	.index .el-form-item{
 		width: 150px;

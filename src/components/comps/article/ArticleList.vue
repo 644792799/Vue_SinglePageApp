@@ -4,7 +4,12 @@
 			<i class="icon-terminal"></i>
 			<SmsLine gradfrom="center"></SmsLine>
 		</div> -->
-		<articleSimple v-for="art in articlesdata" :art="art" fullmode></articleSimple>
+		<div v-if="isfullmode == true">
+			<articleSimple v-for="art in articlesdata" :art="art" fullmode></articleSimple>
+		</div>
+		<div v-else>
+			<articleSimple v-for="art in articlesdata" :art="art"></articleSimple>
+		</div>
 		<div style="text-align:center;margin-top:20px;">
 	    	<div class="block">
 			    <el-pagination
@@ -32,7 +37,7 @@
 		components: {
 			"articleSimple": ArticleSimple
 		},
-		props: ['articlesdata'],
+		props: ['articlesdata', 'isfullmode'],
 		methods: {
 	      handleSizeChange(val) {
 	        console.log(`每页 ${val} 条`);

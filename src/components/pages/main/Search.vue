@@ -1,5 +1,5 @@
 <template>
-	<div class="index">
+	<div class="search">
 		<el-row>
 			<el-col :span="15" :offset="1">
 			    <div style="margin-top: 15px;margin-bottom:15px;">
@@ -160,34 +160,40 @@
 </script>
 
 <style type="text/css">
-	.index .filtercontainer{
+	.search .filtercontainer{
 		position: relative;
 		*text-align: right;
 	}
-	.index .el-button--default:hover{
+	.search .el-button--default:hover{
 		border-color: var(--btn-border-color-primary, #20a0ff);
 		color: var(--btn-hover-color-default, #ea7069);
 	}
-	.index .el-form-item{
+	.search .search-container .el-input input{
+		border: 0;
+	    border-bottom: 1px solid var(--border-color, #d4d9df);
+	    background: var(--bg-color, #fbfcfc);
+	    border-radius: 0;
+	}
+	.search .el-form-item{
 		width: 150px;
 		vertical-align: middle;
 		margin: 10px 5px;
 	}
-	.index .right-container{
+	.search .right-container{
 		background: #fff;
     	box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
 	}
-	.index .el-select .el-input {
+	.search .el-select .el-input {
     	width: 75px;
   	}
-  	.index .el-tabs__header{
+  	.search .el-tabs__header{
   		margin: 0 0 0!important;
   		border-bottom: 1px solid #d4d9df!important;
   	}
-  	.index.el-tabs__content{
+  	.search.el-tabs__content{
 		box-shadow: #d5d9de -1px 1px 2px 0px;
 	}
-	.index .subtitle{
+	.search .subtitle{
 		font-size: 14px;
     	font-weight: 600;
     	display: inline-block !important;

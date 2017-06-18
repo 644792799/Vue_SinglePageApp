@@ -3,7 +3,14 @@
 	<div class="article-item-container">
 		<SmsCard class="articles-item" bodyStyle="display:flex;width:100%;">
 			<!-- <SmsLine gradfrom="center"></SmsLine> -->
-			<a href="" class="articles-thumbnail">
+			<el-popover
+			  ref="popoverSimpleFileCard"
+			  placement="right"
+			  width="280"
+			  trigger="hover">
+			  	<simpleprofilecard></simpleprofilecard>
+			</el-popover>
+			<a href="javascript:void(0);" class="articles-thumbnail" v-popover:popoverSimpleFileCard>
 				<span>
 					<img :src="art.avator"/>
 				</span>
@@ -43,6 +50,7 @@
 </template>
 
 <script type="text/javascript">
+	import SimpleProfileCard from 'components/comps/common/SimpleProfileCard.vue'
 	import $ from 'jquery'
     import hljs from 'pluginspath/highlight/highlight.pack.js'
 	export default{
@@ -53,6 +61,7 @@
 		},
 		props: ['art', 'fullmode'],
 	    mounted () {
+	    	console.log("mounted");
 	      if(this.fullmode == undefined)return;
 	      hljs.initHighlightingOnLoad();
 	      $(function () {
@@ -60,7 +69,21 @@
 	          hljs.highlightBlock(block)
 	        })
 	      })
-	    }
+	    },
+	    updated: function(){
+	    	this.highlightCode();
+	    },
+	    methods: {
+	    	highlightCode: function(){
+	    		hljs.initHighlightingOnLoad();
+	    		$('pre code').each(function (i, block) {
+		          hljs.highlightBlock(block)
+		        })
+	    	}
+	    },
+		components: {
+			'simpleprofilecard': SimpleProfileCard
+		}
 	}
 </script>
 
