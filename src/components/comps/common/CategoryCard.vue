@@ -3,11 +3,14 @@
 		<div class="cat-title">TOP 10编程语言<SmsLine gradfrom="left"></SmsLine></div>
 		<div>
 			<ul class="cat-list">
-				<li v-for="cat in categoriesdata">
-					<a href="">
+				<li v-for="cat in categoriesdata" :class="cat.isactive == null || cat.isactive == false?'':'active'">
+					<a href="javascript:void(0);" @click="catSelect(cat.name)">
 						<span>{{cat.name}}</span>
 						<!-- <SmsPoint :label="cat.name"></SmsPoint> -->
-						<span class="count">{{cat.count}}</span>
+						<span class="count" v-if="cat.isactive == null || cat.isactive == false">{{cat.count}}</span>
+						<span class="count" v-else >
+							X
+						</span>
 					</a>
 				</li>
 			</ul>
@@ -19,7 +22,34 @@
 		data(){
 			return {}
 		},
-		props: ['categoriesdata']
+		props: ['categoriesdata'],
+		mounted: function(){
+			//console.log(this.categoriesdata)
+		},
+		methods: {
+			catSelect: function(catName){
+				for(var c in this.categoriesdata){
+					if(this.categoriesdata[c].name == catName){
+						if(this.categoriesdata[c].isactive){
+							this.categoriesdata[c].isactive = false;
+						}else{
+							this.categoriesdata[c].isactive = true;
+						}
+					}else{
+						this.categoriesdata[c].isactive = false;
+					}
+				}
+			},
+			catUnSelect: function(catName){
+				for(var k in this.categoriesdata){
+					if(this.categoriesdata[k].name == catName){
+						this.categoriesdata[k].isactive = null;
+						console.log(this.categoriesdata[k].isactive);
+						break;
+					}
+				}
+			}
+		}
 	}
 </script>
 <style type="text/css">
@@ -46,9 +76,23 @@
 	    margin-bottom: 0;
 	    font-size: 14px;
 	}
+	.cat-list .active{
+		background: var(--bg-color, #fbfcfc);
+		border-top: 1px solid var(--border-color,#d4d9df);
+		border-bottom: 1px solid var(--border-color,#d4d9df);
+	}
+	.cat-list .active a{
+		*color: var(--default-color, #4E5359);
+	}
+	.cat-list li:first-child{
+		border-top: 0;
+	}
+	.cat-list li:last-child{
+		border-bottom: 0;
+	}
 	.cat-list li{
 		padding-left: 15px;
-		border-radius: 3px;
+		border-radius: 0px;
 	}
 	.cat-list li:hover{
 		text-decoration: none;

@@ -93,43 +93,53 @@
 				categories: [
 					{
 						name: 'JAVA',
-						count: 155
+						count: 155,
+						isactive: false
 					},
 					{
 						name: 'C#',
-						count: 2546
+						count: 2546,
+						isactive: false
 					},
 					{
 						name: 'C++',
-						count: 2546
+						count: 2546,
+						isactive: false
 					},
 					{
 						name: 'C',
-						count: 2546
+						count: 2546,
+						isactive: false
 					},
 					{
 						name: 'PYTHON',
-						count: 2546
+						count: 2546,
+						isactive: false
 					},
 					{
 						name: 'JAVASCRIPT',
-						count: 155
+						count: 155,
+						isactive: false
 					},
 					{
 						name: 'CSS',
-						count: 2546
+						count: 2546,
+						isactive: false
 					},
 					{
 						name: 'HTML',
-						count: 2546
+						count: 2546,
+						isactive: false
 					},
 					{
 						name: 'VUE',
-						count: 2546
+						count: 2546,
+						isactive: false
 					},
 					{
 						name: 'REACT',
-						count: 2546
+						count: 2546,
+						isactive: false
 					}
 				],
 				input5: '',

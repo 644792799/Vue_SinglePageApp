@@ -76,6 +76,7 @@
 	export default {
 	    data () {
 	      return {
+	      	isdisable: false,
 	      	content: 'function test(){}',
 	      	form: {
 	          name: '',

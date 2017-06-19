@@ -10,7 +10,10 @@
 				</el-breadcrumb>
 		  	</div>
 		  	<div class="grid-content">
-		  		<div class="article-title"><h3><i class="icon-pin">&nbsp;</i>这是标题</h3></div>
+		  		<div class="article-title">
+		  			<h3><i class="icon-pin">&nbsp;</i>这是标题</h3>
+		  			<el-tag v-for="i in 5">标签{{i}}</el-tag>
+		  		</div>
 				<div class="article-content" id="article-content">
 					<div class="tools">
 						<articletools :code="function(){}"></articletools>
@@ -253,5 +256,9 @@
 
 	.article-detail .article-title{
 		margin-bottom: 12px; 
+	}
+
+	.article-title .el-tag+.el-tag {
+	    margin-left: 10px;
 	}
 </style>

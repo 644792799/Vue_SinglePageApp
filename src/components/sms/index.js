@@ -5,6 +5,7 @@ import Card from './card';
 import BackToTop from './backtotop';
 import Point from './languagepoint';
 import Markdown from './markdown';
+import MarkdownPreview from './markdownpreview';
 
 
 const components = [
@@ -12,7 +13,8 @@ const components = [
   Card,
   BackToTop,
   Point,
-  Markdown
+  Markdown,
+  MarkdownPreview
 ];
 
 const install = function(Vue, opts = {}) {
@@ -36,5 +38,6 @@ module.exports = {
   Card,
   BackToTop,
   Point,
-  Markdown
+  Markdown,
+  MarkdownPreview
 };

@@ -5,7 +5,8 @@
           <textarea v-model="preMark" id="txtarea"></textarea>
       </el-tab-pane>
       <el-tab-pane label="预览" name="review" class="review">
-          <div v-html="postMark"></div>
+          <!-- <div v-html="postMark"></div> -->
+          <SmsPreview :mktext="postMark"></SmsPreview>
       </el-tab-pane>
     </el-tabs>
     <div class="sms-markdown-tools" id="sms-markdown-tools">
@@ -24,9 +25,9 @@
   import SimpleScrollbars from 'codemirror/addon/scroll/simplescrollbars.js'
   //import 'codemirror/mode/markdown/markdown.js'
   import 'codemirror/mode/gfm/gfm.js'
-  //import 'codemirror/lib/codemirror.css'
+  import 'codemirror/lib/codemirror.css'
   import 'codemirror/addon/scroll/simplescrollbars.css'
-  import './css/smsmarkdown.min.css'
+  //import './css/smsmarkdown.min.css'
   var marked = require('marked');
   marked.setOptions({
     renderer: new marked.Renderer(),
@@ -143,7 +144,6 @@
     *padding: 8px;
     *padding-right: 24px;
     *background: #fff;
-    
   }
   .sms-markdown .review{
     min-height: 100px;
