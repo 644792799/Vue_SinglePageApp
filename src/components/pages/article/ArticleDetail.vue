@@ -5,7 +5,7 @@
 		  	<div class="breadcrumb-container">
 		  		<el-breadcrumb separator="/">
 				  <el-breadcrumb-item :to="{ path: '/index' }">首页</el-breadcrumb-item>
-				  <el-breadcrumb-item :to="{ path: '/myarticle' }">用户</el-breadcrumb-item>
+				  <el-breadcrumb-item :to="{ path: '/user/1' }">用户</el-breadcrumb-item>
 				  <el-breadcrumb-item>代码片详细</el-breadcrumb-item>
 				</el-breadcrumb>
 		  	</div>

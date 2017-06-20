@@ -5,7 +5,7 @@
 			<!-- <SmsLine gradfrom="center"></SmsLine> -->
 			<el-popover
 			  ref="popoverSimpleFileCard"
-			  placement="right"
+			  placement="bottom"
 			  width="280"
 			  trigger="hover">
 			  	<simpleprofilecard></simpleprofilecard>

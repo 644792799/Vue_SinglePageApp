@@ -19,7 +19,10 @@
 			  	</span>
 			  <el-dropdown-menu slot="dropdown">
 			    <el-dropdown-item>
-			    	<router-link to="/user/1"><i class="icon-profile">&nbsp;</i>我的空间</router-link>
+			    	<span  @click="tomyspace()">
+			    		<i class="icon-profile">&nbsp;</i>我的空间
+			    	</span>
+			    	<!-- <router-link to="/user/1"><i class="icon-profile">&nbsp;</i>我的空间</router-link> -->
 			    </el-dropdown-item>
 			    <el-dropdown-item><i class="icon-exit">&nbsp;</i>退出</el-dropdown-item>
 			  </el-dropdown-menu>
@@ -73,6 +76,10 @@
 		search: function(){
 			this.$router.push({path:'/search'});
 			//this.$router.go('/search');
+		},
+		tomyspace(){
+			console.log(3333);
+			this.$router.push({path:'/user/1'});
 		}
 	},
 	components: {
