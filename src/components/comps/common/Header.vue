@@ -7,7 +7,7 @@
 		  		<router-link :to="menu.to"><i :class="menu.ico">&nbsp;</i>{{menu.name}}</router-link>
 		  	</span>
 			<div class="pull-right plus-container">
-				<router-link to="/editor">
+				<router-link to="/user/1/snipt/1/editsnipt">
 					<i class="icon-plus2"></i>
 				</router-link>
 			</div>
@@ -19,7 +19,7 @@
 			  	</span>
 			  <el-dropdown-menu slot="dropdown">
 			    <el-dropdown-item>
-			    	<router-link to="/myarticle"><i class="icon-profile">&nbsp;</i>我的空间</router-link>
+			    	<router-link to="/user/1"><i class="icon-profile">&nbsp;</i>我的空间</router-link>
 			    </el-dropdown-item>
 			    <el-dropdown-item><i class="icon-exit">&nbsp;</i>退出</el-dropdown-item>
 			  </el-dropdown-menu>

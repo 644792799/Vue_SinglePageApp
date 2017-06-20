@@ -1,10 +1,10 @@
 
 <template>
-  <div class="main vistor" v-if="login == false && vistor == false">
+<!--   <div class="main vistor" v-if="login == false && vistor == false">
   	<signin :vistor="vistor"></signin>
   	<button @click="toexplore()">ddd</button>
-  </div>
-  <div id="" class="main" v-else>
+  </div> -->
+  <div id="" class="main">
   	<SmsBackToTop></SmsBackToTop>
   	<navbar :menus="menus"></navbar>
   	<router-view class="content"></router-view>
@@ -17,12 +17,6 @@
 import Header from './components/comps/common/Header.vue'
 import Footer from './components/comps/common/Footer.vue'
 import SignIn from './components/pages/Sign/SignIn.vue'
-// {
-// 	name: '主页',
-// 	to: '/first',
-// 	clas: 'active',
-// 	ico: 'icon-home2'
-// },
 
 const menu = [
 {
@@ -33,12 +27,12 @@ const menu = [
 },
 {
 	name: '发现',
-	to: '/index',
+	to: '/explore',
 	clas: '',
 	ico: 'icon-globe3'
 },{
 	name: '关于',
-	to: '/commonstyle',
+	to: '/about',
 	clas: '',
 	ico: 'icon-info2'
 }];

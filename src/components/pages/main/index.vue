@@ -65,7 +65,10 @@
 						view: 56,
 						star: 24,
 						fork: 71,
-						date: '2017-05-05 10:05'
+						date: '2017-05-05 10:05',
+						userid: 1,
+						sniptid: 1,
+						username: '小哥哥'
 					},
 					{
 						avator: 'https://www.gravatar.com/avatar/644792799?d=http://tva4.sinaimg.cn/crop.0.0.599.599.50/62e42164gw1ev348sehr3j20go0go3zm.jpg',
@@ -76,7 +79,10 @@
 						view: 72,
 						star: 30,
 						fork: 66,
-						date: '2017-04-05 12:05'
+						date: '2017-04-05 12:05',
+						userid: 2,
+						sniptid: 1,
+						username: '张三'
 					},
 					{
 						avator: '/static/img/头像示例.jpg',
@@ -87,7 +93,10 @@
 						view: 100,
 						star: 80,
 						fork: 98,
-						date: '2017-04-03 09:05'
+						date: '2017-04-03 09:05',
+						userid: 3,
+						sniptid: 1,
+						username: 'Admin'
 					}
 				],
 				categories: [

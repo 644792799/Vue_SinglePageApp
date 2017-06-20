@@ -10,24 +10,24 @@
 			  trigger="hover">
 			  	<simpleprofilecard></simpleprofilecard>
 			</el-popover>
-			<a href="javascript:void(0);" class="articles-thumbnail" v-popover:popoverSimpleFileCard>
+			<a href="javascript:void(0);" @click="touser" class="articles-thumbnail" v-popover:popoverSimpleFileCard>
 				<span>
 					<img :src="art.avator"/>
 				</span>
 			</a>
 			<div class="articles-item-header">
 				<div class="articles-item-title">
-					<a href="">Admin</a> <b style="color:#939c99;">/</b> 
-					<a :href="art.url">{{art.title}}</a>
+					<a href="javascript:void(0);" @click="touser">{{art.username}}</a> <b style="color:#939c99;">/</b> 
+					<a href="javascript:void(0);" @click="tosnipt">{{art.title}}</a>
 
-					<a href="" class="icon-comment-circle pull-right"> 0 </a>
-					<a href="" class="icon-star pull-right"> {{art.star}} </a>
-					<a href="" class="icon-eye3 pull-right"> {{art.view}} </a>
-					<a href="" class="icon-git-branch pull-right"> {{art.fork}} </a>
+					<a href="javascript:void(0);" @click="tosnipt" class="icon-comment-circle pull-right"> 0 </a>
+					<a href="javascript:void(0);" @click="tosnipt" class="icon-star pull-right"> {{art.star}} </a>
+					<a href="javascript:void(0);" @click="tosnipt" class="icon-eye3 pull-right"> {{art.view}} </a>
+					<a href="javascript:void(0);" @click="tosnipt" class="icon-git-branch pull-right"> {{art.fork}} </a>
 				</div>
 				<div class="articles-item-categories">
 					<span>
-						<a href="">今天 21:50</a> 发布于 
+						<a href="javascript:void(0);">今天 21:50</a> 发布于 
 						<a href="">{{art.cat}}</a> 分类下
 					</span>
 				</div>
@@ -79,6 +79,14 @@
 	    		$('pre code').each(function (i, block) {
 		          hljs.highlightBlock(block)
 		        })
+	    	},
+	    	touser(){
+	    		var path = "/user/" + this.art.userid
+	    		this.$router.push({path: path});
+	    	},
+	    	tosnipt(){
+	    		var path = "/user/" + this.art.userid + "/snipt/" + this.art.sniptid;
+	    		this.$router.push({path: path});
 	    	}
 	    },
 		components: {

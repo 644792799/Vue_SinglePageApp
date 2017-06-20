@@ -33,66 +33,55 @@ Vue.use(SmsUI);
 
 const routes = [
 	{
-		name: '',
 		path: '/',
 		component: Main
 	},
 	{
-		name: 'first',
-		path: '/first',
-		component: FirstComponent
+		path: '/explore',
+		component: Main
 	},
 	{
-		name: 'second',
-		path: '/second',
-		component: SecondComponent
-	},
-	{
-		name: 'commonstyle',
-		path: '/commonstyle',
-		component: CommonStyle
-	},
-	{
-		name: 'article',
-		path: '/article',
-		component: Article
-	},
-	{
-		name: 'index',
 		path: '/index',
 		component: Main
 	},
 	{
-		name: 'search',
+		path: '/about',
+		component: CommonStyle
+	},
+	{
+		path: '/user/:user_id',
+		component: MyArticle
+	},
+	{
+		path: '/user/:user_id/snipt/:snipt_id',
+		component: Article
+	},
+	{
+		path: '/user/:user_id/snipt/:snipt_id/addsnipt',
+		component: Editor
+	},
+	{
+		path: '/user/:user_id/snipt/:snipt_id/editsnipt',
+		component: Editor
+	},
+	{
 		path: '/search',
 		component: Search
 	},
 	{
-		name: 'signin',
 		path: '/signIn',
 		component: SignIn
 	},
 	{
-		name: 'signup',
 		path: '/signUp',
 		component: SignUp
-	},
-	{
-		name: 'editor',
-		path: '/editor',
-		component: Editor
-	},
-	{
-		name: 'myarticle',
-		path: '/myarticle',
-		component: MyArticle
 	},
 	{
 		path: '*',
 		component: PageNotFound
 	}
 ];
-const router = new VueRouter({routes});
+const router = new VueRouter({mode: 'history', routes});
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
