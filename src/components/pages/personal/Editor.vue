@@ -19,7 +19,7 @@
 						  	</el-select>
 					    </el-form-item>
 					    <el-form-item label="代码" required>
-					    	<editor v-model="content" @init="editorInit();" :lang="languageSelectVal" theme="github" width="100%" height="300"></editor>
+					    	<editor v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="100%" height="300"></editor>
 					    </el-form-item>
 					    <el-form-item label="代码描述">
 					    	<!-- <el-input type="textarea" v-model="form.desc"></el-input> -->
@@ -72,6 +72,7 @@
 </template>
 <script type="text/javascript">
 	import Editor from 'vue2-ace-editor'
+	//ace.require("ace/ext/language_tools");
 	import ArticleProperties from 'components/comps/article/ArticleProperties.vue'
 	export default {
 	    data () {
@@ -110,7 +111,8 @@
 	        dynamicTags: ['JAVA', '开源', 'private'],
 	        inputVisible: false,
 	        inputValue: '',
-	        labelPosition: 'top'
+	        labelPosition: 'top',
+	        edit: ''
 	      }
 	    },
 	    components: {
@@ -119,39 +121,37 @@
 	    },
 		mounted: function(){
 			//console.log(this.$route.params.user_id + "--" + this.$route.params.snipt_id);
-			console.log(Editor.data);
+			//console.log(this.edit);
 		},
 	    methods:{
 	    	languageChange(){
-	    		//console.log(this.languageSelectVal);
 	    		require('vue2-ace-editor/node_modules/brace/mode/' + this.languageSelectVal);
-	    		//console.log(Editor.data);
-	    		//Editor.props.lang = this.languageSelectVal;
-	    		console.log(Editor.geteditor);
+	    		this.edit.getSession().setMode('ace/mode/' + this.languageSelectVal);
+	    		console.log(this.content.toString());
 	    	},
-	        editorInit:function (data) {
-	        	console.log(data);
-	        	data.getSession().setMode('ace/mode/javascript');
-	        	//console.log();
-	        	//console.log("initedit:"+ this.editor);
+	        editorInit:function (edit) {
+	        	require('vue2-ace-editor/node_modules/brace/ext/language_tools');
+	        	edit.setOptions({
+			        enableBasicAutocompletion: true,
+			        enableSnippets: false,
+			        enableLiveAutocompletion: true,
+			        wrap: "free"
+			    });
+	        	this.edit = edit;
 	            // require('vue2-ace-editor/node_modules/brace/mode/html');
 	            // require('vue2-ace-editor/node_modules/brace/mode/javascript');
 	            // require('vue2-ace-editor/node_modules/brace/mode/less');
 	            require('vue2-ace-editor/node_modules/brace/theme/github');
-
-	            //Editor.setTheme("ace/theme/twilight");
 	        },
 	        handleClose(tag) {
 		        this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
 		      },
-
 		      showInput() {
 		        this.inputVisible = true;
 		        this.$nextTick(_ => {
 		          this.$refs.saveTagInput.$refs.input.focus();
 		        });
 		      },
-
 		      handleInputConfirm() {
 		        let inputValue = this.inputValue;
 		        if (inputValue) {
