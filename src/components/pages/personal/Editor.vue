@@ -10,7 +10,7 @@
 							</el-col>
 					    </el-form-item>
 					    <el-form-item label="语言" required>
-							<el-select class="select-language" v-model="value8" filterable placeholder="请选择">
+							<el-select class="select-language" v-model="languageSelectVal" filterable placeholder="请选择" @change="languageChange">
 							    <el-option
 							      v-for="item in options"
 							      :label="item.label"
@@ -19,7 +19,7 @@
 						  	</el-select>
 					    </el-form-item>
 					    <el-form-item label="代码" required>
-					    	<editor v-model="content" @init="editorInit();" lang="javascript" theme="github" width="100%" height="300"></editor>
+					    	<editor v-model="content" @init="editorInit();" :lang="languageSelectVal" theme="github" width="100%" height="300"></editor>
 					    </el-form-item>
 					    <el-form-item label="代码描述">
 					    	<!-- <el-input type="textarea" v-model="form.desc"></el-input> -->
@@ -89,22 +89,22 @@
 	          desc: ''
 	        },
 	        options: [{
-		          value: '选项1',
+		          value: 'java',
 		          label: 'JAVA'
 		        }, {
-		          value: '选项2',
+		          value: 'javascript',
 		          label: 'JAVASCRIPT'
 		        }, {
-		          value: '选项3',
+		          value: 'csharp',
 		          label: 'C#'
 		        }, {
-		          value: '选项4',
+		          value: 'html',
 		          label: 'HTML'
 		        }, {
-		          value: '选项5',
+		          value: 'css',
 		          label: 'CSS'
 		        }],
-	        value8: '',
+	        languageSelectVal: '',
 	        isprivate: false,
 	        allowcomment: true,
 	        dynamicTags: ['JAVA', '开源', 'private'],
@@ -117,11 +117,26 @@
 	      editor:Editor,//require('vue2-ace-editor'),
 	      articleProp: ArticleProperties
 	    },
+		mounted: function(){
+			//console.log(this.$route.params.user_id + "--" + this.$route.params.snipt_id);
+			console.log(Editor.data);
+		},
 	    methods:{
-	        editorInit:function () {
-	            require('vue2-ace-editor/node_modules/brace/mode/html');
-	            require('vue2-ace-editor/node_modules/brace/mode/javascript');
-	            require('vue2-ace-editor/node_modules/brace/mode/less');
+	    	languageChange(){
+	    		//console.log(this.languageSelectVal);
+	    		require('vue2-ace-editor/node_modules/brace/mode/' + this.languageSelectVal);
+	    		//console.log(Editor.data);
+	    		//Editor.props.lang = this.languageSelectVal;
+	    		console.log(Editor.geteditor);
+	    	},
+	        editorInit:function (data) {
+	        	console.log(data);
+	        	data.getSession().setMode('ace/mode/javascript');
+	        	//console.log();
+	        	//console.log("initedit:"+ this.editor);
+	            // require('vue2-ace-editor/node_modules/brace/mode/html');
+	            // require('vue2-ace-editor/node_modules/brace/mode/javascript');
+	            // require('vue2-ace-editor/node_modules/brace/mode/less');
 	            require('vue2-ace-editor/node_modules/brace/theme/github');
 
 	            //Editor.setTheme("ace/theme/twilight");

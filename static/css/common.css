@@ -68,6 +68,29 @@
 
 }
 
+.lan-mark{
+	position: relative;
+}
+
+.lan-mark:after{
+	content: attr(lan);
+	text-transform: uppercase;
+	position: absolute;
+    top: 0;
+    right: 0;
+    color: #d4d9df;
+    text-align: right;
+    font-size: 0.75em;
+    padding: 5px 10px 0;
+    line-height: 15px;
+    height: 15px;
+    font-weight: 600;
+
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    -webkit-font-smoothing: initial;
+    -moz-osx-font-smoothing: initial;
+}
+
 code{
 	--code-bg-color: #F9FAFB;
 	--code-font-family: Menlo,Monaco,Consolas,Courier,monospace;;

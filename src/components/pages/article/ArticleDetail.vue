@@ -19,7 +19,7 @@
 						<articletools :code="function(){}"></articletools>
 					</div>
 					<div class="source">
-						<pre><code class="javascript">$(document).ready(function() {
+						<pre lan="javascript" class="lan-mark"><code class="javascript">$(document).ready(function() {
 		$('pre code').each(function(i, block) {
 			hljs.highlightBlock(block);
 		});

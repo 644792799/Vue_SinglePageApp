@@ -143,6 +143,9 @@
 		        }
 			}
 		},
+		mounted: function(){
+			console.log(this.$route.params.user_id);
+		},
 	    components: {
 	      "contribution": Contribution
 	    }
