@@ -20,6 +20,7 @@
 					    </el-form-item>
 					    <el-form-item label="代码" required>
 					    	<editor v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="100%" height="300"></editor>
+					    	<div class="statusBar icon-edit2" id="statusBar"></div>
 					    </el-form-item>
 					    <el-form-item label="代码描述">
 					    	<!-- <el-input type="textarea" v-model="form.desc"></el-input> -->
@@ -72,7 +73,6 @@
 </template>
 <script type="text/javascript">
 	import Editor from 'vue2-ace-editor'
-	//ace.require("ace/ext/language_tools");
 	import ArticleProperties from 'components/comps/article/ArticleProperties.vue'
 	export default {
 	    data () {
@@ -120,6 +120,9 @@
 	      articleProp: ArticleProperties
 	    },
 		mounted: function(){
+			require('vue2-ace-editor/node_modules/brace/ext/statusbar');
+			var StatusBar = ace.acequire("ace/ext/statusbar").StatusBar;
+			var statusBar = new StatusBar(this.edit, document.getElementById("statusBar"));
 			//console.log(this.$route.params.user_id + "--" + this.$route.params.snipt_id);
 			//console.log(this.edit);
 		},
@@ -127,10 +130,11 @@
 	    	languageChange(){
 	    		require('vue2-ace-editor/node_modules/brace/mode/' + this.languageSelectVal);
 	    		this.edit.getSession().setMode('ace/mode/' + this.languageSelectVal);
-	    		console.log(this.content.toString());
+	    		//console.log(this.content.toString());
 	    	},
 	        editorInit:function (edit) {
 	        	require('vue2-ace-editor/node_modules/brace/ext/language_tools');
+	        	require('vue2-ace-editor/node_modules/brace/ext/searchbox');
 	        	edit.setOptions({
 			        enableBasicAutocompletion: true,
 			        enableSnippets: false,
@@ -138,9 +142,6 @@
 			        wrap: "free"
 			    });
 	        	this.edit = edit;
-	            // require('vue2-ace-editor/node_modules/brace/mode/html');
-	            // require('vue2-ace-editor/node_modules/brace/mode/javascript');
-	            // require('vue2-ace-editor/node_modules/brace/mode/less');
 	            require('vue2-ace-editor/node_modules/brace/theme/github');
 	        },
 	        handleClose(tag) {
@@ -206,5 +207,13 @@
 	}
 	.editor .select-language .el-input{
 		width: 100%;
+	}
+	.editor .statusBar{
+		padding: 5px 2px;
+		font-size: 12px;
+	}
+	.editor .ace_status-indicator{
+		font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+		margin-left: 3px;
 	}
 </style>
