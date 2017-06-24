@@ -76,6 +76,8 @@
 						<div class="pull-left stats-item-name">公开 / 私有</div>
 						<span></span>
 					</div>
+					<SmsSimpleList title="作者发布的其它代码"></SmsSimpleList>
+					<SmsSimpleList title="类似相关代码"></SmsSimpleList>
 		   		</div>
 		   		<div class="article-prop">
 			   		<el-form>
@@ -83,6 +85,9 @@
 			   				<articleProp></articleProp>
 			   			</el-form-item>
 			   		</el-form>
+		   		</div>
+		   		<div>
+		   			
 		   		</div>
 		   </el-col>
 		</el-row>

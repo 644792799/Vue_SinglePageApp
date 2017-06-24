@@ -19,8 +19,10 @@
 						  	</el-select>
 					    </el-form-item>
 					    <el-form-item label="代码" required>
-					    	<editor v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="100%" height="300"></editor>
-					    	<div class="statusBar icon-edit2" id="statusBar"></div>
+					    	<editor v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="inherit" height="300"></editor>
+					    	<div class="statusBar icon-edit2" id="statusBar">
+					    		<div class="pull-right ace_status-right">{{languageSelectVal}}</div>
+					    	</div>
 					    </el-form-item>
 					    <el-form-item label="代码描述">
 					    	<!-- <el-input type="textarea" v-model="form.desc"></el-input> -->
@@ -195,6 +197,8 @@
 	.editor .ace-github{
 		border: 1px solid var(--ace-theme-github-border-color, #d4d9df);
 		border-radius: 4px;
+		border-bottom-left-radius: 0;
+    	border-bottom-right-radius: 0;
 	}
 	.editor .tag-container{
 		margin-top: 50px;
@@ -209,11 +213,25 @@
 		width: 100%;
 	}
 	.editor .statusBar{
-		padding: 5px 2px;
+		*padding: 5px 5px;
 		font-size: 12px;
+		border: 1px solid var(--ace-theme-github-border-color, #d4d9df);
+		border-top: 0;
+		padding-left: 5px;
+		line-height: 19px;
+		border-bottom-left-radius: 4px;
+    	border-bottom-right-radius: 4px;
 	}
 	.editor .ace_status-indicator{
 		font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
 		margin-left: 3px;
+		padding: 3px 5px;
+	}
+	.editor .ace_status-right{
+		line-height: 20px;
+	    border-left: 1px solid var(--ace-theme-github-border-color, #d4d9df);
+	    padding: 0 10px 0 10px;
+	    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+	    text-transform: uppercase;
 	}
 </style>

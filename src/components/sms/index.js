@@ -6,6 +6,7 @@ import BackToTop from './backtotop';
 import Point from './languagepoint';
 import Markdown from './markdown';
 import MarkdownPreview from './markdownpreview';
+import SimpleList from './simplelist';
 
 
 const components = [
@@ -14,7 +15,8 @@ const components = [
   BackToTop,
   Point,
   Markdown,
-  MarkdownPreview
+  MarkdownPreview,
+  SimpleList
 ];
 
 const install = function(Vue, opts = {}) {
@@ -39,5 +41,6 @@ module.exports = {
   BackToTop,
   Point,
   Markdown,
-  MarkdownPreview
+  MarkdownPreview,
+  SimpleList
 };

@@ -29,7 +29,7 @@
 			</el-col>
 			<el-col :span="6" :offset="1" class="right-container">
 				<div style="text-align:right;position:relative;border-bottom:1px solid #d4d9df;">
-					<router-link to="/editor">
+					<router-link to="/user/1/snipt/1/addsnipt">
 						<el-button style="margin: 10px 5px">添加代码片<i class="el-icon-plus el-icon--right"></i></el-button>
 					</router-link>
 				</div>
@@ -67,7 +67,8 @@
 						view: 56,
 						star: 24,
 						fork: 71,
-						date: '2017-05-05 10:05'
+						date: '2017-05-05 10:05',
+						username: '小哥哥'
 					},
 					{
 						avator: 'https://www.gravatar.com/avatar/644792799?d=http://tva4.sinaimg.cn/crop.0.0.599.599.50/62e42164gw1ev348sehr3j20go0go3zm.jpg',
@@ -78,7 +79,8 @@
 						view: 72,
 						star: 30,
 						fork: 66,
-						date: '2017-04-05 12:05'
+						date: '2017-04-05 12:05',
+						username: '小哥哥'
 					},
 					{
 						avator: '/static/img/头像示例.jpg',
@@ -89,7 +91,8 @@
 						view: 100,
 						star: 80,
 						fork: 98,
-						date: '2017-04-03 09:05'
+						date: '2017-04-03 09:05',
+						username: '小哥哥'
 					}
 				],
 				categories: [
