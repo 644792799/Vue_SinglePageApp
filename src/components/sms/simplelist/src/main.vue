@@ -7,7 +7,7 @@
 		<div class="sms-simplelist-content">
 			<ul>
 				<li>
-					<a href="">关于直播，那些人气主播不会告诉你的事关于</a>
+					<a href="">关于直播，那些人气主播不会告诉你的事</a>
 				</li>
 				<li>
 					<a href="">关于直播，那些人气主播不会告诉你的事</a>
@@ -33,7 +33,7 @@
 </script>
 <style type="text/css">
 	.sms-simplelist{
-		background: #fff;
+		*background: #fff;
 		border-bottom: 1px solid var(--border-color,#d4d9df);
 		line-height: 1.5;
 	}

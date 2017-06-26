@@ -12,7 +12,7 @@
 		  	<div class="grid-content">
 		  		<div class="article-title">
 		  			<h3><i class="icon-pin">&nbsp;</i>这是标题</h3>
-		  			<el-tag v-for="i in 5">标签{{i}}</el-tag>
+		  			<el-tag v-for="i in ['gray','primary','success']" :type="i">标签</el-tag>
 		  		</div>
 				<div class="article-content" id="article-content">
 					<div class="tools">
@@ -76,8 +76,7 @@
 						<div class="pull-left stats-item-name">公开 / 私有</div>
 						<span></span>
 					</div>
-					<SmsSimpleList title="作者发布的其它代码"></SmsSimpleList>
-					<SmsSimpleList title="类似相关代码"></SmsSimpleList>
+					
 		   		</div>
 		   		<div class="article-prop">
 			   		<el-form>
@@ -87,7 +86,8 @@
 			   		</el-form>
 		   		</div>
 		   		<div>
-		   			
+		   			<SmsSimpleList title="作者发布的其它代码"></SmsSimpleList>
+					<SmsSimpleList title="类似相关代码"></SmsSimpleList>
 		   		</div>
 		   </el-col>
 		</el-row>
