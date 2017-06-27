@@ -18,7 +18,7 @@
 	margin-left: 10px;
 	margin-top: 10px;
 }
-.common .sms-usercard .title{
+.common .sms-usercard .title h3{
 	margin: 0;
 }
 </style>

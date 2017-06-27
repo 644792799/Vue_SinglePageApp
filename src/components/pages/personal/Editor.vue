@@ -44,6 +44,7 @@
 					<el-form :label-position="labelPosition" label-width="80px" :model="form">
 						<el-form-item label="标签">
 						    <el-tag
+						      type="gray" 
 							  :key="tag"
 							  v-for="tag in dynamicTags"
 							  :closable="true"
