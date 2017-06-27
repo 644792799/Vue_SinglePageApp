@@ -175,7 +175,7 @@
 	      },
 	      toggleIcoClass: function(){
 	      	if(this.icoclass == "icon-list"){
-	      		this.icoclass = "icon-th-large";
+	      		this.icoclass = "icon-th-list";
 	      		this.isfullmode = false;
 	      	}else{
 	      		this.icoclass = "icon-list";

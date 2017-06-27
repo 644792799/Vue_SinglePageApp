@@ -141,7 +141,8 @@
 			        enableBasicAutocompletion: true,
 			        enableSnippets: false,
 			        enableLiveAutocompletion: true,
-			        wrap: "free"
+			        wrap: "free",
+			        showPrintMargin: false
 			    });
 	        	this.edit = edit;
 	            require('vue2-ace-editor/node_modules/brace/theme/github');

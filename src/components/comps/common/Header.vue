@@ -24,6 +24,11 @@
 			    	</span>
 			    	<!-- <router-link to="/user/1"><i class="icon-profile">&nbsp;</i>我的空间</router-link> -->
 			    </el-dropdown-item>
+			    <el-dropdown-item>
+			    	<span  @click="tomyspace()">
+			    		<i class="icon-gear">&nbsp;</i>个人设置
+			    	</span>
+			    </el-dropdown-item>
 			    <el-dropdown-item><i class="icon-exit">&nbsp;</i>退出</el-dropdown-item>
 			  </el-dropdown-menu>
 			</el-dropdown>
