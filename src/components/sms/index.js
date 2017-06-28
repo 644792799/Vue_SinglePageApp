@@ -2,7 +2,8 @@
 
 import Line from './line';
 import Card from './card';
-import UserCard from './usercard';
+import UserCardVer from './usercardver';
+import UserCardHor from './usercardhor';
 import BackToTop from './backtotop';
 import Point from './languagepoint';
 import Markdown from './markdown';
@@ -13,7 +14,8 @@ import SimpleList from './simplelist';
 const components = [
   Line,
   Card,
-  UserCard,
+  UserCardVer,
+  UserCardHor,
   BackToTop,
   Point,
   Markdown,
@@ -40,7 +42,8 @@ module.exports = {
   install,
   Line,
   Card,
-  UserCard,
+  UserCardVer,
+  UserCardHor,
   BackToTop,
   Point,
   Markdown,

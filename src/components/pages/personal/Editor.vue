@@ -9,7 +9,7 @@
 								<el-input v-model="form.name" placeholder="请用一句简短的话描述您即将添加的代码片"></el-input>
 							</el-col>
 					    </el-form-item>
-					    <el-form-item label="语言" required>
+					    <!-- <el-form-item label="语言" required>
 							<el-select class="select-language" v-model="languageSelectVal" filterable placeholder="请选择" @change="languageChange">
 							    <el-option
 							      v-for="item in options"
@@ -17,8 +17,17 @@
 							      :value="item.value">
 							    </el-option>
 						  	</el-select>
-					    </el-form-item>
+					    </el-form-item> -->
 					    <el-form-item label="代码" required>
+					    	<div class="codeToolBar">
+					    		<el-select class="select-language" v-model="languageSelectVal" filterable placeholder="请选择语言" @change="languageChange">
+								    <el-option
+								      v-for="item in options"
+								      :label="item.label"
+								      :value="item.value">
+								    </el-option>
+							  	</el-select>
+					    	</div>
 					    	<editor v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="inherit" height="300"></editor>
 					    	<div class="statusBar icon-edit2" id="statusBar">
 					    		<div class="pull-right ace_status-right">{{languageSelectVal}}</div>
@@ -198,9 +207,9 @@
 	}
 	.editor .ace-github{
 		border: 1px solid var(--ace-theme-github-border-color, #d4d9df);
-		border-radius: 4px;
-		border-bottom-left-radius: 0;
-    	border-bottom-right-radius: 0;
+		*border-radius: 4px;
+		*border-bottom-left-radius: 0;
+    	*border-bottom-right-radius: 0;
 	}
 	.editor .tag-container{
 		margin-top: 50px;
@@ -235,5 +244,19 @@
 	    padding: 0 10px 0 10px;
 	    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
 	    text-transform: uppercase;
+	}
+	.editor .codeToolBar{
+		border: 1px solid var(--ace-theme-github-border-color, #d4d9df);
+		border-bottom: 0;
+		*padding-left: 5px;
+		line-height: 19px;
+		border-top-left-radius: 4px;
+    	border-top-right-radius: 4px;
+	}
+	.editor .codeToolBar input{
+		border: 0;
+	    border-radius: 0;
+	    border-right: 1px solid var(--border-color);
+	    background: var(--bg-color, #fbfcfc);
 	}
 </style>
