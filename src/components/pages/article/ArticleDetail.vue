@@ -36,6 +36,9 @@
 					
 				</div>
 		  	</div>
+		  	<div class="comments">
+		  		<messenger></messenger>
+		  	</div>
 		  </el-col>
 		   <el-col :span="6" :offset="1" class="right-container">
 		   		<div class="grid-content article-stats">
@@ -99,6 +102,7 @@
     import hljs from 'pluginspath/highlight/highlight.pack.js'
     import Tools from 'components/comps/article/ArticleTools.vue'
     import ArticleProperties from 'components/comps/article/ArticleProperties.vue'
+	import Messenger from 'components/comps/common/Messenger/Messenger.vue'
 
     export default {
 	    data () {
@@ -106,7 +110,8 @@
 	    },
 	    components: {
 	      "articletools": Tools,
-	      articleProp: ArticleProperties
+	      articleProp: ArticleProperties,
+	      messenger: Messenger
 	    },
 	    mounted () {
 	      hljs.initHighlightingOnLoad();
@@ -265,5 +270,10 @@
 
 	.article-title .el-tag+.el-tag {
 	    margin-left: 10px;
+	}
+
+	.article-detail .comments{
+		margin: 35px 0 15px 0;
+		position: relative;
 	}
 </style>

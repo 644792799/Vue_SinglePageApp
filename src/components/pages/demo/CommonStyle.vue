@@ -6,7 +6,7 @@
 			</div>
 		</SmsUserCardVer>
 
-		<SmsUserCardHor v-for="i in 8" img="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498551826199&di=dd1413b07fcebf87e28b12316d4f14e7&imgtype=0&src=http%3A%2F%2Fk2.jsqq.net%2Fuploads%2Fallimg%2F1705%2F7_170524143440_5.jpg">
+		<SmsUserCardHor shape="triangle" v-for="i in 8" img="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498551826199&di=dd1413b07fcebf87e28b12316d4f14e7&imgtype=0&src=http%3A%2F%2Fk2.jsqq.net%2Fuploads%2Fallimg%2F1705%2F7_170524143440_5.jpg">
 			<div class="title">
 				<h5>小哥哥</h5>
 			</div>
