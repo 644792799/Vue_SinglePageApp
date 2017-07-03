@@ -1,6 +1,10 @@
 <template>
 	<div class="messenger">
-		<div class="msg-header">
+		<messagepanel></messagepanel>
+		<div class="discuss">
+		  	<SmsMarkdown></SmsMarkdown>	
+		</div>
+		<!-- <div class="msg-header">
 			<div class="msg-header-left">
 				<i class="icon-commenting-o"></i>
 				<b style="margin-left:5px;">评论</b>
@@ -23,54 +27,44 @@
 			</div>
 			<div class="msg-content-right">
 				<div></div>
-				<div><!-- <SmsMarkdown></SmsMarkdown> --></div>
+				<div></div>
 			</div>
 		</div>
 		<div class="msg-footer">
 			
-		</div>
+		</div> -->
 	</div>
 </template>
 <script type="text/javascript">
-	
+	import MessagePanel from 'components/comps/common/Messenger/MessagePanel.vue'
+	export default{
+		data(){
+			return{}
+		},
+		methods: {},
+		components: {
+			"messagepanel": MessagePanel
+		}
+	}
 </script>
 <style type="text/css">
 	.messenger{
-		box-shadow: 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
+		padding-top: 15px;
 	}
-	.messenger .msg-header{
-		height: 40px;
-		background: #fff;
-		display: flex;
-		align-items: center;
-		box-shadow: #eef1f6 0 0.5px 12px 0px;
-	    margin-bottom: 3px;
+	.messenger::before{
+		position: absolute;
+	    top: 0;
+	    bottom: 0;
+	    left: 25px;
+	    display: block;
+	    width: 2px;
+	    content: "";
+	    background-color: #e6ebf1;
 	}
-	.messenger .msg-header .msg-header-left{
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-	}
-	.messenger .msg-header i{
-		font-size: 25px;
-		color: #ea7069;
-		margin-left: 5px;
-	}
-	.msg-content{
-		display: flex;
-		max-height: 500px;
-	}
-	.msg-content .msg-content-left{
-		width: 180px;
-		margin-right: 2px;
-		overflow: hidden;
-	}
-	.msg-content .msg-content-right{
-		*width: 100%;
-		background: #fff;
-		flex: 1;
-	}
-	.messenger .msg-content .sms-usercard-hor{
-		box-shadow: none;
+	.messenger .discuss{
+		background-color: #fbfcfc;
+    	border-top: 2px solid #e6ebf1;
+    	padding: 15px 0;
+    	z-index: 1;
 	}
 </style>

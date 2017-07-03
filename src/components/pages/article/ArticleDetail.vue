@@ -273,7 +273,7 @@
 	}
 
 	.article-detail .comments{
-		margin: 35px 0 15px 0;
+		margin: 0px 0 15px 0;
 		position: relative;
 	}
 
