@@ -23,7 +23,7 @@
 			</div>
 			<div class="msg-content-right">
 				<div></div>
-				<div></div>
+				<div><!-- <SmsMarkdown></SmsMarkdown> --></div>
 			</div>
 		</div>
 		<div class="msg-footer">

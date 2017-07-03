@@ -276,4 +276,8 @@
 		margin: 35px 0 15px 0;
 		position: relative;
 	}
+
+	.article-detail .CodeMirror{
+		height: 150px;
+	}
 </style>
