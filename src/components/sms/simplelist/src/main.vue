@@ -36,16 +36,25 @@
 		*background: #fff;
 		border-bottom: 1px solid var(--border-color,#d4d9df);
 		line-height: 1.5;
+		position: relative;
+		border: 1px solid var(--border-color,#d4d9df);
+		border-bottom: 0;
+	}
+	.sms-simplelist+ .sms-simplelist {
+	    border-bottom: 1px solid var(--border-color,#d4d9df);
 	}
 	.sms-simplelist .sms-simplelist-title{
 		font-size: 14px;
     	font-weight: 600;
-    	display: inline-block !important;
+    	*display: inline-block !important;
     	position: relative;
-    	width: 100%;
+    	*width: 100%;
     	padding-left: 15px;
     	padding-top: 15px;
     	background: var(--bg-color, #fbfcfc);
+	}
+	.sms-simplelist .sms-simplelist-content{
+		background: #fff;
 	}
 	.sms-simplelist .sms-simplelist-content ul{
 		list-style-type: none;

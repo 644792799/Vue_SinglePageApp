@@ -47,7 +47,7 @@
 		    	<div style="margin-left:10px;"><b>:</b> 打印</div>
 		    	<SmsLine gradfrom="left"></SmsLine>
 		    </div>
-		    <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
+		    <!-- <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
 		    	<div style="width:15px;"><i class="icon-enlarge"></i></div>
 		    	<div style="margin-left:10px;"><b>:</b> 全屏</div>
 		    	<SmsLine gradfrom="left"></SmsLine>
@@ -55,11 +55,11 @@
 		    <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
 		    	<div style="width:15px;"><i class="icon-shrink"></i></div>
 		    	<div style="margin-left:10px;"><b>:</b> 退出全屏</div>
-		    </div>
+		    </div> -->
 		  </div>
 		</el-popover>
 		<button class="question" :plain="true" @click="help" v-popover:questionpopover><i class="icon-question"></i></button>
-		<button class="enlarge" @click="toggleFullScreen" @keyup.esc="pressEsc"><i :class="fullScreenIco"></i></button>
+		<!-- <button class="enlarge" @click="toggleFullScreen" @keyup.esc="pressEsc"><i :class="fullScreenIco"></i></button> -->
 		<button class="printer" @click="print"><i class="icon-printer"></i></button>
 		<button class="link"><i class="icon-link"></i></button>
 		<button class="star" @click="toggleStar"><i :class="starIco"></i></button>

@@ -1,6 +1,6 @@
 <template>
 	<div class="messenger">
-		<messagepanel></messagepanel>
+		<messagepanel v-for="i in 3"></messagepanel>
 		<div class="discuss">
 		  	<SmsMarkdown></SmsMarkdown>	
 		</div>
@@ -50,16 +50,18 @@
 <style type="text/css">
 	.messenger{
 		padding-top: 15px;
+		z-index: 1;
 	}
 	.messenger::before{
 		position: absolute;
 	    top: 0;
 	    bottom: 0;
-	    left: 25px;
+	    left: 20px;
 	    display: block;
 	    width: 2px;
 	    content: "";
 	    background-color: #e6ebf1;
+	    z-index: -1;
 	}
 	.messenger .discuss{
 		background-color: #fbfcfc;

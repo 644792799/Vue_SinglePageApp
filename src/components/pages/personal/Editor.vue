@@ -256,7 +256,7 @@
 	.editor .codeToolBar input{
 		border: 0;
 	    border-radius: 0;
-	    border-right: 1px solid var(--border-color);
+	    *border-right: 1px solid var(--border-color);
 	    background: var(--bg-color, #fbfcfc);
 	}
 </style>
