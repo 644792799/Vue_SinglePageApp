@@ -275,6 +275,7 @@
 	.article-detail .comments{
 		margin: 0px 0 15px 0;
 		position: relative;
+		z-index: 1;
 	}
 
 	.article-detail .CodeMirror{

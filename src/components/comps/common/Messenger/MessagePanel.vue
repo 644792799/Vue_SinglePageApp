@@ -3,7 +3,7 @@
 		<div class="userimg">
 			<img src="/static/img/头像示例2.jpg">
 		</div>
-		<div>
+		<div style="flex:1;">
 			<div class="message">
 				<div class="messagedetail">
 					道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲
