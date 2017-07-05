@@ -15,9 +15,18 @@
 						<div class="time">2017年7月4日</div>
 					</div>
 					<div class="info">
-						<i class="icon-thumbs-up2"></i>
-						<i class="icon-thumbs-down2"></i>
-						<i class="icon-comment-square" @click="toggleReplay"></i>
+						<el-tooltip class="item" effect="dark" content="赞" placement="top">
+							<i class="icon-thumbs-up2"></i>
+						</el-tooltip>
+						<el-tooltip class="item" effect="dark" content="踩" placement="top">
+							<i class="icon-thumbs-down2"></i>
+						</el-tooltip>
+						<el-tooltip class="item" effect="dark" content="回复" placement="top">
+							<i class="icon-comment-square" @click="toggleReplay"></i>
+						</el-tooltip>
+						<el-tooltip class="item" effect="dark" content="举报" placement="top">
+							<i class="icon-flag2"></i>
+						</el-tooltip>
 					</div>
 				</div>
 			</div>
@@ -229,15 +238,18 @@
 		font-weight: 600;
 		color: var(--sub-title-color, #939c99);
 	}
+	.messagepanel .message .messageaction .info .el-tooltip{
+		margin-left: 20px;
+	}
 	.messagepanel .message .messageaction .info i {
-	    margin-left: 20px;
+	    *margin-left: 20px;
 	    font-size: 18px;
 	    cursor: pointer;
 	    font-weight: 600;
-	    -webkit-transition: -webkit-transform 0.15s cubic-bezier(0.2, 0, 0.13, 2);
-	    transition: transform 0.15s cubic-bezier(0.2, 0, 0.13, 2);
-	    -webkit-transform: scale(1);
-	    transform: scale(1);
+	    *-webkit-transition: -webkit-transform 0.15s cubic-bezier(0.2, 0, 0.13, 2);
+	    *transition: transform 0.15s cubic-bezier(0.2, 0, 0.13, 2);
+	    *-webkit-transform: scale(1);
+	    *transform: scale(1);
 	}
 	.messagepanel .message .messageaction .info i:hover{
 		-webkit-transform: scale(1.2);
