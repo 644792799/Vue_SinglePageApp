@@ -25,7 +25,7 @@
 			    	<!-- <router-link to="/user/1"><i class="icon-profile">&nbsp;</i>我的空间</router-link> -->
 			    </el-dropdown-item>
 			    <el-dropdown-item>
-			    	<span  @click="tomyspace()">
+			    	<span  @click="tosetting()">
 			    		<i class="icon-gear">&nbsp;</i>个人设置
 			    	</span>
 			    </el-dropdown-item>
@@ -83,8 +83,11 @@
 			//this.$router.go('/search');
 		},
 		tomyspace(){
-			console.log(3333);
+			//console.log(3333);
 			this.$router.push({path:'/user/1'});
+		},
+		tosetting(){
+			this.$router.push({path:'/setting'});
 		}
 	},
 	components: {

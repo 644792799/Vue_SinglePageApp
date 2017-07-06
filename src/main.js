@@ -17,6 +17,7 @@ import SignIn from './components/pages/Sign/SignIn.vue'
 import SignUp from './components/pages/Sign/SignUp.vue'
 import Editor from './components/pages/personal/Editor.vue'
 import MyArticle from './components/pages/personal/MyArticleList.vue'
+import Setting from './components/pages/personal/EditProfile.vue'
 import PageNotFound from './components/pages/404/404.vue'
 import SmsUI from './components/sms'
 
@@ -75,6 +76,10 @@ const routes = [
 	{
 		path: '/signUp',
 		component: SignUp
+	},
+	{
+		path: '/setting',
+		component: Setting
 	},
 	{
 		path: '*',
