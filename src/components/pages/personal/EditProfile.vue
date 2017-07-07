@@ -6,8 +6,15 @@
 				<div class="setting-nav-item">
 					<ul>
 						<li v-for="ele in navdatas" :class="ele.active" @click="NavItemClick(ele)">
-							<div class="icocontainer"><i :class="ele.ico">&nbsp;</i></div>
-							<div>{{ele.txt}}</div>
+							<div style="display:flex;">
+								<div class="icocontainer">
+									<i :class="ele.ico">&nbsp;</i>
+								</div>
+								<div>{{ele.txt}}</div>
+							</div>
+							<div v-if="ele.active == 'active'">
+								<i class="icon-chevron-right"></i>
+							</div>
 						</li>
 					</ul>
 				</div>
@@ -15,15 +22,18 @@
 		</div>
 		<div class="setting-detail">
 			<div v-if="detailActiveIndex == 0">
-				0000
+				<basicsetting></basicsetting>
 			</div>
 			<div v-if="detailActiveIndex == 1">
-				11111
+				<personalsetting></personalsetting>
 			</div>
 			<div v-if="detailActiveIndex == 2">
-				2222
+				<accountsetting></accountsetting>
 			</div>
 			<div v-if="detailActiveIndex == 3">
+				33333
+			</div>
+			<div v-if="detailActiveIndex == 4">
 				33333
 			</div>
 		</div>
@@ -31,6 +41,9 @@
 	
 </template>
 <script type="text/javascript">
+	import BasicSetting from './settings/BasicSetting.vue'
+	import PersonalSetting from './settings/PersonalSetting.vue'
+	import AccountSetting from './settings/AccountSetting.vue'
 	export default{
 		data(){
 			return{
@@ -45,6 +58,11 @@
 					{
 						txt: '个人资料',
 						ico: 'icon-profile',
+						active: ''
+					},
+					{
+						txt: '账号密码',
+						ico: 'icon-lock2',
 						active: ''
 					},
 					{
@@ -76,7 +94,9 @@
 			//console.log(this.$route.params.user_id);
 		},
 	    components: {
-	      //"contribution": Contribution
+	      "basicsetting": BasicSetting,
+	      "personalsetting": PersonalSetting,
+	      'accountsetting': AccountSetting
 	    }
 	}
 </script>
@@ -120,6 +140,7 @@
 		flex-direction: row;
 		cursor: pointer;
 		*transition: all .15s ease-in-out;
+		justify-content: space-between;
 	}
 	.setting .setting-nav .setting-nav-item ul li:hover{
 		background: var(--bg-color, #fbfcfc);
