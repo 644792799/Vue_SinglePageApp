@@ -71,6 +71,10 @@
 					</div>
 				</div>
 			</div>
+			<SmsLine gradfrom="left"></SmsLine>
+		</div>
+		<div class="form-element">
+			<el-button type="primary" @click="onSubmit">保存</el-button>
 		</div>
 	</div>
 </template>
@@ -144,14 +148,17 @@
 	.personalsetting .thirdaccount .thirdaccount-item-container .thirdaccount-item a:hover{
 		color: var(--link-hover-color, #20a0ff);
 	}
+	.personalsetting .form-element>label:first-child{
+	    text-align: right;
+	    width: 100px;
+	    margin-right: 20px;
+	}
 	.personalsetting .form-element label{
 		font-size: 14px;
 	    color: #48576a;
 	    line-height: 1;
 	    padding: 11px 12px 11px 0;
 	    box-sizing: border-box;
-	    text-align: right;
-	    width: 80px;
 	}
 	.personalsetting .form-element .el-radio{
 		text-align: left;

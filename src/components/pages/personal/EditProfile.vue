@@ -31,7 +31,7 @@
 				<accountsetting></accountsetting>
 			</div>
 			<div v-if="detailActiveIndex == 3">
-				33333
+				<rewardsetting></rewardsetting>
 			</div>
 			<div v-if="detailActiveIndex == 4">
 				33333
@@ -44,6 +44,7 @@
 	import BasicSetting from './settings/BasicSetting.vue'
 	import PersonalSetting from './settings/PersonalSetting.vue'
 	import AccountSetting from './settings/AccountSetting.vue'
+	import RewardSetting from './settings/RewardSetting.vue'
 	export default{
 		data(){
 			return{
@@ -96,7 +97,8 @@
 	    components: {
 	      "basicsetting": BasicSetting,
 	      "personalsetting": PersonalSetting,
-	      'accountsetting': AccountSetting
+	      'accountsetting': AccountSetting,
+	      'rewardsetting': RewardSetting
 	    }
 	}
 </script>
@@ -117,6 +119,7 @@
 		background: #Fff;
 		border-radius: 3px;
 		border: 1px solid var(--border-color, #d4d9df);
+		color: var(--title-color, #4e5359);
 	}
 	.setting .setting-nav .setting-nav-title{
 		height: 35px;

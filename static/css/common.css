@@ -167,3 +167,17 @@ h3{
 	margin-top: 25px;
 	height:100%;
 }
+
+.el-button--primary{
+	background: var(--btn-bg-color-primary, #20a0ff);
+	border-color: var(--btn-border-color-primary, #20a0ff);
+	color: var(--btn-font-color-primary, #fff);
+}
+.el-button--primary:hover{
+	background: var(--btn-hover-bg-color-primary, #4db3ff);
+	border-color: var(--btn-hover-border-color-primary, #4db3ff);
+}
+.el-button--default:hover{
+	border-color: var(--btn-border-color-primary, #20a0ff);
+	color: var(--btn-hover-color-default, #ea7069);
+}

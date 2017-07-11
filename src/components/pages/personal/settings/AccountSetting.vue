@@ -17,7 +17,7 @@
 		</div>
 		<div class="form-element">
 			<el-button type="primary" @click="onSubmit">提交</el-button>
-			<el-button>取消</el-button>
+			<!-- <el-button>取消</el-button> -->
 		</div>
 	</div>
 </template>
@@ -52,14 +52,17 @@
 		padding: 10px 0;
 		align-items: center;
 	}
+	.accountsetting .form-element>label:first-child{
+	    text-align: right;
+	    width: 100px;
+	    margin-right: 20px;
+	}
 	.accountsetting .form-element label{
 		font-size: 14px;
 	    color: #48576a;
 	    line-height: 1;
 	    padding: 11px 12px 11px 0;
 	    box-sizing: border-box;
-	    text-align: right;
-	    width: 80px;
 	}
 	.accountsetting .form-element .el-checkbox{
 		margin-left: 0;
