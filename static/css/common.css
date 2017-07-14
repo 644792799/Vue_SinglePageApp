@@ -181,3 +181,8 @@ h3{
 	border-color: var(--btn-border-color-primary, #20a0ff);
 	color: var(--btn-hover-color-default, #ea7069);
 }
+
+.breadcrumb-container{
+	margin: 15px 0;
+	position: relative;
+}
