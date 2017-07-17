@@ -35,14 +35,19 @@
 			
 			<div class="pull-right notice-container">
 				<button class="notice icon-bell3"></button>
+				<button class="notice icon-envelope-o"></button>
+				<button class="notice icon-enter" @click="sign"></button>
 			</div>
 
-			<el-input placeholder="查找代码片" v-model="input5" style="width:400px;float:right;margin: 7px 15px 7px 0;" icon="search" @click="search()">
+			<el-input placeholder="查找代码片" v-model="input5" style="width:380px;float:right;margin: 7px 15px 7px 0;" icon="search" @click="search()">
 			</el-input>
 		</div>
-		<el-dialog :title="issignin?'登录':'注册'" v-model="dialogVisible" size="tiny">
+		<!-- <el-dialog :title="issignin?'登录':'注册'" v-model="dialogVisible" size="tiny">
 		  <signin v-if="issignin"></signin>
 		  <signup v-else-if="!issignin"></signup>
+		</el-dialog> -->
+		<el-dialog v-model="dialogVisible" size="tiny" :show-close="false">
+		  <sign></sign>
 		</el-dialog>
 	</div>
 </template>
@@ -50,6 +55,7 @@
 <script type="text/javascript">
 	import SignIn from '../../pages/Sign/SignIn.vue'
 	import SignUp from '../../pages/Sign/SignUp.vue'
+	import Sign from '../../pages/Sign/Sign.vue'
 	export default{
 	data(){
 		return {
@@ -69,6 +75,9 @@
 					this.menus[i].clas = "";
 				}
 			}
+		},
+		sign(){
+			this.dialogVisible = true;
 		},
 		signIn: function(){
 			this.dialogVisible = true;
@@ -92,7 +101,8 @@
 	},
 	components: {
 		"signin": SignIn,
-		"signup": SignUp
+		"signup": SignUp,
+		'sign': Sign
 	}
 }
 </script>
@@ -111,7 +121,13 @@
 		border-bottom: 1px solid #eaeefb;
 	}
 	.header .el-dialog--tiny {
-    	width: 300px;
+    	width: 500px;
+	}
+	.header .el-dialog__header{
+		display: none;
+	}
+	.header .el-dialog__body{
+		padding: 0;
 	}
 	.header .nav-login{
 

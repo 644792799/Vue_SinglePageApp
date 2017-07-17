@@ -5,10 +5,14 @@
 		  		<el-breadcrumb separator="/">
 				  <el-breadcrumb-item :to="{ path: '/index' }">首页</el-breadcrumb-item>
 				  <el-breadcrumb-item>小哥哥</el-breadcrumb-item>
+				</el-breadcrumb>  
 		  	</div>
 			<div class="userinfo-container">
 				<div class="userimg-container">
 					<img src="/static/img/头像示例2.jpg">
+					<div>
+						<i class="icon-venus"></i>
+					</div>
 				</div>
 				<div class="info">
 					<div class="basicinfo">
@@ -22,7 +26,29 @@
 						</div>
 					</div>
 					<div class="detailinfo">
-						
+						<div>
+							<span>加入时间</span>
+							<span>2017年7月17日</span>
+						</div>
+						<div>
+							<span>所属公司</span>
+							<span>UCEN</span>
+						</div>
+						<div>
+							<span>居住城市</span>
+							<span>四川.成都</span>
+						</div>
+						<div>
+							<span>个人网站</span>
+							<span>www.snipt.com</span>
+						</div>
+						<div>
+							<i class="icon-weibo" style="color: rgb(234, 111, 90);"></i>
+							<i class="icon-wechat" style="color: rgb(66, 192, 46);"></i>
+							<i class="icon-qq" style="color: rgb(49, 148, 208);"></i>
+							<i class="icon-github2"></i>
+							<i class="icon-google" style="color: rgb(49, 148, 208);"></i>
+						</div>
 					</div>
 					<!-- <div class="top">
 						<div class="left">
@@ -193,6 +219,28 @@
 		background: #fff;
     	box-shadow: var(--left-box-shadow, #d5d9de -1px 1px 2px 0px);
 	}
+	.myarticle .userinfo-container .userimg-container{
+		position: relative;
+	}
+	.myarticle .userinfo-container .userimg-container>div{
+		position: absolute;
+		right: 30px;
+		bottom: 30px;
+		width: 16px;
+		height: 16px;
+		border-radius: 9px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: #fff;
+		box-shadow: 1px 2px 4px 0px #d4d9df;
+		padding: 2px;
+	}
+	.myarticle .userinfo-container .userimg-container>div i{
+		font-size: 13px;
+		font-weight: 600;
+		color: #ea7069;/*#20a0ff*/
+	}
 	.myarticle .contribution-container{
 		overflow: auto;
     	margin-top: 10px;
@@ -290,6 +338,29 @@
 	}
 	.myarticle .info .detailinfo{
 		width: 300px;
+		font-size: 12px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	.myarticle .info .detailinfo>div{
+		margin: 5px;
+	}
+	.myarticle .info .detailinfo>div span:first-child{
+		font-weight: 600;
+		color: var(--title-color, #4e5359);
+		margin-right: 25px;
+		margin-left: 10px;
+	}
+	.myarticle .info .detailinfo>div span:last-child{
+		color: var(--sub-title-color, #939c99);
+	}
+	.myarticle .info .detailinfo>div i{
+		font-size: 15px;
+		margin-right: 10px;
+	}
+	.myarticle .info .detailinfo>div i:first-child{
+		margin-left: 10px;
 	}
 	.myarticle .info .el-button-group{
 		box-shadow: var(--btn-box-shadow, #d5d9de 3px 0px 7px 0px);
