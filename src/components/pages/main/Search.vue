@@ -1,7 +1,8 @@
 <template>
 	<div class="search">
-		<el-row>
-			<el-col :span="15" :offset="1">
+		<!-- <el-row>
+			<el-col :span="15" :offset="1"> -->
+			<div class="left">
 			    <div style="margin-top: 15px;margin-bottom:15px;">
 			    	<div class="search-container">
 			    		<el-input v-model="searchinput" size="large" placeholder="请输入查询内容"></el-input>
@@ -26,25 +27,30 @@
 					  	</div>
 			    	</div>
 			    </div>
-			</el-col>
-			<el-col :span="6" :offset="1" class="right-container">
-				<div style="text-align:right;position:relative;border-bottom:1px solid #d4d9df;">
-					<router-link to="/user/1/snipt/1/addsnipt">
-						<el-button style="margin: 10px 5px">添加代码片<i class="el-icon-plus el-icon--right"></i></el-button>
-					</router-link>
-				</div>
-				<!-- <div style="position:relative;">
-					<categoryCard :categoriesdata="categories"></categoryCard>
-				</div> -->
-				<div style="position:relative;">
-					<codefilter></codefilter>
-				</div>
-				<!-- <div style="position:relative;background: #fbfcfc;">
-					<SmsLine gradfrom="left"></SmsLine>
-					<div class="subtitle">热搜词</div>
-				</div> -->
-			</el-col>
-		</el-row>
+			</div>    
+			<!-- </el-col>
+			<el-col :span="6" :offset="1" class="right-container"> -->
+			<div>
+				<div class="right">
+					<div style="text-align:right;position:relative;border-bottom:1px solid #d4d9df;">
+						<router-link to="/user/1/snipt/1/addsnipt">
+							<el-button style="margin: 10px 5px">添加代码片<i class="el-icon-plus el-icon--right"></i></el-button>
+						</router-link>
+					</div>
+					<!-- <div style="position:relative;">
+						<categoryCard :categoriesdata="categories"></categoryCard>
+					</div> -->
+					<div style="position:relative;">
+						<codefilter></codefilter>
+					</div>
+					<!-- <div style="position:relative;background: #fbfcfc;">
+						<SmsLine gradfrom="left"></SmsLine>
+						<div class="subtitle">热搜词</div>
+					</div> -->
+				</div>	
+			</div>
+			<!-- </el-col>
+		</el-row> -->
 	</div>
 
 </template>
@@ -163,6 +169,25 @@
 </script>
 
 <style type="text/css">
+	.search{
+		display: flex;
+		flex-direction: row;
+		padding: 0 4.16667%;
+		padding-top: 50px;
+	}
+	.search .left{
+		flex: 1;
+	}
+	.search .right{
+		width: 300px;
+	    margin-top: 25px;
+	    margin-left: 45px;
+	    *padding: 10px;
+	    background: #Fff;
+	    border-radius: 3px;
+	    border: 1px solid var(--border-color, #d4d9df);
+	    box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
+	}
 	.search .filtercontainer{
 		position: relative;
 		*text-align: right;

@@ -1,7 +1,8 @@
 <template>
 	<div class="article-detail">
-		<el-row>
-		  <el-col :span="15" :offset="1">
+		<!-- <el-row>
+		  <el-col :span="15" :offset="1"> -->
+		<div class="left">
 		  	<div class="breadcrumb-container">
 		  		<el-breadcrumb separator="/">
 				  <el-breadcrumb-item :to="{ path: '/index' }">首页</el-breadcrumb-item>
@@ -39,61 +40,66 @@
 		  	<div class="comments">
 		  		<messenger></messenger>
 		  	</div>
-		  </el-col>
-		   <el-col :span="6" :offset="1" class="right-container">
-		   		<div class="grid-content article-stats">
-		   			<img src="/static/img/头像示例2.jpg" class="userimg">
-		   			<div class="username stats-item">
-		   				<span class="tag">代码片作者</span>
-		   				张三
-		   			</div>
-					<div class="ctime stats-item">
-						<div class="pull-left stats-item-name">
-							<i class="icon-calendar"></i>创建时间:
+		</div>	
+		  <!-- </el-col>
+		   <el-col :span="6" :offset="1" class="right-container"> -->
+		   <div>
+			   <div class="right">
+			   		<div class="grid-content article-stats">
+			   			<img src="/static/img/头像示例2.jpg" class="userimg">
+			   			<div class="username stats-item">
+			   				<span class="tag">代码片作者</span>
+			   				张三
+			   			</div>
+						<div class="ctime stats-item">
+							<div class="pull-left stats-item-name">
+								<i class="icon-calendar"></i>创建时间:
+							</div>
+							<span>2017.6.1</span>
 						</div>
-						<span>2017.6.1</span>
-					</div>
-					<div class="mtime  stats-item">
-						<div class="pull-left stats-item-name">
-							<i class="icon-calendar"></i>修改时间:
+						<div class="mtime  stats-item">
+							<div class="pull-left stats-item-name">
+								<i class="icon-calendar"></i>修改时间:
+							</div>
+							<span>2017.6.1</span>
 						</div>
-						<span>2017.6.1</span>
-					</div>
-					<div class="viewcount  stats-item">
-						<div class="pull-left stats-item-name">
-							<i class="icon-eye"></i>阅读量:
+						<div class="viewcount  stats-item">
+							<div class="pull-left stats-item-name">
+								<i class="icon-eye"></i>阅读量:
+							</div>
+							<span>1254</span>
 						</div>
-						<span>1254</span>
-					</div>
-					<div class="share stats-item">
-						<div class="pull-left stats-item-name">
-							<i class="icon-share2"></i>分享
+						<div class="share stats-item">
+							<div class="pull-left stats-item-name">
+								<i class="icon-share2"></i>分享
+							</div>
+							<span></span>
 						</div>
-						<span></span>
-					</div>
-					<div class="vote stats-item">
-						<div class="pull-left stats-item-name">赞</div>
-						<span></span>
-					</div>
-					<div class="puborpri stats-item">
-						<div class="pull-left stats-item-name">公开 / 私有</div>
-						<span></span>
-					</div>
-					
-		   		</div>
-		   		<div class="article-prop">
-			   		<el-form>
-			   			<el-form-item>
-			   				<articleProp></articleProp>
-			   			</el-form-item>
-			   		</el-form>
-		   		</div>
-		   		<div>
-		   			<SmsSimpleList title="作者发布的其它代码"></SmsSimpleList>
-					<SmsSimpleList title="类似相关代码"></SmsSimpleList>
-		   		</div>
-		   </el-col>
-		</el-row>
+						<div class="vote stats-item">
+							<div class="pull-left stats-item-name">赞</div>
+							<span></span>
+						</div>
+						<div class="puborpri stats-item">
+							<div class="pull-left stats-item-name">公开 / 私有</div>
+							<span></span>
+						</div>
+						
+			   		</div>
+			   		<div class="article-prop">
+				   		<el-form>
+				   			<el-form-item>
+				   				<articleProp></articleProp>
+				   			</el-form-item>
+				   		</el-form>
+			   		</div>
+			   		<div>
+			   			<SmsSimpleList title="作者发布的其它代码"></SmsSimpleList>
+						<SmsSimpleList title="类似相关代码"></SmsSimpleList>
+			   		</div>
+			   	</div>	
+		   	</div>
+		   <!-- </el-col>
+		</el-row> -->
 	</div>
 </template>
 
@@ -139,6 +145,25 @@
 	    line-height: 1;
 	    border-radius: 2px;
 	}*/
+	.article-detail{
+		display: flex;
+		flex-direction: row;
+		padding: 0 4.16667%;
+		padding-top: 50px;
+	}
+	.article-detail .left{
+		flex: 1;
+	}
+	.article-detail .right{
+		width: 300px;
+	    margin-top: 25px;
+	    margin-left: 45px;
+	    *padding: 10px;
+	    *background: #Fff;
+	    border-radius: 3px;
+	    *border: 1px solid var(--border-color, #d4d9df);
+	    *box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
+	}
 	.article-detail h3{
 		color: var(--title-color, #4E5359);
 	}

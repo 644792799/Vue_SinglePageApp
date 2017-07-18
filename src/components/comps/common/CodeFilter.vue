@@ -32,8 +32,9 @@
 
 			<p>关键字</p>
 			<el-input v-model="keyword" placeholder="请输入关键字"></el-input>
-
-			<el-button type="primary">查询</el-button>
+			<div class="filter-action">
+				<el-button type="primary">查询</el-button>
+			</div>
 		</div>
 	</div>
 </template>
@@ -54,6 +55,11 @@
 <style type="text/css">
 .code-filter{
 	line-height: 1.5;
+}
+.code-filter .filter-action{
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
 }
 .code-filter .filter-title{
 	font-size: 14px;
@@ -85,7 +91,7 @@
 	border: 0;
 }
 .filter-content .el-button{
-	float: right;
+	*float: right;
     margin: 5px;
 }
 .filter-content .el-button--primary{

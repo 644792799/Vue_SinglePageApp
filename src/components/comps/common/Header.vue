@@ -29,14 +29,14 @@
 			    		<i class="icon-gear">&nbsp;</i>个人设置
 			    	</span>
 			    </el-dropdown-item>
-			    <el-dropdown-item><i class="icon-exit">&nbsp;</i>退出</el-dropdown-item>
+			    <el-dropdown-item><i class="icon-sign-out">&nbsp;</i>退出</el-dropdown-item>
 			  </el-dropdown-menu>
 			</el-dropdown>
 			
 			<div class="pull-right notice-container">
 				<button class="notice icon-bell3"></button>
 				<button class="notice icon-envelope-o"></button>
-				<button class="notice icon-enter" @click="sign"></button>
+				<button class="notice icon-sign-in" @click="sign"></button>
 			</div>
 
 			<el-input placeholder="查找代码片" v-model="input5" style="width:380px;float:right;margin: 7px 15px 7px 0;" icon="search" @click="search()">

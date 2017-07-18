@@ -1,7 +1,8 @@
 <template>
 	<div class="editor">
-		<el-row>
-			<el-col :span="15" :offset="1">
+		<!-- <el-row>
+			<el-col :span="15" :offset="1"> -->
+			<div class="left">
 				<div class="form-container">
 					<el-form ref="form" :model="form" label-width="80px">
 						<el-form-item label="标题" required>
@@ -47,40 +48,45 @@
 					  	</el-form-item>
 					</el-form>
 				</div>
-			</el-col>
-			<el-col :span="6" :offset="1" class="">
-				<div class="tag-container">
-					<el-form :label-position="labelPosition" label-width="80px" :model="form">
-						<el-form-item label="标签">
-						    <el-tag
-						      type="gray" 
-							  :key="tag"
-							  v-for="tag in dynamicTags"
-							  :closable="true"
-							  :close-transition="false"
-							  @close="handleClose(tag)"
-							>
-							{{tag}}
-							</el-tag>
-							<el-input
-							  class="input-new-tag"
-							  v-if="inputVisible"
-							  v-model="inputValue"
-							  ref="saveTagInput"
-							  size="mini"
-							  @keyup.enter.native="handleInputConfirm"
-							  @blur="handleInputConfirm"
-							>
-							</el-input>
-							<el-button v-else class="button-new-tag" size="small" @click="showInput">+</el-button>
-						</el-form-item>
-						<el-form-item label="属性">
-							<articleProp foredit></articleProp>
-						</el-form-item>
-					</el-form>
-				</div>
-			</el-col>
-		</el-row>
+			</div>	
+			<!-- </el-col>
+			<el-col :span="6" :offset="1" class=""> -->
+			<div>
+				<div class="right">
+					<div class="tag-container">
+						<el-form :label-position="labelPosition" label-width="80px" :model="form">
+							<el-form-item label="标签">
+							    <el-tag
+							      type="gray" 
+								  :key="tag"
+								  v-for="tag in dynamicTags"
+								  :closable="true"
+								  :close-transition="false"
+								  @close="handleClose(tag)"
+								>
+								{{tag}}
+								</el-tag>
+								<el-input
+								  class="input-new-tag"
+								  v-if="inputVisible"
+								  v-model="inputValue"
+								  ref="saveTagInput"
+								  size="mini"
+								  @keyup.enter.native="handleInputConfirm"
+								  @blur="handleInputConfirm"
+								>
+								</el-input>
+								<el-button v-else class="button-new-tag" size="small" @click="showInput">+</el-button>
+							</el-form-item>
+							<el-form-item label="属性">
+								<articleProp foredit></articleProp>
+							</el-form-item>
+						</el-form>
+					</div>
+				</div>	
+			</div>
+			<!-- </el-col>
+		</el-row> -->
 	</div>
 </template>
 <script type="text/javascript">
@@ -178,6 +184,26 @@
 	  }
 </script>
 <style type="text/css">
+	.editor{
+		display: flex;
+		flex-direction: row;
+		padding: 0 4.16667%;
+		padding-top: 50px;
+	}
+	.editor .left{
+		flex: 1;
+	}
+	.editor .right{
+		width: 300px;
+	    *margin-top: 25px;
+	    margin-left: 45px;
+	    padding: 10px;
+	    padding-top: 0;
+	    *background: #Fff;
+	    border-radius: 3px;
+	    *border: 1px solid var(--border-color, #d4d9df);
+	    *box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
+	}
 	.editor .form-container{
 		margin-top: 50px;
 	}

@@ -145,6 +145,7 @@
 		</div>	
 		<div>
 			<div class="myarticle-right">
+				<SmsCard>
 				<div class="visit-container">
 					<div>
 						<div>
@@ -167,6 +168,13 @@
 						</div>
 					</div>
 				</div>
+				</SmsCard>
+				<SmsCard header="擅长的语言" ico="icon-lightbulb-o">
+					
+				</SmsCard>
+				<SmsCard header="最活跃粉丝" ico="icon-user">
+					
+				</SmsCard>
 			</div>	
 		</div>
 	</div>
@@ -206,12 +214,12 @@
 	.myarticle .myarticle-right{
 		width: 300px;
 	    margin-top: 25px;
-	    margin-left: 15px;
+	    margin-left: 45px;
 	    padding: 10px;
-	    background: #Fff;
-	    border-radius: 3px;
-	    border: 1px solid var(--border-color, #d4d9df);
-	    box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
+	    *background: #Fff;
+	    *border-radius: 3px;
+	    *border: 1px solid var(--border-color, #d4d9df);
+	    *box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
 	}
 	.myarticle .userinfo-container{
 		display: flex;

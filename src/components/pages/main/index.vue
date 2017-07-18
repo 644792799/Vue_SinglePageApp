@@ -1,31 +1,31 @@
 <template>
 	<div class="index">
-		<el-row>
-			<el-col :span="15" :offset="1">
-			    <div style="margin-top: 15px;margin-bottom:15px;">
-			    	<div class="filtercontainer">
-			    		<span style="line-height:56px;font-size:18px;color:#586069;"><i class="icon-terminal" style="font-weight:600;"></i>&nbsp;发现代码</span>
-			    		<el-button :class="icoclass" @click="toggleIcoClass()"></el-button>
-			    		<el-form :inline="true" :model="formInline" class="demo-form-inline">
-						  <el-form-item label="排序">
-						    <el-select v-model="formInline.order" placeholder="类型选择">
-						      <el-option label="最新发布" value="new"></el-option>
-						      <el-option label="收藏最多" value="star"></el-option>
-						      <el-option label="FORK最多" value="fork"></el-option>
-						      <el-option label="评分最高" value="vote"></el-option>
-						    </el-select>
-						  </el-form-item>
-						</el-form>
-						<SmsLine gradfrom="left"></SmsLine>
-			    	</div>
-			    	<div>
-			    		<div class="grid-content">
-					  		<articleList :articlesdata="articlesdata" :isfullmode="isfullmode"></articleList>
-					  	</div>
-			    	</div>
-			    </div>
-			</el-col>
-			<el-col :span="6" :offset="1" class="right-container">
+		<div class="left">
+		    <div style="margin-top: 15px;margin-bottom:15px;">
+		    	<div class="filtercontainer">
+		    		<span style="line-height:56px;font-size:18px;color:#586069;"><i class="icon-terminal" style="font-weight:600;"></i>&nbsp;发现代码</span>
+		    		<el-button :class="icoclass" @click="toggleIcoClass()"></el-button>
+		    		<el-form :inline="true" :model="formInline" class="demo-form-inline">
+					  <el-form-item label="排序">
+					    <el-select v-model="formInline.order" placeholder="类型选择">
+					      <el-option label="最新发布" value="new"></el-option>
+					      <el-option label="收藏最多" value="star"></el-option>
+					      <el-option label="FORK最多" value="fork"></el-option>
+					      <el-option label="评分最高" value="vote"></el-option>
+					    </el-select>
+					  </el-form-item>
+					</el-form>
+					<SmsLine gradfrom="left"></SmsLine>
+		    	</div>
+		    	<div>
+		    		<div class="grid-content">
+				  		<articleList :articlesdata="articlesdata" :isfullmode="isfullmode"></articleList>
+				  	</div>
+		    	</div>
+		    </div>
+		</div>
+		<div>
+			<div class="right">
 				<div style="text-align:right;position:relative;border-bottom:1px solid #d4d9df;">
 					<router-link to="/user/1/snipt/1/addsnipt">
 						<el-button style="margin: 10px 5px">添加代码片<i class="el-icon-plus el-icon--right"></i></el-button>
@@ -34,15 +34,8 @@
 				<div style="position:relative;">
 					<categoryCard :categoriesdata="categories"></categoryCard>
 				</div>
-				<!-- <div style="position:relative;">
-					<codefilter></codefilter>
-				</div> -->
-				<!-- <div style="position:relative;background: #fbfcfc;">
-					<SmsLine gradfrom="left"></SmsLine>
-					<div class="subtitle">热搜词</div>
-				</div> -->
-			</el-col>
-		</el-row>
+			</div>	
+		</div>
 	</div>
 
 </template>
@@ -187,6 +180,25 @@
 </script>
 
 <style type="text/css">
+	.index{
+		display: flex;
+		flex-direction: row;
+		padding: 0 4.16667%;
+		padding-top: 50px;
+	}
+	.index .left{
+		flex: 1;
+	}
+	.index .right{
+		width: 300px;
+	    margin-top: 25px;
+	    margin-left: 45px;
+	    *padding: 10px;
+	    background: #Fff;
+	    border-radius: 3px;
+	    border: 1px solid var(--border-color, #d4d9df);
+	    box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
+	}
 	.index .filtercontainer{
 		position: relative;
 		*text-align: right;
