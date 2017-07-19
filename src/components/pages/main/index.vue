@@ -224,6 +224,10 @@
 		background: #fff;
     	box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
 	}
+	.index .sms-card{
+		box-shadow: none;
+		margin-bottom: 0;
+	}
 	.el-select .el-input {
     	width: 75px;
   	}

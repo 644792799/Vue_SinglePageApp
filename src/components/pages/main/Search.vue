@@ -229,4 +229,8 @@
 		padding-left: 15px;
     	line-height: 1.5;
 	}
+	.search .sms-card{
+		box-shadow: none;
+		margin-bottom: 0;
+	}
 </style>
