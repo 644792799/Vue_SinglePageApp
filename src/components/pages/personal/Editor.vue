@@ -43,8 +43,7 @@
 					    	<editor v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="inherit" height="300" :style="aceeditorstyle"></editor>
 					    	<div class="statusBar icon-edit2" id="statusBar">
 					    		<div class="pull-right ace_status-right">{{languageSelectVal}}</div>
-					    	</d
-					    	iv>
+					    	</div>
 					    </el-form-item>
 					    <el-form-item label="代码描述">
 					    	<!-- <el-input type="textarea" v-model="form.desc"></el-input> -->
