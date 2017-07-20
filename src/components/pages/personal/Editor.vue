@@ -19,8 +19,19 @@
 							    </el-option>
 						  	</el-select>
 					    </el-form-item> -->
-					    <el-form-item label="代码" required>
+					    <el-form-item label="代码" required style="position:relative;" :class="aceeditorfullscreenclass">
+					    	<div :class="editorToolBarClass">
+					    		
+					    	</div>
 					    	<div class="codeToolBar">
+					    		<div class="acesetting">
+					    			<div @click="toggleAceEditorToolBar">
+					    				<i class="icon-gears"></i>
+					    			</div>
+					    			<div @click="toggleAceEditorFullScreen">
+					    				<i :class="aceeditorfullscreenicoclass"></i>
+					    			</div>
+					    		</div>
 					    		<el-select class="select-language" v-model="languageSelectVal" filterable placeholder="请选择语言" @change="languageChange">
 								    <el-option
 								      v-for="item in options"
@@ -29,10 +40,11 @@
 								    </el-option>
 							  	</el-select>
 					    	</div>
-					    	<editor v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="inherit" height="300"></editor>
+					    	<editor v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="inherit" height="300" :style="aceeditorstyle"></editor>
 					    	<div class="statusBar icon-edit2" id="statusBar">
 					    		<div class="pull-right ace_status-right">{{languageSelectVal}}</div>
-					    	</div>
+					    	</d
+					    	iv>
 					    </el-form-item>
 					    <el-form-item label="代码描述">
 					    	<!-- <el-input type="textarea" v-model="form.desc"></el-input> -->
@@ -130,7 +142,12 @@
 	        inputVisible: false,
 	        inputValue: '',
 	        labelPosition: 'top',
-	        edit: ''
+	        edit: '',
+	        aceeditorstyle: 'margin-left:0px;',
+	        editorToolBarClass: 'editorToolBar editorHide',
+	        editorToolBarOpen: false,
+	        aceeditorfullscreenclass: '',
+	        aceeditorfullscreenicoclass: 'icon-expand'
 	      }
 	    },
 	    components: {
@@ -165,21 +182,41 @@
 	        },
 	        handleClose(tag) {
 		        this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
-		      },
-		      showInput() {
+		    },
+		    showInput() {
 		        this.inputVisible = true;
 		        this.$nextTick(_ => {
 		          this.$refs.saveTagInput.$refs.input.focus();
 		        });
-		      },
-		      handleInputConfirm() {
+		    },
+		    handleInputConfirm() {
 		        let inputValue = this.inputValue;
 		        if (inputValue) {
 		          this.dynamicTags.push(inputValue);
 		        }
 		        this.inputVisible = false;
 		        this.inputValue = '';
-		      }
+		    },
+		    toggleAceEditorToolBar() {
+		    	if(this.editorToolBarOpen){
+		    		this.editorToolBarClass= 'editorToolBar editorHide';
+		    		this.aceeditorstyle = "margin-left: 0px;";
+		    		this.editorToolBarOpen = false;
+		    	}else{
+		    		this.editorToolBarClass= 'editorToolBar';
+		    		this.aceeditorstyle = "margin-left: 201px;";
+		    		this.editorToolBarOpen = true;
+		    	}
+		    },
+		    toggleAceEditorFullScreen() {
+		    	if(this.aceeditorfullscreenclass == ''){
+		    		this.aceeditorfullscreenclass = 'aceeditor-fullscreen';
+		    		this.aceeditorfullscreenicoclass = 'icon-compress';
+		    	}else{
+		    		this.aceeditorfullscreenclass = '';
+		    		this.aceeditorfullscreenicoclass = 'icon-expand';
+		    	}
+		    }
 	    }
 	  }
 </script>
@@ -258,14 +295,15 @@
 		line-height: 19px;
 		border-bottom-left-radius: 4px;
     	border-bottom-right-radius: 4px;
+    	background: var(--bg-color, #fbfcfc);
 	}
 	.editor .ace_status-indicator{
 		font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
 		margin-left: 3px;
-		padding: 3px 5px;
+		padding: 3px 5px 2px 5px;
 	}
 	.editor .ace_status-right{
-		line-height: 20px;
+		line-height: 19px;
 	    border-left: 1px solid var(--ace-theme-github-border-color, #d4d9df);
 	    padding: 0 10px 0 10px;
 	    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
@@ -278,11 +316,76 @@
 		line-height: 19px;
 		border-top-left-radius: 4px;
     	border-top-right-radius: 4px;
+
+    	display: flex;
+	    flex-direction: row;
+	    justify-content: space-between;
+	    align-items: center;
+	    background: var(--bg-color, #fbfcfc);
+	}
+	.editor .codeToolBar .acesetting{
+		*width: 40px;
+	    height: 36px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    cursor: pointer;
+	    font-size: 17px;
+	}
+	.editor .codeToolBar .acesetting>div{
+		width: 40px;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.editor .codeToolBar .acesetting i{
+		*margin: 0 10px;
+	}
+	.editor .codeToolBar .acesetting:hover{
+		*background: var(--acegutter-bg-color, #fbfcfc);
+    	*color: var(--acegutter-color, #AAA);
 	}
 	.editor .codeToolBar input{
 		border: 0;
 	    border-radius: 0;
 	    *border-right: 1px solid var(--border-color);
 	    background: var(--bg-color, #fbfcfc);
+	}
+	.editor .editorToolBar{
+		position: absolute;
+	    top: 37px;
+	    bottom: 20px;
+	    left: 0px;
+	    width: 200px;
+	    *z-index: 100;
+	    background: var(--bg-color, #fff);
+	    overflow-x: hidden;
+	    overflow-y: auto;
+	    border: 1px solid var(--ace-theme-github-border-color, #d4d9df);
+	    transition: all .2s cubic-bezier(.645,.045,.355,1);
+	}
+	.editor .editorHide{
+		width: 0px!important;
+		border-right: 0!important;
+		box-shadow: none!important;
+	}
+	.editor .ace_editor, .editor .el-form-item__content{
+		transition: all .2s cubic-bezier(.645,.045,.355,1);
+	}
+
+	.editor .aceeditor-fullscreen .el-form-item__content{
+		display: flex;
+		flex-direction: column;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: 100;
+		margin: 0!important;
+	}
+	.editor .aceeditor-fullscreen .el-form-item__content .ace_editor{
+		flex: 1;
 	}
 </style>

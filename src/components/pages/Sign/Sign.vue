@@ -153,8 +153,9 @@
 		margin: 10px -20px 0 20px;
 	}
 	.sign .sign-in .thirdaccount{
-		margin-left: 20px;
-		margin-top: 25px;
+		*margin-left: 20px;
+		*margin-top: 55px;
+		margin: 55px -20px 0 20px;
 	}
 	.sign .sign-in .thirdaccount .title{
 		font-size: 12px;
@@ -167,7 +168,7 @@
 	    border-top: 1px solid #b5b5b5;
 	    display: block;
 	    position: absolute;
-	    width: 80px;
+	    width: 100px;
 	    top: 7px;
 	    right: 0px;
 	}
