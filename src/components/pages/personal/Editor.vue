@@ -40,7 +40,7 @@
 								    </el-option>
 							  	</el-select>
 					    	</div>
-					    	<editor v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="inherit" height="300" :style="aceeditorstyle"></editor>
+					    	<editor id="aceeditor" v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="inherit" :height="aceeditorheight" :style="aceeditorstyle"></editor>
 					    	<div class="statusBar icon-edit2" id="statusBar">
 					    		<div class="pull-right ace_status-right">{{languageSelectVal}}</div>
 					    	</div>
@@ -146,7 +146,8 @@
 	        editorToolBarClass: 'editorToolBar editorHide',
 	        editorToolBarOpen: false,
 	        aceeditorfullscreenclass: '',
-	        aceeditorfullscreenicoclass: 'icon-expand'
+	        aceeditorfullscreenicoclass: 'icon-expand',
+	        aceeditorheight: 300
 	      }
 	    },
 	    components: {
@@ -158,7 +159,20 @@
 			var StatusBar = ace.acequire("ace/ext/statusbar").StatusBar;
 			var statusBar = new StatusBar(this.edit, document.getElementById("statusBar"));
 			//console.log(this.$route.params.user_id + "--" + this.$route.params.snipt_id);
-			//console.log(this.edit);
+			//console.log(111111);
+		},
+		watch: {
+			// aceeditorfullscreenclass(curVal, oldVal){
+			// 	if(curVal === ''){
+			// 		this.aceeditorheight = 300;
+			// 	}else{
+			// 		this.aceeditorheight = window.document.getElementById("aceeditor").clientHeight;
+			// 		console.log(this.aceeditorheight);
+			// 	}
+			// }
+		},
+		updated: function(){
+			this.edit.resize();
 		},
 	    methods:{
 	    	languageChange(){
