@@ -21,7 +21,108 @@
 					    </el-form-item> -->
 					    <el-form-item label="代码" required style="position:relative;" :class="aceeditorfullscreenclass">
 					    	<div :class="editorToolBarClass">
-					    		
+					    		<div>
+					    			<div>主题</div>
+					    			<el-select class="select-theme" v-model="themeSelectVal" filterable placeholder="请选择主题" @change="themeChange">
+									    <el-option
+									      v-for="item in themes"
+									      :label="item"
+									      :value="item">
+									    </el-option>
+								  	</el-select>
+								  	<SmsLine gradfrom='all'></SmsLine>
+					    		</div>
+					    		<div>
+					    			<div>字体</div>
+					    			<div>
+					    				<el-input-number v-model="fontsize" :step="1" :min="10" :max="24" size="small" @change="fontsizeChange"></el-input-number>
+					    			</div>
+					    			<SmsLine gradfrom='all'></SmsLine>
+					    		</div>
+					    		<div>
+					    			<div>行号</div>
+					    			<el-switch
+									  v-model="editoroptions.showgutter"
+									  on-text=""
+									  off-text="" @change="showGutterChange">
+									</el-switch>
+					    			<SmsLine gradfrom='all'></SmsLine>
+					    		</div>
+					    		<div>
+					    			<div>自动换行</div>
+					    			<el-switch
+									  v-model="editoroptions.softwrap"
+									  on-text=""
+									  off-text="" @change="softwrapChange">
+									</el-switch>
+					    			<SmsLine gradfrom='all'></SmsLine>
+					    		</div>
+					    		<div>
+					    			<div>整行选择</div>
+					    			<el-switch
+									  v-model="editoroptions.fulllineselect"
+									  on-text=""
+									  off-text="" @change="fulllineselectChange">
+									</el-switch>
+					    			<SmsLine gradfrom='all'></SmsLine>
+					    		</div>
+					    		<div>
+					    			<div>当前行高亮</div>
+					    			<el-switch
+									  v-model="editoroptions.activelinehighlight"
+									  on-text=""
+									  off-text="" @change="activelineselectChange">
+									</el-switch>
+					    			<SmsLine gradfrom='all'></SmsLine>
+					    		</div>
+					    		<div>
+					    			<div>打印线</div>
+					    			<el-switch
+									  v-model="editoroptions.showprintmargin"
+									  on-text=""
+									  off-text="" @change="printMarginChange">
+									</el-switch>
+					    			<SmsLine gradfrom='all'></SmsLine>
+					    		</div>
+					    		<div>
+					    			<div>控制符</div>
+					    			<el-switch
+									  v-model="editoroptions.showinvisible"
+									  on-text=""
+									  off-text="" @change="showInvisibleChange">
+									</el-switch>
+					    			<SmsLine gradfrom='all'></SmsLine>
+					    		</div>
+					    		<div>
+					    			<div>TAB宽度</div>
+					    			<el-radio-group v-model="editoroptions.tabsize" @change="tabSizeChange" size="small">
+									    <el-radio-button label="2"></el-radio-button>
+									    <el-radio-button label="3"></el-radio-button>
+									    <el-radio-button label="4"></el-radio-button>
+									    <el-radio-button label="5"></el-radio-button>
+									</el-radio-group>
+					    			<SmsLine gradfrom='all'></SmsLine>
+					    		</div>
+					    		<div>
+					    			<div>使用软TAB</div>
+					    			<el-switch
+									  v-model="editoroptions.usesofttab"
+									  on-text=""
+									  off-text="" @change="usesofttabChange">
+									</el-switch>
+					    			<SmsLine gradfrom='all'></SmsLine>
+					    		</div>
+					    		<div>
+					    			<div>快捷键</div>
+					    			<el-select class="select-keybindding" v-model="editoroptions.keybinding" filterable placeholder="请选择光标样式" @change="keyBindingChange">
+									    <el-option
+									      v-for="item in editoroptions.keybindingdata"
+									      :label="item"
+									      :value="item">
+									    </el-option>
+								  	</el-select>
+								  	<SmsLine gradfrom='all'></SmsLine>
+					    		</div>
 					    	</div>
 					    	<div class="codeToolBar">
 					    		<div class="acesetting">
@@ -134,6 +235,10 @@
 		          value: 'css',
 		          label: 'CSS'
 		        }],
+		    themes: [
+		    	'ambiance','chrome','eclipse','github','tomorrow','twilight','xcode'
+		    ],
+		    themeSelectVal: '',    
 	        languageSelectVal: '',
 	        isprivate: false,
 	        allowcomment: true,
@@ -147,7 +252,21 @@
 	        editorToolBarOpen: false,
 	        aceeditorfullscreenclass: '',
 	        aceeditorfullscreenicoclass: 'icon-expand',
-	        aceeditorheight: 300
+	        aceeditorheight: 300,
+	        fontsize: 12,
+	        editoroptions: {
+	        	fulllineselect: true,
+	        	activelinehighlight: true,
+	        	showprintmargin: false,
+	        	tabsize: 4,
+	        	keybinding: '',
+	        	keybindingdata: ['ace', 'vim', 'emacs', 'custom'],
+	        	keybindings: {},
+	        	softwrap: true,
+	        	showinvisible: false,
+	        	showgutter: true,
+	        	usesofttab: true
+	        }
 	      }
 	    },
 	    components: {
@@ -160,6 +279,21 @@
 			var statusBar = new StatusBar(this.edit, document.getElementById("statusBar"));
 			//console.log(this.$route.params.user_id + "--" + this.$route.params.snipt_id);
 			//console.log(111111);
+			var ema = require('vue2-ace-editor/node_modules/brace/keybinding/emacs');
+    		var vim = require('vue2-ace-editor/node_modules/brace/keybinding/vim');
+    		var HashHandler = ace.acequire("ace/keyboard/hash_handler").HashHandler;
+    		this.editoroptions.keybindings = {
+			    ace: null, // Null = use "default" keymapping
+			    vim: 'ace/keyboard/vim',
+			    emacs: "ace/keyboard/emacs",
+			    custom: new HashHandler({
+			        "gotoright":      "Tab",
+			        "indent":         "]",
+			        "outdent":        "[",
+			        "gotolinestart":  "^",
+			        "gotolineend":    "$"
+			    })
+			};
 		},
 		watch: {
 			// aceeditorfullscreenclass(curVal, oldVal){
@@ -179,6 +313,45 @@
 	    		require('vue2-ace-editor/node_modules/brace/mode/' + this.languageSelectVal);
 	    		this.edit.getSession().setMode('ace/mode/' + this.languageSelectVal);
 	    		//console.log(this.content.toString());
+	    	},
+	    	themeChange(){
+	    		require('vue2-ace-editor/node_modules/brace/theme/'+this.themeSelectVal);
+	    		this.edit.setTheme('ace/theme/' + this.themeSelectVal);
+	    	},
+	    	fontsizeChange(){
+	    		document.getElementById('aceeditor').style.fontSize=this.fontsize + 'px';
+	    	},
+	    	fulllineselectChange(){
+	    		this.edit.setOption("selectionStyle", this.editoroptions.fulllineselect ? "line" : "text");
+	    	},
+	    	activelineselectChange(){
+	    		this.edit.setHighlightActiveLine(this.editoroptions.activelinehighlight);
+	    	},
+	    	printMarginChange(){
+	    		this.edit.setShowPrintMargin(this.editoroptions.showprintmargin);
+	    	},
+	    	tabSizeChange(){
+	    		this.edit.getSession().setTabSize(this.editoroptions.tabsize);
+	    	},
+	    	keyBindingChange(){
+	    		//console.log(this.editoroptions.keybinding);
+	    		this.edit.setKeyboardHandler(this.editoroptions.keybindings[this.editoroptions.keybinding]);
+	    	},
+	    	softwrapChange(){
+	    		if(this.editoroptions.softwrap){
+	    			this.edit.setOption("wrap", "80");
+	    		}else{
+	    			this.edit.setOption("wrap", "off");
+	    		}
+	    	},
+	    	showInvisibleChange(){
+	    		this.edit.setShowInvisibles(this.editoroptions.showinvisible);
+	    	},
+	    	showGutterChange(){
+	    		this.edit.renderer.setShowGutter(this.editoroptions.showgutter);
+	    	},
+	    	usesofttabChange(){
+	    		this.edit.session.setUseSoftTabs(this.editoroptions.usesofttab);
 	    	},
 	        editorInit:function (edit) {
 	        	require('vue2-ace-editor/node_modules/brace/ext/language_tools');
@@ -217,7 +390,7 @@
 		    		this.editorToolBarOpen = false;
 		    	}else{
 		    		this.editorToolBarClass= 'editorToolBar';
-		    		this.aceeditorstyle = "margin-left: 201px;";
+		    		this.aceeditorstyle = "margin-left: 251px;";
 		    		this.editorToolBarOpen = true;
 		    	}
 		    },
@@ -281,7 +454,7 @@
 	    background: var(--acegutter-bg-color, #fbfcfc);
 	    color: var(--acegutter-color, #AAA);
 	}
-	.editor .ace-github{
+	.editor .ace_editor{
 		border: 1px solid var(--ace-theme-github-border-color, #d4d9df);
 		*border-radius: 4px;
 		*border-bottom-left-radius: 0;
@@ -297,6 +470,13 @@
 		width: 150px;
 	}
 	.editor .select-language .el-input{
+		width: 100%;
+	}
+	.editor .select-theme, .editor .select-keybindding{
+		width: 150px;
+	}
+	.editor .select-theme .el-input, 
+	.editor .select-keybindding .el-input{
 		width: 100%;
 	}
 	.editor .statusBar{
@@ -370,13 +550,30 @@
 	    top: 37px;
 	    bottom: 20px;
 	    left: 0px;
-	    width: 200px;
+	    width: 250px;
 	    *z-index: 100;
 	    background: var(--bg-color, #fff);
 	    overflow-x: hidden;
 	    overflow-y: auto;
 	    border: 1px solid var(--ace-theme-github-border-color, #d4d9df);
 	    transition: all .2s cubic-bezier(.645,.045,.355,1);
+	}
+	.editor .editorToolBar>div{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 2px 10px;
+    	background: #fff;
+    	font-size: 12px;
+    	position: relative;
+   	}
+	.editor .editorToolBar .el-select input{
+		border: 0;
+    	border-radius: 0;
+	}
+	.editor .editorToolBar .el-input-number{
+		display: flex!important;
 	}
 	.editor .editorHide{
 		width: 0px!important;
