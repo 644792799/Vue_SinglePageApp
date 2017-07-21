@@ -305,7 +305,8 @@
 			// 	}
 			// }
 		},
-		updated: function(){
+		updated: function(val){
+			console.log(this.edit.getOptions());
 			this.edit.resize();
 		},
 	    methods:{
@@ -319,7 +320,8 @@
 	    		this.edit.setTheme('ace/theme/' + this.themeSelectVal);
 	    	},
 	    	fontsizeChange(){
-	    		document.getElementById('aceeditor').style.fontSize=this.fontsize + 'px';
+	    		//document.getElementById('aceeditor').style.fontSize=this.fontsize + 'px';
+	    		this.edit.setFontSize(this.fontsize);
 	    	},
 	    	fulllineselectChange(){
 	    		this.edit.setOption("selectionStyle", this.editoroptions.fulllineselect ? "line" : "text");
