@@ -1,5 +1,5 @@
 <template>
-  <div class="sms-markdown">
+  <div :class="editorClass">
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="编辑" name="edit" class="edit">
           <textarea v-model="preMark" id="txtarea"></textarea>
@@ -16,7 +16,7 @@
       <span class="icon-embed2" @click="code"></span>
       <span class="icon-list-ul" @click="listul"></span>
       <span class="icon-list-ol" @click="listol"></span>
-      <span class="icon-question"></span>
+      <span :class="fullscreenIcoClass" @click="togglefullscreen"></span>
     </div>
   </div>
 </template>
@@ -48,7 +48,10 @@
         preMark: exText,
         activeName: 'edit',
         postMark: '',
-        cm: undefined
+        cm: undefined,
+        fullscreenIcoClass: 'icon-expand',
+        editorClass: 'sms-markdown',
+        editorFullscreen: false
       }
     },
     mounted(){
@@ -59,7 +62,7 @@
             lineNumbers: false,
             theme: "paper",
             lineWrapping: true,
-            scrollbarStyle: "simple"
+            scrollbarStyle: 'simple'
           });
          this.cm.on("change", function(instance,changeObj){
             var editorVal = self.cm.getValue();
@@ -477,8 +480,17 @@
           // this.previewing();
       },
 
-      fullscreen : function() {
+      togglefullscreen : function() {
           // this.fullscreen();
+          if(this.editorFullscreen){
+            this.editorClass = 'sms-markdown';
+            this.editorFullscreen = false;
+            this.fullscreenIcoClass = "icon-expand";
+          }else{
+            this.editorClass = "sms-markdown sms-markdown-fullscreen";
+            this.editorFullscreen = true;
+            this.fullscreenIcoClass = "icon-compress";
+          }
       },
 
       clear : function() {
@@ -567,5 +579,34 @@
   }
   .sms-markdown .el-tab-pane{
    /* line-height: 1.7;*/
+  }
+  .sms-markdown .CodeMirror-scroll{
+    *margin-right: 0;
+  }
+
+  .sms-markdown-fullscreen{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: #fff;
+  }
+  .sms-markdown-fullscreen .el-tabs{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .sms-markdown-fullscreen .el-tabs .el-tabs__content{
+    overflow: auto!important;
+    flex: 1;
+  }
+  .sms-markdown-fullscreen .CodeMirror{
+    height: 100%!important;
+  }
+
+  .sms-markdown-fullscreen .CodeMirror-scroll{
+    margin-right: -30px;
   }
 </style>
