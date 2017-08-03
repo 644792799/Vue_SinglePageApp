@@ -10,12 +10,31 @@
       </el-tab-pane>
     </el-tabs>
     <div class="sms-markdown-tools" id="sms-markdown-tools">
+      <el-dropdown menu-align="start">
+        <span class="icon-font">
+          <i class="icon-angle-down"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item><b>H1</b></el-dropdown-item>
+          <el-dropdown-item><b>H2</b></el-dropdown-item>
+          <el-dropdown-item><b>H3</b></el-dropdown-item>
+          <el-dropdown-item><b>H4</b></el-dropdown-item>
+          <el-dropdown-item><b>H5</b></el-dropdown-item>
+          <el-dropdown-item><b>H6</b></el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+      <span class="icon-bold"></span>
+      <span class="icon-italic"></span>
+      <span class="split"></span>
       <span class="icon-link2"></span>
-      <span class="icon-mention"></span>
+      <!-- <span class="icon-mention"></span> -->
       <span class="icon-quote" @click="quote"></span>
       <span class="icon-embed2" @click="code"></span>
+      <span class="split"></span>
       <span class="icon-list-ul" @click="listul"></span>
       <span class="icon-list-ol" @click="listol"></span>
+      <span class="icon-minus"></span>
+      <span class="split"></span>
       <span :class="fullscreenIcoClass" @click="togglefullscreen"></span>
     </div>
   </div>
@@ -62,7 +81,7 @@
             lineNumbers: false,
             theme: "paper",
             lineWrapping: true,
-            scrollbarStyle: 'simple'
+            //scrollbarStyle: 'simple'
           });
          this.cm.on("change", function(instance,changeObj){
             var editorVal = self.cm.getValue();
@@ -535,11 +554,17 @@
     line-height: 42px;
   }
   .sms-markdown .sms-markdown-tools span {
-    font-size: 20px;
+    font-size: 14px;
     line-height: 42px;
     margin-left: 8px;
     color: #586069;
     cursor: pointer;
+  }
+  .sms-markdown .sms-markdown-tools>span:hover, .sms-markdown .sms-markdown-tools>div:hover{
+    color: var(--link-hover-color, #20a0ff);
+  }
+  .sms-markdown .sms-markdown-tools .split{
+    border-right: 1px solid  var(--border-color, #d4d9df);
   }
   .sms-markdown .edit{
     *padding: 8px;
@@ -581,7 +606,7 @@
    /* line-height: 1.7;*/
   }
   .sms-markdown .CodeMirror-scroll{
-    *margin-right: 0;
+    margin-right: 0;
   }
 
   .sms-markdown-fullscreen{
@@ -590,7 +615,7 @@
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 101;
     background: #fff;
   }
   .sms-markdown-fullscreen .el-tabs{
