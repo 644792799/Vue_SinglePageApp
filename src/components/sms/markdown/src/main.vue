@@ -10,30 +10,31 @@
       </el-tab-pane>
     </el-tabs>
     <div class="sms-markdown-tools" id="sms-markdown-tools">
-      <el-dropdown menu-align="start">
+      <el-dropdown menu-align="start" @command="hx">
         <span class="icon-font">
           <i class="icon-angle-down"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item><b>H1</b></el-dropdown-item>
-          <el-dropdown-item><b>H2</b></el-dropdown-item>
-          <el-dropdown-item><b>H3</b></el-dropdown-item>
-          <el-dropdown-item><b>H4</b></el-dropdown-item>
-          <el-dropdown-item><b>H5</b></el-dropdown-item>
-          <el-dropdown-item><b>H6</b></el-dropdown-item>
+          <el-dropdown-item command="h1"><b>H1</b></el-dropdown-item>
+          <el-dropdown-item command="h2"><b>H2</b></el-dropdown-item>
+          <el-dropdown-item command="h3"><b>H3</b></el-dropdown-item>
+          <el-dropdown-item command="h4"><b>H4</b></el-dropdown-item>
+          <el-dropdown-item command="h5"><b>H5</b></el-dropdown-item>
+          <el-dropdown-item command="h6"><b>H6</b></el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
-      <span class="icon-bold"></span>
-      <span class="icon-italic"></span>
+      <span class="icon-bold" @click="bold"></span>
+      <span class="icon-italic" @click="italic"></span>
       <span class="split"></span>
-      <span class="icon-link2"></span>
+      <span class="icon-link2" @click="link"></span>
       <!-- <span class="icon-mention"></span> -->
       <span class="icon-quote" @click="quote"></span>
       <span class="icon-embed2" @click="code"></span>
+      <span class="icon-terminal3" @click="codeblock"></span>
       <span class="split"></span>
       <span class="icon-list-ul" @click="listul"></span>
       <span class="icon-list-ol" @click="listol"></span>
-      <span class="icon-minus"></span>
+      <span class="icon-minus" @click="hr"></span>
       <span class="split"></span>
       <span :class="fullscreenIcoClass" @click="togglefullscreen"></span>
     </div>
@@ -44,6 +45,7 @@
   //import deal from '../deal.js'
   import CodeMirror from 'codemirror'
   import SimpleScrollbars from 'codemirror/addon/scroll/simplescrollbars.js'
+  import hljs from 'pluginspath/highlight/highlight.pack.js'
   //import 'codemirror/mode/markdown/markdown.js'
   import 'codemirror/mode/gfm/gfm.js'
   import 'codemirror/lib/codemirror.css'
@@ -58,7 +60,10 @@
     pedantic: true,
     sanitize: true,
     smartLists: true,
-    smartypants: true
+    smartypants: true,
+    highlight: function (code) {
+      return hljs.highlightAuto(code).value;
+    }
   });
   export default {
     name: 'SmsMarkdown',
@@ -248,6 +253,29 @@
           cm.setSelections(selections);
       },
 
+      hx: function(command){
+        switch(command){
+          case 'h1':
+            this.h1();
+          break;
+          case 'h2':
+            this.h2();
+          break;
+          case 'h3':
+            this.h3();
+          break;
+          case 'h4':
+            this.h4();
+          break;
+          case 'h5':
+            this.h5();
+          break;
+          case 'h6':
+            this.h6();
+          break;
+        }
+      },
+
       h1 : function() {
           var cm        = this.cm;
           var cursor    = cm.getCursor();
@@ -421,6 +449,17 @@
       },
 
       link : function() {
+          var cm        = this.cm;
+          var cursor    = cm.getCursor();
+          var selection = cm.getSelection();
+          
+          var title = (selection === "") ? "" : " \""+selection+"\"";
+
+          cm.replaceSelection("[" + selection + "]("+title+")");
+
+          if (selection === "") {
+              cm.setCursor(cursor.line, cursor.ch + 1);
+          }
           // this.executePlugin("linkDialog", "link-dialog/link-dialog");
       },
 
@@ -455,6 +494,18 @@
           if (selection === "") {
               cm.setCursor(cursor.line, cursor.ch + 1);
           }
+      },
+
+      codeblock: function(){
+          var cm        = this.cm;
+          var cursor    = cm.getCursor();
+          var selection = cm.getSelection();
+          
+          cm.replaceSelection(["```", selection, "```"].join("\n"));
+
+          if (selection === "") {
+              cm.setCursor(cursor.line, cursor.ch + 3);
+          } 
       },
 
       "code-block" : function() {
@@ -540,6 +591,7 @@
     position: relative;
     border: 1px solid #d4d9df;
     border-radius: 4px;
+    transition: all .2s cubic-bezier(.645,.045,.355,1);
   }
   .sms-markdown .CodeMirror{
     *font: 16px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
