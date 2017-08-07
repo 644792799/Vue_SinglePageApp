@@ -10,6 +10,17 @@
       </el-tab-pane>
     </el-tabs>
     <div class="sms-markdown-tools" id="sms-markdown-tools">
+      <el-popover 
+        popper-class="sms-markdown-emoji" 
+        ref="popoverEmoji"
+        placement="bottom"
+        width="350"
+        :popper-options="{boundariesElement: 'sms-markdown-tools'}"
+        trigger="click">
+        <div v-for="e in emojis" @click="emoji(e)">{{e}}</div>
+      </el-popover>
+      <span class="icon-smile-o" v-popover:popoverEmoji></span>
+      <span class="split"></span>
       <el-dropdown menu-align="start" @command="hx">
         <span class="icon-font">
           <i class="icon-angle-down"></i>
@@ -75,7 +86,29 @@
         cm: undefined,
         fullscreenIcoClass: 'icon-expand',
         editorClass: 'sms-markdown',
-        editorFullscreen: false
+        editorFullscreen: false,
+        emojis:[
+          '😀', '😁', '😂', '🤣', '😃', '😄', '😐', '😆', '😅', '😭', 
+          '🙂', '😊', '😉', '😎', '🤓', '😍', '😘', '😗', '😙', '😚',
+          '🤗', '😇', '😛', '😜', '😋', '😝', '🤔', '😒', '😑', '😶',
+          '🙄', '😏', '😣', '😥', '😮', '🤐', '😯', '😩', '😫', '😪',
+          '😴', '😌', '🙃', '😔', '🙁', '😲', '😕', '😖', '😞', '😟',
+          '😦','😢','😧','😬','😨','😱','😓','😰','😷','🤒',
+          '🤧','🤕','😵','🤢','🤤','😳','🤥','😤','😠','🤑',
+          '🤠','🤡','😡','😈','👿','👹','👺','💀','👻','👽',
+          '👾','🤖','💩','😺','😸','😹','😻','😼','😽','🙀',
+          '😿','😾','🐱','👤','🐱','🐱','💻','🐱','🐉','🐱',
+          '👓','🐱','🚀','🙈','🙉','🙊','🐵','🐶','🐺','🐱',
+          '🦁','🐯','🦊','🐮','🐷','🐗','🐭','🐹','🐰','🐻',
+          '🐨','🐼','🐸','🐴','🦄','🐔','🐲','🐽','🐾','🐩',
+          '🦌','🦍','🦏','🐒','🐕','🐈','🐅','🐆','🐎','🐂',
+          '🐃','🐄','🐖','🐏','🐑','🐐','🐪','🐫','🐘','🐁',
+          '🐀','🐇','🦎','🐊','🐢','🐍','🐉','🦈','🐬','🦑',
+          '🐳','🐋','🐟','🐠','🦐','🐡','🐙','🐚','🦀','🦅',
+          '🦆','🦉','🦃','🐓','🐣','🐤','🐥','🐦','🐧','🦇',
+          '🦋','🐌','🐛','🐜','🐝','🐞','🦂','👀','👅','👄',
+          '👣','👤','👥','🗣'
+        ]
       }
     },
     mounted(){
@@ -530,7 +563,14 @@
           cm.replaceSelection(datefmt);
       },
       
-      emoji : function() {
+      emoji : function(emoji) {
+          var cm        = this.cm;
+          //var selection = cm.getSelection();
+          //var cursor    = cm.getCursor();
+          cm.replaceSelection(emoji);
+          // if (selection === "") {
+          //     cm.setCursor(cursor.line, cursor.ch + 1);
+          // }
           // this.executePlugin("emojiDialog", "emoji-dialog/emoji-dialog");
       },
               
@@ -604,6 +644,25 @@
     top: 0;
     right: 15px;
     line-height: 42px;
+  }
+  .sms-markdown-emoji{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 280px;
+    overflow-y: auto;
+  }
+  .sms-markdown-emoji>div{
+    width: 35px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .sms-markdown-emoji>div:hover{
+    background: #d4d9df;
   }
   .sms-markdown .sms-markdown-tools span {
     font-size: 14px;
