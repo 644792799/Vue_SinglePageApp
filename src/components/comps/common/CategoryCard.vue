@@ -9,7 +9,7 @@
 						<!-- <SmsPoint :label="cat.name"></SmsPoint> -->
 						<span class="count" v-if="cat.isactive == null || cat.isactive == false">{{cat.count}}</span>
 						<span class="count" v-else >
-							X
+							<i class="icon-x"></i>
 						</span>
 					</a>
 				</li>
@@ -112,9 +112,18 @@
 	    text-overflow: ellipsis;
 	    white-space: nowrap;
 	    cursor: pointer;
+
+	    display: flex;
+	    flex-direction: row;
+	    justify-content: space-between;
+	    align-items: center;
+	}
+	.cat-list a span{
+		display: flex;
+    	align-items: center;
 	}
 	.cat-list .count{
-		float: right;
+		*float: right;
     	font-weight: 600;
 	}
 </style>

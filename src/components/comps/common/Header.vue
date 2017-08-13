@@ -119,6 +119,7 @@
 		position: fixed;
 		background-color: var(--nav-bg-color, #41484d);
 		border-bottom: 1px solid #eaeefb;
+		transition: height .6s ease-in-out;
 	}
 	.header .el-dialog--tiny {
     	width: 500px;
