@@ -1,11 +1,15 @@
 <template>
   <div class="sms-card">
     <div class="sms-card__header" v-if="$slots.header || header">
-      <div class="ico" v-if="ico">
-        <i :class="ico"></i> 
+      <div style="display:flex;flex-direction:row;">
+        <div class="ico" v-if="ico">
+          <i :class="ico"></i> 
+        </div>
+        <slot name="header">{{ header }}</slot>
       </div>
-      
-      <slot name="header">{{ header }}</slot>
+      <div>
+        <slot name="operation"></slot>
+      </div>
       <SmsLine gradfrom="left"></SmsLine>
     </div>
     <div class="sms-card__body" :style="bodyStyle">
@@ -38,6 +42,8 @@
     flex-direction: row;
     align-items: center;
     color: var(--title-color, #4e5359);
+
+    justify-content: space-between;
   }
   .sms-card .sms-card__header .ico{
     display: flex;

@@ -24,7 +24,7 @@
 		    	</div>
 		    </div>
 		</div>
-		<div>
+		<div class="rightcontainer">
 			<div class="right">
 				<div style="text-align:right;position:relative;border-bottom:1px solid #d4d9df;">
 					<router-link to="/user/1/snipt/1/addsnipt">
@@ -34,7 +34,21 @@
 				<div style="position:relative;">
 					<categoryCard :categoriesdata="categories"></categoryCard>
 				</div>
-			</div>	
+			</div>
+			<SmsCard header="最活跃用户" ico="icon-user">
+				<div slot="operation" class="operation">
+					<el-radio-group v-model="activeUserSort" size="small">
+					    <el-radio-button label="本周"></el-radio-button>
+					    <el-radio-button label="本月"></el-radio-button>
+					    <el-radio-button label="本季"></el-radio-button>
+				  	</el-radio-group>
+			  	</div>
+				<SmsUserCardHor shape="circle" v-for="i in 8" img="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498551826199&di=dd1413b07fcebf87e28b12316d4f14e7&imgtype=0&src=http%3A%2F%2Fk2.jsqq.net%2Fuploads%2Fallimg%2F1705%2F7_170524143440_5.jpg">
+					<div class="title">
+						<h5>小哥哥</h5>
+					</div>
+				</SmsUserCardHor>
+			</SmsCard>	
 		</div>
 	</div>
 
@@ -154,7 +168,8 @@
 		          order: 'new'
 		        },
 		        icoclass: "icon-list",
-		        isfullmode: true
+		        isfullmode: true,
+		        activeUserSort: '本周'
 			}
 		},
 		components: {
@@ -198,6 +213,26 @@
 	    border-radius: 3px;
 	    border: 1px solid var(--border-color, #d4d9df);
 	    box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
+	}
+	.index .rightcontainer .sms-card{
+		box-shadow: var(--left-box-shadow, #d5d9de 0.5px 0.5px 4px 0px);
+    	margin-bottom: 15px;
+    	margin-left: 45px;
+	}
+	.index .rightcontainer .sms-card:nth-child(2){
+		margin-top: 15px;
+	}
+	.index .rightcontainer .sms-card .sms-card__body{
+		padding: 0;
+	}
+	.index .rightcontainer .sms-usercard-hor{
+		box-shadow: none!important;
+	}
+	.index .rightcontainer .sms-usercard-hor:last-child{
+		margin-bottom: 0;
+	}
+	.index .rightcontainer .sms-usercard-hor+.sms-usercard-hor {
+	    border-top: 1px solid var(--border-color, #d4d9df);
 	}
 	.index .filtercontainer{
 		position: relative;

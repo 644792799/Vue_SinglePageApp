@@ -20,8 +20,8 @@
 </script>
 <style type="text/css">
 .sms-usercard-hor{
-	--img-width: 30px;
-	--img-radius: 15px;
+	--img-width: 40px;
+	--img-radius: 20px;
 }
 .sms-usercard-hor:hover{
 	background: #fbfcfc;
@@ -45,7 +45,7 @@
 .sms-usercard-hor .sms-usercard-hor-img-circlecontainer{
 	display: flex;
 	align-items: center;
-	padding: 10px 8px;
+	padding: 5px 8px;
 }
 .sms-usercard-hor .sms-usercard-hor-img-trianglecontainer img{
 	width:100%;

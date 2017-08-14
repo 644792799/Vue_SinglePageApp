@@ -214,7 +214,7 @@
 	.article-content .description{
 	    border-top: 1px solid var(--border-color, #eaeefb);
 	    clear: both;
-	    min-height: 300px;
+	    *min-height: 300px;
 	    transition: height .2s;
 	    padding: 24px;
 

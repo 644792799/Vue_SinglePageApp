@@ -245,7 +245,7 @@
 	    *margin-left: 20px;
 	    font-size: 18px;
 	    cursor: pointer;
-	    font-weight: 600;
+	    font-weight: 400;
 	    *-webkit-transition: -webkit-transform 0.15s cubic-bezier(0.2, 0, 0.13, 2);
 	    *transition: transform 0.15s cubic-bezier(0.2, 0, 0.13, 2);
 	    *-webkit-transform: scale(1);
