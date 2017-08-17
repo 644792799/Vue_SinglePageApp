@@ -198,8 +198,8 @@
 	.index{
 		display: flex;
 		flex-direction: row;
-		padding: 0 4.16667%;
-		padding-top: 50px;
+		*padding: 0 4.16667%;
+		*padding-top: 50px;
 	}
 	.index .left{
 		flex: 1;

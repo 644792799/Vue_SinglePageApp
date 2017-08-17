@@ -7,7 +7,10 @@
   <div id="" class="main">
   	<SmsBackToTop></SmsBackToTop>
   	<navbar :menus="menus"></navbar>
-  	<router-view class="content"></router-view>
+  	<div class="content">
+  		<leftmenu></leftmenu>
+  		<router-view class="routercontent"></router-view>
+  	</div>
   	<footerbar></footerbar>
   </div>
   
@@ -15,6 +18,7 @@
 
 <script>
 import Header from './components/comps/common/Header.vue'
+import LeftMenu from './components/comps/common/LeftMenu.vue'
 import Footer from './components/comps/common/Footer.vue'
 import SignIn from './components/pages/Sign/SignIn.vue'
 
@@ -60,6 +64,7 @@ export default{
 	}, 
 	components: {
 		"navbar": Header,
+		"leftmenu": LeftMenu,
 		"footerbar": Footer,
 		"signin": SignIn
 	}
@@ -68,6 +73,7 @@ export default{
 <style type="text/css">
 	html, body, .main{
 		*height: 100%;
+		*min-height: 100%;
 	}
 	.vistor{
 		height: 100%;
@@ -80,13 +86,21 @@ export default{
 	.main {
 		*max-width: 1140px;
 	}
-	.content{
+	.main .content{
 		*overflow-y: auto;
 		*height: 100%;
 		padding-top:50px;
 		margin: 0 auto;
-		max-width: 1500px;
+		*max-width: 1500px;
 		min-width: 1140px;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+	}
+	.main .routercontent{
+		flex: 1;
+		margin-left: 250px;
+		padding: 0 50px;
 	}
 	.nav-pills > li > a {
     	border-radius: 0px!important;

@@ -412,8 +412,8 @@
 	.editor{
 		display: flex;
 		flex-direction: row;
-		padding: 0 4.16667%;
-		padding-top: 50px;
+		*padding: 0 4.16667%;
+		*padding-top: 50px;
 	}
 	.editor .left{
 		flex: 1;

@@ -106,8 +106,8 @@
 	.setting{
 		display: flex;
 		flex-direction: row;
-		padding: 0 4.16667%;
-		padding-top: 50px;
+		*padding: 0 4.16667%;
+		*padding-top: 50px;
 	}
 	.setting .active{
 		border-left: 2px solid #ea7069;
