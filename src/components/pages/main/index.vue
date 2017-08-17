@@ -232,6 +232,16 @@
 		margin-bottom: 0;
 	}
 	.index .rightcontainer .sms-usercard-hor+.sms-usercard-hor {
+	    *border-top: 1px solid var(--border-color, #d4d9df);
+	    position: relative;
+    	overflow: hidden;
+	}
+	.index .rightcontainer .sms-usercard-hor+.sms-usercard-hor:before {
+	    position: absolute;
+	    top: 0;
+	    width: 100%;
+	    content: '';
+	    left: 50px;
 	    border-top: 1px solid var(--border-color, #d4d9df);
 	}
 	.index .filtercontainer{
