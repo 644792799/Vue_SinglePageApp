@@ -71,6 +71,7 @@
 	}
 	.leftmenu .menu .active{
 		color: var(--nav-hover-color, #ea7069);
+		background: #fbfcfc;
 	}
 	.leftmenu .menu ul{
 		list-style: none;

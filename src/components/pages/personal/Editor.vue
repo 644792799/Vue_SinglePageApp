@@ -129,17 +129,22 @@
 					    			<div @click="toggleAceEditorToolBar">
 					    				<i class="icon-gears"></i>
 					    			</div>
-					    			<div @click="toggleAceEditorFullScreen">
+					    			<!-- <div @click="toggleAceEditorFullScreen">
+					    				<i :class="aceeditorfullscreenicoclass"></i>
+					    			</div> -->
+					    		</div>
+					    		<div class="acesettingright">
+						    		<el-select class="select-language" v-model="languageSelectVal" filterable placeholder="请选择语言" @change="languageChange">
+									    <el-option
+									      v-for="item in options"
+									      :label="item.label"
+									      :value="item.value">
+									    </el-option>
+								  	</el-select>
+								  	<div @click="toggleAceEditorFullScreen">
 					    				<i :class="aceeditorfullscreenicoclass"></i>
 					    			</div>
-					    		</div>
-					    		<el-select class="select-language" v-model="languageSelectVal" filterable placeholder="请选择语言" @change="languageChange">
-								    <el-option
-								      v-for="item in options"
-								      :label="item.label"
-								      :value="item.value">
-								    </el-option>
-							  	</el-select>
+							  	</div>
 					    	</div>
 					    	<editor id="aceeditor" v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="inherit" :height="aceeditorheight" :style="aceeditorstyle"></editor>
 					    	<div class="statusBar icon-edit2" id="statusBar">
@@ -526,7 +531,24 @@
 	    align-items: center;
 	    justify-content: center;
 	    cursor: pointer;
-	    font-size: 17px;
+	    font-size: 14px;
+	    color: #586069;
+	}
+	.editor .codeToolBar .acesettingright{
+		height: 36px;
+		display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    cursor: pointer;
+	    font-size: 14px;
+	    color: #586069;
+	}
+	.editor .codeToolBar .acesettingright>div+div{
+		width: 40px;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
 	.editor .codeToolBar .acesetting>div{
 		width: 40px;
@@ -534,6 +556,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+	}
+	.editor .codeToolBar .acesetting>div:hover,
+	.editor .codeToolBar .acesettingright>div+div:hover{
+		color: var(--link-hover-color, #20a0ff);
 	}
 	.editor .codeToolBar .acesetting i{
 		*margin: 0 10px;

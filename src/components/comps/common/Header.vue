@@ -138,12 +138,21 @@
 	    font-weight: normal;
 	    *height: 50px;
 	    cursor: pointer;
+	    font-size: 18px!important;
+	}
+	.header .plus-container{
+		width: 50px;
+	    height: 50px;
+	    background: var(--btn-bg-color-primary, #ea7069);
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
 	}
 	.header .plus-container a{
-		margin-right: 0!important;
-		width: 50px;
-		line-height: 50px;
-		background: var(--btn-bg-color-primary, #ea7069);
+		*margin-right: 0!important;
+		*width: 50px;
+		*line-height: 50px;
+		*background: var(--btn-bg-color-primary, #ea7069);
     	color: var(--font-color-primary, #fff)!important;
 	}
 	.header .plus-container i{
@@ -187,7 +196,7 @@
 	.header .nav a, .header .nav span, .header .notice{
 		color: var(--nav-color, #fff);
 		font-size: 15px;
-		float: left;
+		*float: left;
 	}
 	.header .el-dropdown{
 		color: var(--bg-color, #FBFCFC)!important;
@@ -198,7 +207,7 @@
 		color: var(--nav-hover-color, #ea7069);
 	}
 	.header .notice-container{
-		padding-right: 15px;
+		padding-right: 35px;
 	}
 	.header .icon-steps{
 		font-size: 30px!important;
