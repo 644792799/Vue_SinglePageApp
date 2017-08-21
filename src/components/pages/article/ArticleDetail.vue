@@ -300,7 +300,7 @@
 	.article-detail .comments{
 		margin: 0px 0 15px 0;
 		position: relative;
-		z-index: 101;
+		z-index: 2;
 	}
 
 	.article-detail .CodeMirror{

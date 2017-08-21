@@ -6,9 +6,9 @@
   </div> -->
   <div id="" class="main">
   	<SmsBackToTop></SmsBackToTop>
-  	<navbar :menus="menus"></navbar>
+  	<navbar></navbar>
   	<div class="content">
-  		<leftmenu></leftmenu>
+  		<leftmenu :menus="menus"></leftmenu>
   		<router-view class="routercontent"></router-view>
   	</div>
   	<footerbar></footerbar>
@@ -92,7 +92,7 @@ export default{
 		padding-top:50px;
 		margin: 0 auto;
 		*max-width: 1500px;
-		min-width: 1140px;
+		min-width: 1270px;
 		position: relative;
 		display: flex;
 		flex-direction: column;

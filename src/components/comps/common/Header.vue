@@ -1,51 +1,47 @@
 <template>
 	<div class="header">
 		<div class="nav">
-			
-			<router-link to="/index" class="icon-steps"></router-link>
-			<span v-for="menu in menus" :class="menu.clas" @click="toggleClas(menu)">
-		  		<router-link :to="menu.to"><i :class="menu.ico">&nbsp;</i>{{menu.name}}</router-link>
-		  	</span>
-			<div class="pull-right plus-container">
-				<router-link to="/user/1/snipt/1/editsnipt">
-					<i class="icon-plus2"></i>
-				</router-link>
-			</div>
-
-			<el-dropdown class="pull-right">
-			  	<span class="el-dropdown-link">
-			    	<img src="/static/img/头像示例2.jpg" class="el-dropdown-img">
-			    	&nbsp;用户名<i class="el-icon-arrow-down el-icon--right"></i>
-			  	</span>
-			  <el-dropdown-menu slot="dropdown">
-			    <el-dropdown-item>
-			    	<span  @click="tomyspace()">
-			    		<i class="icon-profile">&nbsp;</i>我的空间
-			    	</span>
-			    	<!-- <router-link to="/user/1"><i class="icon-profile">&nbsp;</i>我的空间</router-link> -->
-			    </el-dropdown-item>
-			    <el-dropdown-item>
-			    	<span  @click="tosetting()">
-			    		<i class="icon-gear">&nbsp;</i>个人设置
-			    	</span>
-			    </el-dropdown-item>
-			    <el-dropdown-item><i class="icon-sign-out">&nbsp;</i>退出</el-dropdown-item>
-			  </el-dropdown-menu>
-			</el-dropdown>
-			
-			<div class="pull-right notice-container">
-				<button class="notice icon-bell3"></button>
-				<button class="notice icon-envelope-o"></button>
-				<button class="notice icon-sign-in" @click="sign"></button>
-			</div>
-
-			<el-input placeholder="查找代码片" v-model="input5" style="width:380px;float:right;margin: 7px 15px 7px 0;" icon="search" @click="search()">
+			<div>
+				<router-link to="/index" class="icon-steps"></router-link>
+				<el-input placeholder="查找代码片" v-model="searchCondition" style="width:380px;" icon="search" @click="search()">
 			</el-input>
+			</div>
+			<div>
+				<div class="notice-container">
+					<button class="notice icon-bell3"></button>
+					<button class="notice icon-envelope-o"></button>
+					<button class="notice icon-sign-in" @click="sign"></button>
+				</div>
+				<el-dropdown class="">
+				  	<span class="el-dropdown-link">
+				    	<img src="/static/img/头像示例2.jpg" class="el-dropdown-img">
+				    	&nbsp;用户名<i class="el-icon-arrow-down el-icon--right"></i>
+				  	</span>
+				    <el-dropdown-menu slot="dropdown">
+					    <el-dropdown-item>
+					    	<span  @click="tomyspace()">
+					    		<i class="icon-profile">&nbsp;</i>我的空间
+					    	</span>
+					    	<!-- <router-link to="/user/1"><i class="icon-profile">&nbsp;</i>我的空间</router-link> -->
+					    </el-dropdown-item>
+					    <el-dropdown-item>
+					    	<span  @click="tosetting()">
+					    		<i class="icon-gear">&nbsp;</i>个人设置
+					    	</span>
+					    </el-dropdown-item>
+					    <el-dropdown-item><i class="icon-sign-out">&nbsp;</i>退出</el-dropdown-item>
+				    </el-dropdown-menu>
+				</el-dropdown>
+				<div class="plus-container">
+					<router-link to="/user/1/snipt/1/editsnipt">
+						<i class="icon-plus2"></i>
+					</router-link>
+				</div>
+			</div>
+			<!-- <span v-for="menu in menus" :class="menu.clas" @click="toggleClas(menu)">
+		  		<router-link :to="menu.to"><i :class="menu.ico">&nbsp;</i>{{menu.name}}</router-link>
+		  	</span> -->
 		</div>
-		<!-- <el-dialog :title="issignin?'登录':'注册'" v-model="dialogVisible" size="tiny">
-		  <signin v-if="issignin"></signin>
-		  <signup v-else-if="!issignin"></signup>
-		</el-dialog> -->
 		<el-dialog v-model="dialogVisible" size="tiny" :show-close="false">
 		  <sign></sign>
 		</el-dialog>
@@ -62,7 +58,7 @@
 			dialogVisible: false,
 			issignin: false,
 			select: "3",
-			input5: ""
+			searchCondition: ""
 		}
 	},
 	props: ['menus'],
@@ -115,7 +111,7 @@
 		flex-wrap: nowrap;
 		height: 50px;
 		width: 100%;
-		z-index: 100;
+		z-index: 4;
 		position: fixed;
 		background-color: var(--nav-bg-color, #41484d);
 		border-bottom: 1px solid #eaeefb;
@@ -140,12 +136,13 @@
 		background: none;
 	    border: 0;
 	    font-weight: normal;
-	    line-height: 50px;
+	    *height: 50px;
 	    cursor: pointer;
 	}
 	.header .plus-container a{
 		margin-right: 0!important;
 		width: 50px;
+		line-height: 50px;
 		background: var(--btn-bg-color-primary, #ea7069);
     	color: var(--font-color-primary, #fff)!important;
 	}
@@ -169,23 +166,23 @@
 	}
 	.header .nav{
 		width: 100%;
-		line-height: 50px;
+		height: 50px;
 		text-align: center;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
 	}
-	.header .nav>span{
-		overflow: hidden;
-		height: 50px;
-		transition: all .15s ease-in-out;
+	.header .nav .el-input__inner{
+		border-color: #4e5359;
+	    background: #41484d;
+	    color: white;
 	}
-	.header .nav>span>a{
-		border-bottom: 5px solid var(--nav-hover-border-color, #ea7069);
-		padding: 0 10px;
-		transition: all .15s ease-in-out;
-		height: 50px;
-	}
-	.header .nav>span>a:hover{
-		color: var(--nav-hover-color, #ea7069);
-		height: 45px;
+	.header .nav>div{
+		display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    transition: all .15s ease-in-out;
 	}
 	.header .nav a, .header .nav span, .header .notice{
 		color: var(--nav-color, #fff);
@@ -201,7 +198,7 @@
 		color: var(--nav-hover-color, #ea7069);
 	}
 	.header .notice-container{
-		padding-right: 10px;
+		padding-right: 15px;
 	}
 	.header .icon-steps{
 		font-size: 30px!important;

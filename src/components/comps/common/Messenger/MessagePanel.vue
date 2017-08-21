@@ -4,7 +4,7 @@
 			<img src="/static/img/头像示例2.jpg">
 		</div>
 		<div style="flex:1;">
-			<div class="message">
+			<div :class="messageclass">
 				<div class="messagedetail">
 					道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲
 				</div>
@@ -65,15 +65,18 @@
 	    props: [],
 	    data(){
 			return {
-				replayclass: 'messagereplay h0'
+				replayclass: 'messagereplay h0',
+				messageclass: 'message'
 			}
 		},
 		methods: {
 			toggleReplay: function(){
 				if(this.replayclass == "messagereplay"){
 					this.replayclass = "messagereplay h0";
+					this.messageclass = "message";
 				}else{
 					this.replayclass = "messagereplay";
+					this.messageclass = "message messagewidthreplay";
 				}
 			}
 		}
@@ -130,8 +133,12 @@
 	    border-width: 7px;
 	    border-right-color: #fff;
 	}
+	.messagepanel .messagewidthreplay{
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+	}
 	.messagepanel .messagereplay{
-		width: 95%;
+		*width: 95%;
 		*height: 100px;
 		margin: -2px auto;
 		border: 1px solid var(--border-color, #d4d9df);
@@ -141,6 +148,7 @@
 	    display: flex;
 	    flex-direction: column;
 	    overflow: hidden;
+	    margin-left: 10px;
 	}
 	.messagepanel .messagereplay .replayedit{
 		*height: 30px;
@@ -217,8 +225,10 @@
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
-	    padding: 15px;
-	    padding-top: 0;
+	    padding: 8px;
+	    *padding-top: 0;
+	    border-top: 1px solid #d1d5da;
+    	background: #e6ebf1;
 	}
 	.messagepanel .message .messageaction .usermessage{
 		font-weight: 600;

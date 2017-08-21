@@ -455,6 +455,7 @@
 	.editor .ace-github .ace_gutter {
 	    background: var(--acegutter-bg-color, #fbfcfc);
 	    color: var(--acegutter-color, #AAA);
+	    z-index: 2;
 	}
 	.editor .ace_editor{
 		border: 1px solid var(--ace-theme-github-border-color, #d4d9df);
