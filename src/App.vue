@@ -35,6 +35,11 @@ const menu = [
 	clas: '',
 	ico: 'icon-globe3'
 },{
+	name: '帮助',
+	to: '/help',
+	clas: '',
+	ico: 'icon-book3'
+},{
 	name: '关于',
 	to: '/about',
 	clas: '',

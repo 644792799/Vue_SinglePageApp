@@ -19,6 +19,8 @@ import Editor from './components/pages/personal/Editor.vue'
 import MyArticle from './components/pages/personal/MyArticleList.vue'
 import Setting from './components/pages/personal/EditProfile.vue'
 import PageNotFound from './components/pages/404/404.vue'
+import About from './components/pages/about/about.vue'
+import Help from './components/pages/about/help.vue'
 import SmsUI from './components/sms'
 
 //import 'bootstrap/dist/css/bootstrap.css'
@@ -46,7 +48,7 @@ const routes = [
 		component: Main
 	},
 	{
-		path: '/about',
+		path: '/demo',
 		component: CommonStyle
 	},
 	{
@@ -80,6 +82,14 @@ const routes = [
 	{
 		path: '/setting',
 		component: Setting
+	},
+	{
+		path: '/about',
+		component: About
+	},
+	{
+		path: '/help',
+		component: Help
 	},
 	{
 		path: '*',
