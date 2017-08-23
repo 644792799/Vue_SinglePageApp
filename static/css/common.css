@@ -186,3 +186,11 @@ h3{
 	margin: 15px 0;
 	position: relative;
 }
+.flex-col-layout{
+	display: flex;
+	flex-direction: column;
+}
+.flex-row-layout{
+	display: flex;
+	flex-direction: row;
+}

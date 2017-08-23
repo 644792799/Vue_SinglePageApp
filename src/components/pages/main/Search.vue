@@ -1,7 +1,6 @@
 <template>
 	<div class="search">
-		<!-- <el-row>
-			<el-col :span="15" :offset="1"> -->
+		<div class="flex-row-layout">
 			<div class="left">
 			    <div style="margin-top: 15px;margin-bottom:15px;">
 			    	<div class="search-container">
@@ -27,9 +26,7 @@
 					  	</div>
 			    	</div>
 			    </div>
-			</div>    
-			<!-- </el-col>
-			<el-col :span="6" :offset="1" class="right-container"> -->
+			</div>
 			<div>
 				<div class="right">
 					<div style="text-align:right;position:relative;border-bottom:1px solid #d4d9df;">
@@ -49,8 +46,7 @@
 					</div> -->
 				</div>	
 			</div>
-			<!-- </el-col>
-		</el-row> -->
+		</div>	
 	</div>
 
 </template>
@@ -171,9 +167,12 @@
 <style type="text/css">
 	.search{
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		*padding: 0 4.16667%;
 		*padding-top: 50px;
+	}
+	.search .flex-row-layout{
+		padding: 0 50px;
 	}
 	.search .left{
 		flex: 1;

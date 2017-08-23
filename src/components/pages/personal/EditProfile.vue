@@ -1,40 +1,51 @@
 <template>
 	<div class="setting">
-		<div>
-			<div class="setting-nav">
-				<div class="setting-nav-title">用户设置</div>
-				<div class="setting-nav-item">
-					<ul>
-						<li v-for="ele in navdatas" :class="ele.active" @click="NavItemClick(ele)">
-							<div style="display:flex;">
-								<div class="icocontainer">
-									<i :class="ele.ico">&nbsp;</i>
+		<div class="sub-nav">
+			<div class="breadcrumb-container">
+		  		<el-breadcrumb separator="/">
+				  <el-breadcrumb-item :to="{ path: '/index' }">首页</el-breadcrumb-item>
+				  <el-breadcrumb-item :to="{ path: '/user/1' }">用户</el-breadcrumb-item>
+				  <el-breadcrumb-item>用户设置</el-breadcrumb-item>
+				</el-breadcrumb>
+		  	</div>
+		</div>
+		<div class="flex-row-layout">
+			<div>
+				<div class="setting-nav">
+					<div class="setting-nav-title">用户设置</div>
+					<div class="setting-nav-item">
+						<ul>
+							<li v-for="ele in navdatas" :class="ele.active" @click="NavItemClick(ele)">
+								<div style="display:flex;">
+									<div class="icocontainer">
+										<i :class="ele.ico">&nbsp;</i>
+									</div>
+									<div>{{ele.txt}}</div>
 								</div>
-								<div>{{ele.txt}}</div>
-							</div>
-							<div v-if="ele.active == 'active'">
-								<i class="icon-chevron-right"></i>
-							</div>
-						</li>
-					</ul>
+								<div v-if="ele.active == 'active'">
+									<i class="icon-chevron-right"></i>
+								</div>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="setting-detail">
-			<div v-if="detailActiveIndex == 0">
-				<basicsetting></basicsetting>
-			</div>
-			<div v-if="detailActiveIndex == 1">
-				<personalsetting></personalsetting>
-			</div>
-			<div v-if="detailActiveIndex == 2">
-				<accountsetting></accountsetting>
-			</div>
-			<div v-if="detailActiveIndex == 3">
-				<rewardsetting></rewardsetting>
-			</div>
-			<div v-if="detailActiveIndex == 4">
-				33333
+			<div class="setting-detail">
+				<div v-if="detailActiveIndex == 0">
+					<basicsetting></basicsetting>
+				</div>
+				<div v-if="detailActiveIndex == 1">
+					<personalsetting></personalsetting>
+				</div>
+				<div v-if="detailActiveIndex == 2">
+					<accountsetting></accountsetting>
+				</div>
+				<div v-if="detailActiveIndex == 3">
+					<rewardsetting></rewardsetting>
+				</div>
+				<div v-if="detailActiveIndex == 4">
+					33333
+				</div>
 			</div>
 		</div>
 	</div>
@@ -105,9 +116,19 @@
 <style type="text/css">
 	.setting{
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		*padding: 0 4.16667%;
 		*padding-top: 50px;
+	}
+	.setting .sub-nav{
+		background: var(--bg-color, #fbfcfc);
+		padding: 0 50px;
+		display: flex;
+    	align-items: center;
+		*border-bottom: 1px solid var(--border-color, #d4d9df);
+	}
+	.setting .flex-row-layout{
+		padding: 0 50px;
 	}
 	.setting .active{
 		border-left: 2px solid #ea7069;

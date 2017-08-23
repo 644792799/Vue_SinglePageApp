@@ -1,49 +1,55 @@
 <template>
 	<div class="article-detail">
-		<!-- <el-row>
-		  <el-col :span="15" :offset="1"> -->
-		<div class="left">
-		  	<div class="breadcrumb-container">
+		<div class="sub-nav">
+			<div class="breadcrumb-container">
 		  		<el-breadcrumb separator="/">
 				  <el-breadcrumb-item :to="{ path: '/index' }">首页</el-breadcrumb-item>
 				  <el-breadcrumb-item :to="{ path: '/user/1' }">用户</el-breadcrumb-item>
 				  <el-breadcrumb-item>代码片详细</el-breadcrumb-item>
 				</el-breadcrumb>
 		  	</div>
-		  	<div class="grid-content">
-		  		<div class="article-title">
-		  			<h3><i class="icon-pin">&nbsp;</i>这是标题</h3>
-		  			<el-tag v-for="i in ['gray','primary','success']" :type="i">标签</el-tag>
-		  		</div>
-				<div class="article-content" id="article-content">
-					<div class="tools">
-						<articletools :code="function(){}"></articletools>
-					</div>
-					<div class="source">
-						<pre lan="javascript" class="lan-mark"><code class="javascript">$(document).ready(function() {
-		$('pre code').each(function(i, block) {
-			hljs.highlightBlock(block);
-		});
-	});</code></pre>
-					</div>
-					<div class="description" id="description">
-						<div class="text-center article-desc-container">
-							<h4 class="article-desc-title">代码片描述<SmsLine gradfrom="center"></SmsLine></h4>
-							<div class="gradient-line"></div>
+		</div>
+		<div class="flex-row-layout">
+			<div class="left">
+			  	<!-- <div class="breadcrumb-container">
+			  		<el-breadcrumb separator="/">
+					  <el-breadcrumb-item :to="{ path: '/index' }">首页</el-breadcrumb-item>
+					  <el-breadcrumb-item :to="{ path: '/user/1' }">用户</el-breadcrumb-item>
+					  <el-breadcrumb-item>代码片详细</el-breadcrumb-item>
+					</el-breadcrumb>
+			  	</div> -->
+			  	<div class="grid-content">
+			  		<div class="article-title">
+			  			<h3><i class="icon-pin">&nbsp;</i>这是标题</h3>
+			  			<el-tag v-for="i in ['gray','primary','success']" :type="i">标签</el-tag>
+			  		</div>
+					<div class="article-content" id="article-content">
+						<div class="tools">
+							<articletools :code="function(){}"></articletools>
 						</div>
-						我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲读完师范和她两个妹妹长大。
+						<div class="source">
+							<pre lan="javascript" class="lan-mark"><code class="javascript">$(document).ready(function() {
+			$('pre code').each(function(i, block) {
+				hljs.highlightBlock(block);
+			});
+		});</code></pre>
+						</div>
+						<div class="description" id="description">
+							<div class="text-center article-desc-container">
+								<h4 class="article-desc-title">代码片描述<SmsLine gradfrom="center"></SmsLine></h4>
+								<div class="gradient-line"></div>
+							</div>
+							我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲读完师范和她两个妹妹长大。
+						</div>
+						<!-- <div class="article-cat">JAVA</div> -->
+						
 					</div>
-					<!-- <div class="article-cat">JAVA</div> -->
-					
-				</div>
-		  	</div>
-		  	<div class="comments">
-		  		<messenger></messenger>
-		  	</div>
-		</div>	
-		  <!-- </el-col>
-		   <el-col :span="6" :offset="1" class="right-container"> -->
-		   <div>
+			  	</div>
+			  	<div class="comments">
+			  		<messenger></messenger>
+			  	</div>
+			</div>
+		    <div>
 			   <div class="right">
 			   		<div class="grid-content article-stats">
 			   			<img src="/static/img/头像示例2.jpg" class="userimg">
@@ -97,9 +103,8 @@
 						<SmsSimpleList title="类似相关代码"></SmsSimpleList>
 			   		</div>
 			   	</div>	
-		   	</div>
-		   <!-- </el-col>
-		</el-row> -->
+		    </div>
+		</div>   
 	</div>
 </template>
 
@@ -147,9 +152,19 @@
 	}*/
 	.article-detail{
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		*padding: 0 4.16667%;
 		*padding-top: 50px;
+	}
+	.article-detail .sub-nav{
+		background: var(--bg-color, #fbfcfc);
+		padding: 0 50px;
+		display: flex;
+    	align-items: center;
+		*border-bottom: 1px solid var(--border-color, #d4d9df);
+	}
+	.article-detail .flex-row-layout{
+		padding: 0 50px;
 	}
 	.article-detail .left{
 		flex: 1;
@@ -167,7 +182,7 @@
 	.article-detail h3{
 		color: var(--title-color, #4E5359);
 	}
-	.breadcrumb-container{
+	.article-detail .breadcrumb-container{
 		margin: 15px 0;
 		position: relative;
 	}
@@ -247,7 +262,7 @@
 		width: 56px;
 	    height: 56px;
 	    position: absolute;
-	    top: -28px;
+	    top: -23px;
 	    left: -28px;
 	    border-radius: 28px;
 	    box-shadow: var(--img-box-shadow, 1px 2px 4px 0px #d4d9df);

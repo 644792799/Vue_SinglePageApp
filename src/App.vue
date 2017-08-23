@@ -105,7 +105,7 @@ export default{
 	.main .routercontent{
 		flex: 1;
 		margin-left: 250px;
-		padding: 0 50px;
+		*padding: 0 50px;
 	}
 	.nav-pills > li > a {
     	border-radius: 0px!important;

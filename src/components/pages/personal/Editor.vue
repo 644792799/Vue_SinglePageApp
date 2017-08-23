@@ -1,7 +1,15 @@
 <template>
 	<div class="editor">
-		<!-- <el-row>
-			<el-col :span="15" :offset="1"> -->
+		<div class="sub-nav">
+			<div class="breadcrumb-container">
+		  		<el-breadcrumb separator="/">
+				  <el-breadcrumb-item :to="{ path: '/index' }">首页</el-breadcrumb-item>
+				  <el-breadcrumb-item :to="{ path: '/user/1' }">用户</el-breadcrumb-item>
+				  <el-breadcrumb-item>代码片添加</el-breadcrumb-item>
+				</el-breadcrumb>
+		  	</div>
+		</div>
+		<div class="flex-row-layout">
 			<div class="left">
 				<div class="form-container">
 					<el-form ref="form" :model="form" label-width="80px">
@@ -165,9 +173,7 @@
 					  	</el-form-item>
 					</el-form>
 				</div>
-			</div>	
-			<!-- </el-col>
-			<el-col :span="6" :offset="1" class=""> -->
+			</div>
 			<div>
 				<div class="right">
 					<div class="tag-container">
@@ -202,8 +208,7 @@
 					</div>
 				</div>	
 			</div>
-			<!-- </el-col>
-		</el-row> -->
+		</div>	
 	</div>
 </template>
 <script type="text/javascript">
@@ -416,9 +421,19 @@
 <style type="text/css">
 	.editor{
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		*padding: 0 4.16667%;
 		*padding-top: 50px;
+	}
+	.editor .sub-nav{
+		background: var(--bg-color, #fbfcfc);
+		padding: 0 50px;
+		display: flex;
+    	align-items: center;
+		*border-bottom: 1px solid var(--border-color, #d4d9df);
+	}
+	.editor .flex-row-layout{
+		padding: 0 50px;
 	}
 	.editor .left{
 		flex: 1;

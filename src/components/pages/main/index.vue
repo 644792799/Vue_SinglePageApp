@@ -1,54 +1,58 @@
 <template>
 	<div class="index">
-		<div class="left">
-		    <div style="margin-top: 15px;margin-bottom:15px;">
-		    	<div class="filtercontainer">
-		    		<span style="line-height:56px;font-size:18px;color:#586069;"><i class="icon-terminal" style="font-weight:600;"></i>&nbsp;发现代码</span>
-		    		<el-button :class="icoclass" @click="toggleIcoClass()"></el-button>
-		    		<el-form :inline="true" :model="formInline" class="demo-form-inline">
-					  <el-form-item label="排序">
-					    <el-select v-model="formInline.order" placeholder="类型选择">
-					      <el-option label="最新发布" value="new"></el-option>
-					      <el-option label="收藏最多" value="star"></el-option>
-					      <el-option label="FORK最多" value="fork"></el-option>
-					      <el-option label="评分最高" value="vote"></el-option>
-					    </el-select>
-					  </el-form-item>
-					</el-form>
-					<SmsLine gradfrom="left"></SmsLine>
-		    	</div>
-		    	<div>
-		    		<div class="grid-content">
-				  		<articleList :articlesdata="articlesdata" :isfullmode="isfullmode"></articleList>
-				  	</div>
-		    	</div>
-		    </div>
-		</div>
-		<div class="rightcontainer">
-			<div class="right">
-				<div style="text-align:right;position:relative;border-bottom:1px solid #d4d9df;">
-					<router-link to="/user/1/snipt/1/addsnipt">
-						<el-button style="margin: 10px 5px">添加代码片<i class="el-icon-plus el-icon--right"></i></el-button>
-					</router-link>
-				</div>
-				<div style="position:relative;">
-					<categoryCard :categoriesdata="categories"></categoryCard>
-				</div>
+		<!-- <div class="sub-nav">
+		</div> -->
+		<div class="flex-row-layout">
+			<div class="left">
+			    <div style="margin-top: 15px;margin-bottom:15px;">
+			    	<div class="filtercontainer">
+			    		<span style="line-height:56px;font-size:18px;color:#586069;"><i class="icon-terminal" style="font-weight:600;"></i>&nbsp;发现代码</span>
+			    		<el-button :class="icoclass" @click="toggleIcoClass()"></el-button>
+			    		<el-form :inline="true" :model="formInline" class="demo-form-inline">
+						  <el-form-item label="排序">
+						    <el-select v-model="formInline.order" placeholder="类型选择">
+						      <el-option label="最新发布" value="new"></el-option>
+						      <el-option label="收藏最多" value="star"></el-option>
+						      <el-option label="FORK最多" value="fork"></el-option>
+						      <el-option label="评分最高" value="vote"></el-option>
+						    </el-select>
+						  </el-form-item>
+						</el-form>
+						<SmsLine gradfrom="left"></SmsLine>
+			    	</div>
+			    	<div>
+			    		<div class="grid-content">
+					  		<articleList :articlesdata="articlesdata" :isfullmode="isfullmode"></articleList>
+					  	</div>
+			    	</div>
+			    </div>
 			</div>
-			<SmsCard header="最活跃用户" ico="icon-user">
-				<div slot="operation" class="operation">
-					<el-radio-group v-model="activeUserSort" size="small">
-					    <el-radio-button label="本周"></el-radio-button>
-					    <el-radio-button label="本月"></el-radio-button>
-					    <el-radio-button label="本季"></el-radio-button>
-				  	</el-radio-group>
-			  	</div>
-				<SmsUserCardHor shape="circle" v-for="i in 8" img="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498551826199&di=dd1413b07fcebf87e28b12316d4f14e7&imgtype=0&src=http%3A%2F%2Fk2.jsqq.net%2Fuploads%2Fallimg%2F1705%2F7_170524143440_5.jpg">
-					<div class="title">
-						<h5>小哥哥</h5>
+			<div class="rightcontainer">
+				<div class="right">
+					<div style="text-align:right;position:relative;border-bottom:1px solid #d4d9df;">
+						<router-link to="/user/1/snipt/1/addsnipt">
+							<el-button style="margin: 10px 5px">添加代码片<i class="el-icon-plus el-icon--right"></i></el-button>
+						</router-link>
 					</div>
-				</SmsUserCardHor>
-			</SmsCard>	
+					<div style="position:relative;">
+						<categoryCard :categoriesdata="categories"></categoryCard>
+					</div>
+				</div>
+				<SmsCard header="最活跃用户" ico="icon-user">
+					<div slot="operation" class="operation">
+						<el-radio-group v-model="activeUserSort" size="small">
+						    <el-radio-button label="本周"></el-radio-button>
+						    <el-radio-button label="本月"></el-radio-button>
+						    <el-radio-button label="本季"></el-radio-button>
+					  	</el-radio-group>
+				  	</div>
+					<SmsUserCardHor shape="circle" v-for="i in 8" img="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498551826199&di=dd1413b07fcebf87e28b12316d4f14e7&imgtype=0&src=http%3A%2F%2Fk2.jsqq.net%2Fuploads%2Fallimg%2F1705%2F7_170524143440_5.jpg">
+						<div class="title">
+							<h5>小哥哥</h5>
+						</div>
+					</SmsUserCardHor>
+				</SmsCard>	
+			</div>
 		</div>
 	</div>
 
@@ -197,9 +201,19 @@
 <style type="text/css">
 	.index{
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		*padding: 0 4.16667%;
 		*padding-top: 50px;
+	}
+	.index .sub-nav{
+		background: var(--bg-color, #fbfcfc);
+		padding: 0 50px;
+		display: flex;
+    	align-items: center;
+		*border-bottom: 1px solid var(--border-color, #d4d9df);
+	}
+	.index .flex-row-layout{
+		padding: 0 50px;
 	}
 	.index .left{
 		flex: 1;
