@@ -89,7 +89,6 @@
 							<div class="pull-left stats-item-name">公开 / 私有</div>
 							<span></span>
 						</div>
-						
 			   		</div>
 			   		<div class="article-prop">
 				   		<el-form>
@@ -98,10 +97,18 @@
 				   			</el-form-item>
 				   		</el-form>
 			   		</div>
-			   		<div>
+			   		<SmsCard header="作者发布的其它代码" ico="icon-file-code-o">
+						
+					</SmsCard>
+					<SmsCard header="类似相关代码" ico="icon-file-code-o">
+						<div slot="operation" class="operation">
+							<el-button type="primary" size="mini">换一批<i class="icon-refresh-cw el-icon--right"></i></el-button>
+						</div>
+					</SmsCard>
+			   		<!-- <div>
 			   			<SmsSimpleList title="作者发布的其它代码"></SmsSimpleList>
 						<SmsSimpleList title="类似相关代码"></SmsSimpleList>
-			   		</div>
+			   		</div> -->
 			   	</div>	
 		    </div>
 		</div>   

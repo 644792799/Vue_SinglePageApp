@@ -54,7 +54,7 @@
     overflow: hidden;
     margin-right: 10px;
   }
-  .sms-card .sms-card__header i{
+  .sms-card .sms-card__header .ico i{
     font-size: 20px;
   }
   .sms-card__body{

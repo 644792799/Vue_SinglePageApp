@@ -29,7 +29,7 @@
 			</div>
 			<div>
 				<div class="right">
-					<div style="text-align:right;position:relative;border-bottom:1px solid #d4d9df;">
+					<div style="text-align:right;position:relative;border-bottom:1px solid var(--border-color, #d4d9df);">
 						<router-link to="/user/1/snipt/1/addsnipt">
 							<el-button style="margin: 10px 5px">添加代码片<i class="el-icon-plus el-icon--right"></i></el-button>
 						</router-link>

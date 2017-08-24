@@ -10,7 +10,7 @@
 	--btn-hover-color-default: #ea7069;
 
 
-	--border-color: #d4d9df;
+	--border-color: #e4e8f1;/*#d4d9df;*/
 
 	--color-white: #fff; /*一般用于背景色、深色底文字颜色*/
 	--color-red: #ea7069;/*一般用于按钮背景颜色、hover变色*/
@@ -39,7 +39,7 @@
 }
 
 .article-detail{
-	--border-color: #d4d9df;
+	*--border-color: #d4d9df;
 }
 
 .article-properties{
