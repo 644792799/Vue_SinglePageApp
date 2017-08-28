@@ -34,6 +34,12 @@ const menu = [
 	to: '/explore',
 	clas: '',
 	ico: 'icon-globe3'
+},
+{
+	name: '分类',
+	to: '/categorized',
+	clas: '',
+	ico: 'icon-hash'
 },{
 	name: '帮助',
 	to: '/help',
