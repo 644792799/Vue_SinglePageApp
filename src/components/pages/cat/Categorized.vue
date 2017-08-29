@@ -31,16 +31,22 @@
 		    				<div>
 		    					java
 		    				</div>
-		    				<div class="button-follow-container">
+		    				<!-- <div class="button-follow-container">
 		    					<el-button-group>
 									<el-button class="button-follow" size="small">添加关注</el-button>
 									<el-button class="button-follow-count icon-user-plus3" size="small"></el-button>
 								</el-button-group>
-		    				</div>
+		    				</div> -->
 		    			</div>
 		    			<div class="catitem-stats">
-		    				<div></div>
-		    				<div></div>
+		    				<div>
+		    					<span>121</span>
+		    					<div class="label">码片数</div>
+		    				</div>
+		    				<div>
+		    					<span>121</span>
+		    					<div class="label">关注数</div>
+		    				</div>
 		    			</div>
 		    		</div>
 		    	</div>
@@ -118,11 +124,28 @@
 		align-items: center;
 		*border: 1px solid var(--border-color, #e4e8f1);
 		border-radius: 4px;
-		box-shadow: var(--left-box-shadow, #d5d9de -0.5px 0.5px 4px 0px);
-		margin: 10px 10px 10px 0;
+		*box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+		box-shadow: #d5d9de -0.5px 0.5px 5px 1px;
+		margin: 15px 30px 15px 0;
 		width: 200px;
 		position: relative;
-		background: #fff;
+		background: #20a0ff;
+	}
+	.categorized .catcontainer .catitem:before {
+	    content: '+';
+	    width: 30px;
+	    height: 30px;
+	    background: aliceblue;
+	    border-radius: 15px;
+	    position: absolute;
+	    top: -10px;
+	    left: -10px;
+	    box-shadow: #d5d9de -0.5px 0.5px 5px 1px;
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    font-size: 25px;
+	    font-weight: 500;
 	}
 	.categorized .catcontainer .catitem .catitem-title{
 		display: flex;
@@ -144,7 +167,8 @@
 	.categorized .catcontainer .catitem .catitem-title>div:first-child{
 		flex: 1;
 		font-size: 20px;
-		color: var(--title-color, #4e5359);
+		*color: var(--title-color, #4e5359);
+		color: #fff;
 	}
 	.categorized .catcontainer .catitem .catitem-title>div:last-child{
 		height: 40px;
@@ -152,13 +176,29 @@
 	.categorized .catcontainer .catitem .catitem-stats{
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
 		width: 80px;
 		height: 101px;
-		background: #fbfcfc;
+		background: #F9FAFB;
+		font-size: 14px;
+		text-align: center;
+	}
+	.categorized .catcontainer .catitem .catitem-stats .label
+	{
+		display: block;
+		margin: 4px 0 0;
+		color: var(--sub-title-color, #939c99);
+		font-size: 10px;
+		font-weight: 400;
 	}
 	.categorized .catcontainer .catitem .catitem-stats>div{
 		height: 50px;
-		color: var(--sub-title-color, #939c99);
+		color: var(--title-color, #939c99);
+		display: flex;
+	    flex-direction: column;
+	    width: 100%;
+	    justify-content: center;
 	}
 	.categorized .catcontainer .catitem .catitem-stats>div+ div{
 		border-top: 1px solid var(--border-color, #e4e8f1);
