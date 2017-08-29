@@ -98,7 +98,9 @@
 				   		</el-form>
 			   		</div>
 			   		<SmsCard header="作者发布的其它代码" ico="icon-file-code-o">
-						
+						<div slot="operation" class="operation">
+							<el-button type="primary" size="mini">更多<i class="icon-chevron-right el-icon--right"></i></el-button>
+						</div>
 					</SmsCard>
 					<SmsCard header="类似相关代码" ico="icon-file-code-o">
 						<div slot="operation" class="operation">

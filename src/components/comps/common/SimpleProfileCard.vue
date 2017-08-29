@@ -34,7 +34,7 @@
 			<div class="f-1">
 				<b> 8356 </b>人关注
 			</div>
-			<div class="f-2">
+			<div class="f-2 button-follow-container">
 				<el-button-group>
 					<el-button class="button-follow" size="small">添加关注</el-button>
 					<el-button class="button-follow-count icon-user-plus3" size="small"></el-button>
@@ -129,23 +129,7 @@
 		*font-weight: 400;
 		color: var(--default-color, #4e5359);
 	}
-	.simple-profilecard .sp-footer .f-2 .el-button-group {
+	/*.simple-profilecard .sp-footer .f-2 .el-button-group {
 	    box-shadow: var(--btn-box-shadow, #d5d9de 3px 0px 7px 0px);
-	}
-	.button-follow, .button-follow-count{
-		border: 0!important;
-	}
-	.button-follow{
-		background-color: var(--btn-bg-color-primary, #ea7069)!important;
-		color: var(--btn-font-color-primary, #fbfcfc)!important;
-	}
-	.button-follow:hover{
-		z-index: 0!important;
-	}
-	.button-follow-count{
-		font-weight: 600;
-	}
-	.button-follow-count:hover{
-		color: var(--default-color, #1f2d3d)!important;
-	}
+	}*/
 </style>

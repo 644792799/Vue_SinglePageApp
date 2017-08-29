@@ -194,3 +194,27 @@ h3{
 	display: flex;
 	flex-direction: row;
 }
+
+/*关注按钮*/
+.button-follow, .button-follow-count{
+	border: 0!important;
+}
+.button-follow{
+	background-color: var(--btn-bg-color-primary, #ea7069)!important;
+	color: var(--btn-font-color-primary, #fbfcfc)!important;
+	border-right: 2px solid var(--border-color, #d5d9de)!important;
+}
+.button-follow:hover{
+	z-index: 0!important;
+}
+.button-follow-count{
+	font-weight: 600;
+}
+.button-follow-count:hover{
+	color: var(--default-color, #1f2d3d)!important;
+}
+.button-follow-container .el-button-group {
+    *box-shadow: var(--btn-box-shadow, #d5d9de 3px 0px 7px 0px);
+    border: 1px solid var(--border-color, #d5d9de);
+    border-radius: 4px;
+}
