@@ -51,7 +51,8 @@
 		box-shadow: #e4e8f1 1px 0px 18px 0px;
 		display: flex;
 		flex-direction: column;
-		justify-content: flex-start;  
+		justify-content: flex-start;
+		transition: width .6s ease-in-out;  
 		*align-items: center;
 	}
 	.leftmenu .addcode{

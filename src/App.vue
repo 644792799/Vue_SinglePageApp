@@ -6,11 +6,14 @@
   </div> -->
   <div id="" class="main">
   	<SmsBackToTop></SmsBackToTop>
-  	<navbar></navbar>
-  	<div class="content">
+  	<navbar v-if="vistor == true"></navbar>
+  	<div class="content" v-if="vistor == true">
   		<leftmenu :menus="menus"></leftmenu>
   		<router-view class="routercontent"></router-view>
   	</div>
+<!--   	<welcome v-if="vistor == false">
+		<el-button type="primary" @click="toexplore()">发现</el-button>
+	</welcome> -->
   	<footerbar></footerbar>
   </div>
   
@@ -21,6 +24,8 @@ import Header from './components/comps/common/Header.vue'
 import LeftMenu from './components/comps/common/LeftMenu.vue'
 import Footer from './components/comps/common/Footer.vue'
 import SignIn from './components/pages/Sign/SignIn.vue'
+import Sign from './components/pages/Sign/Sign.vue'
+import Welcome from './components/pages/main/Welcome.vue'
 
 const menu = [
 {
@@ -56,7 +61,7 @@ export default{
 		return {
 			menus: menu,
 			login: false,
-			vistor: false
+			vistor: true
 		}
 	},
 	methods: {
@@ -77,7 +82,9 @@ export default{
 		"navbar": Header,
 		"leftmenu": LeftMenu,
 		"footerbar": Footer,
-		"signin": SignIn
+		"signin": SignIn,
+		"sign": Sign,
+		"welcome": Welcome
 	}
 }
 </script>
