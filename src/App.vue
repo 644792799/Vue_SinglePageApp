@@ -4,16 +4,16 @@
   	<signin :vistor="vistor"></signin>
   	<button @click="toexplore()">ddd</button>
   </div> -->
-  <div id="" class="main">
+  <div id="" :class="mainclass">
   	<SmsBackToTop></SmsBackToTop>
-  	<navbar v-if="vistor == true"></navbar>
-  	<div class="content" v-if="vistor == true">
+  	<navbar></navbar>
+  	<div class="content">
   		<leftmenu :menus="menus"></leftmenu>
-  		<router-view class="routercontent"></router-view>
+  		<router-view class="routercontent" v-if="vistor == true"></router-view>
+  		<welcome v-if="vistor == false">
+			<el-button type="primary" @click="toexplore()">发现</el-button>
+		</welcome>
   	</div>
-<!--   	<welcome v-if="vistor == false">
-		<el-button type="primary" @click="toexplore()">发现</el-button>
-	</welcome> -->
   	<footerbar></footerbar>
   </div>
   
@@ -61,7 +61,8 @@ export default{
 		return {
 			menus: menu,
 			login: false,
-			vistor: true
+			vistor: false,
+			mainclass: "main welcomecontainer"
 		}
 	},
 	methods: {
@@ -76,6 +77,7 @@ export default{
 		},
 		toexplore: function(){
 			this.vistor = true;
+			this.mainclass = "main";
 		}
 	}, 
 	components: {
@@ -92,6 +94,19 @@ export default{
 	html, body, .main{
 		*height: 100%;
 		*min-height: 100%;
+	}
+	.welcomecontainer, .welcomecontainer .content{
+		height: 100%!important;
+	}
+	.welcomecontainer .content{
+		padding-top: 0!important;
+	}
+	.welcomecontainer .header{
+		height: 0!important;
+    	overflow: hidden!important;
+	}
+	.welcomecontainer .leftmenu{
+		width: 0!important;
 	}
 	.vistor{
 		height: 100%;
