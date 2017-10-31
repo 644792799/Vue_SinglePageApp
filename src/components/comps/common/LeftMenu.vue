@@ -52,7 +52,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
-		transition: width .6s ease-in-out;  
+		transition: height .6s ease-in-out;  
 		*align-items: center;
 	}
 	.leftmenu .addcode{

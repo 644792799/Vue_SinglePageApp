@@ -103,9 +103,11 @@ export default{
 	}
 	.welcomecontainer .header{
 		height: 0!important;
+		width: 0!important;
     	overflow: hidden!important;
 	}
 	.welcomecontainer .leftmenu{
+		height: 0!important;
 		width: 0!important;
 	}
 	.vistor{
