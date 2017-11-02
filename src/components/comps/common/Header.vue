@@ -119,6 +119,7 @@
 		border-bottom: 1px solid #eaeefb;
 		overflow: hidden;
 		transition: width .6s ease-in-out;
+		opacity: 0.98;
 	}
 	.header .el-dialog--tiny {
     	width: 500px;

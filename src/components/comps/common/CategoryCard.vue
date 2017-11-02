@@ -59,9 +59,9 @@
     	display: inline-block !important;
     	position: relative;
     	width: 100%;
-    	padding-left: 15px;
-    	padding-top: 15px;
+    	padding: 7px 0 7px 15px;
     	background: var(--bg-color, #fbfcfc);
+    	color: var(--title-color, #4e5359);
 	}
 	.cat-card{
 		*padding-top: 15px;
@@ -78,8 +78,8 @@
 	}
 	.cat-list .active{
 		background: var(--bg-color, #fbfcfc);
-		border-top: 1px solid var(--border-color,#d4d9df);
-		border-bottom: 1px solid var(--border-color,#d4d9df);
+		*border-top: 1px solid var(--border-color,#d4d9df);
+		*border-bottom: 1px solid var(--border-color,#d4d9df);
 	}
 	.cat-list .active a{
 		*color: var(--default-color, #4E5359);
