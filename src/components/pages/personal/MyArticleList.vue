@@ -93,7 +93,13 @@
 					  	<span slot="label"><i class="icon-embed2"></i> 代码片</span>
 					  	<div class="filtercontainer">
 							<el-form :inline="true" :model="formInline" class="demo-form-inline">
-							  <el-form-item>&nbsp;</el-form-item>
+							  <el-form-item>
+							  	<el-input
+								    placeholder="请输入内容"
+								    icon="search"
+								    v-model="formInline.iptSearchMyCode">
+								</el-input>
+							  </el-form-item>
 							  <el-form-item label="类型" class="pull-right">
 							    <el-select v-model="formInline.type" placeholder="类型选择">
 							      <el-option label="全部" value="All"></el-option>
@@ -178,6 +184,9 @@
 					<SmsCard header="最活跃粉丝" ico="icon-user">
 						
 					</SmsCard>
+					<SmsCard header="最近访问用户" ico="icon-user">
+						
+					</SmsCard>
 				</div>	
 			</div>
 		</div>
@@ -193,7 +202,8 @@
 		          type: 'All',
 		          language: 'All',
 		          language2: 'All',
-		          star: 'recent'
+		          star: 'recent',
+		          iptSearchMyCode: ''
 		        }
 			}
 		},

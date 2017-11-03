@@ -38,7 +38,7 @@
 						<categoryCard :categoriesdata="categories"></categoryCard>
 					</div>
 				</div>
-				<SmsCard header="最活跃用户" ico="icon-user">
+				<SmsCard header="活跃贡献者" ico="icon-user">
 					<div slot="operation" class="operation">
 						<el-radio-group v-model="activeUserSort" size="small">
 						    <el-radio-button label="本周"></el-radio-button>
@@ -51,6 +51,15 @@
 							<h5>小哥哥</h5>
 						</div>
 					</SmsUserCardHor>
+				</SmsCard>
+				<SmsCard header="热门码片" ico="icon-user">
+					<div slot="operation" class="operation">
+						<el-radio-group v-model="activeSniptSort" size="small">
+						    <el-radio-button label="本周"></el-radio-button>
+						    <el-radio-button label="本月"></el-radio-button>
+						    <el-radio-button label="本季"></el-radio-button>
+					  	</el-radio-group>
+				  	</div>
 				</SmsCard>	
 			</div>
 		</div>
@@ -173,7 +182,8 @@
 		        },
 		        icoclass: "icon-list",
 		        isfullmode: true,
-		        activeUserSort: '本周'
+		        activeUserSort: '本周',
+		        activeSniptSort: '本周'
 			}
 		},
 		components: {

@@ -68,8 +68,8 @@
 	      		}
 	      	],
 	      	currentValue: [],
-	      	vval: [],
-	      	kval: [],
+	      	vval: '',
+	      	kval: '',
 	      	showDatas: [
 	      		{
 	      			key: 'Language',
@@ -86,7 +86,7 @@
 	  	methods:{
 	  		propertyChange: function(e){
 	  			this.currentValue = [];
-	  			this.vval = [];
+	  			this.vval = '';
 	  			var currentKey = this.kval;
 	  			for (var i = 0; i < this.propDatas.length; i++) {
 	  				if(this.propDatas[i].key == currentKey){

@@ -20,7 +20,7 @@
 					<a href="javascript:void(0);" @click="touser">{{art.username}}</a> <b style="color:#939c99;">/</b> 
 					<a href="javascript:void(0);" @click="tosnipt">{{art.title}}</a>
 
-					<a href="javascript:void(0);" @click="tosnipt" class="icon-comment-circle pull-right"> 0 </a>
+					<a href="javascript:void(0);" @click="tosnipt" class="icon-file2 pull-right"> 1 </a>
 					<a href="javascript:void(0);" @click="tosnipt" class="icon-star pull-right"> {{art.star}} </a>
 					<a href="javascript:void(0);" @click="tosnipt" class="icon-eye3 pull-right"> {{art.view}} </a>
 					<a href="javascript:void(0);" @click="tosnipt" class="icon-git-branch pull-right"> {{art.fork}} </a>
