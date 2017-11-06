@@ -87,11 +87,38 @@
 						<div class="vote stats-item">
 							<!-- <div class="pull-left stats-item-name">赞</div>
 							<span></span> -->
-							<div>
-								<el-button size="small"><i class="icon-thumbs-up2"></i> <span class="votecount">43</span></el-button>
+							<div style="display:flex;flex-direction:row;align-items: center;">
+								<div>
+									<el-button size="small">
+										<i class="icon-thumbs-up2"></i> 
+										<span class="votecount">43</span>
+									</el-button>
+								</div>
+								<div style="display:flex;flex-direction:row;align-items: center;">
+									<div>
+										<ul class="voteAvators">
+										<li>
+											<img src="/static/img/头像示例2.jpg" width="30" height="30">
+										</li>
+										<li>
+											<img src="/static/img/头像示例.jpg" width="30" height="30">
+										</li>
+										<li>
+											<img src="/static/img/头像示例2.jpg" width="30" height="30">
+										</li>
+										</ul>
+									</div>
+									<div style="margin-left: 18px;">
+										<strong title="小哥哥">小哥哥</strong> 等 77 位点了赞,<br>
+										该码片被浏览 210 次.
+									</div>
+								</div>
 							</div>
 							<div>
-								<el-button type="primary" size="small"><i class="icon-bookmark4"></i> <span class="startxt">收藏</span></el-button>
+								<!-- <el-button type="primary" size="small">
+									<i class="icon-bookmark4"></i> 
+									<span class="startxt">收藏</span>
+								</el-button> -->
 							</div>
 						</div>
 						<!-- <div class="puborpri stats-item">
@@ -106,14 +133,14 @@
 				   			</el-form-item>
 				   		</el-form>
 			   		</div>
-			   		<SmsCard header="作者发布的其它代码" ico="icon-file-code-o">
+			   		<SmsCard header="作者其它码片" ico="icon-file2">
 						<div slot="operation" class="operation">
-							<el-button type="primary" size="mini">更多<i class="icon-chevron-right el-icon--right"></i></el-button>
+							<el-button type="text" size="mini">更多<i class="icon-chevron-right el-icon--right"></i></el-button>
 						</div>
 					</SmsCard>
-					<SmsCard header="类似相关代码" ico="icon-file-code-o">
+					<SmsCard header="类似码片" ico="icon-file2">
 						<div slot="operation" class="operation">
-							<el-button type="primary" size="mini">换一批<i class="icon-refresh-cw el-icon--right"></i></el-button>
+							<el-button type="text" size="mini">换一批<i class="icon-refresh-cw el-icon--right"></i></el-button>
 						</div>
 					</SmsCard>
 			   		<!-- <div>
@@ -303,6 +330,22 @@
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
+	}
+
+	.article-stats .vote .voteAvators{
+		padding-left: 3px;
+	}
+
+	.article-stats .vote .voteAvators li{
+		list-style: none;
+		padding: 0;
+	    width: 20px;
+	    display: inline-block;
+	}
+
+	.article-stats .vote .voteAvators li img{
+		border-radius: 50%;
+    	border: 1px solid #fff;
 	}
 
 	.article-stats .vote .el-button{
