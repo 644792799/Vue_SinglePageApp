@@ -20,7 +20,7 @@
 			  	</div> -->
 			  	<div class="grid-content">
 			  		<div class="article-title">
-			  			<h3><i class="icon-pin">&nbsp;</i>这是标题</h3>
+			  			<h3><i class="icon-pin">&nbsp;</i><span class="" pubpri="公开">这是标题</span></h3>
 			  			<el-tag v-for="i in ['gray','primary','success']" :type="i">标签</el-tag>
 			  		</div>
 					<div class="article-content" id="article-content">
@@ -54,8 +54,11 @@
 			   		<div class="grid-content article-stats">
 			   			<img src="/static/img/头像示例2.jpg" class="userimg">
 			   			<div class="username stats-item">
-			   				<span class="tag">代码片作者</span>
-			   				张三
+			   				<span class="tag">码片作者</span>
+			   				<span> 张三</span>
+			   				<el-tooltip class="item" effect="dark" content="关注" placement="top">
+			   					<span class="icon-user-plus3 follow"></span>
+			   				</el-tooltip>
 			   			</div>
 						<div class="ctime stats-item">
 							<div class="pull-left stats-item-name">
@@ -69,12 +72,12 @@
 							</div>
 							<span>2017.6.1</span>
 						</div>
-						<div class="viewcount  stats-item">
+						<!-- <div class="viewcount  stats-item">
 							<div class="pull-left stats-item-name">
 								<i class="icon-eye"></i>阅读量:
 							</div>
 							<span>1254</span>
-						</div>
+						</div> -->
 						<div class="share stats-item">
 							<div class="pull-left stats-item-name">
 								<i class="icon-share2"></i>分享
@@ -82,13 +85,19 @@
 							<span></span>
 						</div>
 						<div class="vote stats-item">
-							<div class="pull-left stats-item-name">赞</div>
-							<span></span>
+							<!-- <div class="pull-left stats-item-name">赞</div>
+							<span></span> -->
+							<div>
+								<el-button size="small"><i class="icon-thumbs-up2"></i> <span class="votecount">43</span></el-button>
+							</div>
+							<div>
+								<el-button type="primary" size="small"><i class="icon-bookmark4"></i> <span class="startxt">收藏</span></el-button>
+							</div>
 						</div>
-						<div class="puborpri stats-item">
+						<!-- <div class="puborpri stats-item">
 							<div class="pull-left stats-item-name">公开 / 私有</div>
 							<span></span>
-						</div>
+						</div> -->
 			   		</div>
 			   		<div class="article-prop">
 				   		<el-form>
@@ -281,10 +290,44 @@
 		height: 40px;
 		border-bottom: 1px solid var(--border-color, #eaeefb);
 		align-items: center;
-		line-height: 40px;
+		*line-height: 40px;
     	font-size: 12px;
     	font-weight: 400;
     	padding: 0 0 0 10px;
+    	display: flex;
+	}
+
+	.article-stats .vote{
+		height: 50px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.article-stats .vote .el-button{
+		*background: #eceff5;
+	}
+
+	.article-stats .vote .votecount{
+		font-family: Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
+		font-size: 14px;
+    	font-weight: 600;
+    	color: var(--default-color, #4E5359);
+	}
+
+	.article-stats .vote .startxt{
+		font-size: 14px;
+    	font-weight: 400;
+	}
+
+	.article-stats .vote .el-button i{
+		font-size: 15px;
+		color: var(--default-color, #4E5359);
+	}
+
+	.article-stats .vote .el-button--primary i{
+		color: #fff;
 	}
 
 	.article-stats .stats-item span{
@@ -293,6 +336,10 @@
 
 	.article-stats .stats-item .stats-item-name{
 		width: 70px;
+	}
+
+	.article-stats .stats-item>div:last-child{
+		padding-right: 10px;
 	}
 
 	.article-stats .stats-item .stats-item-name i{
@@ -304,8 +351,14 @@
 		margin-left: 28px;
 	}
 
+	.article-stats div .follow{
+		cursor: pointer;
+		background: #eceff5;
+    	padding: 3px;
+	}
+
 	.article-stats div i{
-		font-size: 20px;
+		*font-size: 20px;
 	}
 
 	.article-prop{
@@ -315,6 +368,18 @@
 
 	.article-detail .article-title{
 		margin-bottom: 12px; 
+	}
+
+	.article-detail .article-title h3>span:after{
+		content: attr(pubpri);
+	    font-size: 12px;
+	    font-weight: 600;
+	    margin-left: 5px;
+	    border: 1px solid #eee;
+	    border-radius: 4px;
+	    padding: 2px 3px;
+	    background: #e4e8f1;
+	    color: #939c99;
 	}
 
 	.article-title .el-tag+.el-tag {
