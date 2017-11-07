@@ -21,8 +21,8 @@
 					<a href="javascript:void(0);" @click="tosnipt">{{art.title}}</a>
 
 					<a href="javascript:void(0);" @click="tosnipt" class="icon-file2 pull-right"> 1 </a>
-					<a href="javascript:void(0);" @click="tosnipt" class="icon-star pull-right"> {{art.star}} </a>
-					<a href="javascript:void(0);" @click="tosnipt" class="icon-eye3 pull-right"> {{art.view}} </a>
+					<a href="javascript:void(0);" @click="tosnipt" class="icon-bookmark pull-right"> {{art.star}} </a>
+					<!-- <a href="javascript:void(0);" @click="tosnipt" class="icon-eye3 pull-right"> {{art.view}} </a> -->
 					<a href="javascript:void(0);" @click="tosnipt" class="icon-git-branch pull-right"> {{art.fork}} </a>
 				</div>
 				<div class="articles-item-categories">

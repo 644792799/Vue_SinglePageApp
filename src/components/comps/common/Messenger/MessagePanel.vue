@@ -1,7 +1,10 @@
 <template>
 	<div class="messagepanel">
-		<div class="userimg">
-			<img src="/static/img/头像示例2.jpg">
+		<div class="votebtn">
+			<!-- <img src="/static/img/头像示例2.jpg"> -->
+			<a href="javascript:void(0);" class="icon-chevron-up"></a>
+			<span>250</span>
+			<a href="javascript:void(0);" class="icon-chevron-down"></a>
 		</div>
 		<div style="flex:1;">
 			<div :class="messageclass">
@@ -10,17 +13,20 @@
 				</div>
 				<div class="messageaction">
 					<div class="usermessage">
+						<div class="userimg">
+							<img src="/static/img/头像示例2.jpg">
+						</div>
 						<div class="username">小哥哥</div>
 						<div class="dot">.</div>
 						<div class="time">2017年7月4日</div>
 					</div>
 					<div class="info">
-						<el-tooltip class="item" effect="dark" content="赞" placement="top">
+						<!-- <el-tooltip class="item" effect="dark" content="赞" placement="top">
 							<i class="icon-thumbs-up2"></i>
 						</el-tooltip>
 						<el-tooltip class="item" effect="dark" content="踩" placement="top">
 							<i class="icon-thumbs-down2"></i>
-						</el-tooltip>
+						</el-tooltip> -->
 						<el-tooltip class="item" effect="dark" content="回复" placement="top">
 							<i class="icon-comment-square" @click="toggleReplay"></i>
 						</el-tooltip>
@@ -93,13 +99,42 @@
 		height: 0!important;
 		*visibility: hidden;
 	}
-	.messagepanel .userimg{
+	/*.messagepanel .userimg{
 		*z-index: 1;
 	}
 	.messagepanel .userimg img{
 		width: 40px;
 		height: 40px;
 		border-radius: 3px;
+	}*/
+	.messagepanel .votebtn{
+		display: flex;
+		flex-direction: column;
+		width: 40px;
+		height: 57px;
+		border-radius: 3px;
+		text-align: center;
+		background: #f3f3f3;
+		font-size: 18px;
+		color: var(--content-color, #4e5359);
+		-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+	    box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+	    -moz-transition-duration: 0.2s;
+	    -o-transition-duration: 0.2s;
+	    -webkit-transition-duration: 0.2s;
+	    transition-duration: 0.2s;
+	}
+	.messagepanel .votebtn:hover {
+	    background-color: #fff7e2;
+	}
+	.messagepanel .votebtn a{
+		font-size: 18px;
+		font-weight: 600;
+		color: var(--content-color, #4e5359);
+	}
+	.messagepanel .votebtn a:hover
+	{
+		color: #ffc10a;
 	}
 	.messagepanel .message{
 		position: relative;
@@ -235,6 +270,15 @@
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+	}
+	.messagepanel .message .messageaction .usermessage .userimg{
+		width: 21px;
+		height: 21px;
+		margin-right: 5px;
+	}
+	.messagepanel .message .messageaction .usermessage .userimg img{
+		width: 21px;
+		height: 21px;
 	}
 	.messagepanel .message .messageaction .usermessage>div{
 		margin-right: 10px;

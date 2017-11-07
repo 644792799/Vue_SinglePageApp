@@ -20,7 +20,13 @@
 			  	</div> -->
 			  	<div class="grid-content">
 			  		<div class="article-title">
-			  			<h3><i class="icon-pin">&nbsp;</i><span class="" pubpri="公开">这是标题</span></h3>
+			  			<h3>
+			  				<i class="icon-pin">&nbsp;</i>
+			  				<span class="" pubpri="公开">这是标题</span>
+			  				<el-tooltip class="item pull-right hide" effect="dark" content="如果你认为此代码片的内容侵权或者或者违反了本站的约定，请通过单击此按钮反馈给我们。" placement="top">
+								<i class="icon-flag2"></i>
+							</el-tooltip>
+			  			</h3>
 			  			<el-tag v-for="i in ['gray','primary','success']" :type="i">标签</el-tag>
 			  		</div>
 					<div class="article-content" id="article-content">
@@ -54,7 +60,7 @@
 			   		<div class="grid-content article-stats">
 			   			<img src="/static/img/头像示例2.jpg" class="userimg">
 			   			<div class="username stats-item">
-			   				<span class="tag">码片作者</span>
+			   				<span class="tag">码片作者</span> 
 			   				<span> 张三</span>
 			   				<el-tooltip class="item" effect="dark" content="关注" placement="top">
 			   					<span class="icon-user-plus3 follow"></span>
@@ -108,7 +114,7 @@
 										</li>
 										</ul>
 									</div>
-									<div style="margin-left: 18px;">
+									<div style="margin-left: 18px;line-height: 23px;">
 										<strong title="小哥哥">小哥哥</strong> 等 77 位点了赞,<br>
 										该码片被浏览 210 次.
 									</div>
@@ -332,6 +338,17 @@
 		align-items: center;
 	}
 
+	.article-stats .vote .el-button--default:hover {
+	    border-color: var(--btn-border-color-primary, #20a0ff);
+	    color: var(--btn-hover-color-default, #ea7069);
+	    background: var(--btn-border-color-primary, #20a0ff);
+	}
+
+	.article-stats .vote .el-button--default:hover span, 
+	.article-stats .vote .el-button--default:hover i {
+	    color: #fff !important;
+	}
+
 	.article-stats .vote .voteAvators{
 		padding-left: 3px;
 	}
@@ -392,6 +409,7 @@
 
 	.article-stats div .tag{
 		margin-left: 28px;
+		margin-right: 5px;
 	}
 
 	.article-stats div .follow{
@@ -411,6 +429,10 @@
 
 	.article-detail .article-title{
 		margin-bottom: 12px; 
+	}
+
+	.article-detail .article-title:hover .el-tooltip{
+		display: block;
 	}
 
 	.article-detail .article-title h3>span:after{

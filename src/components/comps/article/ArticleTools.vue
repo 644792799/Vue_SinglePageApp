@@ -28,12 +28,12 @@
 		    	<SmsLine gradfrom="left"></SmsLine>
 		    </div>
 		    <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
-		    	<div style="width:15px;"><i class="icon-star"></i></div>
+		    	<div style="width:15px;"><i class="icon-bookmark"></i></div>
 		    	<div style="margin-left:10px;"><b>:</b> 收藏</div>
 		    	<SmsLine gradfrom="left"></SmsLine>
 		    </div>
 		    <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
-		    	<div style="width:15px;"><i class="icon-star-o"></i></div>
+		    	<div style="width:15px;"><i class="icon-bookmark-o"></i></div>
 		    	<div style="margin-left:10px;"><b>:</b> 未收藏</div>
 		    	<SmsLine gradfrom="left"></SmsLine>
 		    </div>
@@ -90,7 +90,7 @@
 			return {
 				isFullScreen: false,
 				fullScreenIco: "icon-enlarge",
-				starIco: "icon-star",
+				starIco: "icon-bookmark",
 				delpropvisible: false,
 				questionpropvisible: false
 			}
@@ -110,10 +110,10 @@
 			},
 			toggleStar: function(){
 				//icon-star-o
-				if(this.starIco == "icon-star"){
-					this.starIco = "icon-star-o";
+				if(this.starIco == "icon-bookmark"){
+					this.starIco = "icon-bookmark-o";
 				}else{
-					this.starIco = "icon-star";
+					this.starIco = "icon-bookmark";
 				}
 			},
 			pressEsc: function(){
@@ -180,6 +180,16 @@
 		width: 100%;
 		height: 100%;
 		background: #fff;
+	}
+	.article-tools .icon-bookmark{
+		color: var(--color-red, #ea7069);
+	}
+	.article-tools .star i{
+		-webkit-transition: color .2s linear;   
+		-moz-transition: color .2s linear;   
+		-ms-transition: color .2s linear;   
+		-o-transition: color .2s linear;   
+		transition: color .2s linear;
 	}
 	.article-tools button{
 		float: right;
