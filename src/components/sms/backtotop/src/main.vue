@@ -20,11 +20,12 @@
 		},
 		methods: {
 			BackToTop:  function(){
-				var time = setInterval(function () {
-			        document.body.scrollTop = document.body.scrollTop - 50;
-			        if (document.body.scrollTop === 0) {
-			            clearInterval(time);
-			        }
+				var timer = setInterval(function () {
+			        var toTop = document.body.scrollTop || document.documentElement.scrollTop;
+			        document.documentElement.scrollTop = document.body.scrollTop = toTop - Math.ceil(toTop / 5);
+			        if (toTop == 0) {
+			        	clearInterval(timer);
+			        };
 			    }, 20);
 			},
 			ToggleFullScreen: function(){

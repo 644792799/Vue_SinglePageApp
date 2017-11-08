@@ -58,10 +58,21 @@
 		    </div> -->
 		  </div>
 		</el-popover>
+
+		<el-popover
+		  ref="embedpopover"
+		  placement="bottom"
+		  width=""
+		  trigger="click">
+		  <el-input placeholder="请输入内容" v-model="embedUrl" size="small" class="copy-embed-url">
+		    <template slot="append"><i class="icon-clippy" style="font-size:16px;"></i></template>
+		  </el-input>
+		</el-popover>
+
 		<button class="question" :plain="true" @click="help" v-popover:questionpopover><i class="icon-question"></i></button>
 		<!-- <button class="enlarge" @click="toggleFullScreen" @keyup.esc="pressEsc"><i :class="fullScreenIco"></i></button> -->
 		<button class="printer" @click="print"><i class="icon-printer"></i></button>
-		<button class="link"><i class="icon-link"></i></button>
+		<button class="link" v-popover:embedpopover><i class="icon-link"></i></button>
 		<button class="star" @click="toggleStar"><i :class="starIco"></i></button>
 		<button class="branch"><i class="icon-git-branch"></i></button>
 		<button class="copy" @click="copy"><i class="icon-clippy"></i></button>
@@ -92,7 +103,8 @@
 				fullScreenIco: "icon-enlarge",
 				starIco: "icon-bookmark",
 				delpropvisible: false,
-				questionpropvisible: false
+				questionpropvisible: false,
+				embedUrl: 'http://localhost:8080/user/1/snipt/1'
 			}
 		},
 		props: ['code'],
@@ -180,6 +192,12 @@
 		width: 100%;
 		height: 100%;
 		background: #fff;
+	}
+	.copy-embed-url{
+		width: 300px!important;
+	}
+	.copy-embed-url input{
+		font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 	}
 	.article-tools .icon-bookmark{
 		color: var(--color-red, #ea7069);

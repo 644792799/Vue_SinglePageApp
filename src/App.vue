@@ -97,6 +97,7 @@ export default{
 	}
 	.welcomecontainer, .welcomecontainer .content{
 		height: 100%!important;
+		overflow: hidden;
 	}
 	.welcomecontainer .content{
 		padding-top: 0!important;
@@ -105,6 +106,12 @@ export default{
 		height: 0!important;
 		width: 0!important;
     	overflow: hidden!important;
+	}
+	.welcomecontainer .footer{
+		height: 0!important;
+		margin: 0!important;
+		padding: 0!important;
+		overflow: hidden!important;
 	}
 	.welcomecontainer .leftmenu{
 		height: 0!important;

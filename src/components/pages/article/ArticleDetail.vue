@@ -45,7 +45,15 @@
 								<h4 class="article-desc-title">代码片描述<SmsLine gradfrom="center"></SmsLine></h4>
 								<div class="gradient-line"></div>
 							</div>
-							我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲读完师范和她两个妹妹长大。
+							{{
+								description.length > 500 && !showReadMore ? 
+								description.substring(0, 500) : 
+								description
+							}}
+						</div>
+						<div :class="readMoreBoxCls" v-if="description.length > 500">
+							<div class="read_more_mask"></div>
+							<el-button @click="hideReadMore">阅读全文</el-button>
 						</div>
 						<!-- <div class="article-cat">JAVA</div> -->
 						
@@ -168,7 +176,11 @@
 
     export default {
 	    data () {
-	      return {}
+	      return {
+	      	description: '我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲读完师范和她两个妹妹长大。我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲读完师范和她两个妹妹长大。我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲读完师范和她两个妹妹长大。我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲读完师范和她两个妹妹长大。',
+	      	showReadMore: false,
+	      	readMoreBoxCls: 'read-more-box'
+	      }
 	    },
 	    components: {
 	      "articletools": Tools,
@@ -182,6 +194,13 @@
 	          hljs.highlightBlock(block)
 	        })
 	      })
+	    },
+	    methods:{
+	    	hideReadMore: function(){
+	    		//未登陆提示登陆
+	    		this.readMoreBoxCls = "read-more-box hide";
+	    		this.showReadMore = true;
+	    	}
 	    }
 	  }
 </script>
@@ -281,7 +300,7 @@
 	    border-top: 1px solid var(--border-color, #eaeefb);
 	    clear: both;
 	    *min-height: 300px;
-	    transition: height .2s;
+	    *transition: height .3s;
 	    padding: 24px;
 
 	    color: var(--content-color, #4E5359);
@@ -289,6 +308,35 @@
 	    font-size: 16px;
 	    font-weight: 400;
 	    line-height: 1.7;
+
+	    transition: .2s ease-in-out;
+	    -webkit-transition: .2s ease-in-out;
+	    -moz-transition: .2s ease-in-out;
+	    -o-transition: .2s ease-in-out;
+	    -ms-transition: .2s ease-in-out;
+	}
+	.article-content .read-more-box{
+		position: absolute;
+		bottom: 0;
+	    text-align: center;
+	    width: 100%;
+	}
+	.article-content .read-more-box .el-button{
+		position: absolute;
+    	bottom: 10px;
+        left: 50%;
+        margin-left:-44px;
+        border-color: var(--btn-border-color-primary, #20a0ff);
+    	color: var(--btn-hover-color-default, #ea7069);
+	}
+	.article-content .read-more-box .el-button:hover{
+		background: var(--color-red, #ea7069);
+		color: var(--btn-font-color-primary, #fbfcfc);
+	}
+	.article-content .read-more-box .read_more_mask{
+		height: 200px;
+	    background: -moz-linear-gradient(bottom,rgba(255,255,255,0.1),rgba(255,255,255,0));
+	    background: -webkit-gradient(linear,0 top,0 bottom,from(rgba(255,255,255,0)),to(#fff));
 	}
 	.article-stats{
 		display: flex;
