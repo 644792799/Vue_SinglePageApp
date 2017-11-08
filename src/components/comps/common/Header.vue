@@ -5,6 +5,7 @@
 				<router-link to="/index" class="favico">
 					<!-- <svg t="1503331400060" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1190" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32"><defs></defs><path d="M512 0C230.4 0 0 230.4 0 512s230.4 512 512 512 512-230.4 512-512S793.6 0 512 0z m111.104 268.8c25.6 0 42.496 21.504 42.496 42.496s-16.896 42.496-42.496 42.496-42.496-21.504-42.496-42.496 20.992-42.496 42.496-42.496zM499.2 256c25.6 0 42.496 21.504 42.496 42.496s-16.896 42.496-42.496 42.496-42.496-21.504-42.496-42.496 20.992-42.496 42.496-42.496zM256 341.504C256 294.4 294.4 256 341.504 256s85.504 38.4 85.504 85.504-38.4 85.504-85.504 85.504S256 388.096 256 341.504z m336.896 468.992c-29.696 4.096-115.2 0-106.496-80.896 4.096-29.696 29.696-72.704 0-111.104-21.504-25.6-123.904-34.304-98.304-140.8 0 0 25.6-76.8 132.096-89.6 0 0 162.304-12.8 187.904 149.504 17.408 76.8 8.704 247.296-115.2 272.896zM725.504 409.6c-25.6 0-42.496-21.504-42.496-42.496s16.896-42.496 42.496-42.496c25.6 0 42.496 21.504 42.496 42.496s-21.504 42.496-42.496 42.496z" fill="#ea7069" p-id="1191"></path></svg> -->
 				</router-link>
+				<span style="width: 192px;text-align: left;font-family: Menlo,Monaco,Consolas,'Courier New',monospace;"><h1>Snipt</h1></span>
 				<el-input placeholder="查找代码片" v-model="searchCondition" style="width:380px;" icon="search" @click="search()">
 			</el-input>
 			</div>
@@ -216,10 +217,11 @@
 	.header .favico{
 		*font-size: 30px!important;
 	    *line-height: 50px;
-	    width: 241px;
+	    width: 40px;
 	    height: 32px;
-	    background-image: url(/static/img/snippet.png); 
-	    background-position: -30px 94px;
+	    background-image: url(/static/img/favicon.png); 
+	    background-position: 20px 0px;
+	    background-repeat:no-repeat;
 	    color: var(--nav-logo-color, #ea7069)!important;
 	    margin-right: 15px;
 	    display: flex;
