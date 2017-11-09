@@ -39,12 +39,13 @@
 			</div>
 		</SmsCard>
 		<div v-if="fullmode != undefined" class="articles-item-detail">
-			<SmsLine gradfrom="all" style="top:0"></SmsLine>
-			<pre><code class="javascript">$(document).ready(function() {
+			<SmsLine gradfrom="all" style="top:-1px"></SmsLine>
+			<!-- <pre><code class="javascript">$(document).ready(function() {
 	$('pre code').each(function(i, block) {
 		hljs.highlightBlock(block);
 	});
-});</code></pre>
+});</code></pre> -->
+			<highlightcode isSimple="true"></highlightcode>
 			<a href="javascript:void(0);" @click="tosnipt">
 				<div style="
 					    height: 100%;
@@ -62,8 +63,9 @@
 
 <script type="text/javascript">
 	import SimpleProfileCard from 'components/comps/common/SimpleProfileCard.vue'
-	import $ from 'jquery'
-    import hljs from 'pluginspath/highlight/highlight.pack.js'
+	import HighlightCode from 'components/comps/common/CodeHighlight.vue'
+	// import $ from 'jquery'
+ //    import hljs from 'pluginspath/highlight/highlight.pack.js'
 	export default{
 		data(){
 			return {
@@ -72,25 +74,25 @@
 		},
 		props: ['art', 'fullmode'],
 	    mounted () {
-	    	console.log("mounted");
-	      if(this.fullmode == undefined)return;
-	      hljs.initHighlightingOnLoad();
-	      $(function () {
-	        $('pre code').each(function (i, block) {
-	          hljs.highlightBlock(block)
-	        })
-	      })
+	    	// console.log("mounted");
+	     //  if(this.fullmode == undefined)return;
+	     //  hljs.initHighlightingOnLoad();
+	     //  $(function () {
+	     //    $('pre code').each(function (i, block) {
+	     //      hljs.highlightBlock(block)
+	     //    })
+	     //  })
 	    },
 	    updated: function(){
-	    	this.highlightCode();
+	    	// this.highlightCode();
 	    },
 	    methods: {
-	    	highlightCode: function(){
-	    		hljs.initHighlightingOnLoad();
-	    		$('pre code').each(function (i, block) {
-		          hljs.highlightBlock(block)
-		        })
-	    	},
+	    	// highlightCode: function(){
+	    	// 	hljs.initHighlightingOnLoad();
+	    	// 	$('pre code').each(function (i, block) {
+		    //       hljs.highlightBlock(block)
+		    //     })
+	    	// },
 	    	touser(){
 	    		var path = "/user/" + this.art.userid
 	    		this.$router.push({path: path});
@@ -101,7 +103,8 @@
 	    	}
 	    },
 		components: {
-			'simpleprofilecard': SimpleProfileCard
+			'simpleprofilecard': SimpleProfileCard,
+			highlightcode : HighlightCode
 		}
 	}
 </script>

@@ -27,11 +27,22 @@
 								<i class="icon-flag2"></i>
 							</el-tooltip>
 			  			</h3>
-			  			<el-tag v-for="i in ['gray','primary','success']" :type="i">标签</el-tag>
+			  			<el-tag v-for="(i, index) in tagTypes" :type="i">标签{{index + 1}}</el-tag>
 			  		</div>
 					<div class="article-content" id="article-content">
 						<div class="tools">
 							<articletools :code="function(){}"></articletools>
+						</div>
+						<div class="source">
+							<highlightcode v-for="i in 3"></highlightcode>
+						</div>
+						
+						<!-- <div class="source">
+							<pre lan="javascript" class="lan-mark"><code class="javascript">$(document).ready(function() {
+			$('pre code').each(function(i, block) {
+				hljs.highlightBlock(block);
+			});
+		});</code></pre>
 						</div>
 						<div class="source">
 							<pre lan="javascript" class="lan-mark"><code class="javascript">$(document).ready(function() {
@@ -39,7 +50,7 @@
 				hljs.highlightBlock(block);
 			});
 		});</code></pre>
-						</div>
+						</div> -->
 						<div class="description" id="description">
 							<div class="text-center article-desc-container">
 								<h4 class="article-desc-title">代码片描述<SmsLine gradfrom="center"></SmsLine></h4>
@@ -168,32 +179,35 @@
 </template>
 
 <script type="text/javascript">
-	import $ from 'jquery'
-    import hljs from 'pluginspath/highlight/highlight.pack.js'
+	// import $ from 'jquery'
+ //    import hljs from 'pluginspath/highlight/highlight.pack.js'
     import Tools from 'components/comps/article/ArticleTools.vue'
     import ArticleProperties from 'components/comps/article/ArticleProperties.vue'
 	import Messenger from 'components/comps/common/Messenger/Messenger.vue'
+	import HighlightCode from 'components/comps/common/CodeHighlight.vue'
 
     export default {
 	    data () {
 	      return {
 	      	description: '我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲读完师范和她两个妹妹长大。我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲读完师范和她两个妹妹长大。我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲读完师范和她两个妹妹长大。我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落，母亲出生不久就随父母和其他亲戚举家南迁，据说当时还余了些小钱在“红庙”地区开小旅馆为生，能供母亲读完师范和她两个妹妹长大。',
 	      	showReadMore: false,
-	      	readMoreBoxCls: 'read-more-box'
+	      	readMoreBoxCls: 'read-more-box',
+	      	tagTypes : ['gray', 'primary', 'success', 'warning', 'danger']
 	      }
 	    },
 	    components: {
 	      "articletools": Tools,
 	      articleProp: ArticleProperties,
-	      messenger: Messenger
+	      messenger: Messenger,
+	      highlightcode : HighlightCode
 	    },
 	    mounted () {
-	      hljs.initHighlightingOnLoad();
-	      $(function () {
-	        $('pre code').each(function (i, block) {
-	          hljs.highlightBlock(block)
-	        })
-	      })
+	      // hljs.initHighlightingOnLoad();
+	      // $(function () {
+	      //   $('pre code').each(function (i, block) {
+	      //     hljs.highlightBlock(block)
+	      //   })
+	      // })
 	    },
 	    methods:{
 	    	hideReadMore: function(){
@@ -276,7 +290,7 @@
 	    background: #fff;
 	    box-shadow: 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5);
 	}
-	.article-content pre{
+/*	.article-content pre{
 		background-color: var(--code-bg-color, #F9FAFB)!important;
 		border: 0!important;
 		margin: 0;
@@ -284,17 +298,27 @@
 	}
 	.article-content .hljs{
 		background-color: var(--code-bg-color, #F9FAFB)!important;
-	}
+	}*/
 	.article-content .tools{
 		background: #fff;
 		height: 30px;
 		border-bottom: 1px solid var(--border-color, #eaeefb);
 	}
 	.article-content .source{
-		background-color: var(--code-bg-color, #F9FAFB)!important;
+		margin: 10px;
+    	*border: 1px solid var(--border-color, #eaeefb);
+	}
+	/*
+	.article-content .source+.source{
+		border-top: 1px solid var(--border-color, #eaeefb);
 	}
 	.article-content code {
     	font-family: var(--code-font-family, Menlo,Monaco,Consolas,Courier,monospace);
+	}*/
+	.article-content .code-highlight{
+		border: 1px solid var(--border-color, #eaeefb);
+		margin-top: 10px;
+		border-radius: 1px;
 	}
 	.article-content .description{
 	    border-top: 1px solid var(--border-color, #eaeefb);
