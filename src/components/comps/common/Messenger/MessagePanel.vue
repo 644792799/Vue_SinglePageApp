@@ -114,7 +114,7 @@
 		height: 57px;
 		border-radius: 3px;
 		text-align: center;
-		background: #f3f3f3;
+		background: #eef1f6;
 		font-size: 18px;
 		color: var(--content-color, #4e5359);
 		-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3);
@@ -139,7 +139,7 @@
 	.messagepanel .message{
 		position: relative;
 	    background-color: #fff;
-	    border: 1px solid #d1d5da;
+	    border: 1px solid var(--border-color, #e4e8f1);
 	    border-radius: 3px;
 	    margin-left: 10px;
 	    flex: 1;
@@ -160,7 +160,7 @@
 	}
 	.messagepanel .message::before{
 		border-width: 8px;
-    	border-right-color: #d1d5da;
+    	border-right-color: var(--border-color, #e4e8f1);
 	}
 	.messagepanel .message::after{
 		margin-top: 1px;
@@ -262,8 +262,8 @@
 		justify-content: space-between;
 	    padding: 8px;
 	    *padding-top: 0;
-	    border-top: 1px solid #d1d5da;
-    	background: #e6ebf1;
+	    border-top: 1px solid var(--border-color, #e4e8f1);
+    	background: #eef1f6;
 	}
 	.messagepanel .message .messageaction .usermessage{
 		font-weight: 600;

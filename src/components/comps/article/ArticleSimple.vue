@@ -115,9 +115,9 @@
 		box-shadow: var(--left-box-shadow, #d5d9de -0.5px 0.5px 4px 0px);
 		background: #fff;
 	}
-	.article-item-container .hljs{
+	/*.article-item-container .hljs{
 		background: var(--code-bg-color, #F9FAFB);
-	}
+	}*/
 	.article-item-container .sms-card{
 		box-shadow: none;
 	}
@@ -156,12 +156,12 @@
 		-webkit-transform: rotateY(360deg);
     	transform: rotateY(360deg);
 	}
-	.article-item-container .articles-item-detail pre{
+	/*.article-item-container .articles-item-detail pre{
 		margin: 0;
 	}
 	.article-item-container .articles-item-detail code{
 		font-family: var(--code-font-family, Menlo,Monaco,Consolas,Courier,monospace);
-	}
+	}*/
 	.articles-item{
 		display: flex;
 	    align-items: center;
