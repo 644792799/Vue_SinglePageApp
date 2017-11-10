@@ -46,11 +46,21 @@
 						    <el-radio-button label="本季"></el-radio-button>
 					  	</el-radio-group>
 				  	</div>
-					<SmsUserCardHor shape="circle" v-for="i in 8" img="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498551826199&di=dd1413b07fcebf87e28b12316d4f14e7&imgtype=0&src=http%3A%2F%2Fk2.jsqq.net%2Fuploads%2Fallimg%2F1705%2F7_170524143440_5.jpg">
+				  	<div class="active-users">
+				  		<ul>
+				  			<li v-for="i in 20">
+				  				<a href="javascript:void(0);">
+				  					<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498551826199&di=dd1413b07fcebf87e28b12316d4f14e7&imgtype=0&src=http%3A%2F%2Fk2.jsqq.net%2Fuploads%2Fallimg%2F1705%2F7_170524143440_5.jpg" title="小哥哥">
+				  					<div style="font-size: 12px;">小哥哥</div>
+				  				</a>
+				  			</li>
+				  		</ul>
+				  	</div>
+					<!-- <SmsUserCardHor shape="circle" v-for="i in 8" img="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498551826199&di=dd1413b07fcebf87e28b12316d4f14e7&imgtype=0&src=http%3A%2F%2Fk2.jsqq.net%2Fuploads%2Fallimg%2F1705%2F7_170524143440_5.jpg">
 						<div class="title">
 							<h5>小哥哥</h5>
 						</div>
-					</SmsUserCardHor>
+					</SmsUserCardHor> -->
 				</SmsCard>
 				<SmsCard header="热门码片" ico="icon-user">
 					<div slot="operation" class="operation">
@@ -242,6 +252,30 @@
 		box-shadow: var(--left-box-shadow, #d5d9de 0.5px 0.5px 4px 0px);
     	margin-bottom: 15px;
     	margin-left: 45px;
+    	width: 302px;
+	}
+	.index .rightcontainer .sms-card .active-users ul{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		list-style: none;
+		padding-left: 0;
+		padding: 0 5px;
+	}
+	.index .rightcontainer .sms-card .active-users a{
+		color: var(--default-color, #4e5359);
+	}
+	.index .rightcontainer .sms-card .active-users ul li{
+		width: 25%;
+		height: 70px;
+		text-align: center;
+	}
+	.index .rightcontainer .sms-card .active-users ul li img{
+		height: 35px;
+		width: 35px;
+		border-radius: 17.5px;
 	}
 	.index .rightcontainer .sms-card:nth-child(2){
 		margin-top: 15px;
