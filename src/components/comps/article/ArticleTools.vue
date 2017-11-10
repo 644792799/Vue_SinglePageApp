@@ -23,6 +23,11 @@
 		    	<SmsLine gradfrom="left"></SmsLine>
 		    </div>
 		    <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
+		    	<div style="width:15px;"><i class="icon-download-cloud"></i></div>
+		    	<div style="margin-left:10px;"><b>:</b> 下载</div>
+		    	<SmsLine gradfrom="left"></SmsLine>
+		    </div>
+		    <!-- <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
 		    	<div style="width:15px;"><i class="icon-git-branch"></i></div>
 		    	<div style="margin-left:10px;"><b>:</b> 派生</div>
 		    	<SmsLine gradfrom="left"></SmsLine>
@@ -36,10 +41,10 @@
 		    	<div style="width:15px;"><i class="icon-bookmark-o"></i></div>
 		    	<div style="margin-left:10px;"><b>:</b> 未收藏</div>
 		    	<SmsLine gradfrom="left"></SmsLine>
-		    </div>
+		    </div> -->
 		    <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
 		    	<div style="width:15px;"><i class="icon-link"></i></div>
-		    	<div style="margin-left:10px;"><b>:</b> EMBED</div>
+		    	<div style="margin-left:10px;"><b>:</b> 嵌入</div>
 		    	<SmsLine gradfrom="left"></SmsLine>
 		    </div>
 		    <div style="display:flex;flex-direction: row;padding:5px 0;position:relative;">
@@ -73,8 +78,9 @@
 		<!-- <button class="enlarge" @click="toggleFullScreen" @keyup.esc="pressEsc"><i :class="fullScreenIco"></i></button> -->
 		<button class="printer" @click="print"><i class="icon-printer"></i></button>
 		<button class="link" v-popover:embedpopover><i class="icon-link"></i></button>
-		<button class="star" @click="toggleStar"><i :class="starIco"></i></button>
-		<button class="branch"><i class="icon-git-branch"></i></button>
+		<button class="download" title="下载"><i class="icon-download-cloud"></i></button>
+	<!-- 	<button class="star" @click="toggleStar"><i :class="starIco"></i></button>
+		<button class="branch"><i class="icon-git-branch"></i></button> -->
 		<button class="copy" @click="copy"><i class="icon-clippy"></i></button>
 		<button class="edit clearfix"><i class="icon-pencil2"></i></button>
 		

@@ -5,8 +5,22 @@
 		  		<el-breadcrumb separator="/">
 				  <el-breadcrumb-item :to="{ path: '/index' }">首页</el-breadcrumb-item>
 				  <el-breadcrumb-item :to="{ path: '/user/1' }">用户</el-breadcrumb-item>
-				  <el-breadcrumb-item>代码片详细</el-breadcrumb-item>
+				  <el-breadcrumb-item>码片详细</el-breadcrumb-item>
 				</el-breadcrumb>
+		  	</div>
+		  	<div class="snipt-actions">
+		  		<el-button-group>
+		  			<el-button size="mini" class="icon-git-branch">
+		  				<!-- <i class="icon-git-branch"></i> --> 派生
+		  			</el-button>
+		  			<el-button size="mini">30</el-button>
+		  		</el-button-group>
+		  		<el-button-group>
+		  			<el-button size="mini" class="icon-bookmark-o">
+		  				<!-- <i class="icon-bookmark"></i> --> 收藏
+		  			</el-button>
+		  			<el-button size="mini">20</el-button>
+		  		</el-button-group>
 		  	</div>
 		</div>
 		<div class="flex-row-layout">
@@ -245,6 +259,7 @@
 		padding: 0 50px;
 		display: flex;
     	align-items: center;
+    	justify-content: space-between;
 		*border-bottom: 1px solid var(--border-color, #d4d9df);
 	}
 	.article-detail .flex-row-layout{
@@ -269,6 +284,14 @@
 	.article-detail .breadcrumb-container{
 		margin: 15px 0;
 		position: relative;
+	}
+	.article-detail .snipt-actions{
+		width: 150px;
+	    display: flex;
+	    flex-direction: row;
+	    justify-content: space-between;
+	    align-items: center;
+	    margin-right: 345px;
 	}
 	.article-desc-title{
 		font-size: 18px;
