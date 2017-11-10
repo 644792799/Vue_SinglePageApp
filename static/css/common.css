@@ -169,6 +169,7 @@ h3{
 	height:100%;
 }
 
+/**************element ui样式覆盖 start*********************/
 .el-button--primary{
 	background: var(--btn-bg-color-primary, #20a0ff);
 	border-color: var(--btn-border-color-primary, #20a0ff);
@@ -182,6 +183,38 @@ h3{
 	border-color: var(--btn-border-color-primary, #20a0ff);
 	color: var(--btn-hover-color-default, #ea7069);
 }
+
+/*radio group*/
+.el-radio-button__orig-radio:checked+.el-radio-button__inner{
+	color: #fff;
+    background-color: var(--color-red, #ea7069);
+    border-color: var(--color-red, #ea7069);
+    box-shadow: -1px 0 0 0 var(--color-red, #ea7069);
+}
+
+.el-radio-button__inner:hover {
+    color: var(--color-red, #ea7069);
+}
+
+.el-select .el-input__inner:focus {
+    border-color: var(--color-red, #ea7069);
+}
+
+.el-pager li.active {
+    border-color: var(--color-red, #ea7069);
+    background-color: var(--color-red, #ea7069);
+    color: #fff;
+    cursor: default;
+}
+
+.el-pager li:hover {
+    color: var(--color-red, #ea7069);
+}
+
+.el-pagination button:hover {
+    color: var(--color-red, #ea7069);
+}
+/**************element ui样式覆盖 end*********************/
 
 .breadcrumb-container{
 	margin: 15px 0;

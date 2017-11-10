@@ -51,7 +51,7 @@
 				  			<li v-for="i in 20">
 				  				<a href="javascript:void(0);">
 				  					<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498551826199&di=dd1413b07fcebf87e28b12316d4f14e7&imgtype=0&src=http%3A%2F%2Fk2.jsqq.net%2Fuploads%2Fallimg%2F1705%2F7_170524143440_5.jpg" title="小哥哥">
-				  					<div style="font-size: 12px;">小哥哥</div>
+				  					<div style="font-size: 12px;    padding-top: 3px;">小哥哥</div>
 				  				</a>
 				  			</li>
 				  		</ul>
@@ -267,15 +267,18 @@
 	.index .rightcontainer .sms-card .active-users a{
 		color: var(--default-color, #4e5359);
 	}
+	.index .rightcontainer .sms-card .active-users a:hover{
+		color: #20a0ff
+	}
 	.index .rightcontainer .sms-card .active-users ul li{
 		width: 25%;
-		height: 70px;
+		height: 80px;
 		text-align: center;
 	}
 	.index .rightcontainer .sms-card .active-users ul li img{
-		height: 35px;
-		width: 35px;
-		border-radius: 17.5px;
+		height: 40px;
+		width: 40px;
+		border-radius: 20px;
 	}
 	.index .rightcontainer .sms-card:nth-child(2){
 		margin-top: 15px;
