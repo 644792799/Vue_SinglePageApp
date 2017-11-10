@@ -159,6 +159,11 @@
 		*line-height: 50px;
 		*background: var(--btn-bg-color-primary, #ea7069);
     	color: var(--font-color-primary, #fff)!important;
+    	width: 100%;
+	    height: 100%;
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
 	}
 	.header .plus-container i{
 		font-size: medium;
