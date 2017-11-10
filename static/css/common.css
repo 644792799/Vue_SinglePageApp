@@ -207,12 +207,30 @@ h3{
     cursor: default;
 }
 
+.el-pager li.active:hover{
+	color: #fff;
+}
+
 .el-pager li:hover {
     color: var(--color-red, #ea7069);
 }
 
 .el-pagination button:hover {
     color: var(--color-red, #ea7069);
+}
+
+.el-pagination__editor:focus {
+    outline: 0;
+    border-color: var(--color-red, #ea7069);
+}
+
+.el-select-dropdown__item.selected.hover {
+    background-color: var(--color-red, #ea7069);
+}
+
+.el-select-dropdown__item.selected {
+    color: #fff;
+    background-color: var(--color-red, #ea7069);
 }
 /**************element ui样式覆盖 end*********************/
 

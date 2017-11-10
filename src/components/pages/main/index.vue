@@ -13,7 +13,7 @@
 						    <el-select v-model="formInline.order" placeholder="类型选择">
 						      <el-option label="最新发布" value="new"></el-option>
 						      <el-option label="收藏最多" value="star"></el-option>
-						      <el-option label="FORK最多" value="fork"></el-option>
+						      <el-option label="派生最多" value="fork"></el-option>
 						      <el-option label="评分最高" value="vote"></el-option>
 						    </el-select>
 						  </el-form-item>
