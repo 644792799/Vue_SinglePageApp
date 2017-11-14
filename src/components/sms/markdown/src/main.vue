@@ -672,7 +672,7 @@
     cursor: pointer;
   }
   .sms-markdown .sms-markdown-tools>span:hover, .sms-markdown .sms-markdown-tools>div:hover{
-    color: var(--link-hover-color, #20a0ff);
+    color: var(--color-red, #ea7069);
   }
   .sms-markdown .sms-markdown-tools .split{
     border-right: 1px solid  var(--border-color, #d4d9df);

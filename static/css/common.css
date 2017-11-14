@@ -175,13 +175,18 @@ h3{
 	border-color: var(--btn-border-color-primary, #20a0ff);
 	color: var(--btn-font-color-primary, #fff);
 }
-.el-button--primary:hover{
+.el-button--primary:hover, .el-button--primary:focus{
 	background: var(--btn-hover-bg-color-primary, #4db3ff);
 	border-color: var(--btn-hover-border-color-primary, #4db3ff);
+	color: var(--btn-font-color-primary, #fff)!important;
 }
 .el-button--default:hover{
 	border-color: var(--btn-border-color-primary, #20a0ff);
 	color: var(--btn-hover-color-default, #ea7069);
+}
+.el-button:focus {
+    color: var(--color-red, #ea7069);
+    border-color: var(--color-red, #ea7069);
 }
 
 /*radio group*/
@@ -231,6 +236,16 @@ h3{
 .el-select-dropdown__item.selected {
     color: #fff;
     background-color: var(--color-red, #ea7069);
+}
+
+.el-switch.is-checked .el-switch__core {
+    border-color: var(--color-red, #ea7069);
+    background-color: var(--color-red, #ea7069);
+}
+
+.el-input__inner:focus {
+    outline: 0;
+    border-color: #bfcbd9;
 }
 /**************element ui样式覆盖 end*********************/
 

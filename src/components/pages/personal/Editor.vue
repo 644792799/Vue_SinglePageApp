@@ -142,13 +142,21 @@
 					    			</div> -->
 					    		</div>
 					    		<div class="acesettingright">
-						    		<el-select class="select-language" v-model="languageSelectVal" filterable placeholder="请选择语言" @change="languageChange">
-									    <el-option
-									      v-for="item in options"
-									      :label="item.label"
-									      :value="item.value">
-									    </el-option>
-								  	</el-select>
+					    			<div>
+					    				<span>文件名</span>
+										<el-input v-model="filename" class="ipt-filename" placeholder="如：Xxx.java"></el-input>
+									</div>
+									<div>
+										<span>语言</span>
+								    	<el-select class="select-language" v-model="languageSelectVal" filterable placeholder="请选择语言" @change="languageChange">
+											    <el-option
+											      v-for="item in options"
+											      :label="item.label"
+											      :value="item.value">
+											    </el-option>
+										 </el-select>
+									</div>
+
 								  	<div @click="toggleAceEditorFullScreen">
 					    				<i :class="aceeditorfullscreenicoclass"></i>
 					    			</div>
@@ -276,7 +284,8 @@
 	        	showinvisible: false,
 	        	showgutter: true,
 	        	usesofttab: true
-	        }
+	        },
+	        filename:''
 	      }
 	    },
 	    components: {
@@ -460,6 +469,7 @@
 	.editor .el-button--primary:hover{
 		background: var(--btn-hover-bg-color-primary, #4db3ff);
 		border-color: var(--btn-hover-border-color-primary, #4db3ff);
+		color: #fff;
 	}
 	.editor .form-container .el-button--default:hover{
 		border-color: var(--btn-border-color-primary, #20a0ff);
@@ -490,10 +500,13 @@
     	margin-left: 10px;
 	}
 	.editor .select-language{
-		width: 150px;
+		width: 120px;
 	}
 	.editor .select-language .el-input{
 		width: 100%;
+	}
+	.editor .ipt-filename{
+		width: 110px;
 	}
 	.editor .select-theme, .editor .select-keybindding{
 		width: 150px;
@@ -558,7 +571,7 @@
 	    font-size: 14px;
 	    color: #586069;
 	}
-	.editor .codeToolBar .acesettingright>div+div{
+	.editor .codeToolBar .acesettingright>div:last-child{
 		width: 40px;
 		height: 100%;
 		display: flex;
@@ -573,8 +586,8 @@
 		justify-content: center;
 	}
 	.editor .codeToolBar .acesetting>div:hover,
-	.editor .codeToolBar .acesettingright>div+div:hover{
-		color: var(--link-hover-color, #20a0ff);
+	.editor .codeToolBar .acesettingright>div:last-child:hover{
+		color: var(--color-red, #ea7069);
 	}
 	.editor .codeToolBar .acesetting i{
 		*margin: 0 10px;
@@ -641,5 +654,9 @@
 	}
 	.editor .aceeditor-fullscreen .el-form-item__content .ace_editor{
 		flex: 1;
+	}
+	.editor .el-input__inner:focus{
+		outline: 0;
+    	border-color: #bfcbd9;
 	}
 </style>
