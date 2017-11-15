@@ -162,7 +162,14 @@
 					    			</div>
 							  	</div>
 					    	</div>
-					    	<editor id="aceeditor" v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="inherit" :height="aceeditorheight" :style="aceeditorstyle"></editor>
+					    	<div class="aceeditorTabs">
+					    		<div :class="d.isactive==true?'aceeditorTab active':'aceeditorTab'" v-for="d in aceeditorTabData" @click="aceeditorTabClick(d)">
+					    			<div class="aceeditorTabBox">
+					    				<div>{{d.filename}}</div>
+					    			</div>
+					    		</div>
+					    	</div>
+					    	<editor id="aceeditor" v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="inherit" :height="aceeditorheight" :style="aceeditorstyle" @input="editorInput"></editor>
 					    	<div class="statusBar icon-edit2" id="statusBar">
 					    		<div class="pull-right ace_status-right">{{languageSelectVal}}</div>
 					    	</div>
@@ -222,6 +229,7 @@
 <script type="text/javascript">
 	import Editor from 'vue2-ace-editor'
 	import ArticleProperties from 'components/comps/article/ArticleProperties.vue'
+
 	export default {
 	    data () {
 	      return {
@@ -285,7 +293,27 @@
 	        	showgutter: true,
 	        	usesofttab: true
 	        },
-	        filename:''
+	        filename:'',
+	        aceeditorTabData: [
+	        	{
+	        		filename: "a.java",
+	        		isactive: true,
+	        		token: 1,
+	        		content: 'function test(){alert(111);}'
+	        	},
+	        	{
+	        		filename: "b.java",
+	        		isactive: false,
+	        		token: 2,
+	        		content: 'function test(){alert(222);}'
+	        	},
+	        	{
+	        		filename: "c.java",
+	        		isactive: false,
+	        		token: 3,
+	        		content: 'function test(){alert(333);}'
+	        	}
+	        ]
 	      }
 	    },
 	    components: {
@@ -325,10 +353,21 @@
 			// }
 		},
 		updated: function(val){
-			console.log(this.edit.getOptions());
+			//console.log(this.edit.getOptions());
 			this.edit.resize();
 		},
 	    methods:{
+	    	aceeditorTabClick(e){
+	    		var that = this;
+	    		this.aceeditorTabData.forEach(function(d, index, arr){
+	    			if(d.token == e.token){
+	    				d.isactive = true;
+	    				that.content = d.content;
+	    			}else{
+	    				d.isactive = false;
+	    			}
+	    		});
+	    	},
 	    	languageChange(){
 	    		require('vue2-ace-editor/node_modules/brace/mode/' + this.languageSelectVal);
 	    		this.edit.getSession().setMode('ace/mode/' + this.languageSelectVal);
@@ -386,6 +425,14 @@
 			    });
 	        	this.edit = edit;
 	            require('vue2-ace-editor/node_modules/brace/theme/github');
+	        },
+	        editorInput: function(content){
+	        	this.aceeditorTabData.forEach(function(d, index, arr){
+	    			if(d.isactive){
+	    				d.content = content;
+	    			}
+	    			return;
+	    		});
 	        },
 	        handleClose(tag) {
 		        this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
@@ -550,7 +597,7 @@
 	    flex-direction: row;
 	    justify-content: space-between;
 	    align-items: center;
-	    background: var(--bg-color, #fbfcfc);
+	    background: var(--banner-color, #eef1f6);
 	}
 	.editor .codeToolBar .acesetting{
 		*width: 40px;
@@ -600,11 +647,11 @@
 		border: 0;
 	    border-radius: 0;
 	    *border-right: 1px solid var(--border-color);
-	    background: var(--bg-color, #fbfcfc);
+	    background: var(--banner-color, #eef1f6);
 	}
 	.editor .editorToolBar{
 		position: absolute;
-	    top: 37px;
+	    top: 63px;
 	    bottom: 20px;
 	    left: 0px;
 	    width: 250px;
@@ -640,7 +687,9 @@
 	.editor .ace_editor, .editor .el-form-item__content{
 		transition: all .2s cubic-bezier(.645,.045,.355,1);
 	}
-
+	.editor .ace_editor{
+		clear: both;
+	}
 	.editor .aceeditor-fullscreen .el-form-item__content{
 		display: flex;
 		flex-direction: column;
@@ -658,5 +707,40 @@
 	.editor .el-input__inner:focus{
 		outline: 0;
     	border-color: #bfcbd9;
+	}
+	.editor .aceeditorTabs{
+		height: 30px;
+	  	padding: 0 0 0 0;
+	  	overflow: hidden;
+	  	border: 1px solid var(--ace-theme-github-border-color, #d4d9df);
+    	border-bottom: 0;
+	}
+	.editor .aceeditorTabs .aceeditorTab{
+		width: 110px;
+	  	height: 30px;
+	  	overflow: hidden;
+	  	float: left;
+	  	margin: 0 -20px 0 0;
+	  	cursor: default;
+	}
+	.editor .aceeditorTabs .aceeditorTab.active{
+		z-index: 3;
+		position: relative;
+		padding-bottom: 1px;
+	}
+	.editor .aceeditorTabs .aceeditorTab.active .aceeditorTabBox{
+		background: var(--banner-color, #eef1f6);
+		box-shadow: 0 0 2px 0 #fff inset;
+	}
+	.editor .aceeditorTabs .aceeditorTab .aceeditorTabBox{
+		height: 35px;
+	  	background: #fbfcfc;
+	  	text-align: center;
+	  	border-radius: 4px;
+	  	border: 1px solid #ccc;
+	  	margin: 0 10px 0;
+	  	box-shadow: 0 0 2px  #fff inset;
+	  	-webkit-transform: perspective(100px) rotateX(30deg);
+	  	-moz-transform: perspective(100px) rotateX(30deg);
 	}
 </style>

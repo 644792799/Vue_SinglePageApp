@@ -707,9 +707,12 @@
     border: 1px solid #d4d9df;
     border-radius: 4px;
   }
-   .sms-markdown .edit textarea:focus{
+  .sms-markdown .edit textarea:focus{
       background-color: #fff;
-   }
+  }
+  .sms-markdown .el-tabs__header{
+    background: var(--banner-color, #eef1f6);
+  }
   .sms-markdown .el-tabs__content {
     box-shadow: none!important;
   }
