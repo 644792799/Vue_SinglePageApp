@@ -651,7 +651,7 @@
 	}
 	.editor .editorToolBar{
 		position: absolute;
-	    top: 63px;
+	    top: 68px;
 	    bottom: 20px;
 	    left: 0px;
 	    width: 250px;
@@ -714,6 +714,7 @@
 	  	overflow: hidden;
 	  	border: 1px solid var(--ace-theme-github-border-color, #d4d9df);
     	border-bottom: 0;
+    	background: var(--bg-color, #fbfcfc)
 	}
 	.editor .aceeditorTabs .aceeditorTab{
 		width: 110px;
