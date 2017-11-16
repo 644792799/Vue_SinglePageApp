@@ -166,6 +166,7 @@
 					    		<ul class="aceeditorTabs">
 					    			<li v-for="d in aceeditorTabData" :class="d.isactive==true?'active':''" @click="aceeditorTabClick(d)">
 					    				<a href="#">{{d.filename}}</a>
+					    				<i class="icon-times close" @click="deleteTab(d)"></i>
 					    			</li>
 					    		</ul>
 					    		<!-- <div :class="d.isactive==true?'aceeditorTab active':'aceeditorTab'" v-for="d in aceeditorTabData" @click="aceeditorTabClick(d)">
@@ -234,6 +235,7 @@
 <script type="text/javascript">
 	import Editor from 'vue2-ace-editor'
 	import ArticleProperties from 'components/comps/article/ArticleProperties.vue'
+	// import Vue from 'vue'
 
 	export default {
 	    data () {
@@ -372,6 +374,27 @@
 	    				d.isactive = false;
 	    			}
 	    		});
+	    	},
+	    	deleteTab(e){
+	    		var idx;
+	    		var iscurrent = false;
+	    		this.aceeditorTabData.forEach(function(d, index, arr){
+	    			if(e == d){
+	    				idx = index;
+	    				iscurrent = d.isactive;
+	    			}
+	    		});
+	    		this.aceeditorTabData.splice(idx, 1);
+	    		
+	    		if(iscurrent && this.aceeditorTabData.length > 0){
+	    			//this.aceeditorTabData[0].isactive = true;
+	    			// Vue.set(this.aceeditorTabData, 0, {
+	    			// 	filename: this.aceeditorTabData[0].filename,
+	    			// 	isactive: true,
+	       //  			token: this.aceeditorTabData[0].token,
+	       //  			content: this.aceeditorTabData[0].content
+	    			// });
+	    		}
 	    	},
 	    	languageChange(){
 	    		require('vue2-ace-editor/node_modules/brace/mode/' + this.languageSelectVal);
@@ -757,6 +780,7 @@
 	  	position : relative;
 	  	*box-shadow: 0 10px 20px rgba(0,0,0,.5);
 	  	max-width : 200px;
+	  	color: var(--sub-title-color, #939c99);
 	}
 	.editor .aceeditorTabContainer ul.aceeditorTabs > li:before,
 	.editor .aceeditorTabContainer ul.aceeditorTabs > li:after{
@@ -786,11 +810,25 @@
 	  	overflow: hidden;
 	  	text-overflow: ellipsis;
 	  	text-decoration: none;
-	  	color: #222;
+	  	color: var(--sub-title-color, #939c99);
+	  	padding: 0 25px 0 10px;
+	}
+	.editor .aceeditorTabContainer ul.aceeditorTabs > li > i{
+		position: absolute;
+		top: 10px;
+    	right: 40px;
+    	z-index: 1;
+	}
+	.editor .aceeditorTabContainer ul.aceeditorTabs > li > i.close:hover{
+		color: var(--title-color, #4e5359);
 	}
 	.editor .aceeditorTabContainer ul.aceeditorTabs > li.active{
 		z-index: 3;
 		background: #d4d9df;
+		color: var(--title-color, #4e5359);
+	}
+	.editor .aceeditorTabContainer ul.aceeditorTabs > li.active > a{
+		color: var(--title-color, #4e5359);
 	}
 	.editor .aceeditorTabContainer ul.aceeditorTabs > li.active:before{
 		border-color : transparent #d4d9df transparent transparent;
