@@ -162,12 +162,17 @@
 					    			</div>
 							  	</div>
 					    	</div>
-					    	<div class="aceeditorTabs">
-					    		<div :class="d.isactive==true?'aceeditorTab active':'aceeditorTab'" v-for="d in aceeditorTabData" @click="aceeditorTabClick(d)">
+					    	<div class="aceeditorTabContainer">
+					    		<ul class="aceeditorTabs">
+					    			<li v-for="d in aceeditorTabData" :class="d.isactive==true?'active':''" @click="aceeditorTabClick(d)">
+					    				<a href="#">{{d.filename}}</a>
+					    			</li>
+					    		</ul>
+					    		<!-- <div :class="d.isactive==true?'aceeditorTab active':'aceeditorTab'" v-for="d in aceeditorTabData" @click="aceeditorTabClick(d)">
 					    			<div class="aceeditorTabBox">
 					    				<div>{{d.filename}}</div>
 					    			</div>
-					    		</div>
+					    		</div> -->
 					    	</div>
 					    	<editor id="aceeditor" v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="inherit" :height="aceeditorheight" :style="aceeditorstyle" @input="editorInput"></editor>
 					    	<div class="statusBar icon-edit2" id="statusBar">
@@ -651,7 +656,7 @@
 	}
 	.editor .editorToolBar{
 		position: absolute;
-	    top: 68px;
+	    top: 73px;
 	    bottom: 20px;
 	    left: 0px;
 	    width: 250px;
@@ -690,6 +695,9 @@
 	.editor .ace_editor{
 		clear: both;
 	}
+	.editor .ace_editor .ace_gutter{
+		z-index: 3!important;
+	}
 	.editor .aceeditor-fullscreen .el-form-item__content{
 		display: flex;
 		flex-direction: column;
@@ -708,15 +716,89 @@
 		outline: 0;
     	border-color: #bfcbd9;
 	}
-	.editor .aceeditorTabs{
-		height: 30px;
-	  	padding: 0 0 0 0;
-	  	overflow: hidden;
-	  	border: 1px solid var(--ace-theme-github-border-color, #d4d9df);
+
+	.editor .aceeditorTabContainer{
+		margin: 0;
+		padding: 0;
+		max-height: 35px;
+		background: var(--bg-color, #fbfcfc);
+		border: 1px solid var(--ace-theme-github-border-color, #d4d9df);
     	border-bottom: 0;
-    	background: var(--bg-color, #fbfcfc)
+    	overflow: hidden;
 	}
-	.editor .aceeditorTabs .aceeditorTab{
+	.editor .aceeditorTabContainer .clearfix:before,
+	.editor .aceeditorTabContainer .clearfix:after{
+		content: ""; 
+		display: table;
+	}
+	.editor .aceeditorTabContainer .clearfix:after{
+		clear: both;
+	}
+	.editor .aceeditorTabContainer .clearfix{
+		zoom: 1;
+	}
+	.editor .aceeditorTabContainer ul.aceeditorTabs{
+		margin: 0;
+	  	list-style-type : none;
+	  	line-height : 35px;
+	  	max-height: 35px;
+	  	overflow: hidden;
+	  	display: inline-block;
+	  	padding-right: 20px
+	}
+	.editor .aceeditorTabContainer ul.aceeditorTabs > li{
+		float : left;
+	  	margin : 5px -10px 0;
+	  	border-top-right-radius: 25px 170px;
+	  	border-top-left-radius: 20px 90px;
+	  	padding : 0 30px 0 25px;
+	  	height: 170px;
+	  	background: var(--banner-color, #eef1f6);
+	  	position : relative;
+	  	*box-shadow: 0 10px 20px rgba(0,0,0,.5);
+	  	max-width : 200px;
+	}
+	.editor .aceeditorTabContainer ul.aceeditorTabs > li:before,
+	.editor .aceeditorTabContainer ul.aceeditorTabs > li:after{
+		content : '';
+	  	background : transparent;
+	  	height: 20px;
+	  	width: 20px;
+	  	border-radius: 100%;
+	  	border-width: 10px;
+	  	top: 0px;
+	  	border-style : solid;
+	  	position : absolute;
+	}
+	.editor .aceeditorTabContainer ul.aceeditorTabs > li:before{
+		border-color : transparent var(--banner-color, #eef1f6) transparent transparent;
+	  	-webkit-transform : rotate(48deg);
+	  	left: -23px;
+	}
+	.editor .aceeditorTabContainer ul.aceeditorTabs > li:after{
+		border-color : transparent transparent transparent var(--banner-color, #eef1f6);
+  		-webkit-transform : rotate(-48deg);
+  		right: -17px;
+	}
+	.editor .aceeditorTabContainer ul.aceeditorTabs > li > a{
+		display: inline-block;
+	  	max-width:100%;
+	  	overflow: hidden;
+	  	text-overflow: ellipsis;
+	  	text-decoration: none;
+	  	color: #222;
+	}
+	.editor .aceeditorTabContainer ul.aceeditorTabs > li.active{
+		z-index: 3;
+		background: #d4d9df;
+	}
+	.editor .aceeditorTabContainer ul.aceeditorTabs > li.active:before{
+		border-color : transparent #d4d9df transparent transparent;
+	}
+	.editor .aceeditorTabContainer ul.aceeditorTabs > li.active:after{
+		border-color : transparent transparent transparent #d4d9df;
+	}
+	/*.editor .aceeditorTabs .aceeditorTab{
 		width: 110px;
 	  	height: 30px;
 	  	overflow: hidden;
@@ -743,5 +825,5 @@
 	  	box-shadow: 0 0 2px  #fff inset;
 	  	-webkit-transform: perspective(100px) rotateX(30deg);
 	  	-moz-transform: perspective(100px) rotateX(30deg);
-	}
+	}*/
 </style>
