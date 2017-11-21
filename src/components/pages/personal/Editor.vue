@@ -144,7 +144,7 @@
 					    		<div class="acesettingright">
 					    			<div>
 					    				<span>文件名</span>
-										<el-input v-model="filename" class="ipt-filename" placeholder="如：Xxx.java"></el-input>
+										<el-input v-model="filename" class="ipt-filename" placeholder="如：Xxx.java" @change="changeFileName"></el-input>
 									</div>
 									<div>
 										<span>语言</span>
@@ -276,6 +276,9 @@
 		        }, {
 		          value: 'css',
 		          label: 'CSS'
+		        }, {
+		          value: 'xml',
+		          label: 'XML'
 		        }],
 		    themes: [
 		    	'ambiance','chrome','eclipse','github','tomorrow','twilight','xcode'
@@ -382,6 +385,14 @@
 			this.edit.resize();
 		},
 	    methods:{
+	    	changeFileName(){
+	    		for(var index in this.aceeditorTabData){
+	    			var d = this.aceeditorTabData[index];
+	    			if(d.isactive){
+	    				d.filename = this.filename;
+	    			}
+	    		}
+	    	},
 	    	preFile(){
 	    		var activeIndex = -1;
 	    		for(var index in this.aceeditorTabData){
@@ -539,8 +550,9 @@
 	    			var d = this.aceeditorTabData[index];
 	    			if(d.isactive){
 	    				d.content = content;
+	    				break;
 	    			}
-	    			return;
+	    			//return;
 	    		}
 	      //   	this.aceeditorTabData.forEach(function(d, index, arr){
 	    		// 	if(d.isactive){
