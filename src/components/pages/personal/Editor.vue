@@ -163,17 +163,26 @@
 							  	</div>
 					    	</div>
 					    	<div class="aceeditorTabContainer">
+					    		<div class="aceeditorTabTool">
+					    			<i class="icon-angle-left" @click="preFile"></i>
+					    			<i class="icon-angle-right" @click="nextFile"></i>
+					    		</div>
 					    		<ul class="aceeditorTabs">
 					    			<li v-for="d in aceeditorTabData" :class="d.isactive==true?'active':''" @click="aceeditorTabClick(d)">
 					    				<a href="#">{{d.filename}}</a>
-					    				<i class="icon-times close" @click="deleteTab(d)"></i>
+					    				<i class="icon-times close" @click="deleteTab(d, $event)"></i>
 					    			</li>
 					    		</ul>
-					    		<!-- <div :class="d.isactive==true?'aceeditorTab active':'aceeditorTab'" v-for="d in aceeditorTabData" @click="aceeditorTabClick(d)">
-					    			<div class="aceeditorTabBox">
-					    				<div>{{d.filename}}</div>
-					    			</div>
-					    		</div> -->
+					    		<div class="aceeditorTabTool">
+					    			<el-dropdown trigger="click" @command="aceeditorTabClick">
+								      <span class="el-dropdown-link">
+								        <i class="icon-angle-down el-icon--right"></i>
+								      </span>
+								      <el-dropdown-menu slot="dropdown">
+								        <el-dropdown-item v-for="d in aceeditorTabData" :command="d">{{d.filename}}</el-dropdown-item>
+								      </el-dropdown-menu>
+								    </el-dropdown>
+					    		</div>
 					    	</div>
 					    	<editor id="aceeditor" v-model="content" @init="editorInit" :lang="languageSelectVal" theme="github" width="inherit" :height="aceeditorheight" :style="aceeditorstyle" @input="editorInput"></editor>
 					    	<div class="statusBar icon-edit2" id="statusBar">
@@ -304,18 +313,21 @@
 	        aceeditorTabData: [
 	        	{
 	        		filename: "a.java",
+	        		language: 'javascript',
 	        		isactive: true,
 	        		token: 1,
 	        		content: 'function test(){alert(111);}'
 	        	},
 	        	{
 	        		filename: "b.java",
+	        		language: 'text',
 	        		isactive: false,
 	        		token: 2,
 	        		content: 'function test(){alert(222);}'
 	        	},
 	        	{
 	        		filename: "c.java",
+	        		language: 'java',
 	        		isactive: false,
 	        		token: 3,
 	        		content: 'function test(){alert(333);}'
@@ -348,6 +360,12 @@
 			        "gotolineend":    "$"
 			    })
 			};
+
+			if(this.aceeditorTabData.length > 0){
+				this.content = this.aceeditorTabData[0].content;
+    			this.languageSelectVal = this.aceeditorTabData[0].language;
+    			this.filename = this.aceeditorTabData[0].filename;
+			}
 		},
 		watch: {
 			// aceeditorfullscreenclass(curVal, oldVal){
@@ -364,41 +382,103 @@
 			this.edit.resize();
 		},
 	    methods:{
+	    	preFile(){
+	    		var activeIndex = -1;
+	    		for(var index in this.aceeditorTabData){
+	    			var d = this.aceeditorTabData[index];
+	    			if(d.isactive){
+	    				activeIndex = index;
+	    			}
+	    		}
+	    		if(activeIndex > 0){
+	    			this.aceeditorTabData[activeIndex].isactive = false;
+
+	    			activeIndex = parseInt(activeIndex) - 1;
+
+	    			this.aceeditorTabData[activeIndex].isactive = true;
+	    			this.content = this.aceeditorTabData[activeIndex].content;
+	    			this.languageSelectVal = this.aceeditorTabData[activeIndex].language;
+	    			this.filename = this.aceeditorTabData[activeIndex].filename;
+	    			//this.aceeditorTabData = Object.assign({}, this.aceeditorTabData);
+	    		}
+	    	},
+	    	nextFile(){
+	    		var activeIndex = -1;
+	    		for(var index in this.aceeditorTabData){
+	    			var d = this.aceeditorTabData[index];
+	    			if(d.isactive){
+	    				activeIndex = index;
+	    			}
+	    		}
+	    		if(activeIndex < this.aceeditorTabData.length - 1){
+	    			this.aceeditorTabData[activeIndex].isactive = false;
+
+	    			activeIndex = parseInt(activeIndex) + 1;
+
+	    			this.aceeditorTabData[activeIndex].isactive = true;
+	    			this.content = this.aceeditorTabData[activeIndex].content;
+	    			this.languageSelectVal = this.aceeditorTabData[activeIndex].language;
+	    			this.filename = this.aceeditorTabData[activeIndex].filename;
+	    			//this.aceeditorTabData = Object.assign({}, this.aceeditorTabData);
+	    		}
+	    	},
 	    	aceeditorTabClick(e){
 	    		var that = this;
-	    		this.aceeditorTabData.forEach(function(d, index, arr){
+	    		for(var index in this.aceeditorTabData){
+	    			var d = this.aceeditorTabData[index];
 	    			if(d.token == e.token){
 	    				d.isactive = true;
 	    				that.content = d.content;
+	    				this.languageSelectVal = d.language;
+	    				this.filename = d.filename;
 	    			}else{
 	    				d.isactive = false;
 	    			}
-	    		});
+	    		}
 	    	},
-	    	deleteTab(e){
+	    	deleteTab(e, event){
+	    		event.stopPropagation();
+	    		
 	    		var idx;
 	    		var iscurrent = false;
-	    		this.aceeditorTabData.forEach(function(d, index, arr){
+	    		var tabDataArr = [];
+	    		for(var index in this.aceeditorTabData){
+	    			var d = this.aceeditorTabData[index];
 	    			if(e == d){
 	    				idx = index;
 	    				iscurrent = d.isactive;
+	    				continue;
 	    			}
-	    		});
-	    		this.aceeditorTabData.splice(idx, 1);
+	    			tabDataArr.push(d);
+	    		}
+	    		
+	    		this.aceeditorTabData = tabDataArr;
 	    		
 	    		if(iscurrent && this.aceeditorTabData.length > 0){
-	    			//this.aceeditorTabData[0].isactive = true;
-	    			// Vue.set(this.aceeditorTabData, 0, {
-	    			// 	filename: this.aceeditorTabData[0].filename,
-	    			// 	isactive: true,
-	       //  			token: this.aceeditorTabData[0].token,
-	       //  			content: this.aceeditorTabData[0].content
-	    			// });
+	    			this.aceeditorTabData[0].isactive = true;
+	    			this.content = this.aceeditorTabData[0].content;
+	    			this.languageSelectVal = this.aceeditorTabData[0].language;
+	    			this.filename = this.aceeditorTabData[0].filename;
+	    			this.aceeditorTabData = Object.assign({}, this.aceeditorTabData);
+	    		}
+
+	    		if(this.aceeditorTabData == null || 
+	    			this.aceeditorTabData.length == 0){
+	    			this.content = "";
+	    			this.languageSelectVal = "text";
+	    			this.filename = "";
 	    		}
 	    	},
 	    	languageChange(){
 	    		require('vue2-ace-editor/node_modules/brace/mode/' + this.languageSelectVal);
 	    		this.edit.getSession().setMode('ace/mode/' + this.languageSelectVal);
+
+	    		for(var index in this.aceeditorTabData){
+	    			var d = this.aceeditorTabData[index];
+	    			if(d.isactive){
+	    				d.language = this.languageSelectVal;
+	    			}
+	    		}
 	    		//console.log(this.content.toString());
 	    	},
 	    	themeChange(){
@@ -455,12 +535,19 @@
 	            require('vue2-ace-editor/node_modules/brace/theme/github');
 	        },
 	        editorInput: function(content){
-	        	this.aceeditorTabData.forEach(function(d, index, arr){
+	        	for(var index in this.aceeditorTabData){
+	    			var d = this.aceeditorTabData[index];
 	    			if(d.isactive){
 	    				d.content = content;
 	    			}
 	    			return;
-	    		});
+	    		}
+	      //   	this.aceeditorTabData.forEach(function(d, index, arr){
+	    		// 	if(d.isactive){
+	    		// 		d.content = content;
+	    		// 	}
+	    		// 	return;
+	    		// });
 	        },
 	        handleClose(tag) {
 		        this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
@@ -748,6 +835,8 @@
 		border: 1px solid var(--ace-theme-github-border-color, #d4d9df);
     	border-bottom: 0;
     	overflow: hidden;
+    	display: flex;
+    	flex-direction: row;
 	}
 	.editor .aceeditorTabContainer .clearfix:before,
 	.editor .aceeditorTabContainer .clearfix:after{
@@ -760,6 +849,23 @@
 	.editor .aceeditorTabContainer .clearfix{
 		zoom: 1;
 	}
+	.editor .aceeditorTabContainer .aceeditorTabTool{
+		width: 40px;
+		height: 100%;
+		text-align: center;
+	}
+	.editor .aceeditorTabContainer .aceeditorTabTool i{
+		font-size: 14px;
+		font-weight: 600;
+		color: #586069;
+		cursor: pointer;
+	}
+	.editor .aceeditorTabContainer .aceeditorTabTool i:first-child{
+		margin-right: 5px;
+	}
+	.editor .aceeditorTabContainer .aceeditorTabTool i:hover{
+		color: var(--color-red, #ea7069);
+	}
 	.editor .aceeditorTabContainer ul.aceeditorTabs{
 		margin: 0;
 	  	list-style-type : none;
@@ -767,7 +873,9 @@
 	  	max-height: 35px;
 	  	overflow: hidden;
 	  	display: inline-block;
-	  	padding-right: 20px
+	  	padding-right: 20px;
+	  	padding-left: 20px;
+	  	flex: 1;
 	}
 	.editor .aceeditorTabContainer ul.aceeditorTabs > li{
 		float : left;
