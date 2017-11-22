@@ -170,6 +170,14 @@ h3{
 	height:100%;
 }
 
+.is-disabled, .is-disabled:focus, .is-disabled:hover {
+    color: #bfcbd9!important;
+    cursor: not-allowed!important;
+    background-image: none;
+    *background-color: #eef1f6;
+    *border-color: #d1dbe5;
+}
+
 /**************element ui样式覆盖 start*********************/
 .el-button--primary{
 	background: var(--btn-bg-color-primary, #20a0ff);

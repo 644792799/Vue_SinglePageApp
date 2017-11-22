@@ -14,7 +14,7 @@
 				<div class="form-container">
 					<el-form ref="form" :model="form" label-width="80px">
 						<el-form-item label="标题" required>
-							<el-col :span="11">
+							<el-col :span="24">
 								<el-input v-model="form.name" placeholder="请用一句简短的话描述您即将添加的代码片"></el-input>
 							</el-col>
 					    </el-form-item>
@@ -165,14 +165,21 @@
 					    	<div class="aceeditorTabContainer">
 					    		<div class="aceeditorTabTool">
 					    			<i class="icon-angle-left" @click="preFile"></i>
-					    			<i class="icon-angle-right" @click="nextFile"></i>
+					    			<i class="icon-angle-right" @click="nextFile($event)"></i>
 					    		</div>
-					    		<ul class="aceeditorTabs">
-					    			<li v-for="d in aceeditorTabData" :class="d.isactive==true?'active':''" @click="aceeditorTabClick(d)">
-					    				<a href="#">{{d.filename}}</a>
-					    				<i class="icon-times close" @click="deleteTab(d, $event)"></i>
-					    			</li>
-					    		</ul>
+					    		<div class="aceeditorTabContent">
+					    			<div class="tabContent">
+							    		<ul class="aceeditorTabs" id="aceeditorTabs">
+							    			<li v-for="d in aceeditorTabData" :class="d.isactive==true?'active':''" @click="aceeditorTabClick(d)">
+							    				<a href="#">{{d.filename}}</a>
+							    				<i class="icon-x2 close" @click="deleteTab(d, $event)"></i>
+							    			</li>
+							    		</ul>
+						    		</div>
+						    		<div class="tabAdd">
+						    			<i :class="tabAddClass" @click="addTab"></i>
+						    		</div>
+					    		</div>
 					    		<div class="aceeditorTabTool">
 					    			<el-dropdown trigger="click" @command="aceeditorTabClick">
 								      <span class="el-dropdown-link">
@@ -335,7 +342,8 @@
 	        		token: 3,
 	        		content: 'function test(){alert(333);}'
 	        	}
-	        ]
+	        ],
+	        tabAddClass: 'icon-plus-circle2'
 	      }
 	    },
 	    components: {
@@ -385,6 +393,34 @@
 			this.edit.resize();
 		},
 	    methods:{
+	    	addTab(){
+	    		if(this.aceeditorTabData.length >= 5){
+	    			this.$message('码片最多不能超过五条');
+	    			return;
+	    		}
+
+	    		var tabDataArr = [];
+	    		var token;
+	    		for(var index in this.aceeditorTabData){
+	    			var d = this.aceeditorTabData[index];
+	    			d.isactive = false;
+	    			tabDataArr.push(d);
+	    		}
+
+	    		var tabData = {
+	        		filename: "未命名.txt",
+	        		language: 'text',
+	        		isactive: true,
+	        		token: this.uuid(8, 16),
+	        		content: ''
+	        	};
+
+	        	tabDataArr.push(tabData);
+	        	this.aceeditorTabData = tabDataArr;
+	        	if(tabDataArr.length >= 5){
+	        		this.tabAddClass = "icon-plus-circle2 is-disabled";
+	        	}
+	    	},
 	    	changeFileName(){
 	    		for(var index in this.aceeditorTabData){
 	    			var d = this.aceeditorTabData[index];
@@ -413,7 +449,13 @@
 	    			//this.aceeditorTabData = Object.assign({}, this.aceeditorTabData);
 	    		}
 	    	},
-	    	nextFile(){
+	    	nextFile(event){
+	    		//var currentDom = event.currentTarget;
+	    		//console.log(currentDom);
+	    		//console.log("offsetWidth:" + currentDom.offsetWidth + ";scrollWidth:" + currentDom.scrollWidth);
+	    		var ul = document.getElementById("aceeditorTabs");
+
+
 	    		var activeIndex = -1;
 	    		for(var index in this.aceeditorTabData){
 	    			var d = this.aceeditorTabData[index];
@@ -432,6 +474,9 @@
 	    			this.filename = this.aceeditorTabData[activeIndex].filename;
 	    			//this.aceeditorTabData = Object.assign({}, this.aceeditorTabData);
 	    		}
+
+	    		var activeli = ul.getElementsByTagName("li")[activeIndex];
+	    		console.log("offsetWidth:" + activeli.offsetWidth + ";scrollWidth:" + activeli.scrollWidth);
 	    	},
 	    	aceeditorTabClick(e){
 	    		var that = this;
@@ -479,6 +524,10 @@
 	    			this.languageSelectVal = "text";
 	    			this.filename = "";
 	    		}
+
+	    		if(tabDataArr.length < 5){
+	    			this.tabAddClass = "icon-plus-circle2";
+	    		}
 	    	},
 	    	languageChange(){
 	    		require('vue2-ace-editor/node_modules/brace/mode/' + this.languageSelectVal);
@@ -496,6 +545,34 @@
 	    		require('vue2-ace-editor/node_modules/brace/theme/'+this.themeSelectVal);
 	    		this.edit.setTheme('ace/theme/' + this.themeSelectVal);
 	    	},
+	    	uuid(len, radix) {
+			    var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+			    var uuid = [], i;
+			    radix = radix || chars.length;
+			 
+			    if (len) {
+			      // Compact form
+			      for (i = 0; i < len; i++) uuid[i] = chars[0 | Math.random()*radix];
+			    } else {
+			      // rfc4122, version 4 form
+			      var r;
+			 
+			      // rfc4122 requires these characters
+			      uuid[8] = uuid[13] = uuid[18] = uuid[23] = '-';
+			      uuid[14] = '4';
+			 
+			      // Fill in random data.  At i==19 set the high bits of clock sequence as
+			      // per rfc4122, sec. 4.1.5
+			      for (i = 0; i < 36; i++) {
+			        if (!uuid[i]) {
+			          r = 0 | Math.random()*16;
+			          uuid[i] = chars[(i == 19) ? (r & 0x3) | 0x8 : r];
+			        }
+			      }
+			    }
+			 
+			    return uuid.join('');
+			},
 	    	fontsizeChange(){
 	    		//document.getElementById('aceeditor').style.fontSize=this.fontsize + 'px';
 	    		this.edit.setFontSize(this.fontsize);
@@ -875,8 +952,33 @@
 	.editor .aceeditorTabContainer .aceeditorTabTool i:first-child{
 		margin-right: 5px;
 	}
-	.editor .aceeditorTabContainer .aceeditorTabTool i:hover{
+	.editor .aceeditorTabContainer .aceeditorTabTool i:hover,
+	.editor .aceeditorTabContainer .aceeditorTabContent .tabAdd i:hover{
 		color: var(--color-red, #ea7069);
+	}
+	.editor .aceeditorTabContainer .aceeditorTabContent{
+		position:relative;
+		flex:1;
+		display:flex;
+		flex-direction:row;
+	}
+	.editor .aceeditorTabContainer .aceeditorTabContent .tabContent{
+		overflow:hidden;
+		position:relative;
+		display:block;
+		white-space:nowrap;
+	}
+	.editor .aceeditorTabContainer .aceeditorTabContent .tabAdd{
+		flex:1;
+		display:flex;
+		align-items:center;
+		justify-content: left;
+    	padding-left: 5px;
+	}
+	.editor .aceeditorTabContainer .aceeditorTabContent .tabAdd i{
+		font-size: 14px;
+		color: #586069;
+		cursor: pointer;
 	}
 	.editor .aceeditorTabContainer ul.aceeditorTabs{
 		margin: 0;
@@ -885,12 +987,13 @@
 	  	max-height: 35px;
 	  	overflow: hidden;
 	  	display: inline-block;
-	  	padding-right: 20px;
-	  	padding-left: 20px;
-	  	flex: 1;
+	  	padding-left: 10px;
+	  	padding-right: 3px;
 	}
 	.editor .aceeditorTabContainer ul.aceeditorTabs > li{
-		float : left;
+		-webkit-transition: 0.3s ease;
+    	transition: 0.3s ease;
+		*float : left;
 	  	margin : 5px -10px 0;
 	  	border-top-right-radius: 25px 170px;
 	  	border-top-left-radius: 20px 90px;
@@ -901,6 +1004,7 @@
 	  	*box-shadow: 0 10px 20px rgba(0,0,0,.5);
 	  	max-width : 200px;
 	  	color: var(--sub-title-color, #939c99);
+	  	display: inline-grid;
 	}
 	.editor .aceeditorTabContainer ul.aceeditorTabs > li:before,
 	.editor .aceeditorTabContainer ul.aceeditorTabs > li:after{
@@ -913,6 +1017,8 @@
 	  	top: 0px;
 	  	border-style : solid;
 	  	position : absolute;
+	  	-webkit-transition: 0.3s ease;
+    	transition: 0.3s ease;
 	}
 	.editor .aceeditorTabContainer ul.aceeditorTabs > li:before{
 		border-color : transparent var(--banner-color, #eef1f6) transparent transparent;
