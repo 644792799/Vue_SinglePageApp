@@ -17,6 +17,7 @@ import SignIn from './components/pages/Sign/SignIn.vue'
 import SignUp from './components/pages/Sign/SignUp.vue'
 import Editor from './components/pages/personal/Editor.vue'
 import MyArticle from './components/pages/personal/MyArticleList.vue'
+import MyWelcome from './components/pages/personal/MyWelcome.vue'
 import Setting from './components/pages/personal/EditProfile.vue'
 import Categorized from './components/pages/cat/Categorized.vue'
 import CategorizedDetail from './components/pages/cat/CategorizedDetail.vue'
@@ -100,6 +101,10 @@ const routes = [
 	{
 		path: '/help',
 		component: Help
+	},
+	{
+		path: '/mywelcome',
+		component: MyWelcome
 	},
 	{
 		path: '*',

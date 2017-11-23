@@ -450,11 +450,7 @@
 	    		}
 	    	},
 	    	nextFile(event){
-	    		//var currentDom = event.currentTarget;
-	    		//console.log(currentDom);
-	    		//console.log("offsetWidth:" + currentDom.offsetWidth + ";scrollWidth:" + currentDom.scrollWidth);
 	    		var ul = document.getElementById("aceeditorTabs");
-
 
 	    		var activeIndex = -1;
 	    		for(var index in this.aceeditorTabData){
@@ -475,8 +471,8 @@
 	    			//this.aceeditorTabData = Object.assign({}, this.aceeditorTabData);
 	    		}
 
-	    		var activeli = ul.getElementsByTagName("li")[activeIndex];
-	    		console.log("offsetWidth:" + activeli.offsetWidth + ";scrollWidth:" + activeli.scrollWidth);
+	    		//var activeli = ul.getElementsByTagName("li")[activeIndex];
+	    		//console.log(activeli.width);
 	    	},
 	    	aceeditorTabClick(e){
 	    		var that = this;
