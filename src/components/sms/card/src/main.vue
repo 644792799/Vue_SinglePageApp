@@ -6,6 +6,7 @@
           <i :class="ico"></i> 
         </div>
         <slot name="header">{{ header }}</slot>
+        <div class="legend" v-if="legend">{{legend}}</div>
       </div>
       <div>
         <slot name="operation"></slot>
@@ -22,7 +23,7 @@
   export default {
     name: 'SmsCard',
 
-    props: ['header', 'bodyStyle', 'ico']
+    props: ['header', 'bodyStyle', 'ico', 'legend']
   };
 </script>
 <style type="text/css">
@@ -44,6 +45,20 @@
     color: var(--title-color, #4e5359);
 
     justify-content: space-between;
+  }
+  .sms-card .sms-card__header .legend{
+    color: #fff;
+    background-color: #41484d;
+    opacity: 0.5;
+    padding: 0px 5px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3px;
   }
   .sms-card .sms-card__header .ico{
     display: flex;

@@ -45,6 +45,12 @@ const menu = [
 	to: '/categorized',
 	clas: '',
 	ico: 'icon-hash'
+},
+{
+	name: '欢迎',
+	to: '/mywelcome',
+	clas: '',
+	ico: 'icon-th-large'
 },{
 	name: '帮助',
 	to: '/help',
