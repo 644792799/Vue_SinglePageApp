@@ -88,7 +88,7 @@
 			  		<messenger></messenger>
 			  	</div>
 			</div>
-		    <div>
+		    <div class="rightcontainer">
 			   <div class="right">
 			   		<div class="grid-content article-stats">
 			   			<img src="/static/img/头像示例2.jpg" class="userimg">
@@ -176,11 +176,27 @@
 						<div slot="operation" class="operation">
 							<el-button type="text" size="mini">更多<i class="icon-chevron-right el-icon--right"></i></el-button>
 						</div>
+						<div class="snipt">
+					  		<ul>
+					  			<li v-for="i in 10">
+					  				<!-- <i class="icon-fire"></i> -->
+					  				<a href="#" title="title">基础知识汇总2</a>
+					  			</li>
+					  		</ul>
+					  	</div>
 					</SmsCard>
 					<SmsCard header="类似码片" ico="icon-file2">
 						<div slot="operation" class="operation">
 							<el-button type="text" size="mini">换一批<i class="icon-refresh-cw el-icon--right"></i></el-button>
 						</div>
+						<div class="snipt">
+					  		<ul>
+					  			<li v-for="i in 10">
+					  				<!-- <i class="icon-fire"></i> -->
+					  				<a href="#" title="title">基础知识汇总2</a>
+					  			</li>
+					  		</ul>
+					  	</div>
 					</SmsCard>
 			   		<!-- <div>
 			   			<SmsSimpleList title="作者发布的其它代码"></SmsSimpleList>
@@ -554,5 +570,50 @@
 
 	.article-detail .CodeMirror{
 		height: 150px;
+	}
+
+	.article-detail .rightcontainer .sms-card .snipt ul{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.article-detail .rightcontainer .sms-card .snipt ul li{
+		*padding: 10px 10px 10px 25px;
+		padding: 10px 10px;
+	    font-size: 14px;
+	    font-weight: 600;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -ms-flex-align: center;
+	    align-items: center;
+	    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	}
+	.article-detail .rightcontainer .sms-card .snipt ul li+li{
+		border-top: 1px solid var(--border-color, #e4e8f1);
+	}
+	.article-detail .rightcontainer .sms-card .snipt ul li i{
+		margin-right: 5px;
+    	font-size: 16px;
+    	color: var(--color-red, #ea7069);
+	}
+	.article-detail .rightcontainer .sms-card .snipt a{
+		color: var(--link-hover-color, #20a0ff)!important;
+	    display: inline-block;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	    vertical-align: top;
+	    transition: .1s ease-in-out;
+	    -webkit-transition: .1s ease-in-out;
+	    -moz-transition: .1s ease-in-out;
+	    -o-transition: .1s ease-in-out;
+	    -ms-transition: .1s ease-in-out;
+	}
+	.article-detail .rightcontainer .sms-card .snipt a:hover{
+		color: var(--link-hover-color, #20a0ff)!important;
+    	text-decoration: underline!important;
+	}
+	.article-detail .rightcontainer .sms-card .sms-card__body {
+	    padding: 0;
 	}
 </style>

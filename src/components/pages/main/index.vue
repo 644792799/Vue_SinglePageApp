@@ -51,7 +51,7 @@
 				  			<li v-for="i in 20">
 				  				<a href="javascript:void(0);">
 				  					<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498551826199&di=dd1413b07fcebf87e28b12316d4f14e7&imgtype=0&src=http%3A%2F%2Fk2.jsqq.net%2Fuploads%2Fallimg%2F1705%2F7_170524143440_5.jpg" title="小哥哥">
-				  					<div style="font-size: 12px;    padding-top: 3px;">小哥哥</div>
+				  					<!-- <div style="font-size: 12px;    padding-top: 3px;">小哥哥</div> -->
 				  				</a>
 				  			</li>
 				  		</ul>
@@ -62,6 +62,18 @@
 						</div>
 					</SmsUserCardHor> -->
 				</SmsCard>
+				<SmsCard header="本周最受欢迎用户" ico="icon-user">
+					<SmsUserCardHor shape="circle" v-for="i in 8" img="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498551826199&di=dd1413b07fcebf87e28b12316d4f14e7&imgtype=0&src=http%3A%2F%2Fk2.jsqq.net%2Fuploads%2Fallimg%2F1705%2F7_170524143440_5.jpg">
+						<div class="cardhor-userinfo">
+							<div class="top">小哥哥</div>
+							<div class="bottom">15,145人关注</div>
+						</div>
+						<div class="cardhor-operation">
+							<el-button size="small" v-if="i%2==0">取消关注</el-button>
+							<el-button type="primary" size="small" v-if="i%2!=0">添加关注</el-button>
+						</div>
+					</SmsUserCardHor>
+				</SmsCard>
 				<SmsCard header="热门码片" ico="icon-user">
 					<div slot="operation" class="operation">
 						<el-radio-group v-model="activeSniptSort" size="small">
@@ -69,6 +81,14 @@
 						    <el-radio-button label="本月"></el-radio-button>
 						    <el-radio-button label="本季"></el-radio-button>
 					  	</el-radio-group>
+				  	</div>
+				  	<div class="hot-snipt">
+				  		<ul>
+				  			<li v-for="i in 10">
+				  				<!-- <i class="icon-fire"></i> -->
+				  				<a href="#" title="title">基础知识汇总2</a>
+				  			</li>
+				  		</ul>
 				  	</div>
 				</SmsCard>	
 			</div>
@@ -254,6 +274,47 @@
     	margin-left: 45px;
     	width: 302px;
 	}
+	.index .rightcontainer .sms-card .hot-snipt ul{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.index .rightcontainer .sms-card .hot-snipt ul li{
+		*padding: 10px 10px 10px 25px;
+		padding: 10px 10px;
+	    font-size: 14px;
+	    font-weight: 600;
+	    display: -ms-flexbox;
+	    display: flex;
+	    -ms-flex-align: center;
+	    align-items: center;
+	    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	}
+	.index .rightcontainer .sms-card .hot-snipt ul li+li{
+		border-top: 1px solid var(--border-color, #e4e8f1);
+	}
+	.index .rightcontainer .sms-card .hot-snipt ul li i{
+		margin-right: 5px;
+    	font-size: 16px;
+    	color: var(--color-red, #ea7069);
+	}
+	.index .rightcontainer .sms-card .hot-snipt a{
+		color: var(--link-hover-color, #20a0ff)!important;
+	    display: inline-block;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	    vertical-align: top;
+	    transition: .1s ease-in-out;
+	    -webkit-transition: .1s ease-in-out;
+	    -moz-transition: .1s ease-in-out;
+	    -o-transition: .1s ease-in-out;
+	    -ms-transition: .1s ease-in-out;
+	}
+	.index .rightcontainer .sms-card .hot-snipt a:hover{
+		color: var(--link-hover-color, #20a0ff)!important;
+    	text-decoration: underline!important;
+	}
 	.index .rightcontainer .sms-card .active-users ul{
 		display: flex;
 		flex-direction: row;
@@ -271,8 +332,8 @@
 		color: #20a0ff
 	}
 	.index .rightcontainer .sms-card .active-users ul li{
-		width: 25%;
-		height: 80px;
+		width: 20%;
+		height: 60px;
 		text-align: center;
 	}
 	.index .rightcontainer .sms-card .active-users ul li img{
@@ -288,6 +349,25 @@
 	}
 	.index .rightcontainer .sms-usercard-hor{
 		box-shadow: none!important;
+		font-size: 12px;
+	}
+	.index .rightcontainer .sms-usercard-hor .sms-usercard-hor-info{
+		flex: 1;
+		display: flex;
+		padding-right: 10px;
+	}
+	.index .rightcontainer .sms-usercard-hor .cardhor-userinfo{
+		flex: 1;
+	}
+	.index .rightcontainer .sms-usercard-hor .cardhor-operation .el-button--small{
+		border-radius: 14px;
+	}
+	.index .rightcontainer .sms-usercard-hor .cardhor-userinfo .top{
+		color: var(--title-color, #4e5359);
+		font-weight: 600;
+	}
+	.index .rightcontainer .sms-usercard-hor .cardhor-userinfo .bottom{
+		color: var(--sub-title-color, #939c99);
 	}
 	.index .rightcontainer .sms-usercard-hor:last-child{
 		margin-bottom: 0;
@@ -298,12 +378,12 @@
     	overflow: hidden;
 	}
 	.index .rightcontainer .sms-usercard-hor+.sms-usercard-hor:before {
-	    position: absolute;
+	    /*position: absolute;
 	    top: 0;
 	    width: 100%;
 	    content: '';
 	    left: 50px;
-	    border-top: 1px solid var(--border-color, #d4d9df);
+	    border-top: 1px solid var(--border-color, #d4d9df);*/
 	}
 	.index .filtercontainer{
 		position: relative;

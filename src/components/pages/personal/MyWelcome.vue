@@ -147,7 +147,7 @@
 	}
 
 	.mywelcome .right .snipt-filter .snipt-filter-tab ul>li a{
-		color: var(--title-color, #4e5359)!important;
+		color: var(--link-hover-color, #20a0ff)!important;
 		display: inline-block;
 	    overflow: hidden;
 	    text-overflow: ellipsis;
