@@ -67,9 +67,11 @@
 	display: inline-block !important;
 	position: relative;
 	width: 100%;
-	padding-left: 15px;
-	padding-top: 15px;
+	/*padding-left: 15px;
+	padding-top: 15px;*/
+	padding: 7px 0 7px 15px;
 	background: var(--bg-color, #fbfcfc);
+	color: var(--title-color, #4e5359);
 }
 .code-filter .filter-content{
 	background: var(--bg-color-white, #fff);
@@ -77,6 +79,7 @@
 	font-weight: 400;
 	position: relative;
 	*padding-left: 15px;
+	color: var(--content-color, #4e5359);
 }
 .filter-content p{
 	margin: 5px 0 5px 15px;
