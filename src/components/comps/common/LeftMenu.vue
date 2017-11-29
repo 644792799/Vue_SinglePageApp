@@ -46,7 +46,7 @@
 		height: 100%;
 		overflow: hidden;
 		overflow-y: auto;
-		z-index: 3;
+		z-index: 4;
 		padding: 10px 0;
 		box-shadow: #e4e8f1 1px 0px 18px 0px;
 		display: flex;

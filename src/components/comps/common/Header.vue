@@ -114,7 +114,7 @@
 		flex-wrap: nowrap;
 		height: 50px;
 		width: 100%;
-		z-index: 4;
+		z-index: 5;
 		position: fixed;
 		background-color: var(--nav-bg-color, #41484d);
 		border-bottom: 1px solid #eaeefb;

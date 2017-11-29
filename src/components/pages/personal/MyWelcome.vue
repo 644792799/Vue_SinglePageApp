@@ -5,7 +5,23 @@
 				<div style="margin-top: 25px; margin-bottom: 15px;">
 					<el-tabs v-model="activeDynamic" type="border-card" @tab-click="selectFocusTab">
 					    <el-tab-pane label="关注动态" name="dynamic">
-					    	动态
+					    	<div>
+					    		<ul class="focus-dynamic">
+					    			<li v-for="i in 15">
+					    				<div>
+					    					<a href="#">
+					    						<img src="/static/img/头像示例2.jpg">
+					    					</a>
+					    					<a href="#">小哥哥</a>
+					    					<span>收藏了</span>
+					    					<a href="#">
+					    						brigandbabel-plugin-flow-react-proptypes
+											</a>
+					    				</div>
+					    				<div>18 分钟前</div>
+					    			</li>
+					    		</ul>
+					    	</div>
 					    </el-tab-pane>
 					    <el-tab-pane label="关注分类" name="category">
 					    	配置管理
@@ -90,6 +106,62 @@
 	    flex: 1;
 	}
 
+	.mywelcome .left .focus-dynamic{
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.mywelcome .left .focus-dynamic li{
+		height: 65px;
+		overflow: hidden;
+		font-size: 14px;
+		color: var(--content-color, #4e5359);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	.mywelcome .left .focus-dynamic li+li{
+		border-top: 1px solid var(--border-color, #e4e8f1);
+	}
+
+	.mywelcome .left .focus-dynamic li>div{
+		display: flex;
+		align-items: center;
+	}
+
+	.mywelcome .left .focus-dynamic li>div span{
+		margin: 0 5px;
+	}
+
+	.mywelcome .left .focus-dynamic li a{
+		font-weight: 600;
+		color: var(--content-color, #4e5359);
+	}
+
+	.mywelcome .left .focus-dynamic li a:hover{
+		color: var(--link-hover-color, #20a0ff)!important;
+    	text-decoration: underline!important;
+	}
+
+	.mywelcome .left .focus-dynamic li a:first-child{
+		margin-right: 16px; 
+	}
+
+	.mywelcome .left .focus-dynamic li a:last-child{
+		display: inline-block;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+	    white-space: nowrap;
+	}
+
+	.mywelcome .left .focus-dynamic li img{
+		width: 32px;
+		height: 32px;
+		border-radius: 4px;
+	}
+
 	.mywelcome .left .el-tabs{
 		min-height: 500px;
 	}
@@ -99,7 +171,8 @@
 	}
 
 	.mywelcome .left .el-tabs--border-card{
-		box-shadow: none!important;
+		box-shadow: 0 0 8px 0 rgba(232,237,250,.6), 0 2px 4px 0 rgba(232,237,250,.5)!important;
+		border: 0;
 	}
 
 	.mywelcome .right {
