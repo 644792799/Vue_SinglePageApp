@@ -217,6 +217,7 @@
 	.mywelcome .right .snipt-filter .snipt-filter-tab ul>li i{
 		margin-right: 5px;
 		font-size: 16px;
+		color: var(--content-color, #4e5359);
 	}
 
 	.mywelcome .right .snipt-filter .snipt-filter-tab ul>li a{
