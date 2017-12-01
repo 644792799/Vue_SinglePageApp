@@ -10,80 +10,6 @@
 		</div>
 		<div class="flex-row-layout">
 			<div class="myarticle-left">
-				<div class="userinfo-container">
-					<div class="userimg-container">
-						<img src="/static/img/头像示例2.jpg">
-						<div>
-							<i class="icon-venus"></i>
-						</div>
-					</div>
-					<div class="info">
-						<div class="basicinfo">
-							<h3>CJAY</h3>
-							<p>该用户很懒，没有留下任何东西</p>
-							<div>
-								<el-button-group>
-									<el-button class="button-follow" size="small">添加关注</el-button>
-									<el-button class="button-follow-count icon-user-plus3" size="small"></el-button>
-								</el-button-group>
-							</div>
-						</div>
-						<div class="detailinfo">
-							<div>
-								<span>加入时间</span>
-								<span>2017年7月17日</span>
-							</div>
-							<div>
-								<span>所属公司</span>
-								<span>UCEN</span>
-							</div>
-							<div>
-								<span>居住城市</span>
-								<span>四川.成都</span>
-							</div>
-							<div>
-								<span>个人网站</span>
-								<span>www.snipt.com</span>
-							</div>
-							<div>
-								<i class="icon-weibo" style="color: rgb(234, 111, 90);"></i>
-								<i class="icon-wechat" style="color: rgb(66, 192, 46);"></i>
-								<i class="icon-qq" style="color: rgb(49, 148, 208);"></i>
-								<i class="icon-github2"></i>
-								<i class="icon-google" style="color: rgb(49, 148, 208);"></i>
-							</div>
-						</div>
-						<!-- <div class="top">
-							<div class="left">
-								<h3>CJAY</h3>
-								<i class="icon-calendar">&nbsp;</i>
-								<span>2017年4月17日加入</span>
-							</div>
-							<div class="right">
-								<span><i class="icon-organization"></i>&nbsp;尚未加入任何公司/组织</span>
-							</div>
-						</div>
-						<div class="bottom">
-							<div class="left">
-								<div>
-									<i class="icon-envelop">&nbsp;</i><span>644792799@qq.com</span>
-								</div>
-								<div>
-									<i class="icon-location">&nbsp;</i><span>四川.成都</span>
-								</div>
-								<div>
-									<i class="icon-link">&nbsp;</i><span>wwww.snipt.cn</span>
-								</div>
-							</div>
-							<div class="right">
-								<el-button-group>
-									<el-button class="button-follow" size="">添加关注</el-button>
-									<el-button class="button-follow-count icon-user-plus3" size=""></el-button>
-								</el-button-group>
-							</div>
-						</div> -->
-					</div>
-				</div>
 				<div class="contribution-container">
 					<contribution></contribution>
 				</div>
@@ -100,7 +26,7 @@
 								    v-model="formInline.iptSearchMyCode">
 								</el-input>
 							  </el-form-item>
-							  <el-form-item label="类型" class="pull-right">
+							  <el-form-item label="类型" class="">
 							    <el-select v-model="formInline.type" placeholder="类型选择">
 							      <el-option label="全部" value="All"></el-option>
 							      <el-option label="公有" value="public"></el-option>
@@ -108,7 +34,7 @@
 							      <el-option label="FORK" value="fork"></el-option>
 							    </el-select>
 							  </el-form-item>
-							  <el-form-item label="语言" class="pull-right">
+							  <el-form-item label="语言" class="">
 							    <el-select v-model="formInline.language" placeholder="语言选择">
 							      <el-option label="全部" value="All"></el-option>
 							      <el-option label="JAVA" value="JAVA"></el-option>
@@ -155,28 +81,56 @@
 			<div>
 				<div class="myarticle-right">
 					<SmsCard>
-					<div class="visit-container">
-						<div>
-							<div>
-								<p>2540</p>
-								<p>粉丝</p>
+						<div class="user-info">
+							<div class="info-base">
+								<div class="left">
+									<img src="/static/img/头像示例2.jpg">
+								</div>
+								<div class="right">
+									<div class="top">
+										<div><b>小哥哥</b></div>
+										<div>2017-12-01加入</div>
+									</div>
+									<div class="middle">
+										<div><b>39</b> 码片</div>
+										<div><b>3,358</b> 粉丝</div>
+									</div>
+									<div class="bottom">
+										<el-button type="primary" size="small">添加关注</el-button>
+									</div>
+								</div>
 							</div>
-							<div>
-								<p>1850</p>
-								<p>查看</p>
+							<div class="info-split">
+								<SmsLine gradfrom="all"></SmsLine>
+							</div>
+							<div class="info-other">
+								<div>
+									<span>所属公司</span>
+									<span>UCEN</span>
+								</div>
+								<div>
+									<span>居住城市</span>
+									<span>四川.成都</span>
+								</div>
+								<div>
+									<span>个人网站</span>
+									<span>www.snipt.com</span>
+								</div>
+								<div>
+									<i class="icon-weibo" style="color: rgb(234, 111, 90);"></i>
+									<i class="icon-wechat" style="color: rgb(66, 192, 46);"></i>
+									<i class="icon-qq" style="color: rgb(49, 148, 208);"></i>
+									<i class="icon-github2"></i>
+									<i class="icon-google" style="color: rgb(49, 148, 208);"></i>
+								</div>
+							</div>
+							<div class="info-split">
+								<SmsLine gradfrom="all"></SmsLine>
+							</div>
+							<div class="info-selfdescript">
+								该用户很懒，没有留下任何东西
 							</div>
 						</div>
-						<div>
-							<div>
-								<p>2</p>
-								<p>关注</p>
-							</div>
-							<div>
-								<p>325</p>
-								<p>本月查看</p>
-							</div>
-						</div>
-					</div>
 					</SmsCard>
 					<SmsCard header="擅长的语言" ico="icon-lightbulb-o">
 						
@@ -221,6 +175,7 @@
 		flex-direction: column;
 		*padding: 0 4.16667%;
 		*padding-top: 50px;
+		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 	}
 	.myarticle .sub-nav{
 		background: var(--bg-color, #fbfcfc);
@@ -250,44 +205,79 @@
 	    *border-radius: 3px;
 	    *border: 1px solid var(--border-color, #d4d9df);
 	    *box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
+	    color: var(--content-color, #4e5359);
 	}
-	.myarticle .userinfo-container{
-		display: flex;
-		flex-direction: row;
-		background: #fff;
-    	box-shadow: var(--left-box-shadow, #d5d9de -1px 1px 2px 0px);
-	}
-	.myarticle .userinfo-container .userimg-container{
-		position: relative;
-	}
-	.myarticle .userinfo-container .userimg-container>div{
-		position: absolute;
-		right: 30px;
-		bottom: 30px;
-		width: 16px;
-		height: 16px;
-		border-radius: 9px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: #fff;
-		box-shadow: 1px 2px 4px 0px #d4d9df;
-		padding: 2px;
-	}
-	.myarticle .userinfo-container .userimg-container>div i{
-		font-size: 13px;
-		font-weight: 600;
-		color: #ea7069;/*#20a0ff*/
-	}
+	
 	.myarticle .contribution-container{
 		overflow: auto;
-    	margin-top: 10px;
+    	*margin-top: 10px;
 		border: 1px solid rgb(212, 217, 223);
 	    padding: 0px 0px 10px 0;
 	    border-radius: 2px;
 	    background: #fff;
 	}
-	.myarticle .visit-container{
+	.myarticle .user-info .info-selfdescript{
+		font-size: 14px;
+		margin: 5px 10px;
+	}
+	.myarticle .user-info .info-other{
+		font-size: 14px;
+		margin: 5px 10px;
+	}
+	.myarticle .user-info .info-other>div{
+		padding: 5px 0;
+	}
+	.myarticle .user-info .info-other>div span:first-child{
+		font-weight: 600;
+	}
+	.myarticle .user-info .info-other>div i{
+		font-size: 18px;
+		margin-right: 10px;
+	}
+	.myarticle .user-info .info-split{
+		position: relative;
+		height: 25px;
+	}
+	.myarticle .user-info .info-split .sms-line{
+		margin: 15px 0 10px 0;
+	}
+	.myarticle .user-info .info-base{
+		display: flex;
+		flex-direction: row;
+	}
+
+	.myarticle .user-info .info-base .left{
+		width: 75px;
+		overflow: hidden;
+	}
+
+	.myarticle .user-info .info-base .left img{
+		width: 75px;
+		height: 75px;
+		border-radius: 50%;
+	}
+
+	.myarticle .user-info .info-base .right{
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		padding-left: 15px;
+	}
+
+	.myarticle .user-info .info-base .right .top div:last-child{
+		font-size: 14px;
+		color: var(--sub-title-color, #939c99);
+		margin-top: 5px;
+	}
+
+	.myarticle .user-info .info-base .right .middle{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 10px 10px 10px 0;
+		font-size: 14px;
+	}
+	/*.myarticle .visit-container{
 		height: 140px;
 		color: var(--sub-title-color, #b6b1aa);
 		display: flex;
@@ -321,7 +311,7 @@
 	}
 	.myarticle .visit-container>div:first-child{
 		border-right: 2px solid #e6ebf1;
-	}
+	}*/
 	.myarticle .order{
 		position: relative;
 		float: right;
@@ -332,76 +322,12 @@
 		position: relative;
 	}
 	.myarticle .el-form-item{
-		width: 150px;
+		*width: 150px;
 		vertical-align: middle;
 		margin: 10px 5px;
 	}
 	.myarticle .filter{
 		margin: 10px 10px;
-	}
-	.myarticle .userimg-container{
-		/*height: 150px;
-		width: 150px;*/
-		padding: 20px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-	.myarticle .userimg-container img{
-		border-radius: 4px;
-		height: 100px;
-		width: 100px;
-		border-radius: 75px;
-	}
-	.myarticle .info{
-		flex: 1; 
-		padding: 20px 0 15px 0;
-		display: flex;
-		flex-direction: row;
-	}
-	.myarticle .info .basicinfo{
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		border-right: 2px solid #e6ebf1;
-	}
-	.myarticle .info .basicinfo h3{
-		margin: 10px 0 5px 0;
-	}
-	.myarticle .info .basicinfo p{
-		margin: 0px 0 15px 0;
-		font-size: 12px;
-		color: var(--sub-title-color, ##939c99);
-	}
-	.myarticle .info .detailinfo{
-		width: 300px;
-		font-size: 12px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
-	.myarticle .info .detailinfo>div{
-		margin: 5px;
-	}
-	.myarticle .info .detailinfo>div span:first-child{
-		font-weight: 600;
-		color: var(--title-color, #4e5359);
-		margin-right: 25px;
-		margin-left: 10px;
-	}
-	.myarticle .info .detailinfo>div span:last-child{
-		color: var(--sub-title-color, #939c99);
-	}
-	.myarticle .info .detailinfo>div i{
-		font-size: 15px;
-		margin-right: 10px;
-	}
-	.myarticle .info .detailinfo>div i:first-child{
-		margin-left: 10px;
-	}
-	.myarticle .info .el-button-group{
-		box-shadow: var(--btn-box-shadow, #d5d9de 3px 0px 7px 0px);
 	}
 	.myarticle .el-tabs__content{
 		background: #fff;
