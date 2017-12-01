@@ -229,6 +229,7 @@
 	}
 	.myarticle .user-info .info-other>div span:first-child{
 		font-weight: 600;
+		margin-right: 10px;
 	}
 	.myarticle .user-info .info-other>div i{
 		font-size: 18px;
