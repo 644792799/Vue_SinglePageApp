@@ -201,6 +201,7 @@
 	.articles-thumbnail img{
 		width: 65px;
 		display: block;
+		border-radius: 50%;
 	    *border-radius: 55px;	
 	}
 

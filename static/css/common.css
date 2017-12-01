@@ -294,3 +294,89 @@ h3{
     border: 1px solid var(--border-color, #d5d9de);
     border-radius: 4px;
 }
+
+/*vip*/
+
+/*avator*/
+.avator-hover-effect-scroll{
+	position: relative;
+}
+.avator-hover-effect-scroll img{
+	border-radius: 50%;
+}
+.avator-hover-effect-scroll:after{
+	display: inline-block;
+    border-radius: 50%;
+    content: '';
+    box-sizing: content-box;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    top: -3.5px;
+    left: -3.5px;
+    border: 4px dashed #fff;
+    position: absolute;
+}
+.avator-hover-effect-scroll:hover:after {
+    animation: spin 9s linear infinite;
+    border: 4px dashed #ea7069;
+}
+@keyframes spin{
+  from{
+    transform:rotate(0deg);  
+  }
+  to{
+    transform:rotate(360deg);
+  }
+}
+
+/*link*/
+.link-hover-effect-doubleline{
+	position: relative;
+}
+.link-hover-effect-doubleline:hover:before, 
+.link-hover-effect-doubleline:hover:after {
+    transform: translateX(0);
+}
+.link-hover-effect-doubleline:before {
+    bottom: 0;
+    transform: translateX(-100%);
+}
+.link-hover-effect-doubleline:after {
+    top: 0;
+    transform: translateX(100%);
+}
+.link-hover-effect-doubleline:before, 
+.link-hover-effect-doubleline:after {
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--link-hover-color, #20a0ff)!important;
+}
+.link-hover-effect-doubleline:before, 
+.link-hover-effect-doubleline:after {
+    content: '';
+    position: absolute;
+    transition: transform .5s ease;
+}
+
+/*singleline*/
+.link-hover-effect-singleline{
+	position: relative;
+}
+.link-hover-effect-singleline:hover:before {
+    transform: translateX(0);
+}
+.link-hover-effect-singleline:before {
+    left: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    width: 100%;
+    height: 2px;
+    background: var(--link-hover-color, #20a0ff)!important;
+}
+.link-hover-effect-singleline:before {
+    content: '';
+    position: absolute;
+    transition: transform .5s ease;
+}

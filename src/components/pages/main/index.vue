@@ -86,7 +86,7 @@
 				  		<ul>
 				  			<li v-for="i in 10">
 				  				<!-- <i class="icon-fire"></i> -->
-				  				<a href="#" title="title">基础知识汇总2</a>
+				  				<a href="#" title="title" class="link-hover-effect-singleline">基础知识汇总2</a>
 				  			</li>
 				  		</ul>
 				  	</div>
@@ -281,7 +281,7 @@
 	}
 	.index .rightcontainer .sms-card .hot-snipt ul li{
 		*padding: 10px 10px 10px 25px;
-		padding: 10px 10px;
+		padding: 5px 10px;
 	    font-size: 14px;
 	    font-weight: 600;
 	    display: -ms-flexbox;
@@ -310,10 +310,12 @@
 	    -moz-transition: .1s ease-in-out;
 	    -o-transition: .1s ease-in-out;
 	    -ms-transition: .1s ease-in-out;
+	    padding: 5px 0px 5px 5px;
+    	*width: 100%;
 	}
 	.index .rightcontainer .sms-card .hot-snipt a:hover{
 		color: var(--link-hover-color, #20a0ff)!important;
-    	text-decoration: underline!important;
+    	*text-decoration: underline!important;
 	}
 	.index .rightcontainer .sms-card .active-users ul{
 		display: flex;

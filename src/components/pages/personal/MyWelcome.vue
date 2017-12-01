@@ -42,10 +42,10 @@
 								    	<ul class="snipt-list all-snipt">
 								    		<li v-for="i in 5">
 								    			<i class="icon-globe2"></i>
-								    			<a href="#">Vue_SingleApp</a>
+								    			<a href="#" class="link-hover-effect-singleline">Vue_SingleApp</a>
 								    		</li>
 								    		<li class="text-center loadmore">
-								    			<a href="#">加载更多...</a>
+								    			<a href="#" class="link-hover-effect-singleline">加载更多...</a>
 								    		</li>
 								    	</ul>
 									</el-tab-pane>
@@ -159,7 +159,7 @@
 	.mywelcome .left .focus-dynamic li img{
 		width: 32px;
 		height: 32px;
-		border-radius: 4px;
+		border-radius: 50%;
 	}
 
 	.mywelcome .left .el-tabs{
@@ -206,7 +206,7 @@
 	}
 
 	.mywelcome .right .snipt-filter .snipt-filter-tab ul>li{
-		padding: 10px 10px;
+		padding: 5px 10px;
 		font-size: 14px;
 		font-weight: 600;
 		display: flex;
@@ -233,11 +233,13 @@
 	    -moz-transition: .1s ease-in-out;
 	    -o-transition: .1s ease-in-out;
 	    -ms-transition: .1s ease-in-out;
+
+	    padding: 5px 0px 5px 5px;
 	}
 
 	.mywelcome .right .snipt-filter .snipt-filter-tab ul>li a:hover{
 		color: var(--link-hover-color, #20a0ff)!important;
-		text-decoration: underline!important;
+		*text-decoration: underline!important;
 	}
 
 	.mywelcome .right .snipt-filter .snipt-filter-tab ul>li.loadmore{
