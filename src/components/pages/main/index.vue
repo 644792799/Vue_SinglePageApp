@@ -46,7 +46,7 @@
 						    <el-radio-button label="本季"></el-radio-button>
 					  	</el-radio-group>
 				  	</div>
-				  	<div class="active-users">
+				  	<div class="img-list">
 				  		<ul>
 				  			<li v-for="i in 20">
 				  				<a href="javascript:void(0);">
@@ -316,32 +316,6 @@
 	.index .rightcontainer .sms-card .hot-snipt a:hover{
 		color: var(--link-hover-color, #20a0ff)!important;
     	*text-decoration: underline!important;
-	}
-	.index .rightcontainer .sms-card .active-users ul{
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-		list-style: none;
-		padding-left: 0;
-		padding: 0 5px;
-	}
-	.index .rightcontainer .sms-card .active-users a{
-		color: var(--default-color, #4e5359);
-	}
-	.index .rightcontainer .sms-card .active-users a:hover{
-		color: #20a0ff
-	}
-	.index .rightcontainer .sms-card .active-users ul li{
-		width: 20%;
-		height: 60px;
-		text-align: center;
-	}
-	.index .rightcontainer .sms-card .active-users ul li img{
-		height: 40px;
-		width: 40px;
-		border-radius: 20px;
 	}
 	.index .rightcontainer .sms-card:nth-child(2){
 		margin-top: 15px;

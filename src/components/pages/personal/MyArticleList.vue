@@ -92,8 +92,9 @@
 										<div>2017-12-01加入</div>
 									</div>
 									<div class="middle">
-										<div><b>39</b> 码片</div>
-										<div><b>3,358</b> 粉丝</div>
+										<div><b>39</b>码片</div>
+										<div><b>1.3k</b>关注</div>
+										<div><b>3.3k</b>粉丝</div>
 									</div>
 									<div class="bottom">
 										<el-button type="primary" size="small">添加关注</el-button>
@@ -133,12 +134,24 @@
 						</div>
 					</SmsCard>
 					<SmsCard header="擅长的语言" ico="icon-lightbulb-o">
-						
+						<div class="user-skills">
+							<el-tag type="gray" v-for="tag in skillTag">{{tag}}</el-tag>
+						</div>
 					</SmsCard>
-					<SmsCard header="最活跃粉丝" ico="icon-user">
+					<SmsCard header="七日访问趋势" ico="icon-activity">
 						
 					</SmsCard>
 					<SmsCard header="最近访问用户" ico="icon-user">
+						<div class="img-list">
+							<ul>
+					  			<li v-for="i in 20">
+					  				<a href="javascript:void(0);">
+					  					<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498551826199&di=dd1413b07fcebf87e28b12316d4f14e7&imgtype=0&src=http%3A%2F%2Fk2.jsqq.net%2Fuploads%2Fallimg%2F1705%2F7_170524143440_5.jpg" title="小哥哥">
+					  					<!-- <div style="font-size: 12px;    padding-top: 3px;">小哥哥</div> -->
+					  				</a>
+					  			</li>
+					  		</ul>
+						</div>
 						
 					</SmsCard>
 				</div>	
@@ -158,7 +171,19 @@
 		          language2: 'All',
 		          star: 'recent',
 		          iptSearchMyCode: ''
-		        }
+		        },
+		        skillTag:[
+		        	"HTML",
+		        	"BEM",
+		        	"CSS3",
+		        	"SASS",
+		        	"MQ",
+		        	"SVG",
+		        	"JQUERY",
+		        	"GULP",
+		        	"PYTHON",
+		        	"JAVA"
+		        ]
 			}
 		},
 		mounted: function(){
@@ -277,6 +302,18 @@
 		justify-content: space-between;
 		padding: 10px 10px 10px 0;
 		font-size: 14px;
+	}
+
+	.myarticle .user-skills{
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+	}
+	.myarticle .user-skills span{
+		margin: 0px 5px 5px 5px; 
+		cursor: pointer;
 	}
 	/*.myarticle .visit-container{
 		height: 140px;
