@@ -266,7 +266,7 @@
 	          delivery: false,
 	          type: [],
 	          resource: '',
-	          desc: 'HELLO WORLD!!!'//markdown格式的字符串
+	          desc: '我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落'//markdown格式的字符串
 	        },
 	        options: [{
 		          value: 'java',

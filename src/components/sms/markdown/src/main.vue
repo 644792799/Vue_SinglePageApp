@@ -9,6 +9,17 @@
           <SmsPreview :mktext="postMark"></SmsPreview>
       </el-tab-pane>
     </el-tabs>
+    <div class="sms-markdown-footer">
+      <div class="sms-markdown-helper">
+          <a href="#">
+            <svg aria-hidden="true" class="octicon octicon-markdown v-align-bottom" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M14.85 3H1.15C.52 3 0 3.52 0 4.15v7.69C0 12.48.52 13 1.15 13h13.69c.64 0 1.15-.52 1.15-1.15v-7.7C16 3.52 15.48 3 14.85 3zM9 11H7V8L5.5 9.92 4 8v3H2V5h2l1.5 2L7 5h2v6zm2.99.5L9.5 8H11V5h2v3h1.5l-2.51 3.5z"></path></svg>
+              支持Markdown语法
+          </a>
+      </div>
+      <div class="sms-markdown-submit">
+          <el-button type="primary">提交</el-button>
+      </div>
+    </div>
     <div class="sms-markdown-tools" id="sms-markdown-tools">
       <el-popover 
         popper-class="sms-markdown-emoji" 
@@ -108,11 +119,21 @@
           '🦆','🦉','🦃','🐓','🐣','🐤','🐥','🐦','🐧','🦇',
           '🦋','🐌','🐛','🐜','🐝','🐞','🦂','👀','👅','👄',
           '👣','👤','👥','🗣'
-        ]
+        ],
+        defaultOption:{
+          showTools : true,
+          showHelpMessage: false,
+          showMarkDownIco: true,
+          showSubmit: false,
+          showPreview: true,
+          showDragSplitter: false
+        }
       }
     },
     mounted(){
         var self = this;
+        this.defaultOption = this.extend(this.defaultOption, this.options);
+        console.log(this.defaultOption);
         var myTextarea = document.getElementById("txtarea");
          this.cm = CodeMirror.fromTextArea(myTextarea, {
             mode: 'gfm',
@@ -133,8 +154,16 @@
       //   return marked(this.preMark)
       // }
     },
-    props:['mdtext'],
+    props:['mdtext', 'options'],
     methods: {
+      extend(target, options){
+        if(options){
+          for(name in options){
+            target[name] = options[name];
+          }
+        }
+        return target;
+      },
       handleClick(tab, event) {
         var mdtools = document.getElementById("sms-markdown-tools");
         if(this.activeName == "review"){
@@ -630,6 +659,7 @@
 </script>
 <style type="text/css">
   .sms-markdown{
+    line-height: normal;
     display: block;
     position: relative;
     border: 1px solid #d4d9df;
@@ -641,6 +671,35 @@
     *font-size: 16px;
     font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif, 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
     border: 0;
+  }
+  .sms-markdown .sms-markdown-footer{
+    height: 40px;
+    background: var(--banner-color, #eef1f6);
+    border-top: 1px solid #d4d9df!important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 5px;
+  }
+  .sms-markdown .sms-markdown-footer>div{
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .sms-markdown .sms-markdown-footer>div a{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+  }
+  .sms-markdown .sms-markdown-footer>div a{
+    color: var(--title-color, #4E5359);
+  }
+  .sms-markdown .sms-markdown-footer>div a:hover{
+    color: var(--link-hover-color, #20a0ff)!important;
+  }
+  .sms-markdown .sms-markdown-footer>div a svg{
+    margin: 0 5px 0 0;
   }
   .sms-markdown .sms-markdown-tools{
     position: absolute;
