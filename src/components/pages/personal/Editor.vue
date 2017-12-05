@@ -198,7 +198,7 @@
 					    </el-form-item>
 					    <el-form-item label="代码描述">
 					    	<!-- <el-input type="textarea" v-model="form.desc"></el-input> -->
-					    	<SmsMarkdown></SmsMarkdown>
+					    	<SmsMarkdown @input="inputCodeDescript" :mdtext="form.desc"></SmsMarkdown>
 					  	</el-form-item>
 					  	<el-form-item>
 					  		<el-checkbox v-model="isprivate">是否私有</el-checkbox>
@@ -266,7 +266,7 @@
 	          delivery: false,
 	          type: [],
 	          resource: '',
-	          desc: ''
+	          desc: 'HELLO WORLD!!!'//markdown格式的字符串
 	        },
 	        options: [{
 		          value: 'java',
@@ -393,6 +393,9 @@
 			this.edit.resize();
 		},
 	    methods:{
+	    	inputCodeDescript(editorVal){
+	    		console.log(editorVal);
+	    	},
 	    	addTab(){
 	    		if(this.aceeditorTabData.length >= 5){
 	    			this.$message('码片最多不能超过五条');

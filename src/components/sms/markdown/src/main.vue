@@ -80,7 +80,7 @@
     name: 'SmsMarkdown',
     data(){
       return{
-        preMark: exText,
+        preMark: this.mdtext,
         activeName: 'edit',
         postMark: '',
         cm: undefined,
@@ -121,9 +121,11 @@
             lineWrapping: true,
             //scrollbarStyle: 'simple'
           });
+         this.$emit('init', this.cm);
          this.cm.on("change", function(instance,changeObj){
             var editorVal = self.cm.getValue();
             self.preMark = editorVal;
+            self.$emit('input',editorVal);
          });
     },
     computed: {
@@ -131,6 +133,7 @@
       //   return marked(this.preMark)
       // }
     },
+    props:['mdtext'],
     methods: {
       handleClick(tab, event) {
         var mdtools = document.getElementById("sms-markdown-tools");
