@@ -4,23 +4,23 @@
       <el-tab-pane label="编辑" name="edit" class="edit">
           <textarea v-model="preMark" id="txtarea"></textarea>
       </el-tab-pane>
-      <el-tab-pane label="预览" name="review" class="review">
+      <el-tab-pane label="预览" name="review" class="review" v-if="defaultOption.showPreview">
           <!-- <div v-html="postMark"></div> -->
           <SmsPreview :mktext="postMark"></SmsPreview>
       </el-tab-pane>
     </el-tabs>
-    <div class="sms-markdown-footer">
-      <div class="sms-markdown-helper">
+    <div class="sms-markdown-footer" v-if="defaultOption.showTabFooter">
+      <div class="sms-markdown-helper" v-if="defaultOption.showMarkDownIco">
           <a href="#">
             <svg aria-hidden="true" class="octicon octicon-markdown v-align-bottom" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M14.85 3H1.15C.52 3 0 3.52 0 4.15v7.69C0 12.48.52 13 1.15 13h13.69c.64 0 1.15-.52 1.15-1.15v-7.7C16 3.52 15.48 3 14.85 3zM9 11H7V8L5.5 9.92 4 8v3H2V5h2l1.5 2L7 5h2v6zm2.99.5L9.5 8H11V5h2v3h1.5l-2.51 3.5z"></path></svg>
               支持Markdown语法
           </a>
       </div>
-      <div class="sms-markdown-submit">
+      <div class="sms-markdown-submit" v-if="defaultOption.showSubmit">
           <el-button type="primary">提交</el-button>
       </div>
     </div>
-    <div class="sms-markdown-tools" id="sms-markdown-tools">
+    <div class="sms-markdown-tools" id="sms-markdown-tools" v-if="defaultOption.showTools">
       <el-popover 
         popper-class="sms-markdown-emoji" 
         ref="popoverEmoji"
@@ -121,6 +121,8 @@
           '👣','👤','👥','🗣'
         ],
         defaultOption:{
+          showTabHeader : true,
+          showTabFooter : true,
           showTools : true,
           showHelpMessage: false,
           showMarkDownIco: true,
@@ -133,13 +135,18 @@
     mounted(){
         var self = this;
         this.defaultOption = this.extend(this.defaultOption, this.options);
+        if(!this.defaultOption.showTabHeader){
+          var elTabHeader = document.querySelectorAll(".sms-markdown .el-tabs__header")[0];
+          this.addClass(elTabHeader, "hide");
+          this.defaultOption.showTools = false;
+        }
         console.log(this.defaultOption);
         var myTextarea = document.getElementById("txtarea");
          this.cm = CodeMirror.fromTextArea(myTextarea, {
             mode: 'gfm',
             lineNumbers: false,
             theme: "paper",
-            lineWrapping: true,
+            lineWrapping: true
             //scrollbarStyle: 'simple'
           });
          this.$emit('init', this.cm);
@@ -183,12 +190,12 @@
         return new RegExp(' ' + cls + ' ').test(' ' + elem.className + ' ');
       },
       addClass(elem, cls) {
-        if (!this.hasClass(elem, cls)) {
+        if (elem && !this.hasClass(elem, cls)) {
           elem.className = elem.className == '' ? cls : elem.className + ' ' + cls;
         }
       },
       removeClass(elem, cls) {
-        if (this.hasClass(elem, cls)) {
+        if (elem && this.hasClass(elem, cls)) {
           var newClass = ' ' + elem.className.replace(/[\t\r\n]/g, '') + ' ';
           while (newClass.indexOf(' ' + cls + ' ') >= 0) {
             newClass = newClass.replace(' ' + cls + ' ', ' ');

@@ -55,10 +55,11 @@
 						<img src="/static/img/头像示例2.jpg">
 					</div>
 					<div class="replayeditmessage">
-						<!-- <textarea></textarea> -->
+						<textarea></textarea>
+						<!-- <SmsMarkdown :options="markdownOption"></SmsMarkdown> -->
 					</div>
 					<div class="replayeditsubmit">
-						<el-button type="primary">添加</el-button>
+						<el-button type="primary">提交</el-button>
 					</div>
 				</div>
 			</div>
@@ -72,7 +73,11 @@
 	    data(){
 			return {
 				replayclass: 'messagereplay h0',
-				messageclass: 'message'
+				messageclass: 'message',
+				markdownOption:{
+					showTabHeader: false,
+					showSubmit: true
+				}
 			}
 		},
 		methods: {
@@ -193,14 +198,33 @@
 		flex-direction: row;
 		justify-content: space-between;
 	}
-	.messagepanel .messagereplay .replayedit .replayeditmessage{
-		background: #fff;
+	.messagepanel .messagereplay .replayedit .replayeditmessage textarea{
+		min-height: 30px;
+	    max-height: 200px;
+	    resize: vertical;
+	    overflow: hidden;
+	    word-wrap: break-word;
+	    height: 30px;
+	    margin-top: 0px;
+	    margin-bottom: 0px;
+	    display: block;
+	    border-radius: 4px;
+	    flex: 1;
+	    border: 1px solid #bfcbd9;
+	}
+	.messagepanel .messagereplay .replayedit .replayeditmessage textarea:hover{
+		border-color: #8391a5;
+	}
+	.messagepanel .messagereplay .replayedit .replayeditmessage textarea:focus{
+		outline: 0;
+    	border-color: #bfcbd9;
 	}
 	.messagepanel .messagereplay .replayedit .replayedituserimg{
 		*border-right: 1px solid var(--border-color, #d4d9df);
 		display: flex;
-		align-items: center;
+		align-items: top;
 		padding-right: 5px;
+		width: 30px;
 	}
 	.messagepanel .messagereplay .replayedit .replayedituserimg img{
 		width: 30px;
@@ -209,20 +233,22 @@
 	}
 	.messagepanel .messagereplay .replayedit .replayeditmessage{
 		flex: 1;
+		display: flex;
 	}
 	.messagepanel .messagereplay .replayedit .replayeditsubmit{
-		*width: 100px;
+		width: 80px;
+		text-align: center;
 	}
-	.messagepanel .messagereplay .replayedit .replayeditsubmit .el-button--primary{
+/*	.messagepanel .messagereplay .replayedit .replayeditsubmit .el-button--primary{
 		background: var(--btn-bg-color-primary, #20a0ff);
     	border-color: var(--btn-border-color-primary, #20a0ff);
     	color: var(--btn-font-color-primary, #fff);
-    	border-radius: 0;
+    	*border-radius: 0;
 	}
 	.messagepanel .messagereplay .replayedit .replayeditsubmit .el-button--primary:hover{
 		background: var(--btn-hover-bg-color-primary, #4db3ff);
 		border-color: var(--btn-hover-border-color-primary, #4db3ff);
-	}
+	}*/
 	.messagepanel .messagereplay .replaymessagepanel{
 		flex: 1;
 		padding: 5px;

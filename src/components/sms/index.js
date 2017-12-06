@@ -7,6 +7,7 @@ import UserCardHor from './usercardhor';
 import BackToTop from './backtotop';
 import Point from './languagepoint';
 import Markdown from './markdown';
+import CodeEditor from './codeeditor';
 import MarkdownPreview from './markdownpreview';
 import SimpleList from './simplelist';
 
@@ -19,6 +20,7 @@ const components = [
   BackToTop,
   Point,
   Markdown,
+  CodeEditor,
   MarkdownPreview,
   SimpleList
 ];
@@ -47,6 +49,7 @@ module.exports = {
   BackToTop,
   Point,
   Markdown,
+  CodeEditor,
   MarkdownPreview,
   SimpleList
 };

@@ -24,7 +24,7 @@
 		</div>
 		<messagepanel v-for="i in 3"></messagepanel>
 		<div class="discuss">
-		  	<SmsMarkdown></SmsMarkdown>	
+		  	<SmsMarkdown :options="markdownOption"></SmsMarkdown>	
 		</div>
 		<!-- <div class="msg-header">
 			<div class="msg-header-left">
@@ -73,7 +73,10 @@
 						uid: 2,
 						uname: '大哥哥'
 					}
-				]
+				],
+				markdownOption:{
+					showSubmit: true
+				}
 			}
 		},
 		methods: {},
