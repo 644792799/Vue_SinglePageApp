@@ -82,6 +82,9 @@
 	      	]
 	      }
 	  	},
+	  	mounted(){
+	  		this.$emit("init", this);
+	  	},
 	  	props: ["foredit"],
 	  	methods:{
 	  		propertyChange: function(e){

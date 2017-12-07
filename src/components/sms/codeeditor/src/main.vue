@@ -279,6 +279,8 @@
                 this.languageSelectVal = this.aceeditorTabData[0].language;
                 this.filename = this.aceeditorTabData[0].filename;
             }
+
+            this.$emit("init", this);
         },
         watch: {
             // aceeditorfullscreenclass(curVal, oldVal){
@@ -332,6 +334,7 @@
                 }
             },
             preFile(){
+                if(this.aceeditorTabData.length <= 0)return;
                 var activeIndex = -1;
                 for(var index in this.aceeditorTabData){
                     var d = this.aceeditorTabData[index];
@@ -341,18 +344,18 @@
                 }
                 if(activeIndex > 0){
                     this.aceeditorTabData[activeIndex].isactive = false;
-
                     activeIndex = parseInt(activeIndex) - 1;
-
-                    this.aceeditorTabData[activeIndex].isactive = true;
-                    this.content = this.aceeditorTabData[activeIndex].content;
-                    this.languageSelectVal = this.aceeditorTabData[activeIndex].language;
-                    this.filename = this.aceeditorTabData[activeIndex].filename;
-                    //this.aceeditorTabData = Object.assign({}, this.aceeditorTabData);
+                }else {
+                    activeIndex = 0;
+                    this.aceeditorTabData[activeIndex].isactive = false;
+                    activeIndex = this.aceeditorTabData.length - 1;
                 }
+
+                this.selectTab(activeIndex);
             },
             nextFile(event){
-                var ul = document.getElementById("aceeditorTabs");
+                if(this.aceeditorTabData.length <= 0)return;
+                //var ul = document.getElementById("aceeditorTabs");
 
                 var activeIndex = -1;
                 for(var index in this.aceeditorTabData){
@@ -363,18 +366,23 @@
                 }
                 if(activeIndex < this.aceeditorTabData.length - 1){
                     this.aceeditorTabData[activeIndex].isactive = false;
-
                     activeIndex = parseInt(activeIndex) + 1;
-
-                    this.aceeditorTabData[activeIndex].isactive = true;
-                    this.content = this.aceeditorTabData[activeIndex].content;
-                    this.languageSelectVal = this.aceeditorTabData[activeIndex].language;
-                    this.filename = this.aceeditorTabData[activeIndex].filename;
-                    //this.aceeditorTabData = Object.assign({}, this.aceeditorTabData);
+                }else{
+                    this.aceeditorTabData[activeIndex].isactive = false;
+                    activeIndex = 0;
                 }
+
+                this.selectTab(activeIndex);
 
                 //var activeli = ul.getElementsByTagName("li")[activeIndex];
                 //console.log(activeli.width);
+            },
+            selectTab(activeIndex){
+                this.aceeditorTabData[activeIndex].isactive = true;
+                this.content = this.aceeditorTabData[activeIndex].content;
+                this.languageSelectVal = this.aceeditorTabData[activeIndex].language;
+                this.filename = this.aceeditorTabData[activeIndex].filename;
+                //this.aceeditorTabData = Object.assign({}, this.aceeditorTabData);
             },
             aceeditorTabClick(e){
                 var that = this;
@@ -392,40 +400,46 @@
             },
             deleteTab(e, event){
                 event.stopPropagation();
-                
-                var idx;
-                var iscurrent = false;
-                var tabDataArr = [];
-                for(var index in this.aceeditorTabData){
-                    var d = this.aceeditorTabData[index];
-                    if(e == d){
-                        idx = index;
-                        iscurrent = d.isactive;
-                        continue;
-                    }
-                    tabDataArr.push(d);
-                }
-                
-                this.aceeditorTabData = tabDataArr;
-                
-                if(iscurrent && this.aceeditorTabData.length > 0){
-                    this.aceeditorTabData[0].isactive = true;
-                    this.content = this.aceeditorTabData[0].content;
-                    this.languageSelectVal = this.aceeditorTabData[0].language;
-                    this.filename = this.aceeditorTabData[0].filename;
-                    this.aceeditorTabData = Object.assign({}, this.aceeditorTabData);
-                }
+                this.$confirm(
+                    "确定删除该码片？删除后将无法恢复！", "提示",
+                    {
+                        type: 'warning'
+                    })
+                    .then(_ => {
+                        var idx;
+                        var iscurrent = false;
+                        var tabDataArr = [];
+                        for(var index in this.aceeditorTabData){
+                            var d = this.aceeditorTabData[index];
+                            if(e == d){
+                                idx = index;
+                                iscurrent = d.isactive;
+                                continue;
+                            }
+                            tabDataArr.push(d);
+                        }
+                        
+                        this.aceeditorTabData = tabDataArr;
+                        
+                        if(iscurrent && this.aceeditorTabData.length > 0){
+                            this.aceeditorTabData[0].isactive = true;
+                            this.content = this.aceeditorTabData[0].content;
+                            this.languageSelectVal = this.aceeditorTabData[0].language;
+                            this.filename = this.aceeditorTabData[0].filename;
+                            this.aceeditorTabData = Object.assign({}, this.aceeditorTabData);
+                        }
 
-                if(this.aceeditorTabData == null || 
-                    this.aceeditorTabData.length == 0){
-                    this.content = "";
-                    this.languageSelectVal = "text";
-                    this.filename = "";
-                }
+                        if(this.aceeditorTabData == null || 
+                            this.aceeditorTabData.length == 0){
+                            this.content = "";
+                            this.languageSelectVal = "text";
+                            this.filename = "";
+                        }
 
-                if(tabDataArr.length < 5){
-                    this.tabAddClass = "icon-plus-circle2";
-                }
+                        if(tabDataArr.length < 5){
+                            this.tabAddClass = "icon-plus-circle2";
+                        }
+                    }).catch(_ => {});
             },
             languageChange(){
                 require('vue2-ace-editor/node_modules/brace/mode/' + this.languageSelectVal);

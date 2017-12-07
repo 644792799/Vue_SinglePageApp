@@ -15,22 +15,22 @@
 					<el-form ref="form" :model="form" label-width="80px">
 						<el-form-item label="标题" required>
 							<el-col :span="24">
-								<el-input v-model="form.name" placeholder="请用一句简短的话描述您即将添加的代码片"></el-input>
+								<el-input v-model="form.title" placeholder="请用一句简短的话描述您即将添加的代码片"></el-input>
 							</el-col>
 					    </el-form-item>
 					    <el-form-item label="代码" required style="position:relative;">
-					    	<CodeEditor></CodeEditor>
+					    	<CodeEditor @init="codeEditorInit"></CodeEditor>
 					    </el-form-item>
 					    <el-form-item label="代码描述">
 					    	<SmsMarkdown @input="inputCodeDescript" :mdtext="form.desc" :options="markdownOption"></SmsMarkdown>
 					  	</el-form-item>
 					  	<el-form-item>
-					  		<el-checkbox v-model="isprivate">是否私有</el-checkbox>
-					  		<el-checkbox v-model="allowcomment">允许评论</el-checkbox>
+					  		<el-checkbox v-model="form.isprivate">是否私有</el-checkbox>
+					  		<el-checkbox v-model="form.allowcomment">允许评论</el-checkbox>
 					  	</el-form-item>
 					  	<el-form-item>
-						    <el-button type="primary">添加</el-button>
-						    <el-button>重置</el-button>
+						    <el-button type="primary" @click="addSnipt">提交码片</el-button>
+						    <!-- <el-button>重置</el-button> -->
 					  	</el-form-item>
 					</el-form>
 				</div>
@@ -43,7 +43,7 @@
 							    <el-tag
 							      type="gray" 
 								  :key="tag"
-								  v-for="tag in dynamicTags"
+								  v-for="tag in form.dynamicTags"
 								  :closable="true"
 								  :close-transition="false"
 								  @close="handleClose(tag)"
@@ -63,7 +63,7 @@
 								<el-button v-else class="button-new-tag" size="small" @click="showInput">+</el-button>
 							</el-form-item>
 							<el-form-item label="属性">
-								<articleProp foredit></articleProp>
+								<articleProp foredit @init="propertiesInit"></articleProp>
 							</el-form-item>
 						</el-form>
 					</div>
@@ -79,24 +79,21 @@
 	    data () {
 	      return {
 	      	form: {
-	          name: '',
-	          region: '',
-	          date1: '',
-	          date2: '',
-	          delivery: false,
-	          type: [],
-	          resource: '',
-	          desc: '我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落'//markdown格式的字符串
+	          title: '',
+	          resource: [],
+	          desc: '我姥姥姓刘，在北京城也算是个大姓，我至今对祖上发生的一切一无所知也无从考据，只知上世纪三四十年代家道中落',//markdown格式的字符串
+	          isprivate: false,
+	          allowcomment: true,
+	          dynamicTags: ['JAVA', '开源', 'private']
 	        },
 	        markdownOption:{
 	        	showSubmit: false
 	        },
-	        isprivate: false,
-	        allowcomment: true,
-	        dynamicTags: ['JAVA', '开源', 'private'],
 	        inputVisible: false,
 	        inputValue: '',
 	        labelPosition: 'top',
+	        codeEditor: null,
+	        articleProperties: null
 	      }
 	    },
 	    components: {
@@ -121,10 +118,11 @@
 		},
 	    methods:{
 	    	inputCodeDescript(editorVal){
-	    		console.log(editorVal);
+	    		//console.log(editorVal);
+	    		this.form.desc = editorVal;
 	    	},
 	        handleClose(tag) {
-		        this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
+		        this.form.dynamicTags.splice(this.form.dynamicTags.indexOf(tag), 1);
 		    },
 		    showInput() {
 		        this.inputVisible = true;
@@ -135,10 +133,23 @@
 		    handleInputConfirm() {
 		        let inputValue = this.inputValue;
 		        if (inputValue) {
-		          this.dynamicTags.push(inputValue);
+		          this.form.dynamicTags.push(inputValue);
 		        }
 		        this.inputVisible = false;
 		        this.inputValue = '';
+		    },
+		    codeEditorInit(codeEditorInstance){
+		    	//console.log(codeEditorInstance.aceeditorTabData);
+		    	this.codeEditor = codeEditorInstance;
+		    },
+		    propertiesInit(propertiesInstance){
+		    	//console.log(propertiesInstance.showDatas);
+		    	this.articleProperties = propertiesInstance;
+		    },
+		    addSnipt(){
+		    	this.form.resource = this.codeEditor.aceeditorTabData;
+		    	this.form.properties = this.articleProperties.showDatas;
+		    	console.log(this.form);
 		    }
 	    }
 	  }

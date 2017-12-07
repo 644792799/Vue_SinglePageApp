@@ -1,5 +1,9 @@
 <template>
   <div :class="editorClass">
+    <el-dialog title="MARKDOWN编辑器语法" :visible.sync="dialogTableVisible" size="small">
+      <markdownhelp></markdownhelp>
+    </el-dialog>
+
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="编辑" name="edit" class="edit">
           <textarea v-model="preMark" id="txtarea"></textarea>
@@ -11,7 +15,7 @@
     </el-tabs>
     <div class="sms-markdown-footer" v-if="defaultOption.showTabFooter">
       <div class="sms-markdown-helper" v-if="defaultOption.showMarkDownIco">
-          <a href="#">
+          <a href="javascript:void(0);" @click="mdlinkclick">
             <svg aria-hidden="true" class="octicon octicon-markdown v-align-bottom" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M14.85 3H1.15C.52 3 0 3.52 0 4.15v7.69C0 12.48.52 13 1.15 13h13.69c.64 0 1.15-.52 1.15-1.15v-7.7C16 3.52 15.48 3 14.85 3zM9 11H7V8L5.5 9.92 4 8v3H2V5h2l1.5 2L7 5h2v6zm2.99.5L9.5 8H11V5h2v3h1.5l-2.51 3.5z"></path></svg>
               支持Markdown语法
           </a>
@@ -67,26 +71,29 @@
   //import deal from '../deal.js'
   import CodeMirror from 'codemirror'
   import SimpleScrollbars from 'codemirror/addon/scroll/simplescrollbars.js'
-  import hljs from 'pluginspath/highlight/highlight.pack.js'
+  //import hljs from 'pluginspath/highlight/highlight.pack.js'
   //import 'codemirror/mode/markdown/markdown.js'
   import 'codemirror/mode/gfm/gfm.js'
   import 'codemirror/lib/codemirror.css'
   import 'codemirror/addon/scroll/simplescrollbars.css'
   //import './css/smsmarkdown.min.css'
-  var marked = require('marked');
-  marked.setOptions({
-    renderer: new marked.Renderer(),
-    gfm: true,
-    tables: true,
-    breaks: true,
-    pedantic: true,
-    sanitize: true,
-    smartLists: true,
-    smartypants: true,
-    highlight: function (code) {
-      return hljs.highlightAuto(code).value;
-    }
-  });
+
+  import MarkdownHelp from 'components/comps/common/MarkdownHelp.vue'
+
+  // var marked = require('marked');
+  // marked.setOptions({
+  //   renderer: new marked.Renderer(),
+  //   gfm: true,
+  //   tables: true,
+  //   breaks: true,
+  //   pedantic: true,
+  //   sanitize: true,
+  //   smartLists: true,
+  //   smartypants: true,
+  //   highlight: function (code) {
+  //     return hljs.highlightAuto(code).value;
+  //   }
+  // });
   export default {
     name: 'SmsMarkdown',
     data(){
@@ -129,7 +136,8 @@
           showSubmit: false,
           showPreview: true,
           showDragSplitter: false
-        }
+        },
+        dialogTableVisible: false
       }
     },
     mounted(){
@@ -140,7 +148,7 @@
           this.addClass(elTabHeader, "hide");
           this.defaultOption.showTools = false;
         }
-        console.log(this.defaultOption);
+        //console.log(this.defaultOption);
         var myTextarea = document.getElementById("txtarea");
          this.cm = CodeMirror.fromTextArea(myTextarea, {
             mode: 'gfm',
@@ -163,6 +171,9 @@
     },
     props:['mdtext', 'options'],
     methods: {
+      mdlinkclick(){
+        this.dialogTableVisible = true;
+      },
       extend(target, options){
         if(options){
           for(name in options){
@@ -178,7 +189,7 @@
           this.postMark = "等待预览......";
           var self=this; 
           setTimeout(function(){
-            self.postMark = marked(self.preMark);;
+            self.postMark = self.preMark;//marked(self.preMark);
           }, 1000);
         }else if(this.activeName == "edit"){
           this.removeClass(mdtools, "hide");
@@ -657,6 +668,9 @@
       info : function() {
           // this.showInfoDialog();
       }
+    },
+    components: {
+      markdownhelp: MarkdownHelp
     }
   };
 
