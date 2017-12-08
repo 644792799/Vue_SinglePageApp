@@ -17,6 +17,7 @@
 							<img src="/static/img/头像示例2.jpg">
 						</div>
 						<div class="username">小哥哥</div>
+						<div class="mastermark">(码主)</div>
 						<div class="dot">.</div>
 						<div class="time">2017年7月4日</div>
 					</div>
@@ -308,6 +309,12 @@
 	}
 	.messagepanel .message .messageaction .usermessage>div{
 		margin-right: 10px;
+	}
+	.messagepanel .message .messageaction .usermessage .username{
+		margin-right: 5px;
+	}
+	.messagepanel .message .messageaction .usermessage .mastermark{
+		font-size: 12px;
 	}
 	.messagepanel .message .messageaction .usermessage .time{
 		font-size: 12px;
