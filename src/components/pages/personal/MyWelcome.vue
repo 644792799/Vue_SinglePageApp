@@ -4,7 +4,11 @@
 			<div class="left">
 				<div style="margin-top: 25px; margin-bottom: 15px;">
 					<el-tabs v-model="activeDynamic" type="border-card" @tab-click="selectFocusTab">
-					    <el-tab-pane label="关注动态" name="dynamic">
+					    <el-tab-pane name="dynamic">
+					    	<span slot="label">
+					    		<i class="icon-activity"></i> 
+					    		关注动态
+					    	</span>
 					    	<div>
 					    		<ul class="focus-dynamic">
 					    			<li v-for="i in 15">
@@ -24,6 +28,10 @@
 					    	</div>
 					    </el-tab-pane>
 					    <el-tab-pane label="关注分类" name="category">
+					    	<span slot="label">
+					    		<i class="icon-hash"></i> 
+					    		关注分类
+					    	</span>
 					    	配置管理
 					    </el-tab-pane>
 					</el-tabs>
