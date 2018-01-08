@@ -6,6 +6,8 @@ import ElementUI from 'element-ui'
 import App from './App'
 import VueRouter from "vue-router"
 import VueResource from 'vue-resource'
+import Vuex from 'vuex'
+import store from './vuex/store'
 
 import FirstComponent from './components/pages/demo/firstComponent.vue'
 import SecondComponent from './components/pages/demo/secondComponent.vue'
@@ -34,6 +36,7 @@ import '../static/css/font/style.css'
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
+Vue.use(Vuex)
 Vue.use(ElementUI);
 Vue.use(SmsUI);
 
@@ -116,5 +119,6 @@ const router = new VueRouter({mode: 'history', routes});
 new Vue({
   el: '#app',
   router,
+  store,
   ...App
 })

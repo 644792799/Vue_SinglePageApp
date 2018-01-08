@@ -18,7 +18,7 @@
 				<el-dropdown class="">
 				  	<span class="el-dropdown-link">
 				    	<img src="/static/img/头像示例2.jpg" class="el-dropdown-img">
-				    	&nbsp;用户名<i class="el-icon-arrow-down el-icon--right"></i>
+				    	&nbsp;{{author}}<i class="el-icon-arrow-down el-icon--right"></i>
 				  	</span>
 				    <el-dropdown-menu slot="dropdown">
 					    <el-dropdown-item>
@@ -62,6 +62,11 @@
 			issignin: false,
 			select: "3",
 			searchCondition: ""
+		}
+	},
+	computed:{
+		author(){
+			return this.$store.state.author;
 		}
 	},
 	props: ['menus'],
