@@ -113,7 +113,7 @@
 
 <style type="text/css">
 	.header {
-		*min-width: 920px;
+		min-width: 980px;
 		display: flex;
 		flex-direction: row;
 		flex-wrap: nowrap;
@@ -123,8 +123,8 @@
 		position: fixed;
 		background-color: var(--nav-bg-color, #41484d);
 		border-bottom: 1px solid #eaeefb;
-		overflow: hidden;
-		transition: width .6s ease-in-out;
+		*overflow: hidden;
+		*transition: width .6s ease-in-out;
 		opacity: 0.98;
 	}
 	.header .el-dialog--tiny {

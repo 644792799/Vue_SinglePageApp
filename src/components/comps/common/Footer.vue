@@ -1,6 +1,6 @@
 <template>
 	<div class="footer">
-		<span>Copyright © 2017–2020 SMS</span>
+		<span>© {{copyrightdate}} {{copyright}}</span>
 		<i class="icon-steps"></i>
 	</div>
 </template>
@@ -8,6 +8,14 @@
 	export default{
 		data(){
 			return {}
+		},
+		computed:{
+			copyright: function(){
+				return this.$store.state.copyright;
+			},
+			copyrightdate: function(){
+				return this.$store.state.copyrightdate;
+			}
 		}
 	}
 </script>
@@ -17,10 +25,13 @@
 		border-top: 1px solid #eaeefb;
 		margin-top: 20px;
 		position: relative;
+		min-width: 1190px;
+		*width: 100%;
+		overflow: hidden;
 	}
 	.footer span {
 		line-height: 50px;
-		padding-left: 10px;
+		padding-left: 255px;
 		font-size: 12px;
 		color: #586069;
 		font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";

@@ -104,6 +104,8 @@ export default{
 	.welcomecontainer, .welcomecontainer .content{
 		height: 100%!important;
 		overflow: hidden;
+		position: fixed;
+		width: 100%;
 	}
 	.welcomecontainer .content{
 		padding-top: 0!important;
@@ -132,24 +134,23 @@ export default{
         align-items:center;
 	}
 	.main {
-		*max-width: 1140px;
+		display: flex;
+	    flex-direction: column;
+	    height: 100%;
 	}
 	.main .content{
-		*overflow-y: auto;
-		*height: 100%;
 		padding-top:50px;
 		margin: 0 auto;
-		*max-width: 1500px;
-		min-width: 1270px;
+		min-width: 1190px;
+		width: 100%;
 		position: relative;
 		display: flex;
 		flex-direction: column;
 	}
 	.main .routercontent{
 		flex: 1;
-		margin-left: 250px;
+		padding-left: 250px;
 		position: relative;
-		*padding: 0 50px;
 	}
 	.nav-pills > li > a {
     	border-radius: 0px!important;

@@ -41,19 +41,19 @@
 	.leftmenu{
 		position: fixed;
 		left: 0;
+		bottom: 0;
+		top: 50px;
 		width: 250px;
 		background: white;
-		height: 100%;
 		overflow: hidden;
 		overflow-y: auto;
 		z-index: 4;
-		padding: 10px 0;
+		*padding: 10px 0;
 		box-shadow: #e4e8f1 1px 0px 18px 0px;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
-		transition: height .6s ease-in-out;  
-		*align-items: center;
+		*transition: height .6s ease-in-out;  
 	}
 	.leftmenu .addcode{
 		position: relative;
@@ -73,6 +73,7 @@
 	.leftmenu .menu .active{
 		color: var(--nav-hover-color, #ea7069);
 		background: #fbfcfc;
+		border-left: 5px solid var(--nav-hover-border-color, #ea7069);
 	}
 	.leftmenu .menu ul{
 		list-style: none;
@@ -83,7 +84,8 @@
 		font-size: 18px;
 		font-weight: 400;
 		cursor: pointer;
-		transition: border .15s ease-in-out;
+		transition: border-color .25s ease-in-out;
+		border-left: 5px solid white;
 	}
 	.leftmenu .menu ul li:hover{
 		border-left: 5px solid var(--nav-hover-border-color, #ea7069);
