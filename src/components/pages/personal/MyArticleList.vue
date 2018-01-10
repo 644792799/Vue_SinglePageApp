@@ -138,13 +138,10 @@
 							<el-tag type="gray" v-for="tag in skillTag">{{tag}}</el-tag>
 						</div>
 					</SmsCard>
-					<SmsCard header="七日访问趋势" ico="icon-activity">
-						
-					</SmsCard>
-					<SmsCard header="最近访问用户" ico="icon-user">
+					<SmsCard header="最近访问用户" ico="icon-user" class="visit-users">
 						<div class="img-list">
 							<ul>
-					  			<li v-for="i in 20">
+					  			<li v-for="i in 14">
 					  				<a href="javascript:void(0);">
 					  					<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498551826199&di=dd1413b07fcebf87e28b12316d4f14e7&imgtype=0&src=http%3A%2F%2Fk2.jsqq.net%2Fuploads%2Fallimg%2F1705%2F7_170524143440_5.jpg" title="小哥哥">
 					  					<!-- <div style="font-size: 12px;    padding-top: 3px;">小哥哥</div> -->
@@ -152,6 +149,8 @@
 					  			</li>
 					  		</ul>
 						</div>
+					</SmsCard>
+					<SmsCard header="七日访问趋势" ico="icon-activity">
 						
 					</SmsCard>
 				</div>	
@@ -231,6 +230,10 @@
 	    *border: 1px solid var(--border-color, #d4d9df);
 	    *box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
 	    color: var(--content-color, #4e5359);
+	}
+
+	.myarticle .myarticle-right .visit-users .sms-card__body{
+		padding: 5px 5px;
 	}
 	
 	.myarticle .contribution-container{
