@@ -34,6 +34,13 @@
 								<i class="icon-flag2"></i>
 							</el-tooltip>
 			  			</h3>
+			  			<div class="code-source">
+			  				<i class="icon-git-branch"></i>
+			  				派生自:
+			  				<a href="">小哥哥</a>
+			  				<b>/</b>
+			  				<a href="">15个实用的jQuery代码片</a>
+			  			</div>
 			  			<el-tag v-for="(i, index) in tagTypes" :type="i">标签{{index + 1}}</el-tag>
 			  		</div>
 					<div class="article-content" id="article-content">
@@ -289,6 +296,7 @@
 	}
 	.article-detail h3{
 		color: var(--title-color, #4E5359);
+		margin-bottom: 5px;
 	}
 	.article-detail .breadcrumb-container{
 		margin: 15px 0;
@@ -553,6 +561,16 @@
 
 	.article-title .el-tag+.el-tag {
 	    margin-left: 10px;
+	}
+
+	.article-title .code-source{
+		font-size: 12px;
+		margin-bottom: 10px;
+		color: var(--sub-title-color, #939c99);
+	}
+
+	.article-title .code-source a{
+		color: var(--link-hover-color, #20a0ff);
 	}
 
 	.article-detail .comments{

@@ -10,7 +10,7 @@
 			  trigger="hover">
 			  	<simpleprofilecard></simpleprofilecard>
 			</el-popover>
-			<a href="javascript:void(0);" @click="touser" class="articles-thumbnail" v-popover:popoverSimpleFileCard>
+			<a href="javascript:void(0);" @click="touser" class="articles-thumbnail">
 				<span>
 					<img :src="art.avator" onload="" onerror="this.src='/static/img/头像示例2.jpg'" />
 				</span>

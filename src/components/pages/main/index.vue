@@ -213,13 +213,25 @@
 		        icoclass: "icon-list",
 		        isfullmode: true,
 		        activeUserSort: '本周',
-		        activeSniptSort: '本周'
+		        activeSniptSort: '本周',
+		        scrollDisable: false
 			}
 		},
 		components: {
 			"articleList": ArticleList,
 			"categoryCard": CategoryCard,
 			"codefilter": CodeFilter
+		},
+		mounted(){
+			var self = this;
+			window.addEventListener('scroll', function() {
+			  //var scrollTop = window.scrollY;
+			  if(self.scrollTop() + self.windowHeight() >= (self.documentHeight() )){
+		          if(!self.scrollDisable){	
+			          self.loadMore();
+			      }
+		        }
+			});
 		},
 		methods: {
 	      handleClick(tab, event) {
@@ -233,7 +245,29 @@
 	      		this.icoclass = "icon-list";
 	      		this.isfullmode = true;
 	      	}
-	      }
+	      },
+	      loadMore(){
+	      	this.scrollDisable = true;
+	      	console.log("加载数据......");
+	      	this.scrollDisable = false;
+	      },
+	      scrollTop(){
+			  return Math.max(
+			   //chrome
+			   document.body.scrollTop,
+			   //firefox/IE
+			   document.documentElement.scrollTop);
+		  },
+		  documentHeight(){
+			  //现代浏览器（IE9+和其他浏览器）和IE8的document.body.scrollHeight和document.documentElement.scrollHeight都可以
+			  return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
+		  },
+		  windowHeight(){
+			  //document.compatMode有两个取值。BackCompat：标准兼容模式关闭。CSS1Compat：标准兼容模式开启。
+			  return (document.compatMode == "CSS1Compat")?
+			  document.documentElement.clientHeight:
+			  document.body.clientHeight;
+			 }
 	    }
 	}
 </script>
