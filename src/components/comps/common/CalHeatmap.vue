@@ -38,6 +38,7 @@
 				        top: 50,
 				        left: 'center',
 				        range: ['2016-01-01', '2016-06-30'],
+				        cellSize: ['auto', 20],
 				        splitLine: {
 				            show: true,
 				            lineStyle: {
