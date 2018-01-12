@@ -12,6 +12,7 @@
     "bootstrap": "^3.3.7",
     "codemirror": "^5.26.0",
     "d3": "^3.5.6",
+    "echarts": "^3.8.5",
     "element-ui": "^1.4.9",
     "jquery": "^2.2.3",
     "marked": "^0.3.6",

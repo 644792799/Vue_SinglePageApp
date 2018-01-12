@@ -11,7 +11,8 @@
 		<div class="flex-row-layout">
 			<div class="myarticle-left">
 				<div class="contribution-container">
-					<contribution></contribution>
+					<!-- <contribution></contribution> -->
+					<calheatmap></calheatmap>
 				</div>
 				<div style="margin-top:10px;">
 					<el-tabs >
@@ -160,6 +161,7 @@
 </template>
 <script type="text/javascript">
 	import Contribution from 'components/comps/common/Contribution.vue'
+	import CalHeatmap from 'components/comps/common/CalHeatmap.vue'
 	export default{
 		data(){
 			return{
@@ -186,10 +188,17 @@
 			}
 		},
 		mounted: function(){
-			console.log(this.$route.params.user_id);
+			//console.log(this.$route.params.user_id);
+			//this.drawHeatMap();
 		},
 	    components: {
-	      "contribution": Contribution
+	      "contribution": Contribution,
+	      'calheatmap': CalHeatmap
+	    },
+	    methods: {
+	    	drawHeatMap(){
+	    		console.log(this.$echarts);
+	    	}
 	    }
 	}
 </script>

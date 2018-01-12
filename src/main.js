@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import ElementUI from 'element-ui'
+import echarts from 'echarts'
 
 import App from './App'
 import VueRouter from "vue-router"
@@ -39,6 +40,8 @@ Vue.use(VueResource);
 Vue.use(Vuex)
 Vue.use(ElementUI);
 Vue.use(SmsUI);
+
+Vue.prototype.$echarts = echarts;
 
 const routes = [
 	{
