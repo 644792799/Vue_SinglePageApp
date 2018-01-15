@@ -138,6 +138,9 @@
 						<div class="user-skills">
 							<el-tag type="gray" v-for="tag in skillTag">{{tag}}</el-tag>
 						</div>
+						<div>
+							<radar></radar>
+						</div>
 					</SmsCard>
 					<SmsCard header="最近访问用户" ico="icon-user" class="visit-users">
 						<div class="img-list">
@@ -152,7 +155,7 @@
 						</div>
 					</SmsCard>
 					<SmsCard header="七日访问趋势" ico="icon-activity">
-						
+						<bar></bar>
 					</SmsCard>
 				</div>	
 			</div>
@@ -162,6 +165,8 @@
 <script type="text/javascript">
 	import Contribution from 'components/comps/common/Contribution.vue'
 	import CalHeatmap from 'components/comps/common/CalHeatmap.vue'
+	import Radar from 'components/comps/common/Radar.vue'
+	import Bar from 'components/comps/common/BarChart.vue'
 	export default{
 		data(){
 			return{
@@ -193,7 +198,9 @@
 		},
 	    components: {
 	      "contribution": Contribution,
-	      'calheatmap': CalHeatmap
+	      'calheatmap': CalHeatmap,
+	      'radar': Radar,
+	      'bar': Bar
 	    },
 	    methods: {
 	    	drawHeatMap(){

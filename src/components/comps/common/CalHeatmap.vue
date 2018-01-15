@@ -6,18 +6,42 @@
 <script type="text/javascript">
 	export default {
 	    data () {
-	      return {}
+	      return {
+	      	screenWidth: '',
+	      	timer: false,
+	      	myChart: null
+	      }
 	    },
 	    components: {
 	      
 	    },
 	    mounted () {
-	      this.drawHeatMap();
+	      	this.drawHeatMap();
+	      	const that = this
+            window.onresize = () => {
+                return (() => {
+                    window.screenWidth = document.body.clientWidth;
+                    that.screenWidth = window.screenWidth;
+                })()
+            }
+	    },
+	    watch: {
+	    	screenWidth (val) {
+                if (!this.timer) {
+                    this.screenWidth = val;
+                    this.timer = true;
+                    let that = this;
+                    setTimeout(function () {
+                        that.myChart.resize();
+                        that.timer = false;
+                    }, 400)
+                }
+            }
 	    },
 	    methods:{
 	    	drawHeatMap(){
 	    		//console.log(this.$echarts);
-	    		let myChart = this.$echarts.init(document.getElementById('calheatmap'));
+	    		this.myChart = this.$echarts.init(document.getElementById('calheatmap'));
 	    		var data = this.getVirtulData(2016);
 	    		var option = {
 				    backgroundColor: '#fff',
@@ -72,7 +96,7 @@
 				            },
 				            itemStyle: {
 				                normal: {
-				                    color: '#ddb926'
+				                    color: '#ea7069'
 				                }
 				            }
 				        },
@@ -93,7 +117,7 @@
 				            hoverAnimation: true,
 				            itemStyle: {
 				                normal: {
-				                    color: '#f4e925',
+				                    color: '#ff4949',
 				                    shadowBlur: 10,
 				                    shadowColor: '#333'
 				                }
@@ -103,7 +127,7 @@
 				    ]
 				};
 				//console.log(this.getVirtulData(2017));
-	    		myChart.setOption(option);
+	    		this.myChart.setOption(option, true);
 	    	},
 	    	getVirtulData(year) {
 			    year = year || '2017';
