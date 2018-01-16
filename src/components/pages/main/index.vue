@@ -48,7 +48,7 @@
 				  	</div>
 				  	<div class="img-list">
 				  		<ul>
-				  			<li v-for="i in 20">
+				  			<li v-for="i in 14">
 				  				<a href="javascript:void(0);">
 				  					<img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1498551826199&di=dd1413b07fcebf87e28b12316d4f14e7&imgtype=0&src=http%3A%2F%2Fk2.jsqq.net%2Fuploads%2Fallimg%2F1705%2F7_170524143440_5.jpg" title="小哥哥">
 				  					<!-- <div style="font-size: 12px;    padding-top: 3px;">小哥哥</div> -->
@@ -223,15 +223,10 @@
 			"codefilter": CodeFilter
 		},
 		mounted(){
-			var self = this;
-			window.addEventListener('scroll', function() {
-			  //var scrollTop = window.scrollY;
-			  if(self.scrollTop() + self.windowHeight() >= (self.documentHeight() )){
-		          if(!self.scrollDisable){	
-			          self.loadMore();
-			      }
-		        }
-			});
+			window.addEventListener('scroll', this.scroll);
+		},
+		beforeDestroy(){
+			window.removeEventListener('scroll', this.scroll)
 		},
 		methods: {
 	      handleClick(tab, event) {
@@ -267,7 +262,16 @@
 			  return (document.compatMode == "CSS1Compat")?
 			  document.documentElement.clientHeight:
 			  document.body.clientHeight;
-			 }
+			 },
+		  scroll : function() {
+			  //var scrollTop = window.scrollY;
+			  var self = this;
+			  if(self.scrollTop() + self.windowHeight() >= (self.documentHeight() )){
+		          if(!self.scrollDisable){	
+			          self.loadMore();
+			      }
+		        }
+			}
 	    }
 	}
 </script>
@@ -299,8 +303,8 @@
 	    *padding: 10px;
 	    background: #Fff;
 	    border-radius: 3px;
-	    border: 1px solid var(--border-color, #d4d9df);
-	    box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
+	    *border: 1px solid var(--border-color, #d4d9df);
+	    box-shadow: var(--left-box-shadow, #d5d9de 1px 1px 4px 0px);
 	}
 	.index .rightcontainer .sms-card{
 		box-shadow: var(--left-box-shadow, #d5d9de 0.5px 0.5px 4px 0px);

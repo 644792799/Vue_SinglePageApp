@@ -16,6 +16,7 @@
 	      
 	    },
 	    mounted () {
+	    	this.myChart = this.$echarts.init(document.getElementById('calheatmap'));
 	      	this.drawHeatMap();
 	      	const that = this
             window.onresize = () => {
@@ -25,9 +26,17 @@
                 })()
             }
 	    },
+	    beforeDestroy () {
+			this.myChart.clear();
+			window.onresize = null;
+		},
+		destroy(){
+			this.myChart.dispose();
+		},
 	    watch: {
 	    	screenWidth (val) {
                 if (!this.timer) {
+                	console.log(11);
                     this.screenWidth = val;
                     this.timer = true;
                     let that = this;
@@ -40,8 +49,6 @@
 	    },
 	    methods:{
 	    	drawHeatMap(){
-	    		//console.log(this.$echarts);
-	    		this.myChart = this.$echarts.init(document.getElementById('calheatmap'));
 	    		var data = this.getVirtulData(2016);
 	    		var option = {
 				    backgroundColor: '#fff',

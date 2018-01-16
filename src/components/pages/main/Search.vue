@@ -148,8 +148,15 @@
 		          language: 'All',
 		          language2: 'All',
 		          order: 'new'
-		        }
+		        },
+		        scrollDisable: false
 			}
+		},
+		mounted(){
+			window.addEventListener('scroll', this.scroll);
+		},
+		beforeDestroy(){
+			window.removeEventListener('scroll', this.scroll)
 		},
 		components: {
 			"articleList": ArticleList,
@@ -157,9 +164,40 @@
 			"codefilter": CodeFilter
 		},
 		methods: {
-	      handleClick(tab, event) {
-	        console.log(tab, event);
-	      }
+			handleClick(tab, event) {
+				console.log(tab, event);
+			},
+			loadMore(){
+				this.scrollDisable = true;
+				console.log("加载数据......");
+				this.scrollDisable = false;
+			},
+			scroll : function() {
+				//var scrollTop = window.scrollY;
+				var self = this;
+				if(self.scrollTop() + self.windowHeight() >= (self.documentHeight() )){
+				  if(!self.scrollDisable){	
+				      self.loadMore();
+				  }
+				}
+			},
+			scrollTop(){
+				return Math.max(
+				//chrome
+				document.body.scrollTop,
+				//firefox/IE
+				document.documentElement.scrollTop);
+			},
+			documentHeight(){
+				//现代浏览器（IE9+和其他浏览器）和IE8的document.body.scrollHeight和document.documentElement.scrollHeight都可以
+				return Math.max(document.body.scrollHeight,document.documentElement.scrollHeight);
+			},
+			windowHeight(){
+				//document.compatMode有两个取值。BackCompat：标准兼容模式关闭。CSS1Compat：标准兼容模式开启。
+				return (document.compatMode == "CSS1Compat")?
+				document.documentElement.clientHeight:
+				document.body.clientHeight;
+			}
 	    }
 	}
 </script>
@@ -184,8 +222,8 @@
 	    *padding: 10px;
 	    background: #Fff;
 	    border-radius: 3px;
-	    border: 1px solid var(--border-color, #d4d9df);
-	    box-shadow: var(--right-box-shadow, #d5d9de 1px 1px 4px 0px);
+	    *border: 1px solid var(--border-color, #d4d9df);
+	    box-shadow: var(--left-box-shadow, #d5d9de 1px 1px 4px 0px);
 	}
 	.search .filtercontainer{
 		position: relative;

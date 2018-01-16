@@ -26,6 +26,12 @@
         //         })()
         //     }
 	    },
+	    beforeDestroy () {
+			this.myChart.clear()
+		},
+		destroy(){
+			this.myChart.dispose();
+		},
 	    watch: {
 	    	// screenWidth (val) {
       //           if (!this.timer) {
