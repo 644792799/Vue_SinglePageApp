@@ -1,7 +1,12 @@
 <template>
 	<div class="footer">
-		<span>© {{copyrightdate}} {{copyright}}</span>
-		<i class="icon-steps"></i>
+		<div>
+			<span>© {{copyrightdate}} {{copyright}}</span>
+			<i class="icon-steps"></i>
+		</div>
+		<div>
+			<a href="javascript:void(0);" @click="feedback" class="">意见&建议</a>
+		</div>
 	</div>
 </template>
 <script type="text/javascript">
@@ -16,6 +21,12 @@
 			copyrightdate: function(){
 				return this.$store.state.copyrightdate;
 			}
+		},
+		methods: {
+			feedback: function(){
+				this.$router.push({path:'/feedback'});
+				//this.$router.go('/search');
+			}
 		}
 	}
 </script>
@@ -28,6 +39,9 @@
 		min-width: 1190px;
 		*width: 100%;
 		overflow: hidden;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 	}
 	.footer span {
 		line-height: 50px;
@@ -47,5 +61,14 @@
 	    text-align: center;
 	    top: 8px;
         border-radius: 35px;
+	}
+
+	.footer a:link {
+	    color: var(--title-color, #4E5359);
+	    font-size: 12px;
+	}
+
+	.footer a:hover {
+	    color: var(--link-hover-color, #20a0ff)!important;
 	}
 </style>

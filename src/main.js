@@ -27,6 +27,7 @@ import CategorizedDetail from './components/pages/cat/CategorizedDetail.vue'
 import PageNotFound from './components/pages/404/404.vue'
 import About from './components/pages/about/about.vue'
 import Help from './components/pages/about/help.vue'
+import Feedback from './components/pages/feedback/feedback.vue'
 import SmsUI from './components/sms'
 
 //import 'bootstrap/dist/css/bootstrap.css'
@@ -111,6 +112,10 @@ const routes = [
 	{
 		path: '/mywelcome',
 		component: MyWelcome
+	},
+	{
+		path: '/feedback',
+		component: Feedback
 	},
 	{
 		path: '*',
