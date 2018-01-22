@@ -10,7 +10,7 @@
 					<li>
 						<div>
 							<span>
-								<a href="">
+								<a href="" class="active">
 									<i class="icon-bug"></i>
 									8 Bug
 								</a>
@@ -24,8 +24,10 @@
 						</div>
 					</li>
 					<li>
-						<div style="width:50px;">111</div>
-						<div style="flex:1">
+						<div class="list-element-left">
+							<i class="icon-issue-opened"></i>
+						</div>
+						<div class="list-element-right">
 							<div>222</div>
 							<div>333</div>
 						</div>
@@ -47,6 +49,16 @@
 		margin-top: 15px;
     	margin-bottom: 15px;
 	}
+	.feedback .list-element-left{
+		width:40px;
+		text-align:center;
+		font-size:15px;
+		color:#28a745;
+	}
+
+	.feedback .list-element-right{
+		flex:1;
+	}
 
 	.feedback .filtercontainer{
 		position: relative;
@@ -64,7 +76,7 @@
 	}
 
 	.feedback .qacontainer ul li{
-		height: 55px;
+		height: 45px;
 	}
 
 	.feedback .qacontainer ul li:first-child{
@@ -79,6 +91,12 @@
 		border-top: 1px solid var(--border-color, #e4e8f1);
 		display: flex;
 		flex-direction: row;
+		align-items: center;
+		padding: 5px 10px 5px 0;
+	}
+
+	.feedback .qacontainer ul li+li:hover{
+		background: var(--banner-color, #eef1f6);
 	}
 
 	.feedback .qacontainer ul li:first-child a{
@@ -91,5 +109,9 @@
 
 	.feedback .qacontainer ul li span+span{
 		margin-left: 10px;
+	}
+
+	.feedback .active{
+		color: var(--default-color, #4e5359)!important;
 	}
 </style>
