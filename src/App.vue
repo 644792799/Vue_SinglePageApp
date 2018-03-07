@@ -1,9 +1,5 @@
 
 <template>
-<!--   <div class="main vistor" v-if="login == false && vistor == false">
-  	<signin :vistor="vistor"></signin>
-  	<button @click="toexplore()">ddd</button>
-  </div> -->
   <div id="" :class="mainclass">
   	<SmsBackToTop></SmsBackToTop>
   	<navbar></navbar>
