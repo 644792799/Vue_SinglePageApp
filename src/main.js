@@ -5,8 +5,8 @@ import 'normalize.css/normalize.css'
 import ElementUI from 'element-ui'
 import echarts from 'echarts'
 import App from './App'
-import VueRouter from "vue-router"
-import routes from './router/routers.js'
+//import VueRouter from "vue-router"
+import router from './router'
 import Vuex from 'vuex'
 import store from './vuex/store'
 import SmsUI from './components/sms'
@@ -15,14 +15,14 @@ import '../static/css/common.css'
 import '../static/plugins/highlight/styles/github-gist.css'
 import '../static/css/font/style.css'
 
-Vue.use(VueRouter);
+//Vue.use(VueRouter);
 Vue.use(Vuex)
 Vue.use(ElementUI);
 Vue.use(SmsUI);
 
 Vue.prototype.$echarts = echarts;
 
-const router = new VueRouter({mode: 'history', routes});
+//const router = new VueRouter({mode: 'history', routes});
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
