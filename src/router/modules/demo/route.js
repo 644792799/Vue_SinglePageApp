@@ -1,6 +1,6 @@
 import Demo from 'components/pages/demo/CommonStyle.vue'
 
-export default route = [
+export default [
 	{
 		path: '/demo',
 		component: Demo

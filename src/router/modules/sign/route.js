@@ -1,7 +1,7 @@
 import SignUp from 'components/pages/Sign/SignUp.vue'
 import SignIn from 'components/pages/Sign/SignIn.vue'
 
-export default route = [
+export default [
 	{
 		path: '/signUp',
 		component: SignUp

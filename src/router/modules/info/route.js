@@ -4,7 +4,7 @@ import Feedback from 'components/pages/feedback/feedback.vue'
 import Categorized from 'components/pages/cat/Categorized.vue'
 import CategorizedDetail from 'components/pages/cat/CategorizedDetail.vue'
 
-export default route = [
+export default [
 	{
 		path: '/categorized',
 		component: Categorized
