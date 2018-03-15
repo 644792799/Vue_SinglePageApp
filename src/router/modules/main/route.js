@@ -1,6 +1,6 @@
-import Index from 'components/pages/main/Index.vue'
-import Search from 'components/pages/main/Search.vue'
-import PageNotFound from 'components/pages/404/404.vue'
+import Index from 'views/main/Index.vue'
+import Search from 'views/main/Search.vue'
+import PageNotFound from 'views/404/404.vue'
 
 export default [
 	{

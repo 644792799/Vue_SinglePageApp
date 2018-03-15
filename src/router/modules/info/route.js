@@ -1,8 +1,8 @@
-import About from 'components/pages/about/about.vue'
-import Help from 'components/pages/about/help.vue'
-import Feedback from 'components/pages/feedback/feedback.vue'
-import Categorized from 'components/pages/cat/Categorized.vue'
-import CategorizedDetail from 'components/pages/cat/CategorizedDetail.vue'
+import About from 'views/about/about.vue'
+import Help from 'views/about/help.vue'
+import Feedback from 'views/feedback/feedback.vue'
+import Categorized from 'views/cat/Categorized.vue'
+import CategorizedDetail from 'views/cat/CategorizedDetail.vue'
 
 export default [
 	{

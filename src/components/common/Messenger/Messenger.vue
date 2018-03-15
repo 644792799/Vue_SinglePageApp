@@ -58,7 +58,7 @@
 	</div>
 </template>
 <script type="text/javascript">
-	import MessagePanel from 'components/comps/common/Messenger/MessagePanel.vue'
+	import MessagePanel from 'components/common/Messenger/MessagePanel.vue'
 	export default{
 		data(){
 			return{

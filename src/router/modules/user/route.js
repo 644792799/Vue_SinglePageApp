@@ -1,8 +1,8 @@
-import Editor from 'components/pages/personal/Editor.vue'
-import MyArticle from 'components/pages/personal/MyArticleList.vue'
-import Article from 'components/pages/article/ArticleDetail.vue'
-import MyWelcome from 'components/pages/personal/MyWelcome.vue'
-import Setting from 'components/pages/personal/EditProfile.vue'
+import Editor from 'views/personal/Editor.vue'
+import MyArticle from 'views/personal/MyArticleList.vue'
+import Article from 'views/article/ArticleDetail.vue'
+import MyWelcome from 'views/personal/MyWelcome.vue'
+import Setting from 'views/personal/EditProfile.vue'
 
 export default [
 	{

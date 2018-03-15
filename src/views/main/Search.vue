@@ -52,9 +52,9 @@
 </template>
 
 <script type="text/javascript">
-	import ArticleList from 'components/comps/article/ArticleList.vue'
-	import CategoryCard from 'components/comps/common/CategoryCard.vue'
-	import CodeFilter from 'components/comps/common/CodeFilter.vue'
+	import ArticleList from 'components/code/ArticleList.vue'
+	import CategoryCard from 'components/container/CategoryCard.vue'
+	import CodeFilter from 'components/code/CodeFilter.vue'
 	
 	export default{
 		data(){

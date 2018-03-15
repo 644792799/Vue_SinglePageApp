@@ -73,7 +73,7 @@
 	</div>
 </template>
 <script type="text/javascript">
-	import ArticleProperties from 'components/comps/article/ArticleProperties.vue'
+	import ArticleProperties from 'components/code/ArticleProperties.vue'
 
 	export default {
 	    data () {

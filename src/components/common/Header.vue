@@ -52,9 +52,9 @@
 </template>
 
 <script type="text/javascript">
-	import SignIn from '../../pages/Sign/SignIn.vue'
-	import SignUp from '../../pages/Sign/SignUp.vue'
-	import Sign from '../../pages/Sign/Sign.vue'
+	import SignIn from 'views/Sign/SignIn.vue'
+	import SignUp from 'views/Sign/SignUp.vue'
+	import Sign from 'views/Sign/Sign.vue'
 	export default{
 	data(){
 		return {
@@ -66,7 +66,7 @@
 	},
 	computed:{
 		author(){
-			return this.$store.state.author;
+			return this.$store.state.app.author;
 		}
 	},
 	props: ['menus'],

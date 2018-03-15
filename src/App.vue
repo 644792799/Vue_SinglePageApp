@@ -16,12 +16,12 @@
 </template>
 
 <script>
-import Header from './components/comps/common/Header.vue'
-import LeftMenu from './components/comps/common/LeftMenu.vue'
-import Footer from './components/comps/common/Footer.vue'
-import SignIn from './components/pages/Sign/SignIn.vue'
-import Sign from './components/pages/Sign/Sign.vue'
-import Welcome from './components/pages/main/Welcome.vue'
+import Header from './components/common/Header.vue'
+import LeftMenu from './components/common/LeftMenu.vue'
+import Footer from './components/common/Footer.vue'
+import SignIn from './views/Sign/SignIn.vue'
+import Sign from './views/Sign/Sign.vue'
+import Welcome from './views/main/Welcome.vue'
 
 const menu = [
 {

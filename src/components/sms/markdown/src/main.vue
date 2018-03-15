@@ -78,7 +78,7 @@
   import 'codemirror/addon/scroll/simplescrollbars.css'
   //import './css/smsmarkdown.min.css'
 
-  import MarkdownHelp from 'components/comps/common/MarkdownHelp.vue'
+  import MarkdownHelp from 'components/common/MarkdownHelp.vue'
 
   // var marked = require('marked');
   // marked.setOptions({

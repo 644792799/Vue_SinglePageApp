@@ -163,10 +163,10 @@
 	</div>
 </template>
 <script type="text/javascript">
-	import Contribution from 'components/comps/common/Contribution.vue'
-	import CalHeatmap from 'components/comps/common/CalHeatmap.vue'
-	import Radar from 'components/comps/common/Radar.vue'
-	import Bar from 'components/comps/common/BarChart.vue'
+	import Contribution from 'components/chart/Contribution.vue'
+	import CalHeatmap from 'components/chart/CalHeatmap.vue'
+	import Radar from 'components/chart/Radar.vue'
+	import Bar from 'components/chart/BarChart.vue'
 	export default{
 		data(){
 			return{

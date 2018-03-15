@@ -211,10 +211,10 @@
 <script type="text/javascript">
 	// import $ from 'jquery'
  //    import hljs from 'pluginspath/highlight/highlight.pack.js'
-    import Tools from 'components/comps/article/ArticleTools.vue'
-    import ArticleProperties from 'components/comps/article/ArticleProperties.vue'
-	import Messenger from 'components/comps/common/Messenger/Messenger.vue'
-	import HighlightCode from 'components/comps/common/CodeHighlight.vue'
+    import Tools from 'components/code/ArticleTools.vue'
+    import ArticleProperties from 'components/code/ArticleProperties.vue'
+	import Messenger from 'components/common/Messenger/Messenger.vue'
+	import HighlightCode from 'components/code/CodeHighlight.vue'
 
     export default {
 	    data () {

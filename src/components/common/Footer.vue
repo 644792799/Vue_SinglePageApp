@@ -16,10 +16,10 @@
 		},
 		computed:{
 			copyright: function(){
-				return this.$store.state.copyright;
+				return this.$store.state.app.copyright;
 			},
 			copyrightdate: function(){
-				return this.$store.state.copyrightdate;
+				return this.$store.state.app.copyrightdate;
 			}
 		},
 		methods: {

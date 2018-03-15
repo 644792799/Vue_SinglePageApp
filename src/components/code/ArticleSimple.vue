@@ -62,8 +62,8 @@
 </template>
 
 <script type="text/javascript">
-	import SimpleProfileCard from 'components/comps/common/SimpleProfileCard.vue'
-	import HighlightCode from 'components/comps/common/CodeHighlight.vue'
+	import SimpleProfileCard from 'components/container/SimpleProfileCard.vue'
+	import HighlightCode from 'components/code/CodeHighlight.vue'
 	// import $ from 'jquery'
  //    import hljs from 'pluginspath/highlight/highlight.pack.js'
 	export default{

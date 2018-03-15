@@ -12,7 +12,7 @@
 </template>
 <script type="text/javascript">
 	import $ from 'jquery';
-	import Typed from 'components/pages/404/typed.js'
+	import Typed from 'views/404/typed.js'
 	export default {
 	    data () {
 	      return {}

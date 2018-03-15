@@ -1,4 +1,4 @@
-import Demo from 'components/pages/demo/CommonStyle.vue'
+import Demo from 'views/demo/CommonStyle.vue'
 
 export default [
 	{

@@ -74,8 +74,8 @@
 </template>
 
 <script type="text/javascript">
-	import BusinessCard from 'components/comps/common/BusinessCard.vue'
-	import ArticleList from 'components/comps/article/ArticleList.vue'
+	import BusinessCard from 'components/container/BusinessCard.vue'
+	import ArticleList from 'components/code/ArticleList.vue'
 	export default{
 		data(){
 			return {
