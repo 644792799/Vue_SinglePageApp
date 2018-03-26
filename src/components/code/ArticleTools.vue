@@ -193,7 +193,7 @@
 		}
 	}
 </script>
-<style type="text/css">
+<style scoped>
 	.article-tools{
 		width: 100%;
 		height: 100%;

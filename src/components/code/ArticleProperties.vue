@@ -132,7 +132,7 @@
 	  	}
 	}
 </script>
-<style type="text/css">
+<style scoped>
 	.article-properties .el-select .el-input {
     	width: 100%;
 	}

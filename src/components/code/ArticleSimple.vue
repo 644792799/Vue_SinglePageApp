@@ -109,7 +109,7 @@
 	}
 </script>
 
-<style type="text/css">
+<style scoped>
 	.article-item-container{
 		margin-bottom: 10px;
 		box-shadow: var(--left-box-shadow, #d5d9de -0.5px 0.5px 4px 0px);

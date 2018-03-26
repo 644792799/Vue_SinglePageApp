@@ -50,7 +50,7 @@
 	}
 </script>
 
-<style type="text/css">
+<style scoped>
 	.articles-list{
 		*background: #F9FAFB;
 	    *border: 1px solid #EFEAE8;

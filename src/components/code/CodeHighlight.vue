@@ -51,7 +51,7 @@
 	    props:['isSimple']
 	  }
 </script>
-<style type="text/css">
+<style scoped>
 	/*code tools*/
 	.code-highlight .code-tools{
 		display: flex;
